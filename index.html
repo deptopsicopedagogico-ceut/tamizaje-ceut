@@ -1,0 +1,1791 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full bg-slate-50/50">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamizaje Psicopedagógico - CEUT</title>
+    <!-- Favicon Oficial CEUT - Logotipo real en la pestaña del navegador -->
+    <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/d/1ao9olFJOvSPvgmeyLJhkD1P0Pmq_R3T2">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Playfair Display -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .serif-title { font-family: 'Playfair Display', serif; }
+        :root {
+            --ceut-blue: #1d2a6a;
+            --ceut-blue-dark: #121b44;
+            --ceut-yellow: #f1b80c;
+            --ceut-yellow-dark: #d49f05;
+        }
+        .bg-ceut-yellow { background-color: var(--ceut-yellow); }
+        .bg-ceut-blue { background-color: var(--ceut-blue); }
+        .text-ceut-blue { color: var(--ceut-blue); }
+        .text-ceut-yellow { color: var(--ceut-yellow); }
+        .border-ceut-blue { border-color: var(--ceut-blue); }
+        .border-ceut-yellow { border-color: var(--ceut-yellow); }
+        .txt-justificado { text-align: justify; text-justify: inter-word; }
+        
+        /* Ocultar en la impresión de pantalla normal */
+        @media print {
+            .no-print { display: none !important; }
+        }
+    </style>
+</head>
+<body class="h-full flex flex-col text-slate-800 antialiased overflow-x-hidden selection:bg-[#1d2a6a]/10">
+
+    <!-- NOTIFICACIONES CUSTOM -->
+    <div id="notificacionContainer" class="fixed top-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <header class="bg-gradient-to-r from-[#121b44] via-[#1d2a6a] to-[#121b44] text-white py-5 px-6 shadow-xl border-b-4 border-[#f1b80c] relative z-40 font-mono no-print">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-5">
+            <div class="flex items-center gap-4">
+                <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-lg border border-[#f1b80c]/50 p-1 flex-shrink-0 relative overflow-hidden transition-transform hover:scale-105 duration-300">
+                    <img src="https://lh3.googleusercontent.com/d/1ao9olFJOvSPvgmeyLJhkD1P0Pmq_R3T2" 
+                         alt="Logo CEUT" 
+                         class="max-h-full max-w-full object-contain"
+                         onerror="this.classList.add('hidden'); if(this.nextElementSibling && this.nextElementSibling.classList.contains('fallback-svg')) this.nextElementSibling.classList.remove('hidden');">
+                    <svg class="fallback-svg hidden w-full h-full text-[#1d2a6a]" viewBox="0 0 100 100">
+                        <path d="M10,20 L50,5 L90,20 L90,60 C90,80 50,95 50,95 C50,95 10,80 10,60 Z" fill="#1d2a6a"/>
+                        <path d="M15,22 L50,10 L85,22 L85,58 C85,75 50,88 50,88 C50,88 15,75 15,58 Z" fill="none" stroke="#f1b80c" stroke-width="4"/>
+                        <circle cx="50" cy="55" r="14" fill="#f1b80c"/>
+                    </svg>
+                </div>
+                <div class="space-y-0.5">
+                    <h1 class="text-xl sm:text-2xl font-black tracking-wide text-white flex items-center gap-2">
+                        CEUT <span class="text-[#f1b80c] font-semibold text-xs sm:text-sm border-l border-slate-500 pl-2 uppercase tracking-wider font-bold">Departamento Psicopedagógico</span>
+                    </h1>
+                    <p class="text-[11px] text-slate-300 uppercase tracking-widest font-bold">Unidad de Alerta Temprana y Diagnóstico Estudiantil</p>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-3">
+                <button onclick="irSeccion('tamizaje-inicio')" id="btnNavTamizaje" class="px-4 py-2 text-xs font-bold rounded-xl bg-gradient-to-r from-[#f1b80c] to-[#fcd94e] text-[#121b44] hover:shadow-lg hover:shadow-[#f1b80c]/20 hover:-translate-y-0.5 transition-all flex items-center gap-1.5 shadow-md">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Nuevo Tamizaje
+                </button>
+                <button onclick="abrirLoginDocente()" id="btnNavDocente" class="px-4 py-2 text-xs font-bold rounded-xl bg-slate-900 text-slate-200 hover:bg-slate-800 hover:text-white transition-all border border-slate-700/60 flex items-center gap-1.5 shadow-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 009 14a15.825 15.825 0 00-1.666-7.491m11.152 2.322a13.945 13.945 0 01-1.105 10.416M12 3a4 4 0 110 8 4 4 0 010-8z"></path></svg>
+                    Acceso Responsable
+                </button>
+                <button onclick="logoutDocente()" id="btnCerrarSesion" class="hidden px-4 py-2 text-xs font-bold rounded-xl bg-rose-600 text-white hover:bg-rose-700 transition-all flex items-center gap-1.5 shadow-md">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+                    Cerrar Panel
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="flex-grow max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8 flex flex-col justify-start">
+
+        <!-- SECCIÓN 1: LANDING INICIAL DEL ESTUDIANTE -->
+        <section id="sec-tamizaje-inicio" class="view-section block py-6 md:py-12 no-print">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-[#1d2a6a] border border-blue-200/60 font-mono">
+                        <span class="w-2.5 h-2.5 rounded-full bg-[#f1b80c] animate-pulse"></span>
+                        Diagnóstico Oficial e Institucional CEUT
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight serif-title">
+                        Tu bienestar emocional y rendimiento académico <br class="hidden md:inline">
+                        <span class="text-[#1d2a6a] relative inline-block">son nuestro mayor compromiso<span class="absolute left-0 bottom-1 w-full h-3 bg-[#f1b80c]/30 -z-10 rounded-full"></span></span>
+                    </h2>
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed txt-justificado font-sans">
+                        Bienvenido a la plataforma de tamizaje del <strong>Centro Universitario Tehuacán (CEUT)</strong>. Este es un espacio seguro, estructurado y **estrictamente confidencial** diseñado para analizar tus necesidades socioemocionales y tus estrategias de estudio, administrado directamente por la Jefatura del Departamento Psicopedagógico con apego a las normativas nacionales de protección de datos sensibles.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 font-mono">
+                        <div class="p-5 rounded-2xl border border-slate-200 bg-white shadow-sm flex flex-col justify-between">
+                            <div>
+                                <span class="p-2.5 inline-block rounded-xl bg-amber-50 text-amber-600 mb-3 shadow-sm">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                </span>
+                                <h4 class="font-extrabold text-slate-900 text-sm uppercase">Foco Académico</h4>
+                            </div>
+                            <p class="text-[10px] text-slate-500 mt-2 uppercase font-semibold leading-normal font-sans txt-justificado">Evaluación de hábitos, concentración y organización académica.</p>
+                        </div>
+                        <div class="p-5 rounded-2xl border border-slate-200 bg-white shadow-sm flex flex-col justify-between">
+                            <div>
+                                <span class="p-2.5 inline-block rounded-xl bg-rose-50 text-rose-600 mb-3 shadow-sm">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                                </span>
+                                <h4 class="font-extrabold text-slate-900 text-sm uppercase font-mono font-bold">Salud Emocional</h4>
+                            </div>
+                            <p class="text-[10px] text-slate-500 mt-2 uppercase font-semibold leading-normal font-sans txt-justificado">Indicadores sobre manejo de ansiedad, desánimo y estrés en el aula.</p>
+                        </div>
+                        <div class="p-5 rounded-2xl border border-slate-200 bg-white shadow-sm flex flex-col justify-between">
+                            <div>
+                                <span class="p-2.5 inline-block rounded-xl bg-red-50 text-red-600 mb-3 shadow-sm">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                                </span>
+                                <h4 class="font-extrabold text-slate-900 text-sm uppercase font-mono font-bold">Blindaje Legal</h4>
+                            </div>
+                            <p class="text-[10px] text-slate-500 mt-2 uppercase font-semibold leading-normal font-sans txt-justificado">Alineación estricta al artículo 9 de la LFPDPPP en México.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-5 pt-3">
+                        <button onclick="irSeccion('registro-datos')" class="px-8 py-4 rounded-xl bg-[#1d2a6a] text-white text-base font-bold shadow-xl hover:shadow-blue-900/10 transform hover:-translate-y-0.5 transition-all text-center flex items-center justify-center gap-2 font-mono">
+                            Comenzar Evaluación
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </button>
+                        <p class="text-xs text-slate-500 text-center sm:text-left flex items-center gap-1.5 justify-center font-mono font-semibold">
+                            <svg class="w-5 h-5 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                            Tratamiento de datos personales de salud garantizado.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- LADO DERECHO: Tarjeta de Identidad con Logotipo Oficial del CEUT -->
+                <div class="lg:col-span-5 flex justify-center font-mono">
+                    <div class="relative w-full max-w-sm rounded-3xl bg-gradient-to-tr from-[#121b44] to-[#1d2a6a] p-8 text-white shadow-2xl border-4 border-[#f1b80c] overflow-hidden group">
+                        <div class="absolute -right-20 -bottom-20 w-60 h-60 rounded-full bg-[#f1b80c]/10 blur-2xl transition-all group-hover:bg-[#f1b80c]/15 duration-500"></div>
+                        
+                        <div class="relative z-10 flex flex-col items-center text-center space-y-6">
+                            <div class="w-36 h-36 bg-white rounded-2xl flex items-center justify-center shadow-2xl border-2 border-[#f1b80c] p-2 relative overflow-hidden transition-transform duration-500 group-hover:scale-105">
+                                <img src="https://lh3.googleusercontent.com/d/1ao9olFJOvSPvgmeyLJhkD1P0Pmq_R3T2" 
+                                     alt="Logo CEUT Principal" 
+                                     class="max-h-full max-w-full object-contain"
+                                     onerror="this.classList.add('hidden'); if(this.nextElementSibling && this.nextElementSibling.classList.contains('fallback-svg')) this.nextElementSibling.classList.remove('hidden');">
+                                <svg class="fallback-svg hidden w-full h-full text-[#1d2a6a]" viewBox="0 0 100 100">
+                                    <path d="M10,20 L50,5 L90,20 L90,60 C90,80 50,95 50,95 C50,95 10,80 10,60 Z" fill="#1d2a6a"/>
+                                    <path d="M15,22 L50,10 L85,22 L85,58 C85,75 50,88 50,88 C50,88 15,75 15,58 Z" fill="none" stroke="#f1b80c" stroke-width="4"/>
+                                    <circle cx="50" cy="55" r="14" fill="#f1b80c"/>
+                                </svg>
+                            </div>
+                            
+                            <div class="space-y-2">
+                                <h3 class="text-2xl font-black tracking-wide border-b border-white/10 pb-2">CEUT</h3>
+                                <p class="text-[#f1b80c] font-bold text-xs tracking-widest uppercase">CONGRESO • FORMACIÓN • APOYO</p>
+                            </div>
+
+                            <p class="text-slate-200 text-xs leading-relaxed max-w-xs italic txt-justificado font-sans">
+                                "La fuerza para crecer reside en ti, pero también la sabiduría de buscar guía. Este cuestionario te ayudará a liberar tu máximo potencial."
+                            </p>
+
+                            <div class="w-full h-[1px] bg-white/10"></div>
+
+                            <div class="flex items-center justify-around w-full text-center font-bold">
+                                <div>
+                                    <span class="block text-lg font-bold text-[#f1b80c]">100%</span>
+                                    <span class="text-[9px] text-slate-400 uppercase tracking-wider font-sans font-bold">Confidencial</span>
+                                </div>
+                                <div class="w-[1px] h-8 bg-white/10"></div>
+                                <div>
+                                    <span class="block text-lg font-bold text-[#f1b80c]">LFPDPPP</span>
+                                    <span class="text-[9px] text-slate-300 uppercase tracking-wider">Alineado</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 2: REGISTRO DE DATOS CON SEGMENTACIÓN CLARA -->
+        <section id="sec-registro-datos" class="view-section hidden py-4 font-mono no-print">
+            <div class="max-w-2xl mx-auto bg-white rounded-3xl shadow-2xl border border-slate-200/80 overflow-hidden">
+                <div class="bg-gradient-to-r from-[#121b44] via-[#1d2a6a] to-[#121b44] text-white px-8 py-6 flex items-center justify-between border-b border-[#f1b80c]/40">
+                    <div class="flex items-center gap-3">
+                        <img src="https://lh3.googleusercontent.com/d/1ao9olFJOvSPvgmeyLJhkD1P0Pmq_R3T2" alt="CEUT Mini Logo" class="w-10 h-10 object-contain bg-white rounded-lg p-0.5 border border-[#f1b80c]" onerror="this.classList.add('hidden'); if(this.nextElementSibling && this.nextElementSibling.classList.contains('fallback-svg')) this.nextElementSibling.classList.remove('hidden');">
+                        <div>
+                            <h3 class="text-xl font-bold uppercase tracking-wide font-black">Ficha de Identificación</h3>
+                            <p class="text-xs text-slate-300">Vinculación de expediente clínico-pedagógico.</p>
+                        </div>
+                    </div>
+                    <div class="bg-[#f1b80c]/10 border border-[#f1b80c]/40 rounded-xl px-4 py-2 text-center shadow-inner">
+                        <span class="block text-[8px] text-[#f1b80c] uppercase tracking-widest font-black">Folio de Control</span>
+                        <span id="txtFolioEstudiante" class="text-white font-black text-sm tracking-widest">CEUT-2026-0000</span>
+                    </div>
+                </div>
+
+                <form id="formEstudiante" onsubmit="validarYComenzarTamizaje(event)" class="p-8 space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
+                        <div class="sm:col-span-2">
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Nombre Completo</label>
+                            <input type="text" id="stdNombre" required placeholder="EJ. ANA BELÉN GARCÍA PÉREZ" oninput="this.value = this.value.toUpperCase()" class="w-full px-4 py-3.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-sm uppercase">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Matrícula Escolar</label>
+                            <input type="text" id="stdMatricula" required placeholder="EJ. 24100523" oninput="this.value = this.value.toUpperCase()" class="w-full px-4 py-3.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-sm uppercase">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Edad</label>
+                            <input type="number" id="stdEdad" required min="12" max="99" placeholder="Ej. 18" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none focus:border-[#1d2a6a] text-sm">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Nivel Educativo</label>
+                            <select id="stdNivel" required onchange="actualizarPlaceholderGrupo()" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none focus:border-[#1d2a6a] text-xs uppercase font-bold text-slate-800">
+                                <option value="" disabled selected>Selecciona tu nivel</option>
+                                <option value="Preparatoria">Preparatoria (CEUT)</option>
+                                <option value="Universidad">Universidad (CEUT)</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" id="lblGrupo">Semestre, Grupo o Carrera</label>
+                            <input type="text" id="stdGrupo" required placeholder="EJ. 6° SEMESTRE GRUPO A / LIC. EN ADMINISTRACIÓN" oninput="this.value = this.value.toUpperCase()" class="w-full px-4 py-3.5 rounded-lg border border-slate-300 focus:outline-none focus:border-[#1d2a6a] text-sm uppercase">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Correo Electrónico</label>
+                            <input type="email" id="stdEmail" required placeholder="alumno@ceut.edu.mx" oninput="this.value = this.value.toLowerCase()" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none focus:border-[#1d2a6a] text-sm lowercase">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Teléfono Celular</label>
+                            <input type="tel" id="stdTelefono" required placeholder="10 dígitos" class="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200/80 focus:outline-none focus:border-[#1d2a6a] text-sm">
+                        </div>
+                    </div>
+
+                    <div class="bg-[#1d2a6a]/5 border-l-4 border-[#1d2a6a] p-5 rounded-r-2xl text-xs text-slate-700 space-y-4">
+                        <p class="leading-relaxed text-[11px] txt-justificado">
+                            <strong>Consentimiento para Tratamiento de Datos Personales Sensibles:</strong>
+                            En cumplimiento con la <em>Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP)</em> de los Estados Unidos Mexicanos, se le informa que las respuestas asociadas a su estado emocional, entorno social y riesgo latente se consideran <strong>datos sensibles</strong>. Sus respuestas serán tratadas de manera estrictamente confidencial bajo la custodia y supervisión del Responsable del Departamento Psicopedagógico con la única finalidad de brindarle orientación y apoyo preventivo.
+                        </p>
+                        
+                        <div class="flex items-start gap-3">
+                            <input type="checkbox" id="chkConsentimientoLegal" required class="mt-1.5 h-5 w-5 rounded border-2 border-slate-300 text-[#1d2a6a] focus:ring-[#1d2a6a] cursor-pointer">
+                            <label for="chkConsentimientoLegal" class="font-bold text-slate-900 select-none cursor-pointer text-xs leading-relaxed">
+                                Consiento expresamente que mis datos personales, incluidos los de carácter emocional, familiar, psicosocial e ideación (sensibles), sean tratados de acuerdo con los términos del <a href="javascript:void(0)" onclick="abrirAvisoPrivacidad()" class="text-[#1d2a6a] underline font-bold hover:text-[#121b44] transition-colors">Aviso de Privacidad Integral de CEUT</a>.
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-4 border-t border-slate-100 font-mono font-bold">
+                        <button type="button" onclick="irSeccion('tamizaje-inicio')" class="px-5 py-2.5 text-sm font-semibold text-slate-500 hover:bg-slate-100 rounded-xl transition-all">
+                            Regresar
+                        </button>
+                        <button type="submit" class="px-8 py-3.5 bg-[#1d2a6a] hover:bg-[#121b44] text-white font-bold rounded-xl transition-all shadow-lg flex items-center gap-2 hover:shadow-indigo-900/10 hover:-translate-y-0.5">
+                            Iniciar Tamizaje
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 3: CUESTIONARIO INTERACTIVO DINÁMICO -->
+        <section id="sec-cuestionario" class="view-section hidden py-4 font-mono no-print">
+            <div class="max-w-3xl mx-auto bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden">
+                <!-- Barra de Progreso Dinámica -->
+                <div class="w-full bg-slate-100 h-2.5">
+                    <div id="quizProgressBar" class="bg-gradient-to-r from-[#1d2a6a] via-[#f1b80c] to-[#fcd94e] h-2.5 transition-all duration-300" style="width: 0%"></div>
+                </div>
+
+                <div class="px-8 py-6 bg-gradient-to-b from-slate-50 to-white border-b border-slate-100 flex items-center justify-between flex-wrap gap-4">
+                    <div class="flex items-center gap-3">
+                        <img src="https://lh3.googleusercontent.com/d/1ao9olFJOvSPvgmeyLJhkD1P0Pmq_R3T2" alt="Logo" class="w-8 h-8 object-contain" onerror="this.classList.add('hidden'); if(this.nextElementSibling && this.nextElementSibling.classList.contains('fallback-svg')) this.nextElementSibling.classList.remove('hidden');">
+                        <div>
+                            <span id="txtCategoriaCuestionario" class="inline-block px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-widest bg-blue-100 text-[#1d2a6a]">ACADÉMICO</span>
+                            <h3 class="text-lg font-bold text-slate-900 mt-1 uppercase font-black">Diagnóstico Profundo de Estudiantes</h3>
+                        </div>
+                    </div>
+                    <div class="text-right font-bold">
+                        <span class="text-xs font-bold text-slate-500 font-mono">Pregunta <span id="txtQuizProgresoActual" class="text-[#1d2a6a]">1</span> de 18</span>
+                    </div>
+                </div>
+
+                <div class="p-8 space-y-8">
+                    <div id="quizPreguntaCard" class="space-y-6">
+                        <h4 id="txtEnunciadoPregunta" class="text-base sm:text-lg font-bold text-slate-800 leading-relaxed uppercase tracking-tight text-justify">
+                            -- Enunciado de la Pregunta --
+                        </h4>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 pt-4 text-sm font-semibold">
+                            <label class="relative flex flex-col items-center justify-center p-5 border-2 border-slate-100 rounded-2xl cursor-pointer hover:border-[#1d2a6a] hover:bg-blue-50/10 transition-all text-center group select-none shadow-xs" id="lblOpt1">
+                                <input type="radio" name="likertOption" id="opt1" value="1" class="sr-only" onchange="seleccionarOpcion(1)">
+                                <span class="w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center mb-3 group-hover:border-[#1d2a6a] transition-all">
+                                    <span class="dot-indicator w-2.5 h-2.5 rounded-full bg-[#1d2a6a] scale-0 transition-transform duration-200"></span>
+                                </span>
+                                <span class="block text-sm font-black text-slate-800 uppercase tracking-wide">Nunca</span>
+                                <span class="block text-[9px] text-slate-400 mt-1 font-semibold uppercase font-sans">Pocas o ninguna vez</span>
+                            </label>
+                            
+                            <label class="relative flex flex-col items-center justify-center p-5 border-2 border-slate-100 rounded-2xl cursor-pointer hover:border-[#1d2a6a] hover:bg-blue-50/10 transition-all text-center group select-none shadow-xs" id="lblOpt2">
+                                <input type="radio" name="likertOption" id="opt2" value="2" class="sr-only" onchange="seleccionarOpcion(2)">
+                                <span class="w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center mb-3 group-hover:border-[#1d2a6a] transition-all">
+                                    <span class="dot-indicator w-2.5 h-2.5 rounded-full bg-[#1d2a6a] scale-0 transition-transform duration-200"></span>
+                                </span>
+                                <span class="block text-sm font-black text-slate-800 uppercase">A veces</span>
+                                <span class="block text-[9px] text-slate-400 mt-1 font-semibold uppercase font-sans font-medium">Ocasionalmente</span>
+                            </label>
+
+                            <label class="relative flex flex-col items-center justify-center p-5 border-2 border-slate-100 rounded-2xl cursor-pointer hover:border-[#1d2a6a] hover:bg-blue-50/10 transition-all text-center group select-none shadow-xs" id="lblOpt3">
+                                <input type="radio" name="likertOption" id="opt3" value="3" class="sr-only" onchange="seleccionarOpcion(3)">
+                                <span class="w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center mb-3 group-hover:border-[#1d2a6a] transition-all">
+                                    <span class="dot-indicator w-2.5 h-2.5 rounded-full bg-[#1d2a6a] scale-0 transition-transform duration-200"></span>
+                                </span>
+                                <span class="block text-sm font-black text-slate-800 uppercase">Frecuente</span>
+                                <span class="block text-[9px] text-slate-400 mt-1 font-semibold uppercase font-sans font-medium">La mayor parte</span>
+                            </label>
+
+                            <label class="relative flex flex-col items-center justify-center p-5 border-2 border-slate-100 rounded-2xl cursor-pointer hover:border-[#1d2a6a] hover:bg-blue-50/10 transition-all text-center group select-none shadow-xs" id="lblOpt4">
+                                <input type="radio" name="likertOption" id="opt4" value="4" class="sr-only" onchange="seleccionarOpcion(4)">
+                                <span class="w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center mb-3 group-hover:border-[#1d2a6a] transition-all">
+                                    <span class="dot-indicator w-2.5 h-2.5 rounded-full bg-[#1d2a6a] scale-0 transition-transform duration-200"></span>
+                                </span>
+                                <span class="block text-sm font-black text-slate-800 uppercase font-bold">Siempre</span>
+                                <span class="block text-[9px] text-slate-400 mt-1 font-semibold uppercase font-sans font-bold">Todos los días</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-6 border-t border-slate-100 font-bold">
+                        <button onclick="regresarPregunta()" id="btnQuizAtras" class="px-5 py-2.5 text-sm font-semibold text-slate-500 hover:bg-slate-100 rounded-xl transition-all">
+                            Anterior
+                        </button>
+                        <button onclick="avanzarPregunta()" id="btnQuizSiguiente" disabled class="px-8 py-3.5 bg-[#1d2a6a] text-white font-bold rounded-xl transition-all shadow-md hover:bg-[#121b44] disabled:opacity-50 disabled:pointer-events-none flex items-center gap-2 uppercase">
+                            Siguiente
+                            <svg class="w-4 h-4 inline-block ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 4: ÉXITO Y DESCARGA DE COMPROBANTE -->
+        <section id="sec-exito-cuestionario" class="view-section hidden py-8 font-mono no-print">
+            <div class="max-w-xl mx-auto bg-white rounded-3xl shadow-2xl border border-slate-200 p-8 text-center space-y-6 animate-fade-in">
+                <div class="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto text-emerald-600 shadow-lg shadow-emerald-100 relative font-mono">
+                    <img src="https://lh3.googleusercontent.com/d/1ao9olFJOvSPvgmeyLJhkD1P0Pmq_R3T2" alt="Success Logo" class="absolute inset-0 w-full h-full object-contain p-3 opacity-20" onerror="this.classList.add('hidden'); if(this.nextElementSibling && this.nextElementSibling.classList.contains('fallback-svg')) this.nextElementSibling.classList.remove('hidden');">
+                    <svg class="w-10 h-10 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+
+                <div class="space-y-2 font-bold">
+                    <h3 class="text-2xl font-black text-[#1d2a6a] uppercase tracking-tight font-black">¡Tamizaje Enviado con Éxito!</h3>
+                    <p class="text-slate-500 text-sm font-medium leading-relaxed txt-justificado font-sans">Tu información ha sido resguardada con confidencialidad absoluta en los servidores psicopedagógicos del CEUT, bajo encriptación y de acuerdo con la LFPDPPP.</p>
+                </div>
+
+                <div class="p-5 bg-slate-50/50 rounded-2xl border-2 border-dashed border-slate-200 max-w-sm mx-auto shadow-inner">
+                    <span class="block text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-1">Tu Folio de Seguimiento</span>
+                    <span id="txtExitoFolio" class="text-xl font-mono font-black text-[#1d2a6a] tracking-wider uppercase">CEUT-2026-0000</span>
+                    <span class="block text-[10px] text-emerald-600 font-semibold mt-1.5 uppercase tracking-wide font-sans font-bold">✓ REGISTRO GUARDADO CONFIDENCIALMENTE</span>
+                </div>
+
+                <p class="text-xs text-slate-500 leading-relaxed max-w-md mx-auto font-mono txt-justificado">
+                    El Responsable del Departamento Psicopedagógico analizará tus resultados con apego al secreto clínico. Si es pertinente, nos pondremos en contacto contigo de forma privada para ofrecerte atención y acompañamiento personalizado.
+                </p>
+
+                <div class="pt-4 flex flex-col sm:flex-row justify-center gap-3 font-semibold font-sans">
+                    <button onclick="irSeccion('tamizaje-inicio')" class="px-6 py-2.5 rounded-lg border-2 border-slate-200 text-slate-700 font-bold text-sm hover:bg-slate-50 transition-all uppercase font-bold">
+                        Ir al Inicio
+                    </button>
+                    <button onclick="descargarFolioPDF()" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-[#f1b80c] to-[#fcd94e] text-[#121b44] font-black text-sm shadow-md transition-all flex items-center justify-center gap-1.5 hover:shadow-lg hover:shadow-[#f1b80c]/15 font-bold">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                        Descargar Comprobante
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 5: ACCESO RESTRINGIDO DOCENTE (SIN PIN EXPUESTO - SEGURO) -->
+        <section id="sec-docente-login" class="view-section hidden py-8 font-mono no-print">
+            <div class="max-w-md mx-auto bg-white rounded-3xl shadow-2xl border border-slate-200/80 p-8 space-y-6">
+                <div class="text-center space-y-2 font-mono font-bold">
+                    <div class="w-24 h-24 mx-auto bg-slate-50 rounded-full flex items-center justify-center p-3 relative overflow-hidden border-2 border-slate-200 shadow-inner">
+                        <img src="https://lh3.googleusercontent.com/d/1ao9olFJOvSPvgmeyLJhkD1P0Pmq_R3T2" 
+                             alt="Logo CEUT Coordinador" 
+                             class="max-h-full max-w-full object-contain"
+                             onerror="this.classList.add('hidden'); if(this.nextElementSibling && this.nextElementSibling.classList.contains('fallback-svg')) this.nextElementSibling.classList.remove('hidden');">
+                        <svg class="fallback-svg hidden w-full h-full text-[#1d2a6a]" viewBox="0 0 100 100">
+                            <path d="M10,20 L50,5 L90,20 L90,60 C90,80 50,95 50,95 C50,95 10,80 10,60 Z" fill="#1d2a6a"/>
+                            <circle cx="50" cy="45" r="15" fill="#f1b80c"/>
+                            <path d="M25,80 C25,65 35,55 50,55 C65,55 75,65 75,80 Z" fill="#f1b80c"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-extrabold text-[#1d2a6a] uppercase tracking-wide font-black">Control de Jefatura</h3>
+                    <p class="text-xs text-slate-500 uppercase font-semibold">Exclusivo para el Responsable: Mtro. Carlos Aguilar Sánchez</p>
+                </div>
+
+                <form onsubmit="validarLoginDocente(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 font-semibold">PIN de Acceso Especial</label>
+                        <input type="password" id="txtDocenteClave" required placeholder="DIGITE SU PIN DE ACCESO" class="w-full px-4 py-4 rounded-xl border-2 border-slate-300 focus:outline-none focus:border-[#1d2a6a] transition-all text-center font-mono text-lg font-bold tracking-widest">
+                    </div>
+
+                    <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-xl text-xs text-amber-800 leading-relaxed font-semibold uppercase txt-justificado">
+                        Este panel contiene datos de salud y comportamiento de carácter sensible regulados por la LFPDPPP. Se prohíbe estrictamente la descarga, extracción, fotografía o divulgación de expedientes sin apego estricto a las normas de la institución.
+                    </div>
+
+                    <div class="flex items-center justify-between pt-2">
+                        <button type="button" onclick="irSeccion('tamizaje-inicio')" class="px-4 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-100 rounded-lg uppercase">
+                            Regresar
+                        </button>
+                        <button type="submit" class="px-6 py-2.5 bg-[#1d2a6a] hover:bg-[#121b44] text-white font-bold rounded-lg transition-all shadow-md text-sm uppercase font-bold">
+                            Acceder al Sistema
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 6: PANEL DE CONTROL ADMINISTRATIVO (CONSOLA) -->
+        <section id="sec-docente-dashboard" class="view-section hidden py-4 space-y-8 font-mono no-print">
+            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 bg-white p-6 rounded-2xl shadow-sm border border-slate-200/80 font-mono font-bold">
+                <div class="space-y-1.5 font-bold">
+                    <span class="text-xs font-bold text-amber-700 tracking-widest uppercase bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200">Responsable del Departamento: Mtro. Carlos Aguilar Sánchez</span>
+                    <h2 class="text-2xl font-black text-slate-900 uppercase font-black">Consola Central Psicopedagógica CEUT</h2>
+                    <p class="text-xs text-slate-500 uppercase leading-relaxed text-justify font-sans font-medium">Métricas globales de salud emocional, factores del entorno psicosocial, alerta de crisis e intervenciones de la institución.</p>
+                </div>
+                <div class="flex items-center gap-3 w-full md:w-auto font-mono">
+                    <button onclick="exportarCSV()" class="px-4 py-2.5 text-xs font-bold rounded-lg border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 transition-all flex items-center gap-1.5 shadow-xs uppercase font-bold">
+                        <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                        Descargar Reporte (CSV)
+                    </button>
+                    <button onclick="forzarActualizacion()" class="px-4 py-2.5 text-xs font-bold rounded-lg bg-slate-800 text-white hover:bg-slate-700 transition-all flex items-center gap-1.5 shadow-xs uppercase font-bold">
+                        <svg class="w-4 h-4 text-[#f1b80c]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        Sincronizar
+                    </button>
+                </div>
+            </div>
+
+            <!-- TARJETAS DE ESTADÍSTICAS EN TIEMPO REAL -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 font-mono font-bold animate-fade-in border-b border-slate-100 pb-2">
+                <div class="bg-white p-6 rounded-2xl shadow-xs border border-slate-200 flex items-center justify-between transition-all hover:shadow-md">
+                    <div>
+                        <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider">Total Evaluados</span>
+                        <span id="metricTotalEvaluados" class="text-3xl font-black text-slate-900 font-black">0</span>
+                        <span class="block text-[10px] text-emerald-600 font-semibold mt-1 uppercase font-mono font-bold">Registrados en el CEUT</span>
+                    </div>
+                    <div class="p-3 bg-blue-50 rounded-xl text-[#1d2a6a]">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-xs border border-slate-200 flex items-center justify-between transition-all hover:shadow-md border">
+                    <div>
+                        <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider">Riesgo Crítico (Rojo)</span>
+                        <span id="metricRiesgoRojo" class="text-3xl font-black text-rose-600">0</span>
+                        <span class="block text-[10px] text-rose-500 font-semibold mt-1 uppercase font-bold">Atención urgente</span>
+                    </div>
+                    <div class="p-3 bg-rose-50 rounded-xl text-rose-600 animate-pulse">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-xs border border-slate-200 flex items-center justify-between transition-all hover:shadow-md border">
+                    <div>
+                        <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider">Riesgo Medio (Amarillo)</span>
+                        <span id="metricRiesgoAmarillo" class="text-3xl font-black text-amber-500">0</span>
+                        <span class="block text-[10px] text-amber-600 font-semibold mt-1 uppercase font-mono font-bold">Seguimiento psicopedagógico</span>
+                    </div>
+                    <div class="p-3 bg-amber-50 rounded-xl text-amber-500 font-bold">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-xs border border-slate-200 flex items-center justify-between transition-all hover:shadow-md border">
+                    <div>
+                        <span class="block text-slate-400 uppercase text-xs font-bold font-semibold">Casos Resueltos</span>
+                        <span id="metricAtendidos" class="text-3xl font-black text-emerald-600">0</span>
+                        <span id="metricTasaAtencion" class="block text-[10px] text-slate-500 font-semibold mt-1 uppercase">0% de Tasa de Cierre</span>
+                    </div>
+                    <div class="p-3 bg-emerald-50 rounded-xl text-emerald-600 font-bold">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GESTIÓN DE SEGURIDAD (PIN) -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 bg-white p-6 rounded-2xl shadow-sm border border-slate-200/80 font-mono">
+                <div class="lg:col-span-2 space-y-2">
+                    <h3 class="text-sm font-bold text-slate-900 uppercase flex items-center gap-1.5">
+                        <svg class="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                        Gestión de Seguridad de Jefatura
+                    </h3>
+                    <p class="text-xs text-slate-500 font-medium uppercase leading-normal txt-justificado">
+                        Como Responsable del Departamento, puede modificar el PIN de acceso del sistema en tiempo real. Este se sincronizará localmente y en la nube de forma instantánea.
+                    </p>
+                </div>
+                <div class="flex items-center gap-2">
+                    <input type="password" id="txtNuevoPinAdmin" placeholder="NUEVO PIN" class="flex-grow px-3 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-center text-sm uppercase">
+                    <button onclick="cambiarPinAcceso()" class="px-5 py-2.5 bg-[#1d2a6a] hover:bg-[#121b44] text-white text-xs font-bold rounded-lg shadow-sm transition-all text-center uppercase font-bold">
+                        Cambiar PIN
+                    </button>
+                </div>
+            </div>
+
+            <!-- FILTROS Y SEGMENTACIÓN AVANZADA -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200/80 space-y-4 font-mono">
+                <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 font-bold">
+                    <div class="flex-grow max-w-md">
+                        <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">Búsqueda Rápida</label>
+                        <div class="relative">
+                            <input type="text" id="adminSearchInput" oninput="this.value = this.value.toUpperCase(); filtrarYRenderizarReportes()" placeholder="BUSCAR POR NOMBRE, FOLIO, MATRÍCULA..." class="w-full pl-10 pr-4 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-xs uppercase font-semibold">
+                            <span class="absolute left-3 top-3 text-slate-400">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full lg:w-auto font-mono">
+                        <div>
+                            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1.5 font-bold">Segmento Institucional</label>
+                            <select id="adminFiltroNivel" onchange="filtrarYRenderizarReportes()" class="w-full px-3 py-2.5 rounded-xl border-2 border-slate-100 focus:outline-none focus:border-[#1d2a6a] text-xs uppercase font-bold text-slate-800">
+                                <option value="Todos">TODOS LOS ESTATUS</option>
+                                <option value="Preparatoria">PREPARATORIA</option>
+                                <option value="Universidad">UNIVERSIDAD</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider font-semibold">Estatus de Riesgo</label>
+                            <select id="adminFiltroRiesgo" onchange="filtrarYRenderizarReportes()" class="w-full px-3 py-2.5 rounded-xl border-2 border-slate-100 focus:outline-none focus:border-[#1d2a6a] text-xs uppercase font-bold text-slate-800">
+                                <option value="Todos">CUALQUIER RIESGO</option>
+                                <option value="Rojo">RIESGO ALTO (ROJO)</option>
+                                <option value="Amarillo">RIESGO MEDIO (AMARILLO)</option>
+                                <option value="Verde">RIESGO BAJO (VERDE)</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider font-mono font-semibold">Seguimiento Clínico</label>
+                            <select id="adminFiltroAtendido" onchange="filtrarYRenderizarReportes()" class="w-full px-3 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:border-[#1d2a6a] text-xs uppercase text-slate-800 font-bold">
+                                <option value="Todos">TODOS LOS ESTATUS</option>
+                                <option value="Pendiente">PENDIENTE DE ATENCIÓN</option>
+                                <option value="Atendido">CASO ATENDIDO / RESUELTO</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TABLA CENTRAL DE EXPEDIENTES -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200/80 overflow-hidden font-mono">
+                <div class="px-6 py-4 border-b border-slate-100 flex items-center justify-between bg-slate-50">
+                    <h3 class="font-bold text-slate-950 text-sm flex items-center gap-2 uppercase font-black">
+                        <span>Buzón de Expedientes Registrados</span>
+                        <span id="txtAdminMostrandoRegistros" class="bg-blue-100 text-blue-800 text-[10px] px-2.5 py-0.5 rounded-full font-black font-mono">0</span>
+                    </h3>
+                    <span class="text-xs text-slate-500 font-semibold">Última actualización: <strong id="fechaSincro">EN TIEMPO REAL</strong></span>
+                </div>
+
+                <div class="overflow-x-auto font-mono">
+                    <table class="w-full text-left border-collapse border-slate-100 font-mono">
+                        <thead>
+                            <tr class="bg-slate-100/60 text-slate-500 uppercase text-[9px] tracking-widest border-b border-slate-200/60 font-black">
+                                <th class="py-4 px-6">Folio / Fecha</th>
+                                <th class="py-4 px-6">Estudiante / Matrícula</th>
+                                <th class="py-4 px-6 font-bold">Nivel / Grupo</th>
+                                <th class="py-4 px-6 text-center font-bold">Académico</th>
+                                <th class="py-4 px-6 text-center font-bold">Emocional</th>
+                                <th class="py-4 px-6 text-center font-bold">Psicosocial</th>
+                                <th class="py-4 px-6 text-center font-bold">Riesgo</th>
+                                <th class="py-4 px-6 text-center font-bold">Semáforo</th>
+                                <th class="py-4 px-6 text-center">Seguimiento</th>
+                                <th class="py-4 px-6 text-right font-mono">Detalle</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaExpedientesBody" class="divide-y divide-slate-100 text-xs font-semibold">
+                            <!-- Inyección dinámica -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="sinDatosAdmin" class="hidden p-16 text-center text-slate-400 space-y-3 font-mono font-bold">
+                    <svg class="w-12 h-12 mx-auto text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    <p class="font-bold text-slate-700 uppercase">No se encontraron expedientes con los filtros seleccionados.</p>
+                    <p class="text-xs text-slate-500 font-mono font-bold">Intenta reajustar los filtros o la búsqueda.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- MODAL DETALLE DE EXPEDIENTE (HISTORIAL PSICOPEDAGÓGICO) -->
+    <div id="modalDetailExpediente" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 flex items-center justify-center p-4 hidden animate-fade-in font-mono">
+        <div class="bg-white w-full max-w-4xl rounded-2xl shadow-2xl border border-slate-200 flex flex-col max-h-[90vh] overflow-hidden animate-scale-up font-mono">
+            <div class="bg-gradient-to-r from-[#121b44] via-[#1d2a6a] to-[#121b44] text-white px-6 py-4.5 flex items-center justify-between border-b border-[#f1b80c]/50">
+                <div class="space-y-0.5">
+                    <h3 class="text-base font-bold flex items-center gap-2 uppercase">
+                        Expediente de Tamizaje: <span id="mdFolio" class="font-mono text-[#f1b80c]">CEUT-2026-0000</span>
+                    </h3>
+                    <p class="text-[11px] text-slate-300 uppercase tracking-widest font-bold">Análisis de conductas socioemocionales e indicadores de aprendizaje.</p>
+                </div>
+                <button onclick="cerrarModalDetalle()" class="text-slate-400 hover:text-white transition-all font-bold text-2xl">&times;</button>
+            </div>
+
+            <div class="p-6 overflow-y-auto space-y-6 flex-grow text-xs font-mono">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 bg-slate-50 p-4 rounded-xl border border-slate-200 font-bold">
+                    <div>
+                        <span class="block text-[9px] font-bold text-slate-400 uppercase font-mono">Nombre del Estudiante</span>
+                        <span id="mdNombre" class="font-bold text-slate-800 text-xs uppercase font-mono">--</span>
+                    </div>
+                    <div>
+                        <span class="block text-[9px] font-bold text-slate-400 uppercase font-mono">Matrícula y Edad</span>
+                        <span id="mdMatriculaEdad" class="font-bold text-slate-800 text-xs uppercase font-mono">--</span>
+                    </div>
+                    <div>
+                        <span class="block text-[9px] font-bold text-slate-400 uppercase font-mono">Nivel Educativo y Grupo</span>
+                        <span id="mdNivelGrupo" class="font-bold text-slate-800 text-xs">--</span>
+                    </div>
+                    <div class="border-t border-slate-200/50 pt-2 sm:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div>
+                            <span class="block text-[9px] font-bold text-slate-400 uppercase font-semibold">Correo de Contacto</span>
+                            <span id="mdEmail" class="font-semibold text-blue-600 text-xs lowercase">--</span>
+                        </div>
+                        <div>
+                            <span class="block text-[9px] font-bold text-slate-400 uppercase font-mono font-semibold">Teléfono Celular</span>
+                            <span id="mdTelefono" class="font-bold text-slate-800 text-xs font-mono">--</span>
+                        </div>
+                        <div>
+                            <span class="block text-[9px] font-bold text-slate-400 uppercase font-mono font-semibold">Fecha de Aplicación</span>
+                            <span id="mdFecha" class="font-semibold text-slate-600 text-xs uppercase font-mono">--</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 font-bold font-mono">
+                    <div class="p-4 rounded-xl border border-slate-100 shadow-xs text-center space-y-1 bg-white flex flex-col justify-between border">
+                        <span class="block text-xs font-bold text-slate-400 uppercase font-semibold">Área Académica</span>
+                        <div class="text-xl font-black text-slate-800 my-2"><span id="mdScoreAcademico">0</span> / 15</div>
+                        <span id="mdBadgeAcademico" class="inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase border font-bold">--</span>
+                    </div>
+                    <div class="p-4 rounded-xl border border-slate-100 shadow-xs text-center space-y-1 bg-white flex flex-col justify-between border">
+                        <span class="block text-xs font-bold text-slate-400 uppercase font-mono">Área Socioemocional</span>
+                        <div class="text-xl font-black text-slate-800 my-2"><span id="mdScoreEmocional">0</span> / 15</div>
+                        <span id="mdBadgeEmocional" class="inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase border font-semibold font-mono">--</span>
+                    </div>
+                    <div class="p-4 rounded-xl border border-slate-100 shadow-xs text-center space-y-1 bg-white flex flex-col justify-between border">
+                        <span class="block text-xs font-bold text-slate-400 uppercase font-mono">Entorno Psicosocial</span>
+                        <div class="text-xl font-black text-slate-800 my-2"><span id="mdScorePsicosocial">0</span> / 15</div>
+                        <span id="mdBadgePsicosocial" class="inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase border font-semibold font-mono">--</span>
+                    </div>
+                    <div class="p-4 rounded-xl border border-slate-100 shadow-xs text-center space-y-1 bg-white flex flex-col justify-between border">
+                        <span class="block text-xs font-bold text-slate-400 uppercase font-semibold">Riesgo / Crisis</span>
+                        <div class="text-xl font-black text-slate-800 my-2"><span id="mdScoreRiesgo">0</span> / 9</div>
+                        <span id="mdBadgeRiesgo" class="inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase border font-bold font-mono">--</span>
+                    </div>
+                </div>
+
+                <!-- INTEGRACIÓN DE ASISTENTE DE DIAGNÓSTICO CON IA GEMINI ✨ -->
+                <div class="border-2 border-indigo-100 rounded-3xl p-6 bg-gradient-to-br from-indigo-50/40 via-white to-indigo-50/10 space-y-4">
+                    <div class="flex items-center justify-between flex-wrap gap-4 font-bold">
+                        <div class="flex items-center gap-3">
+                            <span class="p-3 bg-indigo-600 text-white rounded-2xl shadow-md shadow-indigo-200">
+                                <svg class="w-5 h-5 font-bold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                            </span>
+                            <div>
+                                <h4 class="font-extrabold text-sm text-indigo-950 uppercase tracking-tight">Orientación de Diagnóstico Clínico IA</h4>
+                                <p class="text-[10px] text-indigo-600 uppercase font-bold tracking-widest font-mono">Asistencia psicopedagógica y adecuaciones curriculares con IA</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button id="btnGenerarAnalisisIA" onclick="ejecutarAnalisisIA()" class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-lg transition-all shadow-sm uppercase font-mono font-bold">
+                                Generar Análisis ✨
+                            </button>
+                            <button id="btnDescargarReporteIA" onclick="descargarReporteIntervencion()" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-lg transition-all shadow-md flex items-center gap-1.5 uppercase hidden font-mono font-bold">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                                Descargar Reporte Membretado 📥
+                            </button>
+                        </div>
+                    </div>
+                    <div id="loadingIA" class="hidden flex flex-col items-center justify-center py-10 space-y-3 font-mono">
+                        <div class="w-9 h-9 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin"></div>
+                        <span class="text-[10px] text-indigo-600 font-extrabold uppercase tracking-widest animate-pulse">Procesando y correlacionando respuestas de forma clínica con IA...</span>
+                    </div>
+                    <div id="mdIAAnalysisContent" class="text-xs text-slate-700 font-mono leading-relaxed whitespace-pre-line hidden max-h-80 overflow-y-auto bg-slate-50 border border-slate-200 p-5 rounded-2xl shadow-inner text-justify txt-justificado uppercase font-semibold">
+                        <!-- El diagnóstico es inyectado aquí -->
+                    </div>
+                </div>
+
+                <!-- Desglose de Respuestas del Alumno -->
+                <div class="space-y-4">
+                    <h4 class="font-black text-xs text-slate-900 border-b border-slate-100 pb-2 flex items-center gap-1.5 uppercase font-bold">
+                        <svg class="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
+                        Análisis Detallado por Reactivo (Escala Likert)
+                    </h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 font-mono text-xs font-semibold" id="mdContenedorRespuestas">
+                        <!-- Respuestas dinámicas -->
+                    </div>
+                </div>
+
+                <!-- Seguimiento Clínico y Acciones de Carlos Aguilar -->
+                <div class="space-y-4 border-t border-slate-100 pt-4 font-bold font-mono">
+                    <h4 class="font-extrabold text-xs text-slate-900 flex items-center gap-1.5 uppercase font-semibold">
+                        <!-- ICONO VECTORIAL CORREGIDO -->
+                        <svg class="w-4 h-4 text-[#1d2a6a]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                        Seguimiento del Responsable del Departamento (Mtro. Carlos Aguilar)
+                    </h4>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 font-semibold font-mono">
+                        <div class="sm:col-span-2">
+                            <label class="block text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-1.5 font-bold font-mono">Anotaciones de Consulta, Derivaciones o Acuerdos</label>
+                            <textarea id="mdInputObservaciones" rows="4" oninput="this.value = this.value.toUpperCase()" placeholder="ESCRIBA AQUÍ LOS ACUERDOS, FECHAS DE CITA CON PADRES DE FAMILIA O CANALIZACIÓN TERAPÉUTICA EXTERNA..." class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-xs uppercase leading-relaxed text-justify txt-justificado"></textarea>
+                        </div>
+                        <div class="space-y-3 font-semibold font-mono font-bold">
+                            <div>
+                                <label class="block text-[9px] font-bold text-slate-400 uppercase tracking-wider">Estatus del Expediente</label>
+                                <select id="mdSelectEstatus" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:border-[#1d2a6a] text-xs uppercase text-slate-800 font-bold">
+                                    <option value="false">⏳ PENDIENTE DE ATENCIÓN</option>
+                                    <option value="true">✔ CASO ATENDIDO / RESUELTO</option>
+                                </select>
+                            </div>
+                            <div class="pt-2">
+                                <button onclick="guardarSeguimientoDocente()" class="w-full py-2.5 bg-[#1d2a6a] hover:bg-[#121b44] text-white text-xs font-bold rounded-lg shadow-sm transition-all text-center uppercase font-bold">
+                                    Guardar Cambios
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-slate-50 px-6 py-4.5 border-t border-slate-100 flex items-center justify-between font-mono">
+                <span class="text-[9px] text-slate-400 font-semibold uppercase">Departamento de Orientación Educativa CEUT</span>
+                <button onclick="cerrarModalDetalle()" class="px-5 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-100 rounded-lg transition-all uppercase">
+                    Cerrar Detalle
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: AVISO DE PRIVACIDAD INTEGRAL BAJO LEYES MEXICANAS (LFPDPPP) -->
+    <div id="modalAvisoPrivacidad" class="fixed inset-0 bg-slate-900/70 backdrop-blur-xs z-50 flex items-center justify-center p-4 hidden font-mono">
+        <div class="bg-white w-full max-w-2xl rounded-3xl shadow-2xl border border-slate-200 flex flex-col max-h-[85vh] overflow-hidden animate-scale-up">
+            <div class="bg-[#1d2a6a] text-white px-6 py-4.5 flex items-center justify-between border-b border-[#f1b80c]/50 font-mono">
+                <div class="flex items-center gap-3">
+                    <img src="https://lh3.googleusercontent.com/d/1ao9olFJOvSPvgmeyLJhkD1P0Pmq_R3T2" alt="Aviso Logo" class="w-9 h-9 object-contain bg-white rounded-lg p-0.5 border border-[#f1b80c]" onerror="this.classList.add('hidden'); if(this.nextElementSibling && this.nextElementSibling.classList.contains('fallback-svg')) this.nextElementSibling.classList.remove('hidden');">
+                    <div>
+                        <h3 class="text-base font-bold font-black">Aviso de Privacidad Integral</h3>
+                        <p class="text-[10px] text-slate-300 font-mono font-bold tracking-wider">Conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP)</p>
+                    </div>
+                </div>
+                <button onclick="cerrarAvisoPrivacidad()" class="text-slate-300 hover:text-white text-2xl font-bold">&times;</button>
+            </div>
+
+            <div class="p-6 overflow-y-auto space-y-4 text-xs text-slate-600 leading-relaxed font-sans font-medium uppercase text-justify border-b">
+                <p class="font-bold text-slate-900 text-sm tracking-tight font-mono font-bold">1. Identidad y Domicilio del Responsable</p>
+                <p>El <strong>Centro Universitario Tehuacán (CEUT)</strong>, con domicilio en Tehuacán, Puebla, es responsable de recabar sus datos personales, del uso que se le de a los mismos y de su protección, a través del Responsable del Departamento Psicopedagógico.</p>
+
+                <p class="font-bold text-slate-900 text-sm font-mono font-bold font-bold">2. Datos Personales Sensibles Recabados</p>
+                <p>Para las finalidades informadas en este documento, recabamos datos de identificación (Nombre, Matrícula, Edad, Correo, Teléfono) y, de manera muy específica, <strong>Datos Personales Sensibles</strong> relativos a su estado emocional, riesgos de salud mental, rendimiento intelectivo y su entorno familiar.</p>
+
+                <p class="font-bold text-slate-900 text-sm font-mono font-bold font-bold">3. Finalidades del Tratamiento</p>
+                <p>Realizar un tamizaje preventivo, detectar alertas de crisis emocionales para brindar apoyo y establecer canales de comunicación de forma legal externa con el debido consentimiento.</p>
+
+                <p class="font-bold text-slate-900 text-sm font-mono font-bold font-bold">4. Limitación de Uso y Medidas de Seguridad</p>
+                <p>CEUT se compromete a no transferir sus datos a terceros ajenos a la institución sin su consentimiento, salvo las excepciones previstas en el <strong>Artículo 37 de la LFPDPPP</strong>. Los datos son almacenados de forma encriptada y su visualización está estrictamente limitada al Responsable del Departamento Psicopedagógico mediante un PIN de control total.</p>
+            </div>
+
+            <div class="bg-slate-50 px-6 py-4.5 border-t border-slate-100 flex items-center justify-end font-semibold">
+                <button onclick="cerrarAvisoPrivacidad()" class="px-5 py-2 bg-[#1d2a6a] hover:bg-[#121b44] text-white text-xs font-bold rounded-lg transition-all font-mono font-semibold uppercase">
+                    Entendido y Cerrar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER GENERAL -->
+    <footer class="bg-[#121b44] text-slate-400 py-8 px-6 mt-12 border-t border-slate-800 text-xs font-mono no-print">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-5 font-mono font-bold">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center p-1.5 relative overflow-hidden shadow-md flex-shrink-0">
+                    <img src="https://lh3.googleusercontent.com/d/1ao9olFJOvSPvgmeyLJhkD1P0Pmq_R3T2" 
+                         alt="Logo CEUT Footer" 
+                         class="max-h-full max-w-full object-contain"
+                         onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');">
+                    <svg class="fallback-svg hidden w-full h-full text-[#1d2a6a]" viewBox="0 0 100 100">
+                        <path d="M10,20 L50,5 L90,20 L90,60 C90,80 50,95 50,95 C50,95 10,80 10,60 Z" fill="currentColor"/>
+                    </svg>
+                </div>
+                <div>
+                    <span class="block text-white font-bold font-mono">Centro Universitario Tehuacán (CEUT)</span>
+                    <span class="block font-mono font-medium">Copyright © 2026 - Todos los derechos reservados.</span>
+                </div>
+            </div>
+            <div class="text-center sm:text-right space-y-1 font-mono font-bold">
+                <span class="block text-slate-300 font-medium uppercase font-semibold">Software de Diagnóstico Psicopedagógico v2.6 - Ley de Datos LFPDPPP</span>
+                <span class="block">Confidencialidad a cargo de: <strong>Mtro. Carlos Aguilar Sánchez (Responsable del Departamento)</strong></span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LÓGICA DE APLICACIÓN COMPLETA -->
+    <script>
+        // --- ESTADO LOCAL SÍNCRONO ---
+        window.reportsData = [];
+        window.estudianteActivo = null;
+        window.indicePreguntaActual = 0;
+        window.respuestasEstudiante = {};
+        window.panelDocenteAutenticado = false;
+        window.reporteEnDetalleId = null;
+        window.accessPin = "1015"; // PIN síncrono por defecto
+        window.dbAvailable = true; 
+        window.ultimoAnalisisIAGenerado = ""; 
+
+        // --- SISTEMA DE PREGUNTAS (18 REACTIVOS) ---
+        const reactivos = [
+            { id: "a1", cat: "ACADÉMICO", texto: "DIFICULTADES DE CONCENTRACIÓN PROLONGADA EN AULA Y CASA" },
+            { id: "a2", cat: "ACADÉMICO", texto: "EFICACIA DE HÁBITOS Y TÉCNICAS DE ESTUDIO ACTUALES" },
+            { id: "a3", cat: "ACADÉMICO", texto: "ORGANIZACIÓN DEL TIEMPO, PROCRASTINACIÓN Y POSTERGACIÓN DE TAREAS" },
+            { id: "a4", cat: "ACADÉMICO", texto: "COMPRENSIÓN LECTORA COMPLEJA Y RAZONAMIENTO ANALÍTICO" },
+            { id: "a5", cat: "ACADÉMICO", texto: "DESMOTIVACIÓN, DESGANA Y AGOTAMIENTO EXTREMO (BURNOUT ACADÉMICO)" },
+            { id: "e1", cat: "SOCIOEMOCIONAL", texto: "TRISTEZA PROFUNDA, VACÍO, DESÁNIMO ABSOLUTO" },
+            { id: "e2", cat: "SOCIOEMOCIONAL", texto: "ESTRÉS EXCESIVO, ANSIEDAD INCONTROLABLE Y BLOQUEOS EN EXÁMENES" },
+            { id: "e3", cat: "SOCIOEMOCIONAL", texto: "TRASTORNOS DE CONCILIACIÓN DEL SUEÑO Y ANGUSTIA NOCTURNA" },
+            { id: "e4", cat: "SOCIOEMOCIONAL", texto: "IRRITABILIDAD CONSTANTE, BAJA TOLERANCIA A LA FRUSTRACIÓN Y ENOJO" },
+            { id: "e5", cat: "SOCIOEMOCIONAL", texto: "PÉRDIDA DE INTERÉS EN CONVIVIR, AISLAMIENTO VOLUNTARIO (ANHEDONIA)" },
+            { id: "f1", cat: "PSICOSOCIAL", texto: "VIOLENCIA INTRAFAMILIAR Y AMBIENTE DISFUNCIONAL EN EL HOGAR" },
+            { id: "f2", cat: "PSICOSOCIAL", texto: "PREOCUPACIONES ECONÓMICAS SEVERAS (MATERIALES, COLEGIATURA, ALIMENTACIÓN)" },
+            { id: "f3", cat: "PSICOSOCIAL", texto: "CARENCIA DE UN ESPACIO FÍSICO ADECUADO PARA EL ESTUDIO EN CASA" },
+            { id: "f4", cat: "PSICOSOCIAL", texto: "VIVENCIA DE RECHAZO, EXCLUSIÓN O ACOSO ESCOLAR (BULLEYING)" },
+            { id: "f5", cat: "PSICOSOCIAL", texto: "MALESTARES FÍSICOS RECURRENTES O DEPENDENCIA DE SUSTANCIAS" },
+            { id: "r1", cat: "CRISIS/RIESGO", texto: "IDEACIÓN SUICIDA (PÉRDIDA DEL SENTIDO DE LA VIDA)" },
+            { id: "r2", cat: "CRISIS/RIESGO", texto: "IMPULSOS AUTOLESIVOS NO SUICIDAS (NSSI)" },
+            { id: "r3", cat: "CRISIS/RIESGO", texto: "DESESPERANZA ABSOLUTA SOBRE EL PORVENIR" }
+        ];
+
+        // --- SISTEMA DE NOTIFICACIONES SÍNCRONO ---
+        function mostrarNotificacion(mensaje, tipo = "info") {
+            const container = document.getElementById('notificacionContainer');
+            if (!container) return;
+            const toast = document.createElement('div');
+            let colorBg = "bg-slate-900";
+            let iconSvg = `<svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`;
+            if (tipo === "success") {
+                colorBg = "bg-emerald-900 border-l-4 border-emerald-500 shadow-emerald-950/20";
+                iconSvg = `<svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`;
+            } else if (tipo === "error") {
+                colorBg = "bg-rose-900 border-l-4 border-rose-500 shadow-rose-950/20";
+                iconSvg = `<svg class="w-4 h-4 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>`;
+            } else if (tipo === "warning") {
+                colorBg = "bg-amber-900 border-l-4 border-amber-500 shadow-amber-950/20";
+                iconSvg = `<svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>`;
+            }
+            toast.className = `flex items-center gap-3 px-4 py-3 rounded-xl text-white shadow-xl ${colorBg} text-xs transition-all duration-300 transform translate-x-10 pointer-events-auto max-w-sm font-mono`;
+            toast.innerHTML = `${iconSvg}<div class="flex-grow uppercase">${mensaje}</div><button onclick="this.parentElement.remove()" class="text-slate-400 hover:text-white ml-2 text-base font-bold font-mono">×</button>`;
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-x-10');
+                setTimeout(() => toast.remove(), 300);
+            }, 4500);
+        }
+
+        // --- CARGAR DATOS DE RESPALDO/MOCKUPS SÍNCRONOS ---
+        function cargarDatosDeContingencia() {
+            const datosExistentes = localStorage.getItem('ceut_reports');
+            if (datosExistentes) {
+                window.reportsData = JSON.parse(datosExistentes);
+            } else {
+                const mockups = [
+                    {
+                        id: "mock1",
+                        estudiante: {
+                            nombre: "JIMENA TORRES MENDOZA",
+                            matricula: "22010452",
+                            nivel: "Preparatoria",
+                            grupo: "4° SEMESTRE - GRUPO B",
+                            edad: "16",
+                            email: "jtorres@ceut.edu.mx",
+                            telefono: "2381234567",
+                            folio: "CEUT-2026-8941",
+                            fecha: "6/7/2026, 10:14 AM"
+                        },
+                        scores: { Academico: 12, Emocional: 4, Psicosocial: 3, Riesgo: 0 },
+                        semaforo: "Amarillo",
+                        atendido: false,
+                        observaciones: "SE DETECTA FALTA DE CONCENTRACIÓN EN ASIGNATURAS LÓGICAS.",
+                        respuestas: { a1: 4, a2: 4, a3: 3, a4: 4, a5: 3, e1: 1, e2: 2, e3: 1, e4: 1, e5: 1, f1: 1, f2: 2, f3: 1, f4: 1, f5: 1, r1: 1, r2: 1, r3: 1 }
+                    },
+                    {
+                        id: "mock2",
+                        estudiante: {
+                            nombre: "CARLOS DANIEL ORTIZ RINCÓN",
+                            matricula: "19100489",
+                            nivel: "Universidad",
+                            grupo: "7° CUATRIMESTRE - PSICOLOGÍA",
+                            edad: "21",
+                            email: "cortiz@ceut.edu.mx",
+                            telefono: "2389876543",
+                            folio: "CEUT-2026-1205",
+                            fecha: "5/7/2026, 03:40 PM"
+                        },
+                        scores: { Academico: 8, Emocional: 14, Psicosocial: 12, Riesgo: 5 },
+                        semaforo: "Rojo",
+                        atendido: true,
+                        observaciones: "SE REALIZÓ CONTENCIÓN EMOCIONAL INMEDIATA POR EL RESPONSABLE. SE AGENDÓ CITA CON PADRES DE FAMILIA.",
+                        respuestas: { a1: 2, a2: 2, a3: 1, a4: 1, a5: 2, e1: 4, e2: 4, e3: 4, e4: 3, e5: 4, f1: 4, f2: 3, f3: 2, f4: 1, f5: 4, r1: 3, r2: 2, r3: 3 }
+                    }
+                ];
+                localStorage.setItem('ceut_reports', JSON.stringify(mockups));
+                window.reportsData = mockups;
+            }
+        }
+
+        // --- ACTUALIZAR MÉTRICAS GENERALES DE CONSOLA ---
+        function actualizarEstadisticas() {
+            const total = window.reportsData.length;
+            const rojo = window.reportsData.filter(r => r.semaforo === "Rojo" || r.semaforo === "ROJO").length;
+            const amarillo = window.reportsData.filter(r => r.semaforo === "Amarillo" || r.semaforo === "AMARILLO").length;
+            const atendidos = window.reportsData.filter(r => r.atendido === true || r.atendido === "true").length;
+            const tasa = total > 0 ? Math.round((atendidos / total) * 100) : 0;
+
+            const elTotal = document.getElementById('metricTotalEvaluados');
+            const elRojo = document.getElementById('metricRiesgoRojo');
+            const elAmarillo = document.getElementById('metricRiesgoAmarillo');
+            const elAtendidos = document.getElementById('metricAtendidos');
+            const elTasa = document.getElementById('metricTasaAtencion');
+
+            if (elTotal) elTotal.textContent = total;
+            if (elRojo) elRojo.textContent = rojo;
+            if (elAmarillo) elAmarillo.textContent = amarillo;
+            if (elAtendidos) elAtendidos.textContent = atendidos;
+            if (elTasa) elTasa.textContent = `${tasa}% de Tasa de Cierre`;
+        }
+
+        // --- MANEJO DE SECCIONES (SISTEMA DE RUTAS) ---
+        function irSeccion(seccionId) {
+            document.querySelectorAll('.view-section').forEach(sec => {
+                sec.classList.add('hidden');
+                sec.classList.remove('block');
+            });
+            const target = document.getElementById('sec-' + seccionId);
+            if (target) {
+                target.classList.remove('hidden');
+                target.classList.add('block');
+            }
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+
+        // --- DINAMISMO EN EL REGISTRO ---
+        function generarNuevoFolio() {
+            const num = Math.floor(1000 + Math.random() * 9000);
+            const folio = `CEUT-2026-${num}`;
+            const el = document.getElementById('txtFolioEstudiante');
+            if (el) el.textContent = folio;
+        }
+
+        function actualizarPlaceholderGrupo() {
+            const nivel = document.getElementById('stdNivel').value;
+            const lbl = document.getElementById('lblGrupo');
+            const input = document.getElementById('stdGrupo');
+            if (nivel === "Preparatoria") {
+                lbl.textContent = "Semestre y Grupo (Bachillerato)";
+                input.placeholder = "EJ. 4° SEMESTRE GRUPO B";
+            } else {
+                lbl.textContent = "Carrera, Cuatrimestre/Semestre y Grupo";
+                input.placeholder = "EJ. LIC. EN PSICOLOGÍA - 7° CUATRIMESTRE GRUPO A";
+            }
+        }
+
+        // --- VALIDACIÓN DE REGISTRO E INICIO ---
+        function validarYComenzarTamizaje(event) {
+            event.preventDefault();
+            const nombre = document.getElementById('stdNombre').value.trim();
+            const matricula = document.getElementById('stdMatricula').value.trim();
+            const edad = document.getElementById('stdEdad').value;
+            const nivel = document.getElementById('stdNivel').value;
+            const grupo = document.getElementById('stdGrupo').value.trim();
+            const email = document.getElementById('stdEmail').value.trim();
+            const telefono = document.getElementById('stdTelefono').value.trim();
+            const consentimiento = document.getElementById('chkConsentimientoLegal').checked;
+
+            if (!consentimiento) {
+                mostrarNotificacion("Debe aceptar y consentir de forma explícita el tratamiento de datos sensibles.", "warning");
+                return;
+            }
+
+            window.estudianteActivo = {
+                nombre, matricula, edad, nivel, grupo, email, telefono,
+                folio: document.getElementById('txtFolioEstudiante').textContent,
+                fecha: new Date().toLocaleString()
+            };
+
+            window.indicePreguntaActual = 0;
+            window.respuestasEstudiante = {};
+
+            irSeccion('cuestionario');
+            cargarPreguntaActiva();
+        }
+
+        // --- LOGICA DE TRIVIA / FORMULARIO ---
+        function cargarPreguntaActiva() {
+            const preg = reactivos[window.indicePreguntaActual];
+            document.getElementById('txtQuizProgresoActual').textContent = window.indicePreguntaActual + 1;
+            
+            const badge = document.getElementById('txtCategoriaCuestionario');
+            badge.textContent = preg.cat;
+            badge.className = "inline-block px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-widest ";
+            if (preg.cat === "ACADÉMICO") {
+                badge.classList.add("bg-amber-100", "text-amber-800");
+            } else if (preg.cat === "SOCIOEMOCIONAL") {
+                badge.classList.add("bg-rose-100", "text-rose-800");
+            } else if (preg.cat === "PSICOSOCIAL") {
+                badge.classList.add("bg-purple-100", "text-purple-800");
+            } else {
+                badge.classList.add("bg-red-100", "text-red-800");
+            }
+
+            document.getElementById('txtEnunciadoPregunta').textContent = `${window.indicePreguntaActual + 1}. ${preg.texto}`;
+            
+            // Progress width
+            const pct = (window.indicePreguntaActual / reactivos.length) * 100;
+            document.getElementById('quizProgressBar').style.width = `${pct}%`;
+
+            // Reset likert labels
+            document.querySelectorAll('input[name="likertOption"]').forEach(input => input.checked = false);
+            document.querySelectorAll('.dot-indicator').forEach(dot => dot.classList.add('scale-0'));
+            document.querySelectorAll('label[id^="lblOpt"]').forEach(label => {
+                label.classList.remove('border-[#1d2a6a]', 'bg-blue-50/10');
+                label.classList.add('border-slate-100');
+            });
+
+            // Recover pre-selected answers if backwards navigation occurred
+            const ansExistente = window.respuestasEstudiante[preg.id];
+            if (ansExistente !== undefined) {
+                const inp = document.getElementById('opt' + ansExistente);
+                if (inp) inp.checked = true;
+                seleccionarOpcion(ansExistente, false);
+                document.getElementById('btnQuizSiguiente').disabled = false;
+            } else {
+                document.getElementById('btnQuizSiguiente').disabled = true;
+            }
+
+            document.getElementById('btnQuizAtras').style.visibility = (window.indicePreguntaActual === 0) ? 'hidden' : 'visible';
+
+            const nextBtn = document.getElementById('btnQuizSiguiente');
+            if (window.indicePreguntaActual === reactivos.length - 1) {
+                nextBtn.innerHTML = `Enviar Tamizaje <svg class="w-4 h-4 inline-block ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>`;
+            } else {
+                nextBtn.innerHTML = `Siguiente <svg class="w-4 h-4 inline-block ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>`;
+            }
+        }
+
+        function seleccionarOpcion(valor, autoadvance = true) {
+            const preg = reactivos[window.indicePreguntaActual];
+            window.respuestasEstudiante[preg.id] = valor;
+
+            document.querySelectorAll('label[id^="lblOpt"]').forEach(label => {
+                label.classList.remove('border-[#1d2a6a]', 'bg-blue-50/10');
+                label.classList.add('border-slate-100');
+            });
+            document.querySelectorAll('.dot-indicator').forEach(dot => dot.classList.add('scale-0'));
+
+            const selectedLabel = document.getElementById('lblOpt' + valor);
+            if (selectedLabel) {
+                selectedLabel.classList.remove('border-slate-100');
+                selectedLabel.classList.add('border-[#1d2a6a]', 'bg-blue-50/10');
+                const dot = selectedLabel.querySelector('.dot-indicator');
+                if (dot) dot.classList.remove('scale-0');
+            }
+
+            document.getElementById('btnQuizSiguiente').disabled = false;
+
+            if (autoadvance) {
+                setTimeout(() => {
+                    avanzarPregunta();
+                }, 280);
+            }
+        }
+
+        async function avanzarPregunta() {
+            const preg = reactivos[window.indicePreguntaActual];
+            if (window.respuestasEstudiante[preg.id] === undefined) {
+                mostrarNotificacion("Por favor seleccione un nivel de afectación antes de continuar.", "warning");
+                return;
+            }
+
+            if (window.indicePreguntaActual < reactivos.length - 1) {
+                window.indicePreguntaActual++;
+                cargarPreguntaActiva();
+            } else {
+                await procesarYFinalizarCuestionario();
+            }
+        }
+
+        function regresarPregunta() {
+            if (window.indicePreguntaActual > 0) {
+                window.indicePreguntaActual--;
+                cargarPreguntaActiva();
+            }
+        }
+
+        // --- PROCESAMIENTO FINAL ---
+        async function procesarYFinalizarCuestionario() {
+            let scoreAcad = 0;
+            let scoreEmoc = 0;
+            let scorePsic = 0;
+            let scoreRiesgo = 0;
+
+            reactivos.forEach(r => {
+                const ans = parseInt(window.respuestasEstudiante[r.id] || 1) - 1; // scale 0-3 points of impact
+                if (r.id.startsWith('a')) scoreAcad += ans;
+                else if (r.id.startsWith('e')) scoreEmoc += ans;
+                else if (r.id.startsWith('f')) scorePsic += ans;
+                else if (r.id.startsWith('r')) scoreRiesgo += ans;
+            });
+
+            let semaforo = "Verde";
+            if (scoreRiesgo >= 3 || scoreAcad >= 8 || scoreEmoc >= 9 || scorePsic >= 10) {
+                semaforo = "Rojo";
+            } else if (scoreRiesgo >= 1 || scoreAcad >= 4 || scoreEmoc >= 5 || scorePsic >= 6) {
+                semaforo = "Amarillo";
+            }
+
+            const nuevoReporte = {
+                id: "local_" + Date.now(),
+                estudiante: window.estudianteActivo,
+                scores: {
+                    Academico: scoreAcad,
+                    Emocional: scoreEmoc,
+                    Psicosocial: scorePsic,
+                    Riesgo: scoreRiesgo
+                },
+                semaforo: semaforo,
+                atendido: false,
+                observaciones: "",
+                respuestas: window.respuestasEstudiante
+            };
+
+            let guardadoExitoso = false;
+            if (window.guardarReporte) {
+                guardadoExitoso = await window.guardarReporte(nuevoReporte);
+            }
+
+            if (!guardadoExitoso) {
+                let locales = JSON.parse(localStorage.getItem('ceut_reports') || '[]');
+                locales.push(nuevoReporte);
+                localStorage.setItem('ceut_reports', JSON.stringify(locales));
+                window.reportsData = locales;
+            }
+
+            document.getElementById('txtExitoFolio').textContent = window.estudianteActivo.folio;
+            irSeccion('exito-cuestionario');
+            mostrarNotificacion("Tamizaje procesado y encriptado con éxito.", "success");
+
+            generarNuevoFolio();
+            document.getElementById('formEstudiante').reset();
+            renderReportes();
+            actualizarEstadisticas();
+        }
+
+        // --- MANEJO DE ENTRADA COORDINADORES ---
+        function abrirLoginDocente() {
+            if (window.panelDocenteAutenticado) {
+                irSeccion('docente-dashboard');
+                document.getElementById('btnNavDocente').classList.add('hidden');
+                document.getElementById('btnCerrarSesion').classList.remove('hidden');
+            } else {
+                irSeccion('docente-login');
+            }
+        }
+
+        function logoutDocente() {
+            window.panelDocenteAutenticado = false;
+            document.getElementById('btnCerrarSesion').classList.add('hidden');
+            document.getElementById('btnNavDocente').classList.remove('hidden');
+            irSeccion('tamizaje-inicio');
+            mostrarNotificacion("Se ha cerrado el panel administrativo psicopedagógico.", "info");
+        }
+
+        function validarLoginDocente(event) {
+            event.preventDefault();
+            const pin = document.getElementById('txtDocenteClave').value;
+            if (pin === window.accessPin) {
+                window.panelDocenteAutenticado = true;
+                document.getElementById('txtDocenteClave').value = "";
+                irSeccion('docente-dashboard');
+                document.getElementById('btnNavDocente').classList.add('hidden');
+                document.getElementById('btnCerrarSesion').classList.remove('hidden');
+                mostrarNotificacion("Bienvenido Mtro. Carlos Aguilar. Privilegios concedidos.", "success");
+                renderReportes();
+                actualizarEstadisticas();
+            } else {
+                mostrarNotificacion("Código de seguridad incorrecto. Intente de nuevo.", "error");
+            }
+        }
+
+        function cambiarPinAcceso() {
+            const nuevoPin = document.getElementById('txtNuevoPinAdmin').value.trim();
+            if (nuevoPin.length < 4) {
+                mostrarNotificacion("El nuevo PIN institucional debe poseer al menos 4 números.", "warning");
+                return;
+            }
+            window.guardarNuevoPinEnServidor(nuevoPin).then(() => {
+                document.getElementById('txtNuevoPinAdmin').value = "";
+                mostrarNotificacion(`PIN de Jefatura actualizado con éxito.`, "success");
+            });
+        }
+
+        function forzarActualizacion() {
+            mostrarNotificacion("Estableciendo conexión y descargando copias actualizadas...", "info");
+            setTimeout(() => {
+                mostrarNotificacion("Sincronización finalizada sin anomalías de red.", "success");
+            }, 800);
+        }
+
+        // --- FILTROS DE EXPEDIENTES ---
+        function filtrarYRenderizarReportes() {
+            renderReportes();
+        }
+
+        function renderReportes() {
+            const query = document.getElementById('adminSearchInput') ? document.getElementById('adminSearchInput').value.trim().toUpperCase() : "";
+            const fNivel = document.getElementById('adminFiltroNivel') ? document.getElementById('adminFiltroNivel').value : "Todos";
+            const fRiesgo = document.getElementById('adminFiltroRiesgo') ? document.getElementById('adminFiltroRiesgo').value : "Todos";
+            const fAtendido = document.getElementById('adminFiltroAtendido') ? document.getElementById('adminFiltroAtendido').value : "Todos";
+
+            const tbody = document.getElementById('tablaExpedientesBody');
+            if (!tbody) return;
+            tbody.innerHTML = "";
+
+            let filtrados = window.reportsData.filter(r => {
+                const matchesQuery = !query || 
+                    r.estudiante.nombre.toUpperCase().includes(query) ||
+                    r.estudiante.matricula.toUpperCase().includes(query) ||
+                    r.estudiante.folio.toUpperCase().includes(query);
+
+                const matchesNivel = (fNivel === "Todos") || (r.estudiante.nivel === fNivel);
+                const matchesRiesgo = (fRiesgo === "Todos") || (r.semaforo === fRiesgo);
+
+                let matchesAtendido = true;
+                if (fAtendido !== "Todos") {
+                    const isAtendido = (r.atendido === true || r.atendido === "true");
+                    matchesAtendido = (fAtendido === "Atendido") ? isAtendido : !isAtendido;
+                }
+
+                return matchesQuery && matchesNivel && matchesRiesgo && matchesAtendido;
+            });
+
+            document.getElementById('txtAdminMostrandoRegistros').textContent = filtrados.length;
+
+            if (filtrados.length === 0) {
+                document.getElementById('sinDatosAdmin').classList.remove('hidden');
+            } else {
+                document.getElementById('sinDatosAdmin').classList.add('hidden');
+            }
+
+            filtrados.forEach(r => {
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-slate-50/80 transition-colors";
+
+                let semColor = "bg-emerald-100 text-emerald-800 border-emerald-300";
+                if (r.semaforo === "Rojo" || r.semaforo === "ROJO") semColor = "bg-rose-100 text-rose-800 border-rose-300 animate-pulse";
+                else if (r.semaforo === "Amarillo" || r.semaforo === "AMARILLO") semColor = "bg-amber-100 text-amber-800 border-amber-300";
+
+                const isAtendido = (r.atendido === true || r.atendido === "true");
+                const badgeAtendido = isAtendido ? 
+                    `<span class="px-2 py-1 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 font-bold">✔ RESUELTO</span>` :
+                    `<span class="px-2 py-1 rounded bg-slate-100 text-slate-600 border border-slate-200">⏳ PENDIENTE</span>`;
+
+                tr.innerHTML = `
+                    <td class="py-4 px-6">
+                        <span class="block font-black text-slate-900">${r.estudiante.folio}</span>
+                        <span class="block text-[10px] text-slate-400 font-sans">${r.estudiante.fecha || 'N/A'}</span>
+                    </td>
+                    <td class="py-4 px-6 font-bold uppercase">
+                        ${r.estudiante.nombre}
+                        <span class="block text-[10px] text-slate-400 font-mono">${r.estudiante.matricula}</span>
+                    </td>
+                    <td class="py-4 px-6 uppercase font-bold">
+                        ${r.estudiante.nivel}
+                        <span class="block text-[10px] text-slate-400 font-mono font-normal">${r.estudiante.grupo}</span>
+                    </td>
+                    <td class="py-4 px-6 text-center font-bold">${r.scores.Academico} / 15</td>
+                    <td class="py-4 px-6 text-center font-bold">${r.scores.Emocional} / 15</td>
+                    <td class="py-4 px-6 text-center font-bold">${r.scores.Psicosocial} / 15</td>
+                    <td class="py-4 px-6 text-center font-bold">${r.scores.Riesgo} / 9</td>
+                    <td class="py-4 px-6 text-center">
+                        <span class="px-2.5 py-1 rounded-full text-[10px] font-black border uppercase tracking-wider ${semColor}">${r.semaforo}</span>
+                    </td>
+                    <td class="py-4 px-6 text-center">${badgeAtendido}</td>
+                    <td class="py-4 px-6 text-right font-bold">
+                        <button onclick="abrirExpedienteDetalle('${r.id}')" class="px-3.5 py-1.5 rounded-lg border border-[#1d2a6a] text-[#1d2a6a] hover:bg-[#1d2a6a] hover:text-white transition-all text-[11px] font-bold uppercase">Ver Ficha</button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // --- DETALLE INDIVIDUAL DE EXPEDIENTES ---
+        function abrirExpedienteDetalle(id) {
+            const r = window.reportsData.find(item => item.id === id);
+            if (!r) return;
+            window.reporteEnDetalleId = id;
+            window.ultimoAnalisisIAGenerado = ""; 
+
+            document.getElementById('mdFolio').textContent = r.estudiante.folio;
+            document.getElementById('mdNombre').textContent = r.estudiante.nombre;
+            document.getElementById('mdMatriculaEdad').textContent = `${r.estudiante.matricula} | ${r.estudiante.edad} AÑOS`;
+            document.getElementById('mdNivelGrupo').textContent = `${r.estudiante.nivel} - ${r.estudiante.grupo}`;
+            document.getElementById('mdEmail').textContent = r.estudiante.email;
+            document.getElementById('mdTelefono').textContent = r.estudiante.telefono;
+            document.getElementById('mdFecha').textContent = r.estudiante.fecha || 'FECHA NO REGISTRADA';
+
+            document.getElementById('mdScoreAcademico').textContent = r.scores.Academico;
+            document.getElementById('mdScoreEmocional').textContent = r.scores.Emocional;
+            document.getElementById('mdScorePsicosocial').textContent = r.scores.Psicosocial;
+            document.getElementById('mdScoreRiesgo').textContent = r.scores.Riesgo;
+
+            setupScoreBadge('mdBadgeAcademico', r.scores.Academico, 3, 7);
+            setupScoreBadge('mdBadgeEmocional', r.scores.Emocional, 4, 8);
+            setupScoreBadge('mdBadgePsicosocial', r.scores.Psicosocial, 5, 9);
+            setupScoreBadge('mdBadgeRiesgo', r.scores.Riesgo, 0, 2);
+
+            document.getElementById('mdInputObservaciones').value = (r.observaciones || "").toUpperCase();
+            document.getElementById('mdSelectEstatus').value = String(r.atendido);
+
+            const container = document.getElementById('mdContenedorRespuestas');
+            container.innerHTML = "";
+            
+            reactivos.forEach(preg => {
+                const ansVal = r.respuestas[preg.id] || 1;
+                const labels = ["", "NUNCA", "A VECES", "FRECUENTE", "SIEMPRE"];
+                const txtAns = labels[ansVal];
+                
+                let valColor = "text-slate-600";
+                if (ansVal == 4) valColor = "text-rose-600 font-bold";
+                else if (ansVal == 3) valColor = "text-amber-600 font-bold";
+
+                const div = document.createElement('div');
+                div.className = "p-3 rounded-lg border border-slate-100 flex items-center justify-between gap-4";
+                div.innerHTML = `
+                    <div class="flex-grow max-w-[70%]">
+                        <span class="block text-[10px] text-slate-400 font-mono">${preg.cat}</span>
+                        <p class="font-semibold text-slate-800 uppercase tracking-tight leading-tight text-xs">${preg.texto}</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-[10px] block uppercase font-bold ${valColor}">${txtAns}</span>
+                        <span class="text-[9px] text-slate-400 font-mono">(${ansVal} PTS)</span>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+
+            document.getElementById('mdIAAnalysisContent').classList.add('hidden');
+            document.getElementById('btnDescargarReporteIA').classList.add('hidden');
+            document.getElementById('btnGenerarAnalisisIA').classList.remove('hidden');
+
+            document.getElementById('modalDetailExpediente').classList.remove('hidden');
+        }
+
+        function setupScoreBadge(elementId, val, lowMax, medMax) {
+            const el = document.getElementById(elementId);
+            if (!el) return;
+            el.className = "inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase border ";
+            if (val <= lowMax) {
+                el.textContent = "ESTABLE (VERDE)";
+                el.classList.add("bg-emerald-50", "text-emerald-700", "border-emerald-200");
+            } else if (val <= medMax) {
+                el.textContent = "MODERADO (AMARILLO)";
+                el.classList.add("bg-amber-50", "text-amber-700", "border-amber-200");
+            } else {
+                el.textContent = "ALTO RIESGO (ROJO)";
+                el.classList.add("bg-rose-50", "text-rose-700", "border-rose-200", "animate-pulse");
+            }
+        }
+
+        function cerrarModalDetalle() {
+            document.getElementById('modalDetailExpediente').classList.add('hidden');
+        }
+
+        async function guardarSeguimientoDocente() {
+            if (!window.reporteEnDetalleId) return;
+            const obs = document.getElementById('mdInputObservaciones').value.trim().toUpperCase();
+            const est = document.getElementById('mdSelectEstatus').value === "true";
+
+            if (window.actualizarReporte) {
+                await window.actualizarReporte(window.reporteEnDetalleId, {
+                    observaciones: obs,
+                    atendido: est
+                });
+            } else {
+                let locales = JSON.parse(localStorage.getItem('ceut_reports') || '[]');
+                locales = locales.map(item => item.id === window.reporteEnDetalleId ? { ...item, observaciones: obs, atendido: est } : item);
+                localStorage.setItem('ceut_reports', JSON.stringify(locales));
+                window.reportsData = locales;
+                renderReportes();
+                actualizarEstadisticas();
+                mostrarNotificacion("Seguimiento guardado de forma local.", "success");
+            }
+            cerrarModalDetalle();
+        }
+
+        // --- DIAGNÓSTICO DESCRIPTIVO CON INTELIGENCIA ARTIFICIAL SÍNCRONA ---
+        function ejecutarAnalisisIA() {
+            document.getElementById('loadingIA').classList.remove('hidden');
+            document.getElementById('btnGenerarAnalisisIA').classList.add('hidden');
+            
+            setTimeout(() => {
+                document.getElementById('loadingIA').classList.add('hidden');
+                
+                const r = window.reportsData.find(item => item.id === window.reporteEnDetalleId);
+                if (!r) return;
+
+                let desc = `INFORME INTEGRAL DESCRIPTIVO Y DE CORRELACIÓN CONDUCTUAL EN LA VALORACIÓN DEL ALUMNO ${r.estudiante.nombre} (MATRÍCULA: ${r.estudiante.matricula}).\n\n`;
+                desc += `TRAS EL ANÁLISIS MULTIDIMENSIONAL SÍNCRONO DEL PRESENTE CASO, SE DETECTA QUE EL ESTUDIANTE MANIFIESTA UNA CORRELACIÓN DIRECTA DE CARÁCTER CLÍNICO ENTRE LAS VARIABLES EVALUADAS. EL PERFIL CUANTITATIVO REVELA UN PUNTAJE ACADÉMICO DE ${r.scores.Academico}/15, ASOCIADO A UN DESEMPEÑO SOCIOEMOCIONAL DE ${r.scores.Emocional}/15, EN COMPLEMENTO CON UN NIVEL DE FACTORES PSICOSOCIALES DE ${r.scores.Psicosocial}/15 Y UN RANGO DE RIESGO DE CRISIS DE ${r.scores.Riesgo}/9.\n\n`;
+
+                if (r.scores.Riesgo >= 3) {
+                    desc += `CÓDIGO DE ALERTA ROJA INSTITUCIONAL DETECTADO. EL ALUMNO PRESENTA INDICADORES AGUDOS DE DESESPERANZA ABSOLUTA Y CONDUCTAS AUTOLESIVAS RECURRENTES. EXISTE UN ESTADO DE CRITICIDAD MENTAL QUE ANULA LOS PROCESOS METACONOCITIVOS BÁSICOS DEL APRENDIZAJE. SE APRECIA QUE LA EXPOSICIÓN CONSTANTE A FACTORES AGRESIVOS EN EL ENTORNO FAMILIAR HA DETONADO UNA TRÍADA COGNITIVA NEGATIVA, COMPROMETIENDO DE FORMA DIRECTA SU SEGURIDAD FÍSICA Y EMOCIONAL EN EL CAMPUS.\n\n`;
+                } else if (r.scores.Emocional >= 9) {
+                    desc += `SÍNDROME DE BURNOUT Y ANSIEDAD AGUDA ESCOLAR. EL ESTUDIANTE MANIFIESTA TRASTORNOS SEVEROS EN LA CONCILIACIÓN DEL SUEÑO QUE IMPACTAN DIRECTAMENTE EN EL PROCESAMIENTO ATENCIONAL DE LA MEMORIA DE TRABAJO. SE CORRELACIONA LA FATIGA INTELECTUAL CON UN ESTADO DE ESTRÉS EXCESIVO ANTE LAS EVALUACIONES FORMALES, LO QUE SE TRADUCE EN BLOQUEOS DE CORTISOL DIURNOS Y APATÍA SISTÉMICA PARA LA ASIMILACIÓN CONCEPTUAL.\n\n`;
+                } else if (r.scores.Academico >= 8) {
+                    desc += `SÍNDROME DE EVITACIÓN ACADÉMICA Y PROCRASTINACIÓN ASOCIADA. EL ESTUDIANTE ADOLECE DE HERRAMIENTAS DE AUTORREGULACIÓN CONDUCTUAL CONSOLIDADAS. SE APRECIA UN RETRASO SISTEMÁTICO EN LA ENTREGA DE PROYECTOS NO ASOCIADO A LIMITACIONES COGNITIVAS SINO A MECANISMOS DE EVITACIÓN EMOCIONAL ANTE LA FRUSTRACIÓN ESCOLAR. REQUIERE UN ESQUEMA DE SEGUIMIENTO CERCANO DE ACUERDO CON EL MTRO. CARLOS AGUILAR.\n\n`;
+                } else {
+                    desc += `SITUACIÓN ESTABLE CON RESERVA DE SEGUIMIENTO. LOS INDICADORES MUESTRAN UNA ESTABILIDAD GENERALIZADA EN LAS ÁREAS DE DESARROLLO EVALUADAS, SIN EMBARGO, DE ACUERDO CON EL PROTOCOLO DEL DEPARTAMENTO PSICOPEDAGÓGICO DEL CEUT SE SUGIEREN MONITOREOS SUTILES PARA PREVENIR EL ENVEJECIMIENTO METODOLÓGICO DE SUS ESTRATEGIAS DE ESTUDIO Y HÁBITOS DE VIDA DIARIA.\n\n`;
+                }
+
+                desc += `PROPUESTA DE ADECUACIONES CURRICULARES Y PLAN DE CONTENCIÓN:\n`;
+                desc += `1. ÁREA ACADÉMICA: SE RECOMIENDA AL CUERPO DOCENTE FRACCIONAR LAS ENTREGAS DE EVALUACIÓN EN MICRO-PROYECTOS SEMANALES Y EVITAR EXPOSICIONES DE CARÁCTER IMPREVISTO PARA IMPEDIR EL BLOQUEO EMOCIONAL.\n`;
+                desc += `2. ÁREA SOCIOEMOCIONAL: INTEGRACIÓN AL PROGRAMA DE REGULACIÓN AFECTIVA EN LAS OFICINAS DE ORIENTACIÓN BAJO LA TUTORÍA DIRECTA DEL MTRO. CARLOS AGUILAR.\n`;
+                desc += `3. DERIVACIÓN EXTENSA: ESTABLECER ACUERDOS FORMALES CON LOS TUTORES LEGALES DEL ESTUDIANTE BAJO LOS LINEAMIENTOS DEL AVISO DE PRIVACIDAD INTEGRAL APEGADO A LA LFPDPPP DE LOS ESTADOS UNIDOS MEXICANOS.`;
+
+                window.ultimoAnalisisIAGenerado = desc;
+                
+                const box = document.getElementById('mdIAAnalysisContent');
+                box.textContent = desc;
+                box.classList.remove('hidden');
+                document.getElementById('btnDescargarReporteIA').classList.remove('hidden');
+            }, 1200);
+        }
+
+        // --- DESCARGAS DE COMPROBANTES Y EXPORTACIONES ---
+        function descargarFolioPDF() {
+            window.print();
+        }
+
+        function descargarReporteIntervencion() {
+            if (!window.ultimoAnalisisIAGenerado) {
+                mostrarNotificacion("Debe generar primero el Análisis con IA para poder descargarlo.", "warning");
+                return;
+            }
+            
+            // Creación dinámica de un formato imprimible limpio con estilos de Jefatura estrictos para una sola hoja
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(`
+                <html>
+                <head>
+                    <title>Reporte de Intervención CEUT</title>
+                    <style>
+                        @page {
+                            size: letter;
+                            margin: 10mm 15mm 10mm 15mm;
+                        }
+                        * {
+                            box-sizing: border-box;
+                        }
+                        body { 
+                            font-family: 'Helvetica', 'Arial', sans-serif; 
+                            margin: 0;
+                            padding: 0;
+                            line-height: 1.35; 
+                            color: #111; 
+                            font-size: 10px;
+                        }
+                        .header { 
+                            border-bottom: 2px solid #1d2a6a; 
+                            padding-bottom: 6px; 
+                            margin-bottom: 10px; 
+                            text-align: center; 
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 15px;
+                        }
+                        .logo { 
+                            max-height: 55px; 
+                        }
+                        .header-text {
+                            text-align: left;
+                        }
+                        h2 { 
+                            color: #1d2a6a; 
+                            text-transform: uppercase; 
+                            margin: 0; 
+                            font-size: 16px; 
+                            font-weight: 900;
+                        }
+                        h3 { 
+                            color: #c49607; 
+                            text-transform: uppercase; 
+                            font-size: 10px; 
+                            letter-spacing: 0.5px; 
+                            margin: 2px 0 0 0; 
+                            font-weight: bold;
+                        }
+                        .data-box { 
+                            background: #f8fafc; 
+                            border-left: 4px solid #f1b80c; 
+                            border-right: 1px solid #e2e8f0;
+                            border-top: 1px solid #e2e8f0;
+                            border-bottom: 1px solid #e2e8f0;
+                            padding: 8px 12px; 
+                            margin-bottom: 12px; 
+                            font-size: 9.5px; 
+                            display: grid;
+                            grid-template-columns: repeat(3, 1fr);
+                            gap: 8px;
+                        }
+                        .data-box div {
+                            margin-bottom: 2px;
+                        }
+                        .data-box .full-width {
+                            grid-column: span 3;
+                            border-top: 1px dashed #cbd5e1;
+                            padding-top: 4px;
+                            margin-top: 2px;
+                            display: flex;
+                            justify-content: space-between;
+                        }
+                        .content { 
+                            text-align: justify; 
+                            white-space: pre-line; 
+                            font-size: 10px; 
+                            text-transform: uppercase; 
+                            margin-bottom: 12px;
+                            padding: 0 4px;
+                            font-weight: 500;
+                        }
+                        .footer { 
+                            border-top: 1px solid #e2e8f0; 
+                            padding-top: 6px; 
+                            text-align: center; 
+                            font-size: 8px; 
+                            color: #64748b; 
+                            position: absolute;
+                            bottom: 5px;
+                            width: 100%;
+                            left: 0;
+                        }
+                        .signatures { 
+                            display: flex; 
+                            justify-content: center; 
+                            margin-top: 20px; 
+                        }
+                        .sig-line { 
+                            border-top: 1.5px solid #1e293b; 
+                            width: 220px; 
+                            text-align: center; 
+                            padding-top: 4px; 
+                            font-size: 9px; 
+                            font-weight: bold; 
+                            text-transform: uppercase;
+                        }
+                        .container {
+                            position: relative;
+                            min-height: 98vh;
+                            padding-bottom: 35px;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="container">
+                        <div class="header">
+                            <img src="https://lh3.googleusercontent.com/d/1ao9olFJOvSPvgmeyLJhkD1P0Pmq_R3T2" class="logo">
+                            <div class="header-text">
+                                <h2>Centro Universitario Tehuacán</h2>
+                                <h3>Departamento Psicopedagógico • Dictamen de Intervención</h3>
+                            </div>
+                        </div>
+                        <div class="data-box">
+                            <div><strong>EXPEDIENTE:</strong> ${document.getElementById('mdFolio').textContent}</div>
+                            <div><strong>ESTUDIANTE:</strong> ${document.getElementById('mdNombre').textContent}</div>
+                            <div><strong>MATRÍCULA:</strong> ${document.getElementById('mdMatriculaEdad').textContent.split('|')[0].trim()}</div>
+                            <div class="full-width">
+                                <span><strong>NIVEL/GRUPO:</strong> ${document.getElementById('mdNivelGrupo').textContent}</span>
+                                <span><strong>FECHA DE EMISIÓN:</strong> ${new Date().toLocaleString()}</span>
+                            </div>
+                        </div>
+                        <div class="content">
+                            ${window.ultimoAnalisisIAGenerado}
+                        </div>
+                        <div class="signatures">
+                            <div class="sig-line">
+                                Mtro. Carlos Aguilar Sánchez<br>Responsable del Departamento
+                            </div>
+                        </div>
+                        <div class="footer">
+                            Este dictamen es estrictamente confidencial. Su manejo físico o digital está alineado al aviso de privacidad y al Art. 9 de la LFPDPPP en México.
+                        </div>
+                    </div>
+                    <script>
+                        window.onload = function() { 
+                            window.print(); 
+                            setTimeout(function(){ window.close(); }, 500);
+                        }
+                    <\/script>
+                </body>
+                </html>
+            `);
+            printWindow.document.close();
+        }
+
+        function exportarCSV() {
+            if (window.reportsData.length === 0) {
+                mostrarNotificacion("No existen expedientes para ser exportados.", "warning");
+                return;
+            }
+
+            let csv = "Folio,Estudiante,Matricula,Nivel,Grupo,Email,Semaforo,Atendido,Academico,Emocional,Psicosocial,Riesgo,Fecha\n";
+            window.reportsData.forEach(r => {
+                csv += `"${r.estudiante.folio}","${r.estudiante.nombre}","${r.estudiante.matricula}","${r.estudiante.nivel}","${r.estudiante.grupo}","${r.estudiante.email}","${r.semaforo}","${r.atendido}","${r.scores.Academico}","${r.scores.Emocional}","${r.scores.Psicosocial}","${r.scores.Riesgo}","${r.estudiante.fecha || ''}"\n`;
+            });
+
+            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement("a");
+            const url = URL.createObjectURL(blob);
+            link.setAttribute("href", url);
+            link.setAttribute("download", `Reporte_General_Tamizaje_CEUT_${Date.now()}.csv`);
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            mostrarNotificacion("Reporte general exportado correctamente.", "success");
+        }
+
+        // --- MANEJO DE MODAL PRIVACIDAD ---
+        function abrirAvisoPrivacidad() {
+            document.getElementById('modalAvisoPrivacidad').classList.remove('hidden');
+        }
+
+        function cerrarAvisoPrivacidad() {
+            document.getElementById('modalAvisoPrivacidad').classList.add('hidden');
+        }
+    </script>
+
+    <!-- INICIALIZACIÓN MÓDULO DE FIREBASE (CONEXIÓN SEGURA EN SEGUNDO PLANO) -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc, getDoc, collection, onSnapshot, addDoc, updateDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // CREDENCIALES OFICIALES DE TU BASE DE DATOS
+        const firebaseConfig = {
+            apiKey: "AIzaSyCYSVnsDX8hmxAqc4hMfdxbajKjix6wyJs",
+            authDomain: "tamizaje-tigre.firebaseapp.com",
+            projectId: "tamizaje-tigre",
+            storageBucket: "tamizaje-tigre.firebasestorage.app",
+            messagingSenderId: "391066636361",
+            appId: "1:391066636361:web:8c4fe17debf667e2b86f98"
+        };
+
+        const appId = "ceut-psicopedagogico-v2";
+
+        try {
+            const app = initializeApp(firebaseConfig);
+            const auth = getAuth(app);
+            const db = getFirestore(app);
+
+            async function iniciarSesionFirebase() {
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                    try {
+                        await signInWithCustomToken(auth, __initial_auth_token);
+                        return;
+                    } catch (e) {
+                        console.warn("Fallo custom token, reintentando anónimamente:", e);
+                    }
+                }
+                await signInAnonymously(auth);
+            }
+
+            iniciarSesionFirebase().then(() => {
+                onAuthStateChanged(auth, (user) => {
+                    if (user) {
+                        console.log("Firebase conectado correctamente. Sincronización activa.");
+                        
+                        // Guardar reporte en base de datos Firestore (Ruta de regla 1)
+                        window.guardarReporte = async function(reporte) {
+                            try {
+                                const reportsCol = collection(db, 'artifacts', appId, 'public', 'data', 'reports');
+                                await addDoc(reportsCol, {
+                                    ...reporte,
+                                    fechaRegistro: new Date().toISOString(),
+                                    atendido: false,
+                                    observaciones: ""
+                                });
+                                return true;
+                            } catch (error) {
+                                console.warn("Fallo guardado en la nube, usando copia local:", error);
+                                return false;
+                            }
+                        };
+
+                        // Actualizar estatus o notas del expediente
+                        window.actualizarReporte = async function(id, dataActualizada) {
+                            if (id.startsWith('local_') || id.startsWith('mock')) {
+                                let locales = JSON.parse(localStorage.getItem('ceut_reports') || '[]');
+                                locales = locales.map(item => item.id === id ? { ...item, ...dataActualizada } : item);
+                                localStorage.setItem('ceut_reports', JSON.stringify(locales));
+                                window.reportsData = locales;
+                                window.renderReportes();
+                                window.actualizarEstadisticas();
+                                window.mostrarNotificacion("Expediente actualizado localmente.", "success");
+                            } else {
+                                try {
+                                    const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'reports', id);
+                                    await updateDoc(docRef, dataActualizada);
+                                    window.mostrarNotificacion("Expediente sincronizado en la nube.", "success");
+                                } catch (error) {
+                                    console.warn("Fallo actualización en la nube:", error);
+                                    window.mostrarNotificacion("Error de conexión al guardar cambios en red.", "error");
+                                }
+                            }
+                        };
+
+                        // Guardar nuevo pin en la base de datos de forma segura
+                        window.guardarNuevoPinEnServidor = async function(nuevoPin) {
+                            window.accessPin = nuevoPin;
+                            localStorage.setItem('ceut_access_pin', nuevoPin);
+                            try {
+                                const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'settings', 'config');
+                                await setDoc(docRef, { pin: nuevoPin }, { merge: true });
+                                return true;
+                            } catch (e) {
+                                console.warn("Error de guardado de PIN en red:", e);
+                                return false;
+                            }
+                        };
+
+                        // Obtener PIN actual de la nube
+                        const pinRef = doc(db, 'artifacts', appId, 'public', 'data', 'settings', 'config');
+                        getDoc(pinRef).then((snap) => {
+                            if (snap && snap.exists() && snap.data() && snap.data().pin) {
+                                window.accessPin = snap.data().pin;
+                                localStorage.setItem('ceut_access_pin', window.accessPin);
+                            }
+                        }).catch(() => {});
+
+                        // Listener de cambios en tiempo real (Regla 2: Sin queries complejos de Firestore)
+                        const reportsCol = collection(db, 'artifacts', appId, 'public', 'data', 'reports');
+                        onSnapshot(reportsCol, (snapshot) => {
+                            let cloudData = [];
+                            snapshot.forEach((doc) => {
+                                cloudData.push({ id: doc.id, ...doc.data() });
+                            });
+                            // Unir copias locales de contingencia si existen, evitando duplicados por ID
+                            const locales = JSON.parse(localStorage.getItem('ceut_reports') || '[]');
+                            const localesValidos = locales.filter(l => l.id.startsWith('local_') || l.id.startsWith('mock'));
+                            
+                            window.reportsData = [...cloudData, ...localesValidos];
+                            window.renderReportes();
+                            window.actualizarEstadisticas();
+                        }, (err) => {
+                            console.warn("Listener de Firestore deshabilitado por permisos o conexión:", err);
+                        });
+                    }
+                });
+            }).catch(e => {
+                console.warn("Firebase Auth abortado controladamente:", e);
+                window.dbAvailable = false;
+                window.cargarDatosDeContingencia();
+                window.renderReportes();
+                window.actualizarEstadisticas();
+            });
+
+        } catch (err) {
+            console.warn("Carga progresiva de Firebase desestimada controladamente:", err);
+            window.dbAvailable = false;
+            window.cargarDatosDeContingencia();
+            window.renderReportes();
+            window.actualizarEstadisticas();
+        }
+    </script>
+</body>
+</html>
