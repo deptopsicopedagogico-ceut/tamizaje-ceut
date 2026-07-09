@@ -214,22 +214,22 @@
                 <form id="formEstudiante" onsubmit="validarYComenzarTamizaje(event)" class="p-8 space-y-6">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
                         <div class="sm:col-span-2">
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Nombre Completo</label>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 font-bold">Nombre Completo</label>
                             <input type="text" id="stdNombre" required placeholder="EJ. ANA BELÉN GARCÍA PÉREZ" oninput="this.value = this.value.toUpperCase()" class="w-full px-4 py-3.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-sm uppercase">
                         </div>
 
                         <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Matrícula Escolar</label>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 font-bold">Matrícula Escolar</label>
                             <input type="text" id="stdMatricula" required placeholder="EJ. 24100523" oninput="this.value = this.value.toUpperCase()" class="w-full px-4 py-3.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-sm uppercase">
                         </div>
 
                         <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Edad</label>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 font-bold">Edad</label>
                             <input type="number" id="stdEdad" required min="12" max="99" placeholder="Ej. 18" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none focus:border-[#1d2a6a] text-sm">
                         </div>
 
                         <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Nivel Educativo</label>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 font-bold">Nivel Educativo</label>
                             <select id="stdNivel" required onchange="actualizarPlaceholderGrupo()" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none focus:border-[#1d2a6a] text-xs uppercase font-bold text-slate-800">
                                 <option value="" disabled selected>Selecciona tu nivel</option>
                                 <option value="Preparatoria">Preparatoria (CEUT)</option>
@@ -238,7 +238,7 @@
                         </div>
 
                         <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Modalidad</label>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 font-bold">Modalidad</label>
                             <select id="stdModalidad" required class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none focus:border-[#1d2a6a] text-xs uppercase font-bold text-slate-800">
                                 <option value="" disabled selected>Selecciona la modalidad</option>
                                 <option value="Escolarizado">Escolarizado</option>
@@ -247,17 +247,17 @@
                         </div>
 
                         <div class="sm:col-span-2">
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" id="lblGrupo">Semestre, Grupo o Carrera</label>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 font-bold" id="lblGrupo">Semestre, Grupo o Carrera</label>
                             <input type="text" id="stdGrupo" required placeholder="EJ. 6° SEMESTRE GRUPO A / LIC. EN ADMINISTRACIÓN" oninput="this.value = this.value.toUpperCase()" class="w-full px-4 py-3.5 rounded-lg border border-slate-300 focus:outline-none focus:border-[#1d2a6a] text-sm uppercase">
                         </div>
 
                         <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Correo Electrónico</label>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 font-bold">Correo Electrónico</label>
                             <input type="email" id="stdEmail" required placeholder="alumno@ceut.edu.mx" oninput="this.value = this.value.toLowerCase()" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none focus:border-[#1d2a6a] text-sm lowercase">
                         </div>
 
                         <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Teléfono Celular</label>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 font-bold">Teléfono Celular</label>
                             <input type="tel" id="stdTelefono" required placeholder="10 dígitos" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none focus:border-[#1d2a6a] text-sm">
                         </div>
                     </div>
@@ -925,8 +925,7 @@
                         scores: { Academico: 12, Emocional: 4, Psicosocial: 3, Riesgo: 0 },
                         semaforo: "Amarillo",
                         atendido: false,
-                        observaciones: "SE DETECTA FALTA DE CONCENTRACIÓN EN ASIGNATURAS LÓGICAS.",
-                        respuestas: { a1: 4, a2: 4, a3: 3, a4: 4, a5: 3, e1: 1, e2: 2, e3: 1, e4: 1, e5: 1, f1: 1, f2: 2, f3: 1, f4: 1, f5: 1, r1: 1, r2: 1, r3: 1 }
+                        observaciones: "SE DETECTA FALTA DE CONCENTRACIÓN EN ASIGNATURAS LÓGICAS."
                     }
                 ];
                 localStorage.setItem('ceut_reports', JSON.stringify(mockups));
@@ -1009,7 +1008,7 @@
             }
 
             window.estudianteActivo = {
-                nombre, matricula, edad, nivel, modalidad, group: grupo, grupo, email, telefono,
+                nombre, matricula, edad, nivel, modalidad, grupo, email, telefono,
                 folio: document.getElementById('txtFolioEstudiante').textContent,
                 fecha: new Date().toLocaleString()
             };
@@ -1783,6 +1782,215 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
             printWindow.document.close();
         };
 
+        function descargarReporteIntervencion() {
+            if (!window.ultimoAnalisisIAGenerado) {
+                window.mostrarNotificacion("Debe generar primero el Análisis con IA para poder descargarlo.", "warning");
+                return;
+            }
+            
+            const printWindow = window.open('', '_blank');
+            const formattedHTML = formatMarkdownToHtml(window.ultimoAnalisisIAGenerado);
+
+            printWindow.document.write(`
+                <html>
+                <head>
+                    <title>Reporte de Intervención CEUT</title>
+                    <style>
+                        @page {
+                            size: letter;
+                            margin: 10mm 15mm 10mm 15mm;
+                        }
+                        * {
+                            box-sizing: border-box;
+                        }
+                        body, html {
+                            height: 100%;
+                            margin: 0;
+                            padding: 0;
+                        }
+                        body { 
+                            font-family: 'Georgia', serif; 
+                            line-height: 1.35; 
+                            color: #111; 
+                            font-size: 9.5px;
+                        }
+                        .container {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+                            height: 100%;
+                            max-height: 100%;
+                        }
+                        .header { 
+                            border-bottom: 2px solid #1d2a6a; 
+                            padding-bottom: 5px; 
+                            margin-bottom: 10px; 
+                            display: flex;
+                            align-items: center;
+                            gap: 15px;
+                        }
+                        .logo { 
+                            max-height: 45px; 
+                        }
+                        .header-text {
+                            text-align: left;
+                        }
+                        h2 { 
+                            color: #1d2a6a; 
+                            text-transform: uppercase; 
+                            margin: 0; 
+                            font-size: 14px; 
+                            font-weight: bold;
+                        }
+                        h3 { 
+                            color: #c49607; 
+                            text-transform: uppercase; 
+                            font-size: 9px; 
+                            letter-spacing: 0.5px; 
+                            margin: 2px 0 0 0; 
+                            font-weight: bold;
+                        }
+                        .data-box { 
+                            background: #f8fafc; 
+                            border-left: 4px solid #f1b80c; 
+                            border-right: 1px solid #e2e8f0;
+                            border-top: 1px solid #e2e8f0;
+                            border-bottom: 1px solid #e2e8f0;
+                            padding: 6px 12px; 
+                            margin-bottom: 10px; 
+                            font-size: 9px; 
+                            display: grid;
+                            grid-template-columns: repeat(2, 1fr);
+                            gap: 4px;
+                        }
+                        .data-box .full-width {
+                            grid-column: span 2;
+                            border-top: 1px dashed #cbd5e1;
+                            padding-top: 4px;
+                            margin-top: 2px;
+                            display: flex;
+                            justify-content: space-between;
+                        }
+                        .content { 
+                            text-align: justify; 
+                            font-size: 9px; 
+                            margin-bottom: 10px;
+                        }
+                        .content p {
+                            margin-bottom: 8px;
+                            text-align: justify;
+                        }
+                        .content h4 {
+                            color: #1d2a6a;
+                            font-size: 10px;
+                            margin: 10px 0 4px 0;
+                            border-bottom: 1px solid #cbd5e1;
+                            padding-bottom: 2px;
+                            font-weight: bold;
+                        }
+                        .content li {
+                            margin-bottom: 3px;
+                            margin-left: 15px;
+                            list-style-type: square;
+                        }
+                        .footer { 
+                            border-top: 1px solid #e2e8f0; 
+                            padding-top: 5px; 
+                            text-align: center; 
+                            font-size: 7.5px; 
+                            color: #64748b; 
+                        }
+                        .signatures { 
+                            display: flex; 
+                            justify-content: center; 
+                            margin-top: 15px; 
+                        }
+                        .sig-line { 
+                            border-top: 1.5px solid #1e293b; 
+                            width: 220px; 
+                            text-align: center; 
+                            padding-top: 4px; 
+                            font-size: 8.5px; 
+                            font-weight: bold; 
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="container">
+                        <div>
+                            <div class="header">
+                                <img src="https://lh3.googleusercontent.com/d/1ao9olFJOvSPvgmeyLJhkD1P0Pmq_R3T2" class="logo">
+                                <div class="header-text">
+                                    <h2>Centro Universitario Tehuacán</h2>
+                                    <h3>Departamento Psicopedagógico • Dictamen de Intervención</h3>
+                                </div>
+                            </div>
+                            <div class="data-box">
+                                <div><strong>EXPEDIENTE:</strong> ${document.getElementById('mdFolio').textContent}</div>
+                                <div><strong>ESTUDIANTE:</strong> ${document.getElementById('mdNombre').textContent}</div>
+                                <div class="full-width">
+                                    <span><strong>NIVEL/GRUPO:</strong> ${document.getElementById('mdNivelGrupo').textContent}</span>
+                                    <span><strong>FECHA DE EMISIÓN:</strong> ${new Date().toLocaleString()}</span>
+                                </div>
+                            </div>
+                            <div class="content">
+                                ${formattedHTML}
+                            </div>
+                        </div>
+                        <div>
+                            <div class="signatures">
+                                <div class="sig-line">
+                                    Mtro. Carlos Aguilar Sánchez<br>Responsable del Departamento Psicopedagógico
+                                </div>
+                            </div>
+                            <div class="footer">
+                                Este dictamen es estrictamente confidencial. Su manejo físico o digital está alineado al aviso de privacidad y al Art. 9 de la LFPDPPP en México.
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        window.onload = function() { 
+                            window.print(); 
+                            setTimeout(function(){ window.close(); }, 500);
+                        }
+                    <\/script>
+                </body>
+                </html>
+            `);
+            printWindow.document.close();
+        }
+
+        function exportarCSV() {
+            if (window.reportsData.length === 0) {
+                window.mostrarNotificacion("No existen expedientes para ser exportados.", "warning");
+                return;
+            }
+
+            let csv = "Folio,Estudiante,Matricula,Nivel,Modalidad,Grupo,Email,Semaforo,Atendido,Academico,Emocional,Psicosocial,Riesgo,Fecha\n";
+            window.reportsData.forEach(r => {
+                csv += `"${r.estudiante.folio}","${r.estudiante.nombre}","${r.estudiante.matricula}","${r.estudiante.nivel}","${r.estudiante.modalidad || 'Escolarizado'}","${r.estudiante.grupo}","${r.estudiante.email}","${r.semaforo}","${r.atendido}","${r.scores.Academico}","${r.scores.Emocional}","${r.scores.Psicosocial}","${r.scores.Riesgo}","${r.estudiante.fecha || ''}"\n`;
+            });
+
+            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement("a");
+            const url = URL.createObjectURL(blob);
+            link.setAttribute("href", url);
+            link.setAttribute("download", `Reporte_General_Tamizaje_CEUT_${Date.now()}.csv`);
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            window.mostrarNotificacion("Reporte general exportado correctamente.", "success");
+        }
+
+        function abrirAvisoPrivacidad() {
+            document.getElementById('modalAvisoPrivacidad').classList.remove('hidden');
+        }
+
+        function cerrarAvisoPrivacidad() {
+            document.getElementById('modalAvisoPrivacidad').classList.add('hidden');
+        }
+
         // Cargar por primera vez folio y respaldos
         window.onload = function() {
             generarNuevoFolio();
@@ -1798,8 +2006,8 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
         import { getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, doc, setDoc, getDoc, collection, onSnapshot, addDoc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        // Credenciales provistas por el docente/desarrollador
-        const firebaseConfig = {
+        // CONFIGURACIÓN DINÁMICA COMPILADA DE ACUERDO CON LAS POLÍTICAS DE FIREBASE
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {
             apiKey: "AIzaSyCYSVnsDX8hmxAqc4hMfdxbajKjix6wyJs",
             authDomain: "tamizaje-tigre.firebaseapp.com",
             projectId: "tamizaje-tigre",
@@ -1808,14 +2016,15 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
             appId: "1:391066636361:web:8c4fe17debf667e2b86f98"
         };
 
-        const appId = "ceut-psicopedagogico-v2";
+        // Identificador dinámico de canal de red para evitar fallos por Permission Denied
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
 
         try {
             const app = initializeApp(firebaseConfig);
             const auth = getAuth(app);
             const db = getFirestore(app);
 
-            // Intentar forzar la conexión online persistentemente
+            // Intentar forzar la conexión online persistentemente de forma asíncrona
             const forzarConexionNube = async () => {
                 if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
                     try {
@@ -1844,14 +2053,14 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
                 window.actualizarIndicadorConexion('local');
             });
 
-            // Flujo prioritario: Iniciar sesión ANTES de configurar los Snapshot listeners
+            // Flujo prioritario: Iniciar sesión ANTES de configurar los Snapshot listeners (RULE 3)
             forzarConexionNube().then(() => {
                 onAuthStateChanged(auth, (user) => {
                     if (user) {
                         console.log("Sesión activa en Firebase. Sincronizando base de datos en la nube.");
                         window.actualizarIndicadorConexion('nube');
                         
-                        // Guardar reporte en base de datos Firestore
+                        // Guardar reporte en base de datos Firestore (Sincronizado con RULE 1)
                         window.guardarReporte = async function(reporte) {
                             if (!auth.currentUser) return false;
                             try {
@@ -1938,7 +2147,7 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
                             }
                         }).catch(() => {});
 
-                        // Listener activo y persistente en tiempo real de reportes de Firestore
+                        // Listener activo y persistente en tiempo real de reportes de Firestore (RULE 1)
                         const reportsCol = collection(db, 'artifacts', appId, 'public', 'data', 'reports');
                         onSnapshot(reportsCol, (snapshot) => {
                             let cloudData = [];
