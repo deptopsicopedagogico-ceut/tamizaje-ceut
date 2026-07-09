@@ -214,22 +214,22 @@
                 <form id="formEstudiante" onsubmit="validarYComenzarTamizaje(event)" class="p-8 space-y-6">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
                         <div class="sm:col-span-2">
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 font-bold">Nombre Completo</label>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Nombre Completo</label>
                             <input type="text" id="stdNombre" required placeholder="EJ. ANA BELÉN GARCÍA PÉREZ" oninput="this.value = this.value.toUpperCase()" class="w-full px-4 py-3.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-sm uppercase">
                         </div>
 
                         <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 font-bold">Matrícula Escolar</label>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Matrícula Escolar</label>
                             <input type="text" id="stdMatricula" required placeholder="EJ. 24100523" oninput="this.value = this.value.toUpperCase()" class="w-full px-4 py-3.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-sm uppercase">
                         </div>
 
                         <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 font-bold">Edad</label>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Edad</label>
                             <input type="number" id="stdEdad" required min="12" max="99" placeholder="Ej. 18" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none focus:border-[#1d2a6a] text-sm">
                         </div>
 
                         <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 font-bold">Nivel Educativo</label>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Nivel Educativo</label>
                             <select id="stdNivel" required onchange="actualizarPlaceholderGrupo()" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none border-[#1d2a6a] text-xs uppercase font-bold text-slate-800">
                                 <option value="" disabled selected>Selecciona tu nivel</option>
                                 <option value="Preparatoria">Preparatoria (CEUT)</option>
@@ -238,7 +238,7 @@
                         </div>
 
                         <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 font-bold">Modalidad</label>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Modalidad</label>
                             <select id="stdModalidad" required class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none border-[#1d2a6a] text-xs uppercase font-bold text-slate-800">
                                 <option value="" disabled selected>Selecciona la modalidad</option>
                                 <option value="Escolarizado">Escolarizado</option>
@@ -247,7 +247,7 @@
                         </div>
 
                         <div class="sm:col-span-2">
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 font-bold" id="lblGrupo">Semestre, Grupo o Carrera</label>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" id="lblGrupo">Semestre, Grupo o Carrera</label>
                             <input type="text" id="stdGrupo" required placeholder="EJ. 6° SEMESTRE GRUPO A / LIC. EN ADMINISTRACIÓN" oninput="this.value = this.value.toUpperCase()" class="w-full px-4 py-3.5 rounded-lg border border-slate-300 focus:outline-none border-[#1d2a6a] text-sm uppercase">
                         </div>
 
@@ -335,7 +335,7 @@
                             </label>
 
                             <label class="relative flex flex-col items-center justify-center p-5 border border-slate-200 rounded-2xl cursor-pointer hover:border-[#1d2a6a] hover:bg-blue-50/10 transition-all text-center group select-none shadow-xs" id="lblOpt3">
-                                <input type="radio" name="likertOption" id="opt3" value="3" class="sr-only" onchange="seleccionarOpcion(3)">
+                                <input type="radio" name="likertOption" id="opt3" value="3" class="block w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center mb-3 group-hover:border-[#1d2a6a] transition-all">
                                 <span class="block w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center mb-3 group-hover:border-[#1d2a6a] transition-all">
                                     <span class="dot-indicator w-2.5 h-2.5 rounded-full bg-[#1d2a6a] scale-0 transition-transform duration-200"></span>
                                 </span>
@@ -444,10 +444,10 @@
                     <p class="text-xs text-slate-500 uppercase leading-relaxed text-justify txt-justificado">Métricas globales de salud emocional, factores del entorno psicosocial, alerta de crisis e intervenciones de la institución.</p>
                 </div>
                 <div class="flex items-center gap-3 w-full md:w-auto">
-                    <button onclick="exportarCSV()" class="px-4 py-2.5 text-xs font-bold rounded-lg border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 transition-all flex items-center gap-1.5 shadow-xs uppercase font-bold">
+                    <button onclick="exportarCSV()" class="px-4 py-2.5 text-xs font-bold rounded-lg border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 transition-all flex items-center gap-1.5 shadow-xs uppercase">
                         Descargar Reporte (CSV)
                     </button>
-                    <button onclick="forzarActualizacion()" class="px-4 py-2.5 text-xs font-bold rounded-lg bg-slate-800 text-white hover:bg-slate-700 transition-all flex items-center gap-1.5 shadow-xs uppercase font-bold">
+                    <button onclick="forzarActualizacion()" class="px-4 py-2.5 text-xs font-bold rounded-lg bg-slate-800 text-white hover:bg-slate-700 transition-all flex items-center gap-1.5 shadow-xs uppercase">
                         Sincronizar
                     </button>
                 </div>
@@ -475,7 +475,7 @@
                     <div>
                         <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider">Riesgo Medio (Amarillo)</span>
                         <span id="metricRiesgoAmarillo" class="text-3xl font-black text-amber-500">0</span>
-                        <span class="block text-[10px] text-amber-600 font-semibold mt-1 uppercase font-bold font-bold">Seguimiento ordinario</span>
+                        <span class="block text-[10px] text-amber-600 font-semibold mt-1 uppercase font-bold">Seguimiento ordinario</span>
                     </div>
                 </div>
 
@@ -1559,7 +1559,7 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
                 const tieneRiesgo = r.scores.Riesgo >= 1;
                 
                 if (tieneRiesgo) {
-                    analisisSintesis += `la presencia de indicadores en el área de riesgo crítico de crisis exige una contención y monitoreo diario prioritario, dado que las rumiaciones persistentes anulan de manera sistemática los procesos normales de atención sostenida en el aula. `;
+                    analisisSintesis += `la presencia de indicadores en el área de riesgo crítico de crisis exige una contención y monitoreo diario prioritario, dado que las rumiaciones de desesperanza persistentes anulan de manera sistemática los procesos normales de atención sostenida en el aula. `;
                 }
                 if (tieneEmoc && tieneAcad) {
                     analisisSintesis += `la elevada carga de estrés y desregulación del afecto identificada se manifiesta directamente en su rendimiento intelectual, mermando los procesos metacognitivos de asimilación, memoria de trabajo y técnicas de estudio eficaces. `;
