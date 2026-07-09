@@ -214,23 +214,23 @@
                 <form id="formEstudiante" onsubmit="validarYComenzarTamizaje(event)" class="p-8 space-y-6">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
                         <div class="sm:col-span-2">
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Nombre Completo</label>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 font-bold">Nombre Completo</label>
                             <input type="text" id="stdNombre" required placeholder="EJ. ANA BELÉN GARCÍA PÉREZ" oninput="this.value = this.value.toUpperCase()" class="w-full px-4 py-3.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-sm uppercase">
                         </div>
 
                         <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Matrícula Escolar</label>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 font-bold">Matrícula Escolar</label>
                             <input type="text" id="stdMatricula" required placeholder="EJ. 24100523" oninput="this.value = this.value.toUpperCase()" class="w-full px-4 py-3.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-sm uppercase">
                         </div>
 
                         <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Edad</label>
-                            <input type="number" id="stdEdad" required min="12" max="99" placeholder="Ej. 18" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none border-[#1d2a6a] text-sm">
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 font-bold">Edad</label>
+                            <input type="number" id="stdEdad" required min="12" max="99" placeholder="Ej. 18" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none focus:border-[#1d2a6a] text-sm">
                         </div>
 
                         <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Nivel Educativo</label>
-                            <select id="stdNivel" required onchange="actualizarPlaceholderGrupo()" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none border-[#1d2a6a] text-xs uppercase font-bold text-slate-800">
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 font-bold">Nivel Educativo</label>
+                            <select id="stdNivel" required onchange="actualizarPlaceholderGrupo()" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none focus:border-[#1d2a6a] text-xs uppercase font-bold text-slate-800">
                                 <option value="" disabled selected>Selecciona tu nivel</option>
                                 <option value="Preparatoria">Preparatoria (CEUT)</option>
                                 <option value="Universidad">Universidad (CEUT)</option>
@@ -238,8 +238,8 @@
                         </div>
 
                         <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Modalidad</label>
-                            <select id="stdModalidad" required class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none border-[#1d2a6a] text-xs uppercase font-bold text-slate-800">
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 font-bold">Modalidad</label>
+                            <select id="stdModalidad" required class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none focus:border-[#1d2a6a] text-xs uppercase font-bold text-slate-800">
                                 <option value="" disabled selected>Selecciona la modalidad</option>
                                 <option value="Escolarizado">Escolarizado</option>
                                 <option value="Mixto">Mixto</option>
@@ -247,17 +247,17 @@
                         </div>
 
                         <div class="sm:col-span-2">
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" id="lblGrupo">Semestre, Grupo o Carrera</label>
-                            <input type="text" id="stdGrupo" required placeholder="EJ. 6° SEMESTRE GRUPO A / LIC. EN ADMINISTRACIÓN" oninput="this.value = this.value.toUpperCase()" class="w-full px-4 py-3.5 rounded-lg border border-slate-300 focus:outline-none border-[#1d2a6a] text-sm uppercase">
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 font-bold" id="lblGrupo">Semestre, Grupo o Carrera</label>
+                            <input type="text" id="stdGrupo" required placeholder="EJ. 6° SEMESTRE GRUPO A / LIC. EN ADMINISTRACIÓN" oninput="this.value = this.value.toUpperCase()" class="w-full px-4 py-3.5 rounded-lg border border-slate-300 focus:outline-none focus:border-[#1d2a6a] text-sm uppercase">
                         </div>
 
                         <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Correo Electrónico</label>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 font-bold">Correo Electrónico</label>
                             <input type="email" id="stdEmail" required placeholder="alumno@ceut.edu.mx" oninput="this.value = this.value.toLowerCase()" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none border-[#1d2a6a] text-sm lowercase">
                         </div>
 
                         <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Teléfono Celular</label>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 font-bold">Teléfono Celular</label>
                             <input type="tel" id="stdTelefono" required placeholder="10 dígitos" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none border-[#1d2a6a] text-sm">
                         </div>
                     </div>
@@ -768,7 +768,7 @@
             </div>
 
             <div class="p-6 overflow-y-auto space-y-4 text-xs text-slate-600 leading-relaxed font-semibold uppercase text-justify txt-justificado border-b font-semibold">
-                <p class="font-bold text-slate-900 text-sm tracking-tight font-bold">1. Identidad y Domicilio del Responsable</p>
+                <p class="font-bold text-slate-900 text-sm tracking-tight">1. Identidad y Domicilio del Responsable</p>
                 <p>El <strong>Centro Universitario Tehuacán (CEUT)</strong>, con domicilio en Tehuacán, Puebla, es responsable de recabar sus datos personales, del uso que se le de a los mismos y de su protección, a través del Responsable del Departamento Psicopedagógico.</p>
 
                 <p class="font-bold text-slate-900 text-sm font-bold">2. Datos Personales Sensibles Recabados</p>
@@ -936,7 +936,8 @@
                         scores: { Academico: 12, Emocional: 4, Psicosocial: 3, Riesgo: 0 },
                         semaforo: "Amarillo",
                         atendido: false,
-                        observaciones: "SE DETECTA FALTA DE CONCENTRACIÓN EN ASIGNATURAS LÓGICAS."
+                        observaciones: "SE DETECTA FALTA DE CONCENTRACIÓN EN ASIGNATURAS LÓGICAS.",
+                        respuestas: { a1: 4, a2: 4, a3: 3, a4: 4, a5: 3, e1: 1, e2: 2, e3: 1, e4: 1, e5: 1, f1: 1, f2: 2, f3: 1, f4: 1, f5: 1, r1: 1, r2: 1, r3: 1 }
                     }
                 ];
                 localStorage.setItem('ceut_reports', JSON.stringify(mockups));
@@ -1777,7 +1778,7 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
                                 </div>
                             </div>
                             <div class="footer">
-                                Este documento es un comprobante de cumplimiento administrative y confidencial. No representa un diagnóstico definitivo y es de uso interno exclusivo.
+                                Este documento es un comprobante de cumplimiento administrativo y confidencial. No representa un diagnóstico definitivo y es de uso interno exclusivo.
                             </div>
                         </div>
                     </div>
@@ -2020,7 +2021,7 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
         // CONFIGURACIÓN DINÁMICA COMPILADA PROPORCIONANDO FALLBACKS DE OBJETO SEGURO (EVITA SyntaxError AL CARGAR)
         let firebaseConfig;
         try {
-            firebaseConfig = typeof __firebase_config !== 'undefined' 
+            firebaseConfig = typeof __firebase_config !== 'undefined' && __firebase_config
                 ? (typeof __firebase_config === 'string' ? JSON.parse(__firebase_config) : __firebase_config)
                 : {
                     apiKey: "AIzaSyCYSVnsDX8hmxAqc4hMfdxbajKjix6wyJs",
@@ -2050,11 +2051,17 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
             const auth = getAuth(app);
             const db = getFirestore(app);
 
-            let autenticacionEnProgreso = true;
+            let unsubscribeReports = null;
+
+            // Función para fallback controlado si Firebase tiene problemas de dominio o red
+            const fallbackALocal = () => {
+                window.cargarDatosDeContingencia();
+                window.renderReportes();
+                window.actualizarEstadisticas();
+            };
 
             // Intentar forzar la conexión online persistentemente de forma asíncrona (RULE 3)
             const forzarConexionNube = async () => {
-                autenticacionEnProgreso = true;
                 window.actualizarIndicadorConexion('conectando');
                 if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
                     try {
@@ -2082,139 +2089,145 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
                 window.actualizarIndicadorConexion('local');
             });
 
+            const subscribeToFirestoreData = () => {
+                if (unsubscribeReports) unsubscribeReports();
+
+                const reportsCol = collection(db, 'artifacts', appId, 'public', 'data', 'reports');
+                unsubscribeReports = onSnapshot(reportsCol, (snapshot) => {
+                    let cloudData = [];
+                    snapshot.forEach((doc) => {
+                        cloudData.push({ id: doc.id, ...doc.data() });
+                    });
+                    const locales = JSON.parse(localStorage.getItem('ceut_reports') || '[]');
+                    const localesValidos = locales.filter(l => l.id.startsWith('local_') || l.id.startsWith('mock'));
+                    
+                    window.reportsData = [...cloudData, ...localesValidos];
+                    window.renderReportes();
+                    window.actualizarEstadisticas();
+                    window.actualizarIndicadorConexion('nube');
+                }, (err) => {
+                    console.warn("Firestore arrojó un error en la conexión activa:", err);
+                    // Si hay un error de permisos o dominio, mantenemos el indicador en local pero no rompemos el render
+                    window.actualizarIndicadorConexion('local');
+                    if (err.code === 'permission-denied' || err.code === 'unauthenticated') {
+                        window.mostrarNotificacion("Atención: Si utilizas tu base de datos de respaldo tamizaje-tigre, verifica que el dominio actual esté autorizado en la pestaña Auth de la Consola de Firebase.", "warning");
+                    }
+                    fallbackALocal();
+                });
+            };
+
+            const setupGlobalFirebaseOperations = (user) => {
+                // Guardar reporte en base de datos Firestore (Sincronizado con RULE 1)
+                window.guardarReporte = async function(reporte) {
+                    if (!auth.currentUser) return false;
+                    try {
+                        const reportsCol = collection(db, 'artifacts', appId, 'public', 'data', 'reports');
+                        await addDoc(reportsCol, {
+                            ...reporte,
+                            fechaRegistro: new Date().toISOString(),
+                            atendido: false,
+                            observaciones: ""
+                        });
+                        return true;
+                    } catch (error) {
+                        console.warn("Fallo guardado en la nube:", error);
+                        return false;
+                    }
+                };
+
+                // Actualizar estatus o notas del expediente
+                window.actualizarReporte = async function(id, dataActualizada) {
+                    if (id.startsWith('local_') || id.startsWith('mock')) {
+                        let locales = JSON.parse(localStorage.getItem('ceut_reports') || '[]');
+                        locales = locales.map(item => item.id === id ? { ...item, ...dataActualizada } : item);
+                        localStorage.setItem('ceut_reports', JSON.stringify(locales));
+                        window.reportsData = locales;
+                        window.renderReportes();
+                        window.actualizarEstadisticas();
+                        window.mostrarNotificacion("Expediente actualizado localmente.", "success");
+                    } else {
+                        if (!auth.currentUser) return;
+                        try {
+                            const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'reports', id);
+                            await updateDoc(docRef, dataActualizada);
+                            window.mostrarNotificacion("Expediente sincronizado en la nube.", "success");
+                        } catch (error) {
+                            console.warn("Fallo actualización en la nube:", error);
+                            window.mostrarNotificacion("Error de conexión al guardar cambios en red.", "error");
+                        }
+                    }
+                };
+
+                // Eliminar expediente de forma definitiva (Nube y Local)
+                window.eliminarReporte = async function(id) {
+                    if (id.startsWith('local_') || id.startsWith('mock')) {
+                        let locales = JSON.parse(localStorage.getItem('ceut_reports') || '[]');
+                        locales = locales.filter(item => item.id !== id);
+                        localStorage.setItem('ceut_reports', JSON.stringify(locales));
+                        window.reportsData = locales;
+                        window.renderReportes();
+                        window.actualizarEstadisticas();
+                        window.mostrarNotificacion("Expediente local eliminado.", "success");
+                    } else {
+                        if (!auth.currentUser) return;
+                        try {
+                            const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'reports', id);
+                            await deleteDoc(docRef);
+                            window.mostrarNotificacion("Expediente eliminado de la nube con éxito.", "success");
+                        } catch (error) {
+                            console.warn("Error al intentar de eliminar el archivo de la red:", error);
+                        }
+                    }
+                };
+
+                // Guardar nuevo pin en la base de datos de forma segura
+                window.guardarNuevoPinEnServidor = async function(nuevoPin) {
+                    window.accessPin = nuevoPin;
+                    localStorage.setItem('ceut_access_pin', nuevoPin);
+                    if (!auth.currentUser) return false;
+                    try {
+                        const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'settings', 'config');
+                        await setDoc(docRef, { pin: nuevoPin }, { merge: true });
+                        return true;
+                    } catch (e) {
+                        console.warn("Error de guardado de PIN en red:", e);
+                        return false;
+                    }
+                };
+
+                // Obtener PIN actual de la nube de forma asíncrona
+                const pinRef = doc(db, 'artifacts', appId, 'public', 'data', 'settings', 'config');
+                getDoc(pinRef).then((snap) => {
+                    if (snap && snap.exists() && snap.data() && snap.data().pin) {
+                        window.accessPin = snap.data().pin;
+                        localStorage.setItem('ceut_access_pin', window.accessPin);
+                    }
+                }).catch(() => {});
+            };
+
             // Flujo prioritario: Iniciar sesión ANTES de configurar los Snapshot listeners (RULE 3)
             forzarConexionNube().then(() => {
-                autenticacionEnProgreso = false;
                 onAuthStateChanged(auth, (user) => {
                     if (user) {
                         console.log("Firebase conectado correctamente. Sincronizando base de datos.");
                         window.actualizarIndicadorConexion('nube');
-                        
-                        // Guardar reporte en base de datos Firestore (Sincronizado con RULE 1)
-                        window.guardarReporte = async function(reporte) {
-                            if (!auth.currentUser) return false;
-                            try {
-                                const reportsCol = collection(db, 'artifacts', appId, 'public', 'data', 'reports');
-                                await addDoc(reportsCol, {
-                                    ...reporte,
-                                    fechaRegistro: new Date().toISOString(),
-                                    atendido: false,
-                                    observaciones: ""
-                                });
-                                return true;
-                            } catch (error) {
-                                console.warn("Fallo guardado en la nube:", error);
-                                return false;
-                            }
-                        };
-
-                        // Actualizar estatus o notas del expediente
-                        window.actualizarReporte = async function(id, dataActualizada) {
-                            if (id.startsWith('local_') || id.startsWith('mock')) {
-                                let locales = JSON.parse(localStorage.getItem('ceut_reports') || '[]');
-                                locales = locales.map(item => item.id === id ? { ...item, ...dataActualizada } : item);
-                                localStorage.setItem('ceut_reports', JSON.stringify(locales));
-                                window.reportsData = locales;
-                                window.renderReportes();
-                                window.actualizarEstadisticas();
-                                window.mostrarNotificacion("Expediente actualizado localmente.", "success");
-                            } else {
-                                if (!auth.currentUser) return;
-                                try {
-                                    const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'reports', id);
-                                    await updateDoc(docRef, dataActualizada);
-                                    window.mostrarNotificacion("Expediente sincronizado en la nube.", "success");
-                                } catch (error) {
-                                    console.warn("Fallo actualización en la nube:", error);
-                                    window.mostrarNotificacion("Error de conexión al guardar cambios en red.", "error");
-                                }
-                            }
-                        };
-
-                        // Eliminar expediente de forma definitiva (Nube y Local)
-                        window.eliminarReporte = async function(id) {
-                            if (id.startsWith('local_') || id.startsWith('mock')) {
-                                let locales = JSON.parse(localStorage.getItem('ceut_reports') || '[]');
-                                locales = locales.filter(item => item.id !== id);
-                                localStorage.setItem('ceut_reports', JSON.stringify(locales));
-                                window.reportsData = locales;
-                                window.renderReportes();
-                                window.actualizarEstadisticas();
-                                window.mostrarNotificacion("Expediente local eliminado.", "success");
-                            } else {
-                                if (!auth.currentUser) return;
-                                try {
-                                    const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'reports', id);
-                                    await deleteDoc(docRef);
-                                    window.mostrarNotificacion("Expediente eliminado de la nube con éxito.", "success");
-                                } catch (error) {
-                                    console.warn("Error al intentar de eliminar el archivo de la red:", error);
-                                }
-                            }
-                        };
-
-                        // Guardar nuevo pin en la base de datos de forma segura
-                        window.guardarNuevoPinEnServidor = async function(nuevoPin) {
-                            window.accessPin = nuevoPin;
-                            localStorage.setItem('ceut_access_pin', nuevoPin);
-                            if (!auth.currentUser) return false;
-                            try {
-                                const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'settings', 'config');
-                                await setDoc(docRef, { pin: nuevoPin }, { merge: true });
-                                return true;
-                            } catch (e) {
-                                console.warn("Error de guardado de PIN en red:", e);
-                                return false;
-                            }
-                        };
-
-                        // Obtener PIN actual de la nube de forma asíncrona
-                        const pinRef = doc(db, 'artifacts', appId, 'public', 'data', 'settings', 'config');
-                        getDoc(pinRef).then((snap) => {
-                            if (snap && snap.exists() && snap.data() && snap.data().pin) {
-                                window.accessPin = snap.data().pin;
-                                localStorage.setItem('ceut_access_pin', window.accessPin);
-                            }
-                        }).catch(() => {});
-
-                        // Listener activo y persistente en tiempo real de reportes de Firestore (RULE 1)
-                        const reportsCol = collection(db, 'artifacts', appId, 'public', 'data', 'reports');
-                        onSnapshot(reportsCol, (snapshot) => {
-                            let cloudData = [];
-                            snapshot.forEach((doc) => {
-                                cloudData.push({ id: doc.id, ...doc.data() });
-                            });
-                            const locales = JSON.parse(localStorage.getItem('ceut_reports') || '[]');
-                            const localesValidos = locales.filter(l => l.id.startsWith('local_') || l.id.startsWith('mock'));
-                            
-                            window.reportsData = [...cloudData, ...localesValidos];
-                            window.renderReportes();
-                            window.actualizarEstadisticas();
-                            window.actualizarIndicadorConexion('nube');
-                        }, (err) => {
-                            console.warn("Firestore arrojó un error en la conexión activa:", err);
-                            window.actualizarIndicadorConexion('local');
-                        });
+                        setupGlobalFirebaseOperations(user);
+                        subscribeToFirestoreData();
                     } else {
-                        if (!autenticacionEnProgreso) {
-                            window.actualizarIndicadorConexion('local');
-                        }
+                        window.actualizarIndicadorConexion('local');
+                        fallbackALocal();
                     }
                 });
             }).catch(e => {
                 console.warn("Fallo general de Firebase Auth:", e);
                 window.actualizarIndicadorConexion('local');
-                window.cargarDatosDeContingencia();
-                window.renderReportes();
-                window.actualizarEstadisticas();
+                fallbackALocal();
             });
 
         } catch (err) {
             console.warn("Error crítico de inicialización de scripts de Firebase:", err);
             window.actualizarIndicadorConexion('local');
-            window.cargarDatosDeContingencia();
-            window.renderReportes();
-            window.actualizarEstadisticas();
+            fallbackALocal();
         }
     </script>
 </body>
