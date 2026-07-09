@@ -300,7 +300,7 @@
                     <div class="flex items-center gap-3">
                         <img src="https://lh3.googleusercontent.com/d/1ao9olFJOvSPvgmeyLJhkD1P0Pmq_R3T2" alt="Logo" class="w-8 h-8 object-contain">
                         <div>
-                            <span id="txtCategoriaCuestionario" class="inline-block px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-widest bg-blue-100 text-[#1d2a6a]">ACADÉMICO</span>
+                            <span id="txtCategoriaCuestionario" class="inline-block px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-blue-100 text-[#1d2a6a]">ACADÉMICO</span>
                             <h3 class="text-lg font-bold text-slate-900 mt-1 uppercase font-black">Diagnóstico de Estudiantes</h3>
                         </div>
                     </div>
@@ -327,7 +327,7 @@
                             
                             <label class="relative flex flex-col items-center justify-center p-5 border border-slate-200 rounded-2xl cursor-pointer hover:border-[#1d2a6a] hover:bg-blue-50/10 transition-all text-center group select-none shadow-xs" id="lblOpt2">
                                 <input type="radio" name="likertOption" id="opt2" value="2" class="sr-only" onchange="seleccionarOpcion(2)">
-                                <span class="w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center mb-3 group-hover:border-[#1d2a6a] transition-all">
+                                <span class="block w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center mb-3 group-hover:border-[#1d2a6a] transition-all">
                                     <span class="dot-indicator w-2.5 h-2.5 rounded-full bg-[#1d2a6a] scale-0 transition-transform duration-200"></span>
                                 </span>
                                 <span class="block text-sm font-black text-slate-800 uppercase">A veces</span>
@@ -475,7 +475,7 @@
                     <div>
                         <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider">Riesgo Medio (Amarillo)</span>
                         <span id="metricRiesgoAmarillo" class="text-3xl font-black text-amber-500">0</span>
-                        <span class="block text-[10px] text-amber-600 font-semibold mt-1 uppercase font-bold font-bold">Seguimiento ordinario</span>
+                        <span class="block text-[10px] text-amber-600 font-semibold mt-1 uppercase font-bold">Seguimiento ordinario</span>
                     </div>
                 </div>
 
@@ -647,7 +647,7 @@
                         <span id="mdBadgeAcademico" class="inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase border">--</span>
                     </div>
                     <div class="p-4 rounded-xl border border-slate-100 shadow-xs text-center space-y-1 bg-white flex flex-col justify-between border">
-                        <span class="block text-xs font-bold text-slate-400 uppercase">Área Socioemocional</span>
+                        <span class="block text-xs font-bold text-slate-400 uppercase">Area Socioemocional</span>
                         <div class="text-xl font-black text-slate-800 my-2"><span id="mdScoreEmocional">0</span> / 15</div>
                         <span id="mdBadgeEmocional" class="inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase border">--</span>
                     </div>
@@ -1259,7 +1259,7 @@
 
                 const isAtendido = (r.atendido === true || r.atendido === "true");
                 const badgeAtendido = isAtendido ? 
-                    `<span class="px-2 py-1 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 font-bold font-bold">✔ RESUELTO</span>` :
+                    `<span class="px-2 py-1 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 font-bold">✔ RESUELTO</span>` :
                     `<span class="px-2 py-1 rounded bg-slate-100 text-slate-600 border border-slate-200">⏳ PENDIENTE</span>`;
 
                 tr.innerHTML = `
@@ -1949,36 +1949,22 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
         };
     </script>
 
-    <!-- INICIALIZACIÓN MÓDULO DE FIREBASE CON SINCRO EN TIEMPO REAL INMEDIATA -->
+    <!-- INICIALIZACIÓN MÓDULO DE FIREBASE CON EXTRACCIÓN SÍNCRONA SEGUIDA (RULES 1, 2, 3) -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, doc, setDoc, getDoc, collection, onSnapshot, addDoc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        // PROCESADOR INTELIGENTE DE CREDENCIALES (RULE 1 & 3)
+        // PROCESADOR SEGURO DE CONFIGURACIONES DE RED
         let firebaseConfig;
-        let appId;
-        const isSandbox = typeof __firebase_config !== 'undefined' && __firebase_config;
-
-        if (isSandbox) {
+        if (typeof __firebase_config !== 'undefined' && __firebase_config) {
             try {
-                // El entorno virtual inyecta el objeto parseado directo o stringificado
                 firebaseConfig = typeof __firebase_config === 'string' ? JSON.parse(__firebase_config) : __firebase_config;
-                appId = typeof __app_id !== 'undefined' ? __app_id : 'ceut-psicopedagogico-v2';
             } catch (e) {
-                console.warn("Fallo inyección Sandbox, cargando configuración de respaldo:", e);
-                firebaseConfig = {
-                    apiKey: "AIzaSyCYSVnsDX8hmxAqc4hMfdxbajKjix6wyJs",
-                    authDomain: "tamizaje-tigre.firebaseapp.com",
-                    projectId: "tamizaje-tigre",
-                    storageBucket: "tamizaje-tigre.firebasestorage.app",
-                    messagingSenderId: "391066636361",
-                    appId: "1:391066636361:web:8c4fe17debf667e2b86f98"
-                };
-                appId = "ceut-psicopedagogico-v2";
+                console.warn("Utilizando objeto directo de configuración:", e);
+                firebaseConfig = __firebase_config;
             }
         } else {
-            // Entorno de producción (GitHub Pages o Servidor propio de CEUT)
             firebaseConfig = {
                 apiKey: "AIzaSyCYSVnsDX8hmxAqc4hMfdxbajKjix6wyJs",
                 authDomain: "tamizaje-tigre.firebaseapp.com",
@@ -1987,8 +1973,9 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
                 messagingSenderId: "391066636361",
                 appId: "1:391066636361:web:8c4fe17debf667e2b86f98"
             };
-            appId = "ceut-psicopedagogico-v2";
         }
+
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'ceut-psicopedagogico-v2';
 
         try {
             const app = initializeApp(firebaseConfig);
@@ -1996,7 +1983,6 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
             const db = getFirestore(app);
 
             let unsubscribeReports = null;
-            let isAuthenticating = true; // SEMÁFORO DE CONTROL SÍNCRONO
 
             const fallbackALocal = () => {
                 window.cargarDatosDeContingencia();
@@ -2004,42 +1990,13 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
                 window.actualizarEstadisticas();
             };
 
-            // Intento de conexión con Auth robusta (RULE 3 MANDATORIA)
-            const iniciarAutenticacionFirebase = async () => {
-                window.actualizarIndicadorConexion('conectando');
-                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                    try {
-                        await signInWithCustomToken(auth, __initial_auth_token);
-                        return;
-                    } catch (e) {
-                        console.warn("Token custom rechazado, intentando de manera anónima:", e);
-                    }
-                }
-                await signInAnonymously(auth);
-            };
-
-            // Escuchar cambios de red para persistencia
-            window.addEventListener('online', async () => {
-                window.mostrarNotificacion("Se ha detectado red. Sincronizando con Firebase Cloud...", "info");
-                try {
-                    await iniciarAutenticacionFirebase();
-                } catch(e) {
-                    console.error("Error reconectando Firebase:", e);
-                }
-            });
-
-            window.addEventListener('offline', () => {
-                window.mostrarNotificacion("Conexión de red perdida. Los cambios se guardarán localmente.", "warning");
-                window.actualizarIndicadorConexion('local');
-            });
-
-            // Suscribir al canal de Firestore en tiempo real (Ruta Estricta - RULE 1)
-            const subscribeToFirestoreData = () => {
+            const subscribeToFirestoreData = (user) => {
+                if (!user) return;
                 if (unsubscribeReports) unsubscribeReports();
-                
-                // Conectando exactamente a la colección bajo la ruta validada de la institución
+
+                // Conectando exactamente a la ruta paramétrica obligada por el entorno (RULE 1)
                 const reportsCol = collection(db, 'artifacts', appId, 'public', 'data', 'reports');
-                
+
                 unsubscribeReports = onSnapshot(reportsCol, (snapshot) => {
                     let cloudData = [];
                     snapshot.forEach((doc) => {
@@ -2053,14 +2010,16 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
                     window.actualizarEstadisticas();
                     window.actualizarIndicadorConexion('nube');
                 }, (err) => {
-                    console.warn("Firestore bloqueado por políticas o dominio:", err);
+                    console.warn("Firestore bloqueado temporalmente por permisos o red:", err);
                     window.actualizarIndicadorConexion('local');
                     fallbackALocal();
                 });
             };
 
-            const setupGlobalFirebaseOperations = () => {
-                // Operación de Guardado Seguro (RULE 1: Ruta parametrizada por AppID)
+            const setupGlobalFirebaseOperations = (user) => {
+                if (!user) return;
+
+                // Guardado síncrono mapeado (RULE 1)
                 window.guardarReporte = async function(reporte) {
                     if (!auth.currentUser) return false;
                     try {
@@ -2073,7 +2032,7 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
                         });
                         return true;
                     } catch (error) {
-                        console.warn("Fallo guardado en la nube:", error);
+                        console.error("Fallo guardado en la nube:", error);
                         return false;
                     }
                 };
@@ -2094,7 +2053,7 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
                             await updateDoc(docRef, dataActualizada);
                             window.mostrarNotificacion("Expediente sincronizado en la nube.", "success");
                         } catch (error) {
-                            console.warn("Fallo actualización en la nube:", error);
+                            console.error("Fallo actualización en la nube:", error);
                             window.mostrarNotificacion("Error de conexión al guardar cambios en red.", "error");
                         }
                     }
@@ -2116,7 +2075,7 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
                             await deleteDoc(docRef);
                             window.mostrarNotificacion("Expediente dado de baja de la nube con éxito.", "success");
                         } catch (error) {
-                            console.warn("Error al intentar de eliminar el archivo de la red:", error);
+                            console.error("Error al intentar de eliminar el archivo de la red:", error);
                         }
                     }
                 };
@@ -2144,37 +2103,54 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
                 }).catch(() => {});
             };
 
-            // Suscribir al estado de la sesión de Firebase
-            onAuthStateChanged(auth, (user) => {
-                if (user) {
-                    console.log("Sesión establecida con éxito en la nube.");
-                    isAuthenticating = false;
-                    window.actualizarIndicadorConexion('nube');
-                    setupGlobalFirebaseOperations();
-                    subscribeToFirestoreData();
-                } else {
-                    if (!isAuthenticating) {
-                        window.actualizarIndicadorConexion('local');
-                        fallbackALocal();
+            // Flujo asíncrono secuencial prioritario (RULE 3 - AUTH PRIMERO)
+            const arrancarEstablecimientoConexion = async () => {
+                window.actualizarIndicadorConexion('conectando');
+                try {
+                    let userCredential;
+                    if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                        userCredential = await signInWithCustomToken(auth, __initial_auth_token);
                     } else {
-                        // Carga preventivo silencioso durante la negociación asíncrona para ser responsivo
-                        fallbackALocal();
+                        userCredential = await signInAnonymously(auth);
                     }
+
+                    const user = userCredential.user;
+                    if (user) {
+                        console.log("Sesión establecida con éxito en la nube.");
+                        window.actualizarIndicadorConexion('nube');
+                        setupGlobalFirebaseOperations(user);
+                        subscribeToFirestoreData(user);
+                    } else {
+                        throw new Error("No se obtuvo credencial de usuario.");
+                    }
+
+                } catch (err) {
+                    console.warn("Fallo de autenticación Firebase. Iniciando en modo local seguro:", err);
+                    window.actualizarIndicadorConexion('local');
+                    fallbackALocal();
                 }
+            };
+
+            // Escuchar cambios de red para persistencia
+            window.addEventListener('online', () => {
+                window.mostrarNotificacion("Se ha detectado red. Restableciendo conexión a Firebase Cloud...", "info");
+                arrancarEstablecimientoConexion();
             });
 
-            // Disparar flujo asíncrono inicial (RULE 3)
-            iniciarAutenticacionFirebase().catch(e => {
-                console.warn("Autenticación inicial denegada:", e);
-                isAuthenticating = false;
+            window.addEventListener('offline', () => {
+                window.mostrarNotificacion("Conexión de red perdida. Los cambios se guardarán localmente.", "warning");
                 window.actualizarIndicadorConexion('local');
-                fallbackALocal();
             });
+
+            // Disparar secuencia
+            arrancarEstablecimientoConexion();
 
         } catch (err) {
             console.warn("Error crítico inicializando Firebase SDK:", err);
             window.actualizarIndicadorConexion('local');
-            fallbackALocal();
+            window.cargarDatosDeContingencia();
+            window.renderReportes();
+            window.actualizarEstadisticas();
         }
     </script>
 </body>
