@@ -812,6 +812,55 @@
 
     <!-- LÓGICA DE APLICACIÓN COMPLETA -->
     <script>
+        // --- REACTIVOS OFICIALES DEL TAMIZAJE (18 REACTIVOS EN 4 DIMENSIONES) ---
+        window.reactivos = [
+            { id: "a1", cat: "ACADÉMICO", texto: "Dificultades de concentración prolongada en aula y casa" },
+            { id: "a2", cat: "ACADÉMICO", texto: "Eficacia de hábitos y técnicas de estudio actuales" },
+            { id: "a3", cat: "ACADÉMICO", texto: "Organización del tiempo, procrastinación y postergación de tareas" },
+            { id: "a4", cat: "ACADÉMICO", texto: "Comprensión lectora compleja y razonamiento analítico" },
+            { id: "a5", cat: "ACADÉMICO", texto: "Desmotivación, desgana y agotamiento extremo (Burnout académico)" },
+            
+            { id: "e1", cat: "SOCIOEMOCIONAL", texto: "Tristeza profunda, vacío, desánimo absoluto" },
+            { id: "e2", cat: "SOCIOEMOCIONAL", texto: "Estrés excesivo, ansiedad incontrolable y bloqueos en exámenes" },
+            { id: "e3", cat: "SOCIOEMOCIONAL", texto: "Trastornos de conciliación del sueño y angustia nocturna" },
+            { id: "e4", cat: "SOCIOEMOCIONAL", texto: "Irritabilidad constante, baja tolerancia a la frustración y enojo" },
+            { id: "e5", cat: "SOCIOEMOCIONAL", texto: "Pérdida de interés en convivir, aislamiento voluntario (Anhedonia)" },
+            
+            { id: "f1", cat: "PSICOSOCIAL", texto: "Violencia intrafamiliar y ambiente disfuncional en el hogar" },
+            { id: "f2", cat: "PSICOSOCIAL", texto: "Preocupaciones económicas severas (materiales, colegiatura, alimentación)" },
+            { id: "f3", cat: "PSICOSOCIAL", texto: "Carencia de un espacio físico adecuado para el estudio en casa" },
+            { id: "f4", cat: "PSICOSOCIAL", texto: "Vivencia de rechazo, exclusión o acoso escolar (Bullying)" },
+            { id: "f5", cat: "PSICOSOCIAL", texto: "Malestares físicos recurrentes o dependencia de sustancias" },
+            
+            { id: "r1", cat: "RIESGO / CRISIS", texto: "Ideación suicida (Pérdida del sentido de la vida)" },
+            { id: "r2", cat: "RIESGO / CRISIS", texto: "Impulsos autolesivos no suicidas (NSSI)" },
+            { id: "r3", cat: "RIESGO / CRISIS", texto: "Desesperanza absoluta sobre el porvenir" }
+        ];
+
+        // --- SISTEMA DE NOTIFICACIONES CUSTOMIZADO (EVITA ALERT CONSOLE CRASHES) ---
+        window.mostrarNotificacion = function(mensaje, tipo = 'info') {
+            const container = document.getElementById('notificacionContainer');
+            if (!container) return;
+            const notif = document.createElement('div');
+            let bgColors = "bg-blue-600 text-white";
+            if (tipo === 'success') bgColors = "bg-emerald-600 text-white border-emerald-500/30";
+            else if (tipo === 'warning') bgColors = "bg-amber-500 text-slate-950 border-amber-400/30";
+            else if (tipo === 'error') bgColors = "bg-rose-600 text-white border-rose-500/30";
+            
+            notif.className = `${bgColors} px-4 py-3 rounded-xl shadow-lg border font-bold text-xs uppercase tracking-wider flex items-center gap-2 pointer-events-auto transition-all duration-300 transform translate-x-10 opacity-0`;
+            notif.innerHTML = `<span>⚡</span> <span>${mensaje}</span>`;
+            
+            container.appendChild(notif);
+            setTimeout(() => {
+                notif.classList.remove('translate-x-10', 'opacity-0');
+            }, 10);
+            
+            setTimeout(() => {
+                notif.classList.add('translate-x-10', 'opacity-0');
+                setTimeout(() => notif.remove(), 300);
+            }, 4000);
+        };
+
         // --- ESTADO LOCAL SÍNCRONO ---
         window.reportsData = [];
         window.estudianteActivo = null;
@@ -825,7 +874,7 @@
         window.bajaPendienteId = null;
 
         // --- FUNCIÓN SÍNCRONA PARA ACTUALIZAR INDICADOR DE CONEXIÓN ---
-        window.actualizarIndicadorConexion = function(status) {
+        window.actualizarIndicadorConexion = function(status, errorMsg = '') {
             const badge = document.getElementById('dbStatusBadge');
             const floatDot = document.getElementById('floatingDbStatusDot');
             const floatText = document.getElementById('floatingDbStatusText');
@@ -863,7 +912,7 @@
                     floatDot.className = "w-2.5 h-2.5 rounded-full bg-rose-500 animate-pulse shadow-lg shadow-rose-500/50";
                 }
                 if (floatText) {
-                    floatText.textContent = "Modo Local (Sin conexión)";
+                    floatText.textContent = errorMsg ? `Modo Local: ${errorMsg}` : "Modo Local (Sin conexión)";
                 }
             }
         };
@@ -1406,6 +1455,24 @@
             window.bajaPendienteId = null;
             document.getElementById('confirmEliminarModal').classList.add('hidden');
         }
+
+        // --- MANEJO DE ELIMINACIÓN DE REGISTROS ---
+        document.getElementById('btnConfirmarEliminarAccion').onclick = async function() {
+            if (window.bajaPendienteId) {
+                if (window.eliminarReporte) {
+                    await window.eliminarReporte(window.bajaPendienteId);
+                } else {
+                    let locales = JSON.parse(localStorage.getItem('ceut_reports') || '[]');
+                    locales = locales.filter(item => item.id !== window.bajaPendienteId);
+                    localStorage.setItem('ceut_reports', JSON.stringify(locales));
+                    window.reportsData = locales;
+                    window.renderReportes();
+                    window.actualizarEstadisticas();
+                    window.mostrarNotificacion("Expediente local eliminado.", "success");
+                }
+                cerrarConfirmEliminar();
+            }
+        };
 
         // --- PARSER DE MARKDOWN A HTML SANITIZADO ---
         function formatMarkdownToHtml(text) {
@@ -2020,7 +2087,7 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
                     window.actualizarIndicadorConexion('nube');
                 }, (err) => {
                     console.warn("Firestore bloqueado temporalmente por permisos o red:", err);
-                    window.actualizarIndicadorConexion('local');
+                    window.actualizarIndicadorConexion('local', err.message || err.code);
                     window.mostrarNotificacion("⚠️ Firestore desconectado: " + err.message, "warning");
                     fallbackALocal();
                 });
@@ -2086,6 +2153,7 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
                             window.mostrarNotificacion("Expediente dado de baja de la nube con éxito.", "success");
                         } catch (error) {
                             console.error("Error al intentar de eliminar el archivo de la red:", error);
+                            window.mostrarNotificacion("Error al intentar eliminar el registro.", "error");
                         }
                     }
                 };
@@ -2141,8 +2209,8 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
 
                 } catch (err) {
                     console.warn("Fallo de autenticación Firebase. Iniciando en modo local seguro:", err);
-                    window.actualizarIndicadorConexion('local');
-                    window.mostrarNotificacion("⚠️ Error de autenticación Firebase: " + err.message, "warning");
+                    window.actualizarIndicadorConexion('local', err.code || err.message);
+                    window.mostrarNotificacion("⚠️ Error de autenticación Firebase: " + (err.code || err.message), "warning");
                     fallbackALocal();
                 }
             };
@@ -2155,7 +2223,7 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
 
             window.addEventListener('offline', () => {
                 window.mostrarNotificacion("Conexión de red perdida. Los cambios se guardarán localmente.", "warning");
-                window.actualizarIndicadorConexion('local');
+                window.actualizarIndicadorConexion('local', 'Offline (Sin red)');
             });
 
             // Disparar secuencia
@@ -2163,7 +2231,7 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
 
         } catch (err) {
             console.warn("Error crítico inicializando Firebase SDK:", err);
-            window.actualizarIndicadorConexion('local');
+            window.actualizarIndicadorConexion('local', err.message || err);
             window.mostrarNotificacion("⚠️ Error crítico de base de datos: " + err.message, "error");
             window.cargarDatosDeContingencia();
             window.renderReportes();
