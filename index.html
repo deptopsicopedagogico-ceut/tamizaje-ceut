@@ -214,23 +214,23 @@
                 <form id="formEstudiante" onsubmit="validarYComenzarTamizaje(event)" class="p-8 space-y-6">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
                         <div class="sm:col-span-2">
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 font-bold">Nombre Completo</label>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Nombre Completo</label>
                             <input type="text" id="stdNombre" required placeholder="EJ. ANA BELÉN GARCÍA PÉREZ" oninput="this.value = this.value.toUpperCase()" class="w-full px-4 py-3.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-sm uppercase">
                         </div>
 
                         <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 font-bold">Matrícula Escolar</label>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Matrícula Escolar</label>
                             <input type="text" id="stdMatricula" required placeholder="EJ. 24100523" oninput="this.value = this.value.toUpperCase()" class="w-full px-4 py-3.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-sm uppercase">
                         </div>
 
                         <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 font-bold">Edad</label>
-                            <input type="number" id="stdEdad" required min="12" max="99" placeholder="Ej. 18" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none focus:border-[#1d2a6a] text-sm">
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Edad</label>
+                            <input type="number" id="stdEdad" required min="12" max="99" placeholder="Ej. 18" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none border-[#1d2a6a] text-sm">
                         </div>
 
                         <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 font-bold">Nivel Educativo</label>
-                            <select id="stdNivel" required onchange="actualizarPlaceholderGrupo()" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none focus:border-[#1d2a6a] text-xs uppercase font-bold text-slate-800">
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Nivel Educativo</label>
+                            <select id="stdNivel" required onchange="actualizarPlaceholderGrupo()" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none border-[#1d2a6a] text-xs uppercase font-bold text-slate-800">
                                 <option value="" disabled selected>Selecciona tu nivel</option>
                                 <option value="Preparatoria">Preparatoria (CEUT)</option>
                                 <option value="Universidad">Universidad (CEUT)</option>
@@ -238,8 +238,8 @@
                         </div>
 
                         <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 font-bold">Modalidad</label>
-                            <select id="stdModalidad" required class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none focus:border-[#1d2a6a] text-xs uppercase font-bold text-slate-800">
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Modalidad</label>
+                            <select id="stdModalidad" required class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none border-[#1d2a6a] text-xs uppercase font-bold text-slate-800">
                                 <option value="" disabled selected>Selecciona la modalidad</option>
                                 <option value="Escolarizado">Escolarizado</option>
                                 <option value="Mixto">Mixto</option>
@@ -247,18 +247,18 @@
                         </div>
 
                         <div class="sm:col-span-2">
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 font-bold" id="lblGrupo">Semestre, Grupo o Carrera</label>
-                            <input type="text" id="stdGrupo" required placeholder="EJ. 6° SEMESTRE GRUPO A / LIC. EN ADMINISTRACIÓN" oninput="this.value = this.value.toUpperCase()" class="w-full px-4 py-3.5 rounded-lg border border-slate-300 focus:outline-none focus:border-[#1d2a6a] text-sm uppercase">
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" id="lblGrupo">Semestre, Grupo o Carrera</label>
+                            <input type="text" id="stdGrupo" required placeholder="EJ. 6° SEMESTRE GRUPO A / LIC. EN ADMINISTRACIÓN" oninput="this.value = this.value.toUpperCase()" class="w-full px-4 py-3.5 rounded-lg border border-slate-300 focus:outline-none border-[#1d2a6a] text-sm uppercase">
                         </div>
 
                         <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 font-bold">Correo Electrónico</label>
-                            <input type="email" id="stdEmail" required placeholder="alumno@ceut.edu.mx" oninput="this.value = this.value.toLowerCase()" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none focus:border-[#1d2a6a] text-sm lowercase">
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Correo Electrónico</label>
+                            <input type="email" id="stdEmail" required placeholder="alumno@ceut.edu.mx" oninput="this.value = this.value.toLowerCase()" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none border-[#1d2a6a] text-sm lowercase">
                         </div>
 
                         <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 font-bold">Teléfono Celular</label>
-                            <input type="tel" id="stdTelefono" required placeholder="10 dígitos" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none focus:border-[#1d2a6a] text-sm">
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Teléfono Celular</label>
+                            <input type="tel" id="stdTelefono" required placeholder="10 dígitos" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none border-[#1d2a6a] text-sm">
                         </div>
                     </div>
 
@@ -520,7 +520,7 @@
                     <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 w-full lg:w-auto">
                         <div>
                             <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">Nivel</label>
-                            <select id="adminFiltroNivel" onchange="filtrarYRenderizarReportes()" class="w-full px-3 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:border-[#1d2a6a] text-xs uppercase font-bold text-slate-800">
+                            <select id="adminFiltroNivel" onchange="filtrarYRenderizarReportes()" class="w-full px-3 py-2.5 rounded-xl border border-slate-300 focus:outline-none border-[#1d2a6a] text-xs uppercase font-bold text-slate-800">
                                 <option value="Todos">TODOS</option>
                                 <option value="Preparatoria">PREPARATORIA</option>
                                 <option value="Universidad">UNIVERSIDAD</option>
@@ -529,7 +529,7 @@
 
                         <div>
                             <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">Modalidad</label>
-                            <select id="adminFiltroModalidad" onchange="filtrarYRenderizarReportes()" class="w-full px-3 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:border-[#1d2a6a] text-xs uppercase font-bold text-slate-800">
+                            <select id="adminFiltroModalidad" onchange="filtrarYRenderizarReportes()" class="w-full px-3 py-2.5 rounded-xl border border-slate-300 focus:outline-none border-[#1d2a6a] text-xs uppercase font-bold text-slate-800">
                                 <option value="Todos">TODAS</option>
                                 <option value="Escolarizado">ESCOLARIZADO</option>
                                 <option value="Mixto">MIXTO</option>
@@ -538,7 +538,7 @@
 
                         <div>
                             <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider">Estatus de Riesgo</label>
-                            <select id="adminFiltroRiesgo" onchange="filtrarYRenderizarReportes()" class="w-full px-3 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:border-[#1d2a6a] text-xs uppercase font-bold text-slate-800">
+                            <select id="adminFiltroRiesgo" onchange="filtrarYRenderizarReportes()" class="w-full px-3 py-2.5 rounded-xl border border-slate-300 focus:outline-none border-[#1d2a6a] text-xs uppercase font-bold text-slate-800">
                                 <option value="Todos">TODOS</option>
                                 <option value="Rojo">RIESGO ALTO (ROJO)</option>
                                 <option value="Amarillo">RIESGO MEDIO (AMARILLO)</option>
@@ -548,7 +548,7 @@
 
                         <div>
                             <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider">Seguimiento</label>
-                            <select id="adminFiltroAtendido" onchange="filtrarYRenderizarReportes()" class="w-full px-3 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:border-[#1d2a6a] text-xs uppercase text-slate-800 font-bold">
+                            <select id="adminFiltroAtendido" onchange="filtrarYRenderizarReportes()" class="w-full px-3 py-2.5 rounded-xl border border-slate-300 focus:outline-none border-[#1d2a6a] text-xs uppercase text-slate-800 font-bold">
                                 <option value="Todos">TODOS</option>
                                 <option value="Pendiente">PENDIENTE</option>
                                 <option value="Atendido">RESUELTO</option>
@@ -715,7 +715,7 @@
                         <div class="space-y-3 font-semibold font-bold">
                             <div>
                                 <label class="block text-[9px] font-bold text-slate-400 uppercase tracking-wider">Estatus del Expediente</label>
-                                <select id="mdSelectEstatus" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:border-[#1d2a6a] text-xs uppercase text-slate-800 font-bold">
+                                <select id="mdSelectEstatus" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none border-[#1d2a6a] text-xs uppercase text-slate-800 font-bold">
                                     <option value="false">⏳ PENDIENTE DE ATENCIÓN</option>
                                     <option value="true">✔ CASO ATENDIDO / RESUELTO</option>
                                 </select>
@@ -841,6 +841,17 @@
                 }
                 if (floatText) {
                     floatText.textContent = "Sincronizado con Firebase Cloud";
+                }
+            } else if (status === 'conectando') {
+                if (badge) {
+                    badge.className = "inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[9px] font-black tracking-wider bg-amber-500/10 text-amber-400 border border-amber-500/35 uppercase";
+                    badge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span> Conectando...`;
+                }
+                if (floatDot) {
+                    floatDot.className = "w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse shadow-lg shadow-amber-500/50";
+                }
+                if (floatText) {
+                    floatText.textContent = "Estableciendo conexión segura...";
                 }
             } else if (status === 'local') {
                 window.dbAvailable = false;
@@ -1478,7 +1489,7 @@
             clean = clean.replace(/^## (.*$)/gim, '<h3 class="font-bold text-[#1d2a6a] mt-5 mb-2 border-b border-slate-300 pb-1">$1</h3>');
             clean = clean.replace(/^# (.*$)/gim, '<h2 class="font-bold text-[#1d2a6a] mt-6 mb-3">$1</h2>');
 
-            // 4. Convertir marcas de negritas a HTML semántico (Corregido regex typo)
+            // 4. Convertir marcas de negritas a HTML semántico
             clean = clean.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
 
             // 5. Convertir viñetas sueltas en elementos li estructurados
@@ -1766,7 +1777,7 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
                                 </div>
                             </div>
                             <div class="footer">
-                                Este documento es un comprobante de cumplimiento administrativo y confidencial. No representa un diagnóstico definitivo y es de uso interno exclusivo.
+                                Este documento es un comprobante de cumplimiento administrative y confidencial. No representa un diagnóstico definitivo y es de uso interno exclusivo.
                             </div>
                         </div>
                     </div>
@@ -2006,17 +2017,32 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
         import { getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, doc, setDoc, getDoc, collection, onSnapshot, addDoc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        // CONFIGURACIÓN DINÁMICA COMPILADA DE ACUERDO CON LAS POLÍTICAS DE FIREBASE
-        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {
-            apiKey: "AIzaSyCYSVnsDX8hmxAqc4hMfdxbajKjix6wyJs",
-            authDomain: "tamizaje-tigre.firebaseapp.com",
-            projectId: "tamizaje-tigre",
-            storageBucket: "tamizaje-tigre.firebasestorage.app",
-            messagingSenderId: "391066636361",
-            appId: "1:391066636361:web:8c4fe17debf667e2b86f98"
-        };
+        // CONFIGURACIÓN DINÁMICA COMPILADA PROPORCIONANDO FALLBACKS DE OBJETO SEGURO (EVITA SyntaxError AL CARGAR)
+        let firebaseConfig;
+        try {
+            firebaseConfig = typeof __firebase_config !== 'undefined' 
+                ? (typeof __firebase_config === 'string' ? JSON.parse(__firebase_config) : __firebase_config)
+                : {
+                    apiKey: "AIzaSyCYSVnsDX8hmxAqc4hMfdxbajKjix6wyJs",
+                    authDomain: "tamizaje-tigre.firebaseapp.com",
+                    projectId: "tamizaje-tigre",
+                    storageBucket: "tamizaje-tigre.firebasestorage.app",
+                    messagingSenderId: "391066636361",
+                    appId: "1:391066636361:web:8c4fe17debf667e2b86f98"
+                };
+        } catch (e) {
+            console.warn("Fallo al procesar __firebase_config, utilizando credenciales estáticas de respaldo:", e);
+            firebaseConfig = {
+                apiKey: "AIzaSyCYSVnsDX8hmxAqc4hMfdxbajKjix6wyJs",
+                authDomain: "tamizaje-tigre.firebaseapp.com",
+                projectId: "tamizaje-tigre",
+                storageBucket: "tamizaje-tigre.firebasestorage.app",
+                messagingSenderId: "391066636361",
+                appId: "1:391066636361:web:8c4fe17debf667e2b86f98"
+            };
+        }
 
-        // Identificador dinámico de canal de red para evitar fallos por Permission Denied
+        // Identificador dinámico de canal de red para evitar fallos por Permission Denied (RULE 1)
         const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
 
         try {
@@ -2024,18 +2050,21 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
             const auth = getAuth(app);
             const db = getFirestore(app);
 
-            // Intentar forzar la conexión online persistentemente de forma asíncrona
+            let autenticacionEnProgreso = true;
+
+            // Intentar forzar la conexión online persistentemente de forma asíncrona (RULE 3)
             const forzarConexionNube = async () => {
+                autenticacionEnProgreso = true;
+                window.actualizarIndicadorConexion('conectando');
                 if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
                     try {
                         await signInWithCustomToken(auth, __initial_auth_token);
+                        return;
                     } catch (e) {
                         console.warn("Fallo custom token, reintentando anónimamente:", e);
-                        await signInAnonymously(auth);
                     }
-                } else {
-                    await signInAnonymously(auth);
                 }
+                await signInAnonymously(auth);
             };
 
             // Escuchar cambios de red del navegador para re-autenticar y forzar nube
@@ -2055,9 +2084,10 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
 
             // Flujo prioritario: Iniciar sesión ANTES de configurar los Snapshot listeners (RULE 3)
             forzarConexionNube().then(() => {
+                autenticacionEnProgreso = false;
                 onAuthStateChanged(auth, (user) => {
                     if (user) {
-                        console.log("Sesión activa en Firebase. Sincronizando base de datos en la nube.");
+                        console.log("Firebase conectado correctamente. Sincronizando base de datos.");
                         window.actualizarIndicadorConexion('nube');
                         
                         // Guardar reporte en base de datos Firestore (Sincronizado con RULE 1)
@@ -2118,7 +2148,7 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
                                     await deleteDoc(docRef);
                                     window.mostrarNotificacion("Expediente eliminado de la nube con éxito.", "success");
                                 } catch (error) {
-                                    console.warn("Error al intentar eliminar el archivo de la red:", error);
+                                    console.warn("Error al intentar de eliminar el archivo de la red:", error);
                                 }
                             }
                         };
@@ -2166,7 +2196,9 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
                             window.actualizarIndicadorConexion('local');
                         });
                     } else {
-                        window.actualizarIndicadorConexion('local');
+                        if (!autenticacionEnProgreso) {
+                            window.actualizarIndicadorConexion('local');
+                        }
                     }
                 });
             }).catch(e => {
