@@ -214,22 +214,22 @@
                 <form id="formEstudiante" onsubmit="validarYComenzarTamizaje(event)" class="p-8 space-y-6">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
                         <div class="sm:col-span-2">
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 font-bold">Nombre Completo</label>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Nombre Completo</label>
                             <input type="text" id="stdNombre" required placeholder="EJ. ANA BELÉN GARCÍA PÉREZ" oninput="this.value = this.value.toUpperCase()" class="w-full px-4 py-3.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-sm uppercase">
                         </div>
 
                         <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 font-bold">Matrícula Escolar</label>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Matrícula Escolar</label>
                             <input type="text" id="stdMatricula" required placeholder="EJ. 24100523" oninput="this.value = this.value.toUpperCase()" class="w-full px-4 py-3.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-sm uppercase">
                         </div>
 
                         <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 font-bold">Edad</label>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Edad</label>
                             <input type="number" id="stdEdad" required min="12" max="99" placeholder="Ej. 18" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none focus:border-[#1d2a6a] text-sm">
                         </div>
 
                         <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 font-bold">Nivel Educativo</label>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Nivel Educativo</label>
                             <select id="stdNivel" required onchange="actualizarPlaceholderGrupo()" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none border-[#1d2a6a] text-xs uppercase font-bold text-slate-800">
                                 <option value="" disabled selected>Selecciona tu nivel</option>
                                 <option value="Preparatoria">Preparatoria (CEUT)</option>
@@ -238,7 +238,7 @@
                         </div>
 
                         <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 font-bold">Modalidad</label>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Modalidad</label>
                             <select id="stdModalidad" required class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none border-[#1d2a6a] text-xs uppercase font-bold text-slate-800">
                                 <option value="" disabled selected>Selecciona la modalidad</option>
                                 <option value="Escolarizado">Escolarizado</option>
@@ -248,16 +248,16 @@
 
                         <div class="sm:col-span-2">
                             <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 font-bold" id="lblGrupo">Semestre, Grupo o Carrera</label>
-                            <input type="text" id="stdGrupo" required placeholder="EJ. 6° SEMESTRE GRUPO A / LIC. EN ADMINISTRACIÓN" oninput="this.value = this.value.toUpperCase()" class="w-full px-4 py-3.5 rounded-lg border border-slate-300 focus:outline-none focus:border-[#1d2a6a] text-sm uppercase">
+                            <input type="text" id="stdGrupo" required placeholder="EJ. 6° SEMESTRE GRUPO A / LIC. EN ADMINISTRACIÓN" oninput="this.value = this.value.toUpperCase()" class="w-full px-4 py-3.5 rounded-lg border border-slate-300 focus:outline-none border-[#1d2a6a] text-sm uppercase">
                         </div>
 
                         <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 font-bold">Correo Electrónico</label>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Correo Electrónico</label>
                             <input type="email" id="stdEmail" required placeholder="alumno@ceut.edu.mx" oninput="this.value = this.value.toLowerCase()" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none border-[#1d2a6a] text-sm lowercase">
                         </div>
 
                         <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 font-bold">Teléfono Celular</label>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Teléfono Celular</label>
                             <input type="tel" id="stdTelefono" required placeholder="10 dígitos" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none border-[#1d2a6a] text-sm">
                         </div>
                     </div>
@@ -327,7 +327,7 @@
                             
                             <label class="relative flex flex-col items-center justify-center p-5 border border-slate-200 rounded-2xl cursor-pointer hover:border-[#1d2a6a] hover:bg-blue-50/10 transition-all text-center group select-none shadow-xs" id="lblOpt2">
                                 <input type="radio" name="likertOption" id="opt2" value="2" class="sr-only" onchange="seleccionarOpcion(2)">
-                                <span class="block w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center mb-3 group-hover:border-[#1d2a6a] transition-all">
+                                <span class="w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center mb-3 group-hover:border-[#1d2a6a] transition-all">
                                     <span class="dot-indicator w-2.5 h-2.5 rounded-full bg-[#1d2a6a] scale-0 transition-transform duration-200"></span>
                                 </span>
                                 <span class="block text-sm font-black text-slate-800 uppercase">A veces</span>
@@ -453,7 +453,7 @@
                 </div>
             </div>
 
-            <!-- TARJETAS DE ESTADÍSTICAS EN TIEMPO REAL -->
+            <!-- TARJETAS DE ESTADÍSTICAS EN TIEMRE REAL -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 font-bold animate-fade-in border-b border-slate-100 pb-2">
                 <div class="bg-white p-6 rounded-2xl shadow-xs border border-slate-200 flex items-center justify-between transition-all hover:shadow-md">
                     <div>
@@ -475,7 +475,7 @@
                     <div>
                         <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider">Riesgo Medio (Amarillo)</span>
                         <span id="metricRiesgoAmarillo" class="text-3xl font-black text-amber-500">0</span>
-                        <span class="block text-[10px] text-amber-600 font-semibold mt-1 uppercase font-bold">Seguimiento ordinario</span>
+                        <span class="block text-[10px] text-amber-600 font-semibold mt-1 uppercase font-bold font-bold">Seguimiento ordinario</span>
                     </div>
                 </div>
 
@@ -866,50 +866,6 @@
                     floatText.textContent = "Modo Local (Sin conexión)";
                 }
             }
-        };
-
-        // --- SISTEMA DE PREGUNTAS (18 REACTIVOS EN LENGUAJE CONVENCIONAL Y CLARO) ---
-        const reactivos = [
-            { id: "a1", cat: "ACADÉMICO", texto: "Siento que me cuesta mucho trabajo concentrarme durante las clases o cuando intento estudiar en casa." },
-            { id: "a2", cat: "ACADÉMICO", texto: "Siento que mis técnicas actuales de estudio no me están dando buenos resultados en mis exámenes y materias." },
-            { id: "a3", cat: "ACADÉMICO", texto: "Tengo el hábito de dejar mis tareas, proyectos o trabajos para el último momento, lo que me causa mucha prisa y estrés." },
-            { id: "a4", cat: "ACADÉMICO", texto: "Se me complica comprender lecturas largas, textos difíciles o seguir instrucciones detalladas en las evaluaciones." },
-            { id: "a5", cat: "ACADÉMICO", texto: "Me siento sumamente cansado mentalmente, sin energía para estudiar o con la sensación de estar saturado por la escuela." },
-            { id: "e1", cat: "SOCIOEMOCIONAL", texto: "He experimentado sentimientos constantes de tristeza, desánimo profundo o una sensación de vacío en mi día a día." },
-            { id: "e2", cat: "SOCIOEMOCIONAL", texto: "Siento un nivel de estrés o ansiedad tan alto que a veces me paralizo o me bloqueo por completo durante los exámenes." },
-            { id: "e3", cat: "SOCIOEMOCIONAL", texto: "Se me dificulta conciliar el sueño por las noches, tengo insomnio o me despierto con muchas preocupaciones en la mente." },
-            { id: "e4", cat: "SOCIOEMOCIONAL", texto: "Me siento irritable, me enojo con facilidad o me frustro rápidamente cuando las cosas no salen como yo espero." },
-            { id: "e5", cat: "SOCIOEMOCIONAL", texto: "He perdido las ganas de salir, platicar o convivir con mis amigos y compañeros de clase, prefiriendo estar solo." },
-            { id: "f1", cat: "PSICOSOCIAL", texto: "En mi casa se viven tensiones constantes, discusiones familiares o un ambiente difícil que afecta mi tranquilidad." },
-            { id: "f2", cat: "PSICOSOCIAL", texto: "Tengo preocupaciones económicas fuertes que me angustian (como el pago de colegiaturas, útiles, transporte o comida)." },
-            { id: "f3", cat: "PSICOSOCIAL", texto: "No cuento con un lugar adecuado, tranquilo, silencioso o con buena señal de internet en mi casa para poder estudiar bien." },
-            { id: "f4", cat: "PSICOSOCIAL", texto: "Me he sentido rechazado, excluido o molestado por algunos de mis compañeros de la escuela." },
-            { id: "f5", cat: "PSICOSOCIAL", texto: "Sufro frecuentemente de malestares físicos (como dolores de cabeza, gastritis, tensión) provocados por el estrés cotidiano." },
-            { id: "r1", cat: "CRISIS/RIESGO", texto: "He tenido la sensación de que mi vida no tiene un propósito claro o he llegado a desear no estar aquí." },
-            { id: "r2", cat: "CRISIS/RIESGO", texto: "He tenido impulsos o la necesidad de lastimar mi propio cuerpo (como cortarme o golpearme) para desahogar mis emociones." },
-            { id: "r3", cat: "CRISIS/RIESGO", texto: "Siento un desánimo total sobre lo que me depara el futuro, sintiendo que las cosas difícilmente van a mejorar." }
-        ];
-
-        // --- SISTEMA DE NOTIFICACIONES SÍNCRONO ---
-        window.mostrarNotificacion = function(mensaje, tipo = "info") {
-            const container = document.getElementById('notificacionContainer');
-            if (!container) return;
-            const toast = document.createElement('div');
-            let colorBg = "bg-slate-900";
-            if (tipo === "success") {
-                colorBg = "bg-emerald-900 border-l-4 border-emerald-500 shadow-emerald-950/20";
-            } else if (tipo === "error") {
-                colorBg = "bg-rose-900 border-l-4 border-rose-500 shadow-rose-950/20";
-            } else if (tipo === "warning") {
-                colorBg = "bg-amber-900 border-l-4 border-amber-500 shadow-amber-950/20";
-            }
-            toast.className = `flex items-center gap-3 px-4 py-3 rounded-xl text-white shadow-xl ${colorBg} text-xs transition-all duration-300 transform translate-x-10 pointer-events-auto max-w-sm`;
-            toast.innerHTML = `<div class="flex-grow text-justify">${mensaje}</div><button onclick="this.parentElement.remove()" class="text-slate-400 hover:text-white ml-2 text-base font-bold">×</button>`;
-            container.appendChild(toast);
-            setTimeout(() => {
-                toast.classList.add('opacity-0', 'translate-x-10');
-                setTimeout(() => toast.remove(), 300);
-            }, 4500);
         };
 
         // --- CARGAR DATOS DE RESPALDO/MOCKUPS SÍNCRONOS ---
@@ -1303,7 +1259,7 @@
 
                 const isAtendido = (r.atendido === true || r.atendido === "true");
                 const badgeAtendido = isAtendido ? 
-                    `<span class="px-2 py-1 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 font-bold">✔ RESUELTO</span>` :
+                    `<span class="px-2 py-1 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 font-bold font-bold">✔ RESUELTO</span>` :
                     `<span class="px-2 py-1 rounded bg-slate-100 text-slate-600 border border-slate-200">⏳ PENDIENTE</span>`;
 
                 tr.innerHTML = `
@@ -1993,21 +1949,22 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
         };
     </script>
 
-    <!-- INICIALIZACIÓN MÓDULO DE FIREBASE (CON SEMÁFORO DE TRANSICIÓN PARA EVITAR DEGRADACIÓN PREMATURA) -->
+    <!-- INICIALIZACIÓN MÓDULO DE FIREBASE CON SINCRO EN TIEMPO REAL INMEDIATA -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, doc, setDoc, getDoc, collection, onSnapshot, addDoc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        // PROCESADOR SEGURO DE CONFIGURACIÓN DE RED (SOPORTA STRING Y OBJETOS DEL SANDBOX)
+        // PROCESADOR INTELIGENTE DE CREDENCIALES (RULE 1 & 3)
         let firebaseConfig;
         let appId;
-        const isSandbox = typeof __firebase_config !== 'undefined';
+        const isSandbox = typeof __firebase_config !== 'undefined' && __firebase_config;
 
         if (isSandbox) {
             try {
+                // El entorno virtual inyecta el objeto parseado directo o stringificado
                 firebaseConfig = typeof __firebase_config === 'string' ? JSON.parse(__firebase_config) : __firebase_config;
-                appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+                appId = typeof __app_id !== 'undefined' ? __app_id : 'ceut-psicopedagogico-v2';
             } catch (e) {
                 console.warn("Fallo inyección Sandbox, cargando configuración de respaldo:", e);
                 firebaseConfig = {
@@ -2021,6 +1978,7 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
                 appId = "ceut-psicopedagogico-v2";
             }
         } else {
+            // Entorno de producción (GitHub Pages o Servidor propio de CEUT)
             firebaseConfig = {
                 apiKey: "AIzaSyCYSVnsDX8hmxAqc4hMfdxbajKjix6wyJs",
                 authDomain: "tamizaje-tigre.firebaseapp.com",
@@ -2038,7 +1996,7 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
             const db = getFirestore(app);
 
             let unsubscribeReports = null;
-            let isAuthenticating = true; // SEMÁFORO CRÍTICO: Previene falsas alarmas de "Modo Local" durante el arranque
+            let isAuthenticating = true; // SEMÁFORO DE CONTROL SÍNCRONO
 
             const fallbackALocal = () => {
                 window.cargarDatosDeContingencia();
@@ -2046,15 +2004,15 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
                 window.actualizarEstadisticas();
             };
 
-            const forzarConexionNube = async () => {
-                isAuthenticating = true;
+            // Intento de conexión con Auth robusta (RULE 3 MANDATORIA)
+            const iniciarAutenticacionFirebase = async () => {
                 window.actualizarIndicadorConexion('conectando');
                 if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
                     try {
                         await signInWithCustomToken(auth, __initial_auth_token);
                         return;
                     } catch (e) {
-                        console.warn("Fallo custom token, reintentando de forma anónima:", e);
+                        console.warn("Token custom rechazado, intentando de manera anónima:", e);
                     }
                 }
                 await signInAnonymously(auth);
@@ -2062,9 +2020,9 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
 
             // Escuchar cambios de red para persistencia
             window.addEventListener('online', async () => {
-                window.mostrarNotificacion("Se ha detectado red. Restableciendo conexión a Firebase Cloud...", "info");
+                window.mostrarNotificacion("Se ha detectado red. Sincronizando con Firebase Cloud...", "info");
                 try {
-                    await forzarConexionNube();
+                    await iniciarAutenticacionFirebase();
                 } catch(e) {
                     console.error("Error reconectando Firebase:", e);
                 }
@@ -2075,9 +2033,13 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
                 window.actualizarIndicadorConexion('local');
             });
 
+            // Suscribir al canal de Firestore en tiempo real (Ruta Estricta - RULE 1)
             const subscribeToFirestoreData = () => {
                 if (unsubscribeReports) unsubscribeReports();
+                
+                // Conectando exactamente a la colección bajo la ruta validada de la institución
                 const reportsCol = collection(db, 'artifacts', appId, 'public', 'data', 'reports');
+                
                 unsubscribeReports = onSnapshot(reportsCol, (snapshot) => {
                     let cloudData = [];
                     snapshot.forEach((doc) => {
@@ -2093,14 +2055,12 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
                 }, (err) => {
                     console.warn("Firestore bloqueado por políticas o dominio:", err);
                     window.actualizarIndicadorConexion('local');
-                    if (err.code === 'permission-denied' || err.code === 'unauthenticated') {
-                        window.mostrarNotificacion("⚠️ Error de Conexión: Activa el 'Inicio de sesión anónimo' en Authentication de tu Consola Firebase y autoriza el dominio actual para habilitar la nube.", "error");
-                    }
                     fallbackALocal();
                 });
             };
 
             const setupGlobalFirebaseOperations = () => {
+                // Operación de Guardado Seguro (RULE 1: Ruta parametrizada por AppID)
                 window.guardarReporte = async function(reporte) {
                     if (!auth.currentUser) return false;
                     try {
@@ -2148,13 +2108,13 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
                         window.reportsData = locales;
                         window.renderReportes();
                         window.actualizarEstadisticas();
-                        window.mostrarNotificacion("Expediente local eliminado.", "success");
+                        window.mostrarNotificacion("Expediente local de baja.", "success");
                     } else {
                         if (!auth.currentUser) return;
                         try {
                             const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'reports', id);
                             await deleteDoc(docRef);
-                            window.mostrarNotificacion("Expediente eliminado de la nube con éxito.", "success");
+                            window.mostrarNotificacion("Expediente dado de baja de la nube con éxito.", "success");
                         } catch (error) {
                             console.warn("Error al intentar de eliminar el archivo de la red:", error);
                         }
@@ -2197,14 +2157,14 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
                         window.actualizarIndicadorConexion('local');
                         fallbackALocal();
                     } else {
-                        // Durante la primera transición asíncrona, cargamos los reportes locales preventivos sin dañar el estado visual 'conectando'
+                        // Carga preventivo silencioso durante la negociación asíncrona para ser responsivo
                         fallbackALocal();
                     }
                 }
             });
 
-            // Disparar flujo asíncrono inicial
-            forzarConexionNube().catch(e => {
+            // Disparar flujo asíncrono inicial (RULE 3)
+            iniciarAutenticacionFirebase().catch(e => {
                 console.warn("Autenticación inicial denegada:", e);
                 isAuthenticating = false;
                 window.actualizarIndicadorConexion('local');
