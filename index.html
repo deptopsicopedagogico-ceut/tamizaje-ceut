@@ -239,7 +239,7 @@
 
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Modalidad</label>
-                            <select id="stdModalidad" required class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none focus:border-[#1d2a6a] text-xs uppercase font-bold text-slate-800">
+                            <select id="stdModalidad" required class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none border-[#1d2a6a] text-xs uppercase font-bold text-slate-800">
                                 <option value="" disabled selected>Selecciona la modalidad</option>
                                 <option value="Escolarizado">Escolarizado</option>
                                 <option value="Mixto">Mixto</option>
@@ -253,12 +253,12 @@
 
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Correo Electrónico</label>
-                            <input type="email" id="stdEmail" required placeholder="alumno@ceut.edu.mx" oninput="this.value = this.value.toLowerCase()" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none focus:border-[#1d2a6a] text-sm lowercase">
+                            <input type="email" id="stdEmail" required placeholder="alumno@ceut.edu.mx" oninput="this.value = this.value.toLowerCase()" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none border-[#1d2a6a] text-sm lowercase">
                         </div>
 
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Teléfono Celular</label>
-                            <input type="tel" id="stdTelefono" required placeholder="10 dígitos" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none focus:border-[#1d2a6a] text-sm">
+                            <input type="tel" id="stdTelefono" required placeholder="10 dígitos" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none border-[#1d2a6a] text-sm">
                         </div>
                     </div>
 
@@ -909,7 +909,7 @@
             setTimeout(() => {
                 toast.classList.add('opacity-0', 'translate-x-10');
                 setTimeout(() => toast.remove(), 300);
-            }, 4500);
+            }, 5500);
         };
 
         // --- CARGAR DATOS DE RESPALDO/MOCKUPS SÍNCRONOS ---
@@ -1368,7 +1368,7 @@
             container.innerHTML = "";
             
             reactivos.forEach(preg => {
-                const ansVal = r.respuestas[preg.id] || 1;
+                const ansVal = r.respuestas ? (r.respuestas[preg.id] || 1) : 1;
                 const labels = ["", "NUNCA", "A VECES", "FRECUENTE", "SIEMPRE"];
                 const txtAns = labels[ansVal];
                 
@@ -1446,24 +1446,6 @@
             document.getElementById('confirmEliminarModal').classList.remove('hidden');
         }
 
-        // Enlazar evento de confirmación de eliminación
-        document.getElementById('btnConfirmarEliminarAccion').addEventListener('click', async () => {
-            if (window.bajaPendienteId) {
-                if (window.eliminarReporte) {
-                    await window.eliminarReporte(window.bajaPendienteId);
-                } else {
-                    let locales = JSON.parse(localStorage.getItem('ceut_reports') || '[]');
-                    locales = locales.filter(item => item.id !== window.bajaPendienteId);
-                    localStorage.setItem('ceut_reports', JSON.stringify(locales));
-                    window.reportsData = locales;
-                    window.renderReportes();
-                    window.actualizarEstadisticas();
-                    window.mostrarNotificacion("Expediente eliminado localmente.", "success");
-                }
-            }
-            cerrarConfirmEliminar();
-        });
-
         function cerrarConfirmEliminar() {
             window.bajaPendienteId = null;
             document.getElementById('confirmEliminarModal').classList.add('hidden');
@@ -1490,7 +1472,7 @@
             clean = clean.replace(/^## (.*$)/gim, '<h3 class="font-bold text-[#1d2a6a] mt-5 mb-2 border-b border-slate-300 pb-1">$1</h3>');
             clean = clean.replace(/^# (.*$)/gim, '<h2 class="font-bold text-[#1d2a6a] mt-6 mb-3">$1</h2>');
 
-            // 4. Convertir marcas de negritas a HTML semántico
+            // 4. Convertir marcas de negritas a HTML semántico (Regex corregido de doble vía)
             clean = clean.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
 
             // 5. Convertir viñetas sueltas en elementos li estructurados
@@ -1530,7 +1512,7 @@
             // Mapeo detallado de respuestas agudas (3 o 4) para enviarle a la IA y evitar respuestas genéricas
             const altasRespuestas = [];
             reactivos.forEach(preg => {
-                const ansVal = r.respuestas[preg.id] || 1;
+                const ansVal = r.respuestas ? (r.respuestas[preg.id] || 1) : 1;
                 if (ansVal >= 3) {
                     altasRespuestas.push(`- Dimensión ${preg.cat}: Indicó "${ansVal === 4 ? 'Siempre' : 'Frecuentemente'}" a la situación: "${preg.texto}"`);
                 }
@@ -1593,10 +1575,9 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
 
         // --- MOTOR DE RESPALDO PSICOPEDAGÓGICO LOCAL DE ALTA FIDELIDAD ---
         window.ejecutarAnalisisIAGeneradorLocal = function(r, loading, analysisContent) {
-            // Mapeo exhaustivo de respuestas con foco severo
             const reactivosAfectados = [];
             reactivos.forEach(preg => {
-                const ansVal = r.respuestas[preg.id] || 1;
+                const ansVal = r.respuestas ? (r.respuestas[preg.id] || 1) : 1;
                 if (ansVal >= 3) {
                     reactivosAfectados.push({
                         cat: preg.cat,
@@ -1651,7 +1632,7 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
                 contAdecuaciones++;
             }
             if (r.scores.Psicosocial >= 6) {
-                analisisAdecuaciones += `* **Flexibilidad Sistémica:** Ofrecer un margen de prórroga estructurado de hasta 48 horas para la entrega de tareas ante incidentes familiares o económicos debidamente justificados.\n`;
+                analisisAdecuaciones += `* **Flexibilidad Sitémica:** Ofrecer un margen de prórroga estructurado de hasta 48 horas para la entrega de tareas ante incidentes familiares o económicos debidamente justificados.\n`;
                 contAdecuaciones++;
             }
             if (contAdecuaciones === 0) {
@@ -2012,18 +1993,24 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
         };
     </script>
 
-    <!-- INICIALIZACIÓN MÓDULO DE FIREBASE (CONEXIÓN SEGURA EN SEGUNDO PLANO) -->
+    <!-- INICIALIZACIÓN MÓDULO DE FIREBASE (SOPORTE DE DOBLE VÍA PARA PREVISUALIZACIÓN Y PRODUCCIÓN) -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, doc, setDoc, getDoc, collection, onSnapshot, addDoc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        // CONFIGURACIÓN DINÁMICA COMPILADA PROPORCIONANDO FALLBACKS DE OBJETO SEGURO
+        // PROCESADOR SEGURO DE CONFIGURACIÓN DE RED (SOPORTA STRING Y OBJETOS DEL SANDBOX)
         let firebaseConfig;
-        try {
-            firebaseConfig = typeof __firebase_config !== 'undefined' && __firebase_config
-                ? (typeof __firebase_config === 'string' ? JSON.parse(__firebase_config) : __firebase_config)
-                : {
+        let appId;
+        const isSandbox = typeof __firebase_config !== 'undefined';
+
+        if (isSandbox) {
+            try {
+                firebaseConfig = typeof __firebase_config === 'string' ? JSON.parse(__firebase_config) : __firebase_config;
+                appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+            } catch (e) {
+                console.warn("Fallo inyección Sandbox, cargando configuración de respaldo:", e);
+                firebaseConfig = {
                     apiKey: "AIzaSyCYSVnsDX8hmxAqc4hMfdxbajKjix6wyJs",
                     authDomain: "tamizaje-tigre.firebaseapp.com",
                     projectId: "tamizaje-tigre",
@@ -2031,8 +2018,9 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
                     messagingSenderId: "391066636361",
                     appId: "1:391066636361:web:8c4fe17debf667e2b86f98"
                 };
-        } catch (e) {
-            console.warn("Fallo al procesar __firebase_config, utilizando credenciales estáticas de respaldo:", e);
+                appId = "ceut-psicopedagogico-v2";
+            }
+        } else {
             firebaseConfig = {
                 apiKey: "AIzaSyCYSVnsDX8hmxAqc4hMfdxbajKjix6wyJs",
                 authDomain: "tamizaje-tigre.firebaseapp.com",
@@ -2041,10 +2029,8 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
                 messagingSenderId: "391066636361",
                 appId: "1:391066636361:web:8c4fe17debf667e2b86f98"
             };
+            appId = "ceut-psicopedagogico-v2";
         }
-
-        // Identificador dinámico de canal de red para evitar fallos por Permission Denied (RULE 1)
-        const appId = typeof __app_id !== 'undefined' && __app_id ? __app_id : 'default-app-id';
 
         try {
             const app = initializeApp(firebaseConfig);
@@ -2054,14 +2040,12 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
             let unsubscribeReports = null;
             let primeraCargaAuth = true;
 
-            // Función para fallback controlado si Firebase tiene problemas de dominio o red
             const fallbackALocal = () => {
                 window.cargarDatosDeContingencia();
                 window.renderReportes();
                 window.actualizarEstadisticas();
             };
 
-            // Intentar forzar la conexión online persistentemente de forma asíncrona (RULE 3)
             const forzarConexionNube = async () => {
                 window.actualizarIndicadorConexion('conectando');
                 if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
@@ -2069,30 +2053,29 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
                         await signInWithCustomToken(auth, __initial_auth_token);
                         return;
                     } catch (e) {
-                        console.warn("Fallo custom token, reintentando anónimamente:", e);
+                        console.warn("Fallo custom token, reintentando de forma anónima:", e);
                     }
                 }
                 await signInAnonymously(auth);
             };
 
-            // Escuchar cambios de red del navegador para re-autenticar y forzar nube
+            // Escuchar cambios de red para persistencia
             window.addEventListener('online', async () => {
-                window.mostrarNotificacion("Conexión de red restablecida. Sincronizando con Firebase Cloud...", "info");
+                window.mostrarNotificacion("Se ha detectado red. Restableciendo conexión a Firebase Cloud...", "info");
                 try {
                     await forzarConexionNube();
                 } catch(e) {
-                    console.error("Error al re-establecer sesión de Firebase:", e);
+                    console.error("Error reconectando Firebase:", e);
                 }
             });
 
             window.addEventListener('offline', () => {
-                window.mostrarNotificacion("Se ha perdido la conexión a internet. Los datos se guardarán temporalmente en Almacenamiento Local.", "warning");
+                window.mostrarNotificacion("Conexión de red perdida. Los cambios se guardarán localmente.", "warning");
                 window.actualizarIndicadorConexion('local');
             });
 
             const subscribeToFirestoreData = () => {
                 if (unsubscribeReports) unsubscribeReports();
-
                 const reportsCol = collection(db, 'artifacts', appId, 'public', 'data', 'reports');
                 unsubscribeReports = onSnapshot(reportsCol, (snapshot) => {
                     let cloudData = [];
@@ -2107,17 +2090,16 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
                     window.actualizarEstadisticas();
                     window.actualizarIndicadorConexion('nube');
                 }, (err) => {
-                    console.warn("Firestore arrojó un error en la conexión activa:", err);
+                    console.warn("Firestore bloqueado por políticas o dominio:", err);
                     window.actualizarIndicadorConexion('local');
                     if (err.code === 'permission-denied' || err.code === 'unauthenticated') {
-                        window.mostrarNotificacion("Atención: Si utilizas tu base de datos de respaldo tamizaje-tigre, verifica que el dominio actual esté autorizado en la pestaña Auth de la Consola de Firebase.", "warning");
+                        window.mostrarNotificacion("⚠️ Error de Conexión: Activa el 'Inicio de sesión anónimo' en Authentication de tu Consola Firebase y autoriza el dominio actual para habilitar la nube.", "error");
                     }
                     fallbackALocal();
                 });
             };
 
-            const setupGlobalFirebaseOperations = (user) => {
-                // Guardar reporte en base de datos Firestore (Sincronizado con RULE 1)
+            const setupGlobalFirebaseOperations = () => {
                 window.guardarReporte = async function(reporte) {
                     if (!auth.currentUser) return false;
                     try {
@@ -2135,7 +2117,6 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
                     }
                 };
 
-                // Actualizar estatus o notas del expediente
                 window.actualizarReporte = async function(id, dataActualizada) {
                     if (id.startsWith('local_') || id.startsWith('mock')) {
                         let locales = JSON.parse(localStorage.getItem('ceut_reports') || '[]');
@@ -2158,7 +2139,6 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
                     }
                 };
 
-                // Eliminar expediente de forma definitiva (Nube y Local)
                 window.eliminarReporte = async function(id) {
                     if (id.startsWith('local_') || id.startsWith('mock')) {
                         let locales = JSON.parse(localStorage.getItem('ceut_reports') || '[]');
@@ -2180,7 +2160,6 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
                     }
                 };
 
-                // Guardar nuevo pin en la base de datos de forma segura
                 window.guardarNuevoPinEnServidor = async function(nuevoPin) {
                     window.accessPin = nuevoPin;
                     localStorage.setItem('ceut_access_pin', nuevoPin);
@@ -2195,7 +2174,6 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
                     }
                 };
 
-                // Obtener PIN actual de la nube de forma asíncrona
                 const pinRef = doc(db, 'artifacts', appId, 'public', 'data', 'settings', 'config');
                 getDoc(pinRef).then((snap) => {
                     if (snap && snap.exists() && snap.data() && snap.data().pin) {
@@ -2205,35 +2183,34 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
                 }).catch(() => {});
             };
 
-            // Listener de estado de autenticación (Reactivo y secuencial)
+            // Suscribir al estado de la sesión de Firebase
             onAuthStateChanged(auth, (user) => {
                 if (user) {
-                    console.log("Firebase conectado correctamente. Sincronizando base de datos.");
+                    console.log("Sesión establecida con éxito en la nube.");
                     window.actualizarIndicadorConexion('nube');
-                    setupGlobalFirebaseOperations(user);
+                    setupGlobalFirebaseOperations();
                     subscribeToFirestoreData();
                     primeraCargaAuth = false;
                 } else {
-                    console.log("Estado de Auth: Sin usuario");
                     if (!primeraCargaAuth) {
                         window.actualizarIndicadorConexion('local');
                         fallbackALocal();
                     } else {
-                        // En la primera carga, mientras se ejecuta initAuth, poblamos con local de forma silenciosa para que sea responsivo
                         fallbackALocal();
                     }
                 }
             });
 
-            // Disparar la autenticación prioritaria (RULE 3)
+            // Disparar flujo asíncrono inicial
             forzarConexionNube().catch(e => {
-                console.warn("Fallo de autenticación inicial:", e);
+                console.warn("Autenticación inicial denegada:", e);
                 window.actualizarIndicadorConexion('local');
+                window.mostrarNotificacion("⚠️ Nota: Conexión asíncrona temporal. Recuerda activar 'Anonymous Sign-In' en tu consola de Firebase.", "warning");
                 fallbackALocal();
             });
 
         } catch (err) {
-            console.warn("Error crítico de inicialización de Firebase:", err);
+            console.warn("Error crítico inicializando Firebase SDK:", err);
             window.actualizarIndicadorConexion('local');
             fallbackALocal();
         }
