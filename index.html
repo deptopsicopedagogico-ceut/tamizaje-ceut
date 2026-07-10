@@ -167,7 +167,7 @@
                                 <span class="p-2.5 inline-block rounded-xl bg-amber-50 text-amber-600 mb-3 shadow-sm">
                                     🎓
                                 </span>
-                                <h4 class="font-extrabold text-slate-900 text-sm uppercase">Foco Académico</h4>
+                                <h4 class="font-extrabold text-slate-900 text-sm uppercase font-bold">Foco Académico</h4>
                             </div>
                             <p class="text-[10px] text-slate-500 mt-2 uppercase font-semibold leading-normal txt-justificado">Evaluación de tus hábitos cotidianos de estudio, atención sostenida y concentración.</p>
                         </div>
@@ -185,7 +185,7 @@
                                 <span class="p-2.5 inline-block rounded-xl bg-red-50 text-red-600 mb-3 shadow-sm">
                                     ⚖️
                                 </span>
-                                <h4 class="font-extrabold text-slate-900 text-sm uppercase font-bold">Blindaje Legal</h4>
+                                <h4 class="font-extrabold text-slate-900 text-sm uppercase font-bold font-bold">Blindaje Legal</h4>
                             </div>
                             <p class="text-[10px] text-slate-500 mt-2 uppercase font-semibold leading-normal txt-justificado">Alineación estricta al artículo 9 de la LFPDPPP en el resguardo de datos sensibles.</p>
                         </div>
@@ -351,7 +351,7 @@
                              alt="Logo" class="w-8 h-8 object-contain">
                         <div>
                             <span id="txtCategoriaCuestionario" class="inline-block px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-blue-100 text-[#1d2a6a]">ACADÉMICO</span>
-                            <h3 class="text-lg font-bold text-slate-900 mt-1 uppercase font-black">Diagnóstico de Estudiantes</h3>
+                            <h3 class="text-lg font-bold text-slate-900 mt-1 uppercase font-black font-bold">Diagnóstico de Estudiantes</h3>
                         </div>
                     </div>
                     <div class="text-right font-bold">
@@ -381,15 +381,15 @@
                                     <span class="dot-indicator w-2.5 h-2.5 rounded-full bg-[#1d2a6a] scale-0 transition-transform duration-200"></span>
                                 </span>
                                 <span class="block text-sm font-black text-slate-800 uppercase">A veces</span>
-                                <span class="block text-[9px] text-slate-400 mt-1 font-semibold uppercase">Ocasionalmente</span>
+                                <span class="block text-[9px] text-slate-400 mt-1 font-semibold uppercase font-bold">Ocasionalmente</span>
                             </label>
 
                             <label class="relative flex flex-col items-center justify-center p-5 border border-slate-200 rounded-2xl cursor-pointer hover:border-[#1d2a6a] hover:bg-blue-50/10 transition-all duration-300 text-center group select-none shadow-xs hover:scale-[1.04]" id="lblOpt3">
-                                <input type="radio" name="likertOption" id="opt3" value="3" class="block w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center mb-3 group-hover:border-[#1d2a6a] transition-all-custom">
+                                <input type="radio" name="likertOption" id="opt3" value="3" class="sr-only" onchange="seleccionarOpcion(3)">
                                 <span class="block w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center mb-3 group-hover:border-[#1d2a6a] transition-all-custom">
                                     <span class="dot-indicator w-2.5 h-2.5 rounded-full bg-[#1d2a6a] scale-0 transition-transform duration-200"></span>
                                 </span>
-                                <span class="block text-sm font-black text-slate-800 uppercase">Frecuente</span>
+                                <span class="block text-sm font-black text-slate-800 uppercase font-bold">Frecuente</span>
                                 <span class="block text-[9px] text-slate-400 mt-1 font-semibold uppercase">La mayor parte</span>
                             </label>
 
@@ -427,14 +427,14 @@
                 </div>
 
                 <div class="space-y-2 font-bold">
-                    <h3 class="text-2xl font-black text-[#1d2a6a] uppercase tracking-tight">¡Tamizaje Enviado con Éxito!</h3>
+                    <h3 class="text-2xl font-black text-[#1d2a6a] uppercase tracking-tight font-bold">¡Tamizaje Enviado con Éxito!</h3>
                     <p class="text-slate-500 text-sm font-medium leading-relaxed txt-justificado">Tu información ha sido resguardada con confidencialidad absoluta en los servidores psicopedagógicos del CEUT, bajo encriptación y de acuerdo con la LFPDPPP.</p>
                 </div>
 
                 <div class="p-5 bg-slate-50/50 rounded-2xl border-2 border-dashed border-slate-200 max-w-sm mx-auto shadow-inner font-bold">
                     <span class="block text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-1 font-bold">Tu Folio de Seguimiento</span>
                     <span id="txtExitoFolio" class="text-xl font-black text-[#1d2a6a] tracking-wider uppercase font-bold">CEUT-2026-0000</span>
-                    <span class="block text-[10px] text-emerald-600 font-semibold mt-1.5 uppercase tracking-wide font-bold font-bold">✓ REGISTRO GUARDADO EN LA NUBE</span>
+                    <span class="block text-[10px] text-emerald-600 font-semibold mt-1.5 uppercase tracking-wide font-bold">✓ REGISTRO GUARDADO EN LA NUBE</span>
                 </div>
 
                 <p class="text-xs text-slate-500 leading-relaxed max-w-md mx-auto txt-justificado">
@@ -519,7 +519,7 @@
                 <div class="bg-white/90 backdrop-blur-xs p-6 rounded-2xl shadow-xs border border-slate-200 flex items-center justify-between transition-all duration-300 hover:shadow-md hover:scale-[1.03]">
                     <div>
                         <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider">Riesgo Crítico (Rojo)</span>
-                        <span id="metricRiesgoRojo" class="text-3xl font-black text-rose-600">0</span>
+                        <span id="metricRiesgoRojo" class="text-3xl font-black text-rose-600 font-bold">0</span>
                         <span class="block text-[10px] text-rose-500 font-semibold mt-1 uppercase">Atención urgente</span>
                     </div>
                 </div>
@@ -527,22 +527,22 @@
                 <div class="bg-white/90 backdrop-blur-xs p-6 rounded-2xl shadow-xs border border-slate-200 flex items-center justify-between transition-all duration-300 hover:shadow-md hover:scale-[1.03]">
                     <div>
                         <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider">Riesgo Medio (Amarillo)</span>
-                        <span id="metricRiesgoAmarillo" class="text-3xl font-black text-amber-500">0</span>
-                        <span class="block text-[10px] text-amber-600 font-semibold mt-1 uppercase font-bold font-bold">Seguimiento ordinario</span>
+                        <span id="metricRiesgoAmarillo" class="text-3xl font-black text-amber-500 font-bold">0</span>
+                        <span class="block text-[10px] text-amber-600 font-semibold mt-1 uppercase font-bold">Seguimiento ordinario</span>
                     </div>
                 </div>
 
                 <div class="bg-white/90 backdrop-blur-xs p-6 rounded-2xl shadow-xs border border-slate-200 flex items-center justify-between transition-all duration-300 hover:shadow-md hover:scale-[1.03]">
                     <div>
-                        <span class="block text-slate-400 uppercase text-xs font-bold font-semibold">Casos Resueltos</span>
-                        <span id="metricAtendidos" class="text-3xl font-black text-emerald-600">0</span>
+                        <span class="block text-slate-400 uppercase text-xs font-bold font-semibold font-bold">Casos Resueltos</span>
+                        <span id="metricAtendidos" class="text-3xl font-black text-emerald-600 font-bold">0</span>
                         <span id="metricTasaAtencion" class="block text-[10px] text-slate-500 font-semibold mt-1 uppercase">0% de Tasa de Cierre</span>
                     </div>
                 </div>
             </div>
 
             <!-- GESTIÓN DE SEGURIDAD (PIN) & CONFIGURACIÓN DE IA -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 font-bold">
                 <!-- SEGURIDAD PIN -->
                 <div class="bg-white/90 backdrop-blur-xs p-6 rounded-2xl shadow-sm border border-slate-200/80 flex flex-col justify-between space-y-4">
                     <div class="space-y-1">
@@ -573,7 +573,7 @@
                     </div>
                     <div class="flex items-center gap-2">
                         <input type="password" id="txtGeminiApiKey" placeholder="API KEY DE GEMINI (AQ. o AIza)" class="flex-grow px-3 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-center text-xs">
-                        <button onclick="guardarApiKeyGemini()" class="px-5 py-2.5 bg-[#1d2a6a] hover:bg-[#121b44] text-white text-xs font-bold rounded-lg shadow-sm transition-all-custom text-center uppercase font-bold">
+                        <button onclick="guardarApiKeyGemini()" class="px-5 py-2.5 bg-[#1d2a6a] hover:bg-[#121b44] text-white text-xs font-bold rounded-lg shadow-sm transition-all-custom text-center uppercase font-bold font-bold">
                             Guardar Key
                         </button>
                     </div>
@@ -581,7 +581,7 @@
             </div>
 
             <!-- FILTROS Y SEGMENTACIÓN AVANZADA -->
-            <div class="bg-white/90 backdrop-blur-xs p-6 rounded-2xl shadow-sm border border-slate-200/80 space-y-4">
+            <div class="bg-white/90 backdrop-blur-xs p-6 rounded-2xl shadow-sm border border-slate-200/80 space-y-4 font-bold">
                 <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 font-bold">
                     <div class="flex-grow max-w-md">
                         <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1.5 font-bold">Búsqueda Rápida de Expediente</label>
@@ -622,7 +622,7 @@
 
                         <div>
                             <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider font-bold font-bold">Seguimiento</label>
-                            <select id="adminFiltroAtendido" onchange="filtrarYRenderizarReportes()" class="w-full px-3 py-2.5 rounded-xl border border-slate-300 focus:outline-none border-[#1d2a6a] text-xs uppercase text-slate-800 font-bold font-bold">
+                            <select id="adminFiltroAtendido" onchange="filtrarYRenderizarReportes()" class="w-full px-3 py-2.5 rounded-xl border border-slate-300 focus:outline-none border-[#1d2a6a] text-xs uppercase text-slate-800 font-bold">
                                 <option value="Todos">TODOS</option>
                                 <option value="Pendiente">PENDIENTE</option>
                                 <option value="Atendido">RESUELTO</option>
@@ -632,13 +632,13 @@
                 </div>
             </div>
 
-            <div class="bg-white/95 backdrop-blur-xs rounded-2xl shadow-sm border border-slate-200/80 overflow-hidden">
+            <div class="bg-white/95 backdrop-blur-xs rounded-2xl shadow-sm border border-slate-200/80 overflow-hidden font-bold">
                 <div class="px-6 py-4 border-b border-slate-100 flex items-center justify-between bg-slate-50 font-bold">
-                    <h3 class="font-bold text-slate-950 text-sm flex items-center gap-2 uppercase font-black font-bold">
+                    <h3 class="font-bold text-slate-950 text-sm flex items-center gap-2 uppercase font-black">
                         <span>Buzón de Expedientes Registrados</span>
                         <span id="txtAdminMostrandoRegistros" class="bg-blue-100 text-blue-800 text-[10px] px-2.5 py-0.5 rounded-full font-black">0</span>
                     </h3>
-                    <span class="text-xs text-slate-500 font-semibold font-bold">Sincronización activa: <span class="text-emerald-600 animate-pulse font-bold">● EN TIEMPO REAL</span></span>
+                    <span class="text-xs text-slate-500 font-semibold font-bold">Sincronización activa: <span class="text-emerald-600 animate-pulse">● EN TIEMPO REAL</span></span>
                 </div>
 
                 <div class="overflow-x-auto">
@@ -675,64 +675,64 @@
         <div class="bg-white w-full max-w-4xl rounded-2xl shadow-2xl border border-slate-200 flex flex-col max-h-[90vh] overflow-hidden transition-all-custom">
             <div class="bg-gradient-to-r from-[#121b44] via-[#1d2a6a] to-[#121b44] text-white px-6 py-4.5 flex items-center justify-between border-b border-[#f1b80c]/50 font-bold">
                 <div class="space-y-0.5">
-                    <h3 class="text-base font-bold flex items-center gap-2 uppercase font-bold">
+                    <h3 class="text-base font-bold flex items-center gap-2 uppercase">
                         Expediente de Tamizaje: <span id="mdFolio" class="text-[#f1b80c]">CEUT-2026-0000</span>
                     </h3>
                     <p class="text-[11px] text-slate-300 uppercase tracking-widest font-bold">Análisis de conductas socioemocionales e indicadores de aprendizaje.</p>
                 </div>
-                <button onclick="cerrarModalDetalle()" class="text-slate-400 hover:text-white transition-all-custom font-bold text-2xl font-bold">&times;</button>
+                <button onclick="cerrarModalDetalle()" class="text-slate-400 hover:text-white transition-all-custom font-bold text-2xl">&times;</button>
             </div>
 
             <div class="p-6 overflow-y-auto space-y-6 flex-grow text-xs text-justify">
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 bg-slate-50 p-4 rounded-xl border border-slate-200 font-bold">
                     <div>
-                        <span class="block text-[9px] font-bold text-slate-400 uppercase font-bold">Nombre del Estudiante</span>
-                        <span id="mdNombre" class="font-bold text-slate-800 text-xs uppercase font-bold">--</span>
+                        <span class="block text-[9px] font-bold text-slate-400 uppercase">Nombre del Estudiante</span>
+                        <span id="mdNombre" class="font-bold text-slate-800 text-xs uppercase">--</span>
                     </div>
                     <div>
-                        <span class="block text-[9px] font-bold text-slate-400 uppercase font-bold">Matrícula y Edad</span>
-                        <span id="mdMatriculaEdad" class="font-bold text-slate-800 text-xs uppercase font-bold">--</span>
+                        <span class="block text-[9px] font-bold text-slate-400 uppercase">Matrícula y Edad</span>
+                        <span id="mdMatriculaEdad" class="font-bold text-slate-800 text-xs uppercase">--</span>
                     </div>
                     <div>
-                        <span class="block text-[9px] font-bold text-slate-400 uppercase font-bold">Nivel, Grupo y Modalidad</span>
-                        <span id="mdNivelGrupo" class="font-bold text-slate-800 text-xs font-bold font-bold">--</span>
+                        <span class="block text-[9px] font-bold text-slate-400 uppercase">Nivel, Grupo y Modalidad</span>
+                        <span id="mdNivelGrupo" class="font-bold text-slate-800 text-xs">--</span>
                     </div>
                     <div class="border-t border-slate-200/50 pt-2 sm:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-4 font-bold">
                         <div>
-                            <span class="block text-[9px] font-bold text-slate-400 uppercase font-semibold font-bold">Correo de Contacto</span>
-                            <span id="mdEmail" class="font-semibold text-blue-600 text-xs lowercase font-bold">--</span>
+                            <span class="block text-[9px] font-bold text-slate-400 uppercase">Correo de Contacto</span>
+                            <span id="mdEmail" class="font-semibold text-blue-600 text-xs lowercase">--</span>
                         </div>
                         <div>
-                            <span class="block text-[9px] font-bold text-slate-400 uppercase font-semibold font-bold">Teléfono Celular</span>
-                            <span id="mdTelefono" class="font-bold text-slate-800 text-xs font-bold">--</span>
+                            <span class="block text-[9px] font-bold text-slate-400 uppercase">Teléfono Celular</span>
+                            <span id="mdTelefono" class="font-bold text-slate-800 text-xs">--</span>
                         </div>
                         <div>
-                            <span class="block text-[9px] font-bold text-slate-400 uppercase font-semibold font-bold">Fecha de Aplicación</span>
-                            <span id="mdFecha" class="font-semibold text-slate-600 text-xs uppercase font-bold">--</span>
+                            <span class="block text-[9px] font-bold text-slate-400 uppercase">Fecha de Aplicación</span>
+                            <span id="mdFecha" class="font-semibold text-slate-600 text-xs uppercase">--</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 font-bold">
-                    <div class="p-4 rounded-xl border border-slate-100 shadow-xs text-center space-y-1 bg-white flex flex-col justify-between border border-slate-200/60 transition-all duration-300 hover:shadow-md font-bold">
-                        <span class="block text-xs font-bold text-slate-400 uppercase font-semibold font-bold">Área Académica</span>
+                    <div class="p-4 rounded-xl border border-slate-100 shadow-xs text-center space-y-1 bg-white flex flex-col justify-between border border-slate-200/60 transition-all duration-300 hover:shadow-md">
+                        <span class="block text-xs font-bold text-slate-400 uppercase">Área Académica</span>
                         <div class="text-xl font-black text-slate-800 my-2"><span id="mdScoreAcademico">0</span> / 15</div>
-                        <span id="mdBadgeAcademico" class="inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase border font-bold">--</span>
+                        <span id="mdBadgeAcademico" class="inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase border">--</span>
                     </div>
-                    <div class="p-4 rounded-xl border border-slate-100 shadow-xs text-center space-y-1 bg-white flex flex-col justify-between border border-slate-200/60 transition-all duration-300 hover:shadow-md font-bold">
-                        <span class="block text-xs font-bold text-slate-400 uppercase font-bold">Área Socioemocional</span>
+                    <div class="p-4 rounded-xl border border-slate-100 shadow-xs text-center space-y-1 bg-white flex flex-col justify-between border border-slate-200/60 transition-all duration-300 hover:shadow-md">
+                        <span class="block text-xs font-bold text-slate-400 uppercase">Área Socioemocional</span>
                         <div class="text-xl font-black text-slate-800 my-2"><span id="mdScoreEmocional">0</span> / 15</div>
-                        <span id="mdBadgeEmocional" class="inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase border font-bold">--</span>
+                        <span id="mdBadgeEmocional" class="inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase border">--</span>
                     </div>
-                    <div class="p-4 rounded-xl border border-slate-100 shadow-xs text-center space-y-1 bg-white flex flex-col justify-between border border-slate-200/60 transition-all duration-300 hover:shadow-md font-bold">
-                        <span class="block text-xs font-bold text-slate-400 uppercase font-bold">Entorno Psicosocial</span>
+                    <div class="p-4 rounded-xl border border-slate-100 shadow-xs text-center space-y-1 bg-white flex flex-col justify-between border border-slate-200/60 transition-all duration-300 hover:shadow-md">
+                        <span class="block text-xs font-bold text-slate-400 uppercase">Entorno Psicosocial</span>
                         <div class="text-xl font-black text-slate-800 my-2"><span id="mdScorePsicosocial">0</span> / 15</div>
-                        <span id="mdBadgePsicosocial" class="inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase border font-bold">--</span>
+                        <span id="mdBadgePsicosocial" class="inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase border">--</span>
                     </div>
-                    <div class="p-4 rounded-xl border border-slate-100 shadow-xs text-center space-y-1 bg-white flex flex-col justify-between border border-slate-200/60 transition-all duration-300 hover:shadow-md font-bold">
-                        <span class="block text-xs font-bold text-slate-400 uppercase font-bold font-bold">Riesgo / Crisis</span>
+                    <div class="p-4 rounded-xl border border-slate-100 shadow-xs text-center space-y-1 bg-white flex flex-col justify-between border border-slate-200/60 transition-all duration-300 hover:shadow-md">
+                        <span class="block text-xs font-bold text-slate-400 uppercase font-bold">Riesgo / Crisis</span>
                         <div class="text-xl font-black text-slate-800 my-2"><span id="mdScoreRiesgo">0</span> / 9</div>
-                        <span id="mdBadgeRiesgo" class="inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase border animate-pulse font-bold">--</span>
+                        <span id="mdBadgeRiesgo" class="inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase border animate-pulse">--</span>
                     </div>
                 </div>
 
@@ -742,22 +742,22 @@
                         <div class="flex items-center gap-3">
                             <span class="p-3 bg-indigo-600 text-white rounded-2xl shadow-md shadow-indigo-200">✨</span>
                             <div>
-                                <h4 class="font-extrabold text-sm text-indigo-950 uppercase tracking-tight font-bold font-black">Orientación de Diagnóstico Clínico IA</h4>
-                                <p class="text-[10px] text-indigo-600 uppercase font-bold tracking-widest font-bold">Asistencia psicopedagógica y adecuaciones curriculares con IA</p>
+                                <h4 class="font-extrabold text-sm text-indigo-950 uppercase tracking-tight font-black">Orientación de Diagnóstico Clínico IA</h4>
+                                <p class="text-[10px] text-indigo-600 uppercase font-bold tracking-widest">Asistencia psicopedagógica y adecuaciones curriculares con IA</p>
                             </div>
                         </div>
                         <div class="flex items-center gap-2 text-xs font-bold">
-                            <button id="btnGenerarAnalisisIA" onclick="ejecutarAnalisisIA()" class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-lg transition-all-custom shadow-sm uppercase font-bold">
+                            <button id="btnGenerarAnalisisIA" onclick="ejecutarAnalisisIA()" class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-lg transition-all-custom shadow-sm uppercase">
                                 Generar Análisis ✨
                             </button>
-                            <button id="btnDescargarReporteIA" onclick="descargarReporteIntervencion()" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-lg transition-all-custom shadow-md flex items-center gap-1.5 uppercase hidden font-bold">
+                            <button id="btnDescargarReporteIA" onclick="descargarReporteIntervencion()" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-lg transition-all-custom shadow-md flex items-center gap-1.5 uppercase hidden">
                                 Descargar Reporte Membretado 📥
                             </button>
                         </div>
                     </div>
                     <div id="loadingIA" class="hidden flex flex-col items-center justify-center py-10 space-y-3 font-bold">
                         <div class="w-9 h-9 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin"></div>
-                        <span id="txtLoadingIA" class="text-[10px] text-indigo-600 font-extrabold uppercase tracking-widest animate-pulse font-bold">Procesando y correlacionando respuestas de forma clínica con IA...</span>
+                        <span id="txtLoadingIA" class="text-[10px] text-indigo-600 font-extrabold uppercase tracking-widest animate-pulse">Procesando y correlacionando respuestas de forma clínica con IA...</span>
                     </div>
                     <div id="mdIAAnalysisContent" class="text-xs text-slate-700 leading-relaxed hidden max-h-80 overflow-y-auto bg-slate-50 border border-slate-200 p-5 rounded-2xl shadow-inner txt-justificado font-semibold text-justify">
                         <!-- El diagnóstico es inyectado aquí -->
@@ -775,13 +775,13 @@
 
                 <!-- Seguimiento Clínico de Carlos Aguilar -->
                 <div class="space-y-4 border-t border-slate-100 pt-4 font-bold">
-                    <h4 class="font-extrabold text-xs text-slate-900 flex items-center gap-1.5 uppercase font-semibold">
+                    <h4 class="font-extrabold text-xs text-slate-900 flex items-center gap-1.5 uppercase">
                         📝 Seguimiento del Responsable del Departamento
                     </h4>
                     
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 font-semibold">
                         <div class="sm:col-span-2">
-                            <label class="block text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-1.5 font-bold">Anotaciones de Consulta, Derivaciones o Acuerdos</label>
+                            <label class="block text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">Anotaciones de Consulta, Derivaciones o Acuerdos</label>
                             <textarea id="mdInputObservaciones" rows="4" oninput="this.value = this.value.toUpperCase()" placeholder="ESCRIBA AQUÍ LOS ACUERDOS, FECHAS DE CITA CON PADRES DE FAMILIA O CANALIZACIÓN TERAPÉUTICA EXTERNA..." class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-xs uppercase leading-relaxed txt-justificado text-justify transition-all-custom"></textarea>
                         </div>
                         <div class="space-y-3 font-semibold font-bold">
@@ -793,7 +793,7 @@
                                 </select>
                             </div>
                             <div class="pt-2">
-                                <button onclick="guardarSeguimientoDocente()" class="w-full py-2.5 bg-[#1d2a6a] hover:bg-[#121b44] text-white text-xs font-bold rounded-lg shadow-sm transition-all-custom text-center uppercase font-bold">
+                                <button onclick="guardarSeguimientoDocente()" class="w-full py-2.5 bg-[#1d2a6a] hover:bg-[#121b44] text-white text-xs font-bold rounded-lg shadow-sm transition-all-custom text-center uppercase">
                                     Guardar Cambios
                                 </button>
                             </div>
@@ -803,8 +803,8 @@
             </div>
 
             <div class="bg-slate-50 px-6 py-4.5 border-t border-slate-100 flex items-center justify-between">
-                <span class="text-[9px] text-slate-400 font-semibold uppercase">Departamento de Orientación Educativa CEUT</span>
-                <button onclick="cerrarModalDetalle()" class="px-5 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-100 rounded-lg transition-all uppercase font-bold">
+                <span class="text-[9px] text-slate-400 font-semibold uppercase font-bold">Departamento de Orientación Educativa CEUT</span>
+                <button onclick="cerrarModalDetalle()" class="px-5 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-100 rounded-lg transition-all uppercase">
                     Cerrar Detalle
                 </button>
             </div>
@@ -814,7 +814,7 @@
     <!-- MODAL DE CONFIRMACIÓN DE ELIMINACIÓN (BAJA) -->
     <div id="confirmEliminarModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-white w-full max-w-md rounded-2xl shadow-2xl border border-slate-200 p-6 space-y-6">
-            <h3 class="text-lg font-bold text-rose-600 uppercase font-bold">¿Confirmar Eliminación?</h3>
+            <h3 class="text-lg font-bold text-rose-600 uppercase">¿Confirmar Eliminación?</h3>
             <p class="text-xs text-slate-600 txt-justificado leading-relaxed text-justify font-bold">
                 Esta acción eliminará de forma permanente el expediente del alumno de los registros locales y de la base de datos en tiempo real de la Jefatura Psicopedagógica. Esta acción no se puede deshacer.
             </p>
@@ -834,7 +834,7 @@
                          onerror="this.src='https://lh3.googleusercontent.com/d/1ao9olFJOvSPvgmeyLJhkD1P0Pmq_R3T2'"
                          alt="Aviso Logo" class="w-9 h-9 object-contain bg-white rounded-lg p-0.5 border border-[#f1b80c]">
                     <div>
-                        <h3 class="text-base font-bold font-black uppercase font-bold">Aviso de Privacidad Integral</h3>
+                        <h3 class="text-base font-bold font-black uppercase">Aviso de Privacidad Integral</h3>
                         <p class="text-[10px] text-slate-300 font-bold tracking-wider">Conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP)</p>
                     </div>
                 </div>
@@ -896,6 +896,16 @@
         window.accessPin = "1015"; 
         window.ultimoAnalisisIAGenerado = ""; 
         window.bajaPendienteId = null;
+
+        // RESOLVER URL DE MANERA ABSOLUTA PARA LAS NUEVAS PESTAÑAS (FAVICONS/IMÁGENES)
+        function obtenerLogoAbsoluto() {
+            const logoRelativo = 'Gemini_Generated_Image_ob1grpob1grpob1g-removebg-preview.png';
+            try {
+                return new URL(logoRelativo, window.location.href).href;
+            } catch(e) {
+                return logoRelativo;
+            }
+        }
 
         window.reactivos = [
             { id: "a1", cat: "ACADÉMICO", texto: "Siento que me cuesta mucho trabajo concentrarme durante las clases o cuando intento estudiar en casa." },
@@ -1020,29 +1030,29 @@
             let correlaciones = [];
             if (r.respuestas) {
                 if (r.respuestas.a1 >= 3) {
-                    correlaciones.push("Se identifica **Déficit de Atención Sostenida**. El alumno reportó afectación severa en su capacidad de concentración en clase y hogar (A1), lo que bloquea los procesos cognitivos primarios de codificación.");
+                    correlaciones.push("Se identifica **Déficit de Atención Sostenida y Selectiva**. El estudiante manifiesta dificultad severa para decodificar, procesar y retener información teórica en el aula (A1).");
                 }
                 if (r.respuestas.a3 >= 3) {
-                    correlaciones.push("Se detecta **Procrastinación Evasiva Crítica**. El hábito severo de postergar tareas (A3) correlaciona con la evitación de estados de estrés o miedo al fracaso situacional.");
+                    correlaciones.push("Se detecta **Procrastinación Evasiva Crítica**. El hábito recurrente de postergar entregas (A3) funciona como un mecanismo defensivo para eludir niveles agudos de frustración y estrés.");
                 }
                 if (r.respuestas.e2 >= 3) {
-                    correlaciones.push("Se manifiesta **Bloqueo Amigdalino por Ansiedad de Evaluación**. El colapso cognitivo durante exámenes (E2) anula de forma severa la recuperación de información de la memoria a largo plazo.");
+                    correlaciones.push("Se manifiesta **Bloqueo Amigdalino por Ansiedad de Evaluación**. El colapso cognitivo y somatización ante exámenes (E2) anula los mecanismos de recuperación de la memoria de trabajo.");
                 }
                 if (r.respuestas.e3 >= 3) {
-                    correlaciones.push("Se observa **Alteración del Ciclo Circadiano**. El reporte de insomnio o angustia nocturna (E3) interrumpe la fase REM, indispensable para la consolidación sináptica de conocimientos.");
+                    correlaciones.push("Se observa **Alteración del Ciclo Circadiano y Angustia**. El insomnio reportado (E3) interrumpe la fase REM, afectando severamente el proceso de consolidación sináptica.");
                 }
                 if (r.respuestas.f2 >= 3) {
-                    correlaciones.push("Se reporta **Vulnerabilidad por Estresores Financieros**. Las preocupaciones económicas severas (F2) elevan las concentraciones de cortisol plasmático, reduciendo el enfoque intelectivo.");
+                    correlaciones.push("Se reporta **Vulnerabilidad por Estresores Financieros**. Las preocupaciones por pagos e insumos (F2) elevan los niveles de cortisol, limitando de forma drástica la energía ejecutiva.");
                 }
                 if (r.respuestas.r1 >= 3 || r.respuestas.r2 >= 3) {
-                    correlaciones.push("🚨 **ALERTA DE SEGURIDAD CLÍNICA - CÓDIGO ROJO**. Respuestas de riesgo crítico con presencia de ideación de autolisis latente (R1) o autolesión física deliberada (R2). Requiere contención de urgencia.");
+                    correlaciones.push("🚨 **ALERTA DE SEGURIDAD CLÍNICA - CÓDIGO ROJO**. Presencia latente o activa de ideación autolítica (R1) o autolesiones físicas directas (R2). Requiere contención inmediata.");
                 }
             }
 
             if (correlaciones.length === 0) {
-                text += "El perfil cualitativo del estudiante muestra un estado de adaptación funcional favorable. No se identifican síndromes clínicos o factores de riesgo multidimensionales activos.\n\n";
+                text += "El perfil psicopedagógico del estudiante muestra un estado de adaptación funcional adecuado. No se identifican correlaciones sindromáticas o de vulnerabilidad crítica activas.\n\n";
             } else {
-                text += "A través del análisis individualizado del sistema CEUT, se han de establecer las siguientes correlaciones clínicas primarias basadas en sus respuestas:\n\n";
+                text += "A través de la correlación multidimensional de las respuestas, se establecen las siguientes observaciones psicopedagógicas:\n\n";
                 correlaciones.forEach(c => {
                     text += `* ${c}\n`;
                 });
@@ -1050,61 +1060,45 @@
             }
 
             text += `---\n\n`;
-            text += `## 3. PROTOCOLO DE INTERVENCIÓN Y ACUERDOS\n`;
-            text += `* **ACCIÓN INMEDIATA (Próximas 24 a 48 horas):**\n`;
+            text += `## 3. PROTOCOLO DE INTERVENCIÓN PSICOLÓGICA Y ACUERDOS\n`;
+            text += `Con base en el perfil de afectación, se preinscriben las siguientes directrices y derivaciones clínicas:\n\n`;
             if (sr >= 3) {
-                text += `  * Citación confidencial inmediata de tutores legales en un plazo menor a 24 horas y firma de acta de riesgo de vida.\n`;
-                text += `  * Acompañamiento presencial continuo del estudiante en campus por parte del Departamento Psicopedagógico.\n`;
-            } else if (se >= 9 || sa >= 8) {
-                text += `  * Agendar entrevista de triaje clínico individual de carácter urgente con el Mtro. Carlos Aguilar Sánchez.\n`;
-            } else {
-                text += `  * Programar entrevista ordinaria de tutoría y orientación académica preventiva.\n`;
-            }
-
-            text += `* **RECOMENDACIONES PEDAGÓGICAS:**\n`;
-            if (sa >= 4) {
-                text += `  * Entrenar al estudiante en técnicas de estudio activo (*Active Recall* y *Repetición Espaciada*) para optimizar el tiempo.\n`;
-                text += `  * Flexibilización o dosificación de entregas complejas bajo rúbricas de avance semanal.\n`;
-            } else {
-                text += `  * Continuar con su esquema de autoestudio autónomo, integrando técnicas de lectura sugeridas.\n`;
-            }
-
-            text += `* **DERIVACIÓN CLÍNICA / LEGAL:**\n`;
-            if (sr >= 3) {
-                text += `  * Canalización externa prioritaria a servicios de Psiquiatría o Urgencias de Salud Mental de Tehuacán.\n`;
-                text += `  * Derivación al DIF Municipal de Tehuacán para intervención asistencial familiar externa.\n`;
+                text += `* **CONTENCIÓN DE CRISIS (Código Rojo):** Retención inmediata en campus. Activación de la red familiar mediante citación urgente del tutor legal en un plazo menor a 24 horas y firma del acta de corresponsabilidad.\n`;
+                text += `* **DERIVACIÓN EXTERNA URGENTE:** Canalización inmediata a servicios de salud mental especializados (Psiquiatría y Psicología Clínica) de la región de Tehuacán. Coordinación complementaria con el DIF Municipal en caso de requerir acompañamiento sistémico-social.\n`;
             } else if (se >= 9) {
-                text += `  * Sugerir interconsulta psicoterapéutica cognitivo-conductual externa de carácter voluntario.\n`;
+                text += `* **INTERVENCIÓN TERAPÉUTICA PREVENTIVA:** Agendar de forma prioritaria entrevista individual con el Mtro. Carlos Aguilar Sánchez para evaluación de triaje y contención de ansiedad generalizada.\n`;
+                text += `* **DERIVACIÓN CLÍNICA:** Sugerir de manera voluntaria interconsulta de psicoterapia externa de enfoque cognitivo-conductual.\n`;
             } else {
-                text += `  * No requiere derivaciones externas inmediatas en el ciclo actual.\n`;
+                text += `* **SEGUIMIENTO ORDINARIO:** Incorporación del alumno al rol regular de tutorías grupales y talleres de manejo del estrés dictados por el Departamento.\n`;
             }
             text += `\n`;
 
             text += `---\n\n`;
-            text += `## 4. ESTRATEGIAS ADAPTATIVAS PARA EL DOCENTE EN EL AULA\n`;
-            text += `Con el propósito de mitigar la parálisis cognitiva y favorecer el aprendizaje, se prescriben las siguientes pautas docentes:\n\n`;
+            text += `## 4. ADAPTACIONES PEDAGÓGICAS PARA EL DOCENTE EN EL AULA\n`;
+            text += `Con el propósito de mitigar la parálisis cognitiva y favorecer el aprendizaje, se prescriben las siguientes pautas docentes obligatorias:\n\n`;
+            
             text += `* **Para el Área Académica (Puntaje: ${sa}/15):**\n`;
             if (sa >= 4) {
-                text += `  * **Focalización Estructurada:** Dividir proyectos extensos en micro-entregas semanales con retroalimentaciones rápidas de bajo puntaje.\n`;
-                text += `  * **Andamiaje Metodológico:** Proporcionar organizadores gráficos visuales y glosarios de términos previos a lecturas complejas.\n`;
+                text += `  * **Andamiaje Estructurado:** Dividir proyectos complejos en micro-entregas semanales acumulativas. Proporcionar organizadores visuales claros previo a lecturas teóricas densas.\n`;
+                text += `  * **Focalización Directa:** Evitar amonestaciones verbales públicas. Utilizar técnicas de atención alternada en clase.\n`;
             } else {
-                text += `  * Estimular su liderazgo mediante asignación de roles colaborativos de moderación en dinámicas grupales.\n`;
+                text += `  * Estimular el liderazgo cooperativo asignándole roles de moderación en dinámicas libres de grupo.\n`;
             }
 
             text += `\n* **Para el Área Socioemocional (Puntaje: ${se}/15):**\n`;
             if (se >= 5) {
-                text += `  * **Mitigación de Estrés Evaluativo:** Evitar someter al alumno a exposiciones orales improvisadas o amonestaciones verbales en público.\n`;
-                text += `  * **Espacios de Descompresión:** Permitir pausas breves de autorregulación de 2 minutos si el estudiante experimenta crisis de ansiedad de evaluación episódica.\n`;
+                text += `  * **Flexibilidad en Evaluación:** Evitar someter al alumno a exposiciones orales improvisadas ante el grupo. Brindar alternativas de evaluación escrita u oral de forma privada.\n`;
+                text += `  * **Estrategia de Descompresión:** Permitir salidas breves autorizadas del aula de un máximo de 2 minutos en caso de presentar crisis de pánico o parálisis por ansiedad.\n`;
             } else {
-                text += `  * Sostener retroalimentaciones asertivas orientadas al esfuerzo y proceso formativo para fortalecer su autoestima.\n`;
+                text += `  * Sostener retroalimentaciones asertivas basadas en el proceso de estudio del alumno para fortalecer su autoeficacia.\n`;
             }
 
             text += `\n* **Para el Área Psicosocial (Puntaje: ${sp}/15):**\n`;
             if (sp >= 6) {
-                text += `  * **Flexibilidad Académica:** Ofrecer una prórroga estructurada de 48 horas en entregas de alto impacto si se reportan estresores económicos graves.\n`;
-                text += `  * No restar puntuación al alumno por carencia eventual de materiales o libros de texto; proveer alternativas de libre acceso digital.\n`;
+                text += `  * **Flexibilidad de Tiempos:** Otorgar prórrogas calendarizadas de hasta 48 horas para la entrega de tareas de alto impacto si se justifican estresores familiares o económicos graves.\n`;
+                text += `  * No restar puntuación por carencia eventual de materiales o uniformes completos; proveer alternativas de libre acceso digital.\n`;
             } else {
-                text += `  * Fomentar dinámicas colaborativas libres dentro de la clase para afianzar redes seguras de apoyo afectivo.\n`;
+                text += `  * Fortalecer de manera pasiva su integración cooperativa incluyéndolo en equipos de trabajo con pares de alta empatía.\n`;
             }
 
             return text;
@@ -1624,8 +1618,8 @@ Tono confidencial, profesional y alineado con la LFPDPPP. Evita saludos introduc
                     </td>
                     <td class="py-4 px-6 text-center">${badgeAtendido}</td>
                     <td class="py-4 px-6 text-right font-bold space-x-1 flex items-center justify-end">
-                        <button onclick="abrirExpedienteDetalle('${r.id}')" class="px-3.5 py-1.5 rounded-lg border border-[#1d2a6a] text-[#1d2a6a] hover:bg-[#1d2a6a] hover:text-white transition-all text-[11px] font-bold uppercase">Ver Ficha</button>
-                        <button onclick="confirmarEliminarExpediente('${r.id}')" class="px-3.5 py-1.5 rounded-lg bg-rose-600 hover:bg-rose-700 text-white transition-all text-[11px] font-bold uppercase">Baja</button>
+                        <button onclick="abrirExpedienteDetalle('${r.id}')" class="px-3.5 py-1.5 rounded-lg border border-[#1d2a6a] text-[#1d2a6a] hover:bg-[#1d2a6a] hover:text-white transition-all text-[11px] font-bold uppercase font-bold">Ver Ficha</button>
+                        <button onclick="confirmarEliminarExpediente('${r.id}')" class="px-3.5 py-1.5 rounded-lg bg-rose-600 hover:bg-rose-700 text-white transition-all text-[11px] font-bold uppercase font-bold">Baja</button>
                     </td>
                 `;
                 tbody.appendChild(tr);
@@ -1780,11 +1774,11 @@ Tono confidencial, profesional y alineado con la LFPDPPP. Evita saludos introduc
             clean = clean.replace(/<br\s*\/?>/gi, '\n');
             clean = clean.replace(/<[^>]*>/g, '');
 
-            clean = clean.replace(/^### (.*$)/gim, '<h4 class="font-bold text-[#1d2a6a] mt-4 mb-1 border-b border-slate-200 pb-1">$1</h4>');
-            clean = clean.replace(/^## (.*$)/gim, '<h3 class="font-bold text-[#1d2a6a] mt-5 mb-2 border-b border-slate-300 pb-1">$1</h3>');
-            clean = clean.replace(/^# (.*$)/gim, '<h2 class="font-bold text-[#1d2a6a] mt-6 mb-3">$1</h2>');
+            clean = clean.replace(/^### (.*$)/gim, '<h4 class="font-bold text-[#1d2a6a] mt-3 mb-1 border-b border-slate-200 pb-0.5">$1</h4>');
+            clean = clean.replace(/^## (.*$)/gim, '<h3 class="font-bold text-[#1d2a6a] mt-4 mb-1.5 border-b border-slate-300 pb-0.5">$1</h3>');
+            clean = clean.replace(/^# (.*$)/gim, '<h2 class="font-bold text-[#1d2a6a] mt-5 mb-2">$1</h2>');
             clean = clean.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-            clean = clean.replace(/^\s*[\*\-]\s+(.*$)/gim, '<li class="ml-4 list-disc mb-1">$1</li>');
+            clean = clean.replace(/^\s*[\*\-]\s+(.*$)/gim, '<li class="ml-4 list-disc mb-0.5">$1</li>');
 
             let lines = clean.split('\n\n');
             let htmlOutput = lines.map(line => {
@@ -1793,7 +1787,7 @@ Tono confidencial, profesional y alineado con la LFPDPPP. Evita saludos introduc
                 if (line.startsWith('<h') || line.startsWith('<li')) {
                     return line;
                 }
-                return `<p class="mb-2 text-justify txt-justificado leading-relaxed text-justify">${line}</p>`;
+                return `<p class="mb-1 text-justify txt-justificado leading-relaxed text-justify">${line}</p>`;
             }).join('\n');
 
             return htmlOutput;
@@ -1810,7 +1804,7 @@ Tono confidencial, profesional y alineado con la LFPDPPP. Evita saludos introduc
             }
             
             const est = window.estudianteActivo;
-            const logoUrl = 'Gemini_Generated_Image_ob1grpob1grpob1g-removebg-preview.png';
+            const logoUrl = obtenerLogoAbsoluto(); // Resolver dinámicamente como ruta absoluta
             const fallbackLogoUrl = 'https://lh3.googleusercontent.com/d/1ao9olFJOvSPvgmeyLJhkD1P0Pmq_R3T2';
             
             const printWindow = window.open('', '_blank');
@@ -1984,7 +1978,7 @@ Tono confidencial, profesional y alineado con la LFPDPPP. Evita saludos introduc
             const r = window.reportsData.find(item => item.id === window.reporteEnDetalleId);
             if (!r) return;
 
-            const logoUrl = 'Gemini_Generated_Image_ob1grpob1grpob1g-removebg-preview.png';
+            const logoUrl = obtenerLogoAbsoluto(); // Resolver dinámicamente como ruta absoluta
             const fallbackLogoUrl = 'https://lh3.googleusercontent.com/d/1ao9olFJOvSPvgmeyLJhkD1P0Pmq_R3T2';
             
             const printWindow = window.open('', '_blank');
@@ -2022,7 +2016,7 @@ Tono confidencial, profesional y alineado con la LFPDPPP. Evita saludos introduc
                             padding: 20px;
                             background-color: #f1f5f9;
                             color: #0f172a;
-                            font-size: 8.5px;
+                            font-size: 8px;
                             display: flex;
                             flex-direction: column;
                             align-items: center;
@@ -2059,7 +2053,7 @@ Tono confidencial, profesional y alineado con la LFPDPPP. Evita saludos introduc
                             background: white;
                             border: 2px solid #1d2a6a;
                             border-radius: 8px;
-                            padding: 10mm;
+                            padding: 8mm;
                             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
                             display: flex;
                             flex-direction: column;
@@ -2068,13 +2062,29 @@ Tono confidencial, profesional y alineado con la LFPDPPP. Evita saludos introduc
                             background-image: radial-gradient(rgba(29, 42, 106, 0.015) 1px, transparent 0);
                             background-size: 15px 15px;
                         }
+                        
+                        /* Marca de Agua Centrada */
+                        .watermark {
+                            position: absolute;
+                            top: 40%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            width: 250px;
+                            height: 250px;
+                            opacity: 0.04;
+                            pointer-events: none;
+                            z-index: 0;
+                        }
+
                         .header {
                             display: flex;
                             align-items: center;
                             justify-content: space-between;
                             border-bottom: 1.5px solid #f1b80c;
                             padding-bottom: 6px;
-                            margin-bottom: 8px;
+                            margin-bottom: 6px;
+                            position: relative;
+                            z-index: 10;
                         }
                         .logo {
                             max-height: 42px;
@@ -2104,23 +2114,27 @@ Tono confidencial, profesional y alineado con la LFPDPPP. Evita saludos introduc
                             gap: 4px;
                             background: #f8fafc;
                             border: 0.5px solid #cbd5e1;
-                            padding: 6px 10px;
+                            padding: 4px 8px;
                             border-radius: 6px;
-                            margin-bottom: 8px;
-                            font-size: 8px;
+                            margin-bottom: 6px;
+                            font-size: 7.5px;
+                            position: relative;
+                            z-index: 10;
                         }
                         .meta-item strong {
                             color: #475569;
                         }
                         .report-body {
                             text-align: justify;
-                            line-height: 1.35;
+                            line-height: 1.25;
                             flex-grow: 1;
+                            position: relative;
+                            z-index: 10;
                         }
                         .report-body h2 {
                             color: #1d2a6a;
-                            font-size: 9px;
-                            margin-top: 6px;
+                            font-size: 8px;
+                            margin-top: 4px;
                             margin-bottom: 2px;
                             border-bottom: 0.5px solid #e2e8f0;
                             padding-bottom: 1px;
@@ -2129,43 +2143,47 @@ Tono confidencial, profesional y alineado con la LFPDPPP. Evita saludos introduc
                         }
                         .report-body h3 {
                             color: #1d2a6a;
-                            font-size: 8px;
-                            margin-top: 4px;
+                            font-size: 7.5px;
+                            margin-top: 3px;
                             margin-bottom: 1px;
                             font-weight: bold;
                             text-transform: uppercase;
                         }
                         .report-body p {
-                            margin: 0 0 4px 0;
+                            margin: 0 0 3px 0;
                         }
                         .report-body ul, .report-body ol {
-                            margin: 0 0 4px 0;
+                            margin: 0 0 3px 0;
                             padding-left: 12px;
                         }
                         .report-body li {
-                            margin-bottom: 2px;
+                            margin-bottom: 1px;
                         }
                         .signature-area {
-                            margin-top: 8px;
+                            margin-top: 4px;
                             display: flex;
                             flex-direction: column;
                             align-items: center;
                             text-align: center;
-                            font-size: 7.5px;
+                            font-size: 7px;
+                            position: relative;
+                            z-index: 10;
                         }
                         .signature-line {
-                            width: 180px;
+                            width: 140px;
                             border-top: 1px solid #0f172a;
-                            margin-bottom: 2px;
+                            margin-bottom: 1px;
                         }
                         .legal-legend {
-                            font-size: 6.5px;
+                            font-size: 6px;
                             text-align: justify;
                             color: #64748b;
-                            line-height: 1.25;
-                            margin-top: 8px;
+                            line-height: 1.2;
+                            margin-top: 4px;
                             border-top: 0.5px solid #cbd5e1;
-                            padding-top: 4px;
+                            padding-top: 2px;
+                            position: relative;
+                            z-index: 10;
                         }
                     </style>
                 </head>
@@ -2175,6 +2193,9 @@ Tono confidencial, profesional y alineado con la LFPDPPP. Evita saludos introduc
                         <button onclick="window.print()" class="btn btn-print">Imprimir Dictamen</button>
                     </div>
                     <div class="page-frame">
+                        <!-- Marca de Agua de Fondo -->
+                        <img src="${logoUrl}" onerror="this.src='${fallbackLogoUrl}'" class="watermark">
+                        
                         <div>
                             <div class="header">
                                 <img src="${logoUrl}" onerror="this.src='${fallbackLogoUrl}'" class="logo">
@@ -2203,7 +2224,7 @@ Tono confidencial, profesional y alineado con la LFPDPPP. Evita saludos introduc
                             </div>
                             <div class="legal-legend">
                                 <strong>EXPEDIENTE CLÍNICO INTEGRAL - CONFIDENCIALIDAD ABSOLUTA (LFPDPPP):</strong>
-                                Este dictamen contiene información sensible relacionada con la salud mental y académica del estudiante. Su resguardo y custodia están regulados estrictamente por la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP), en su Artículo 9. Se prohíbe estrictamente su difusión por medios electrónicos no institucionales, copiado parcial o divulgación sin apego estricto a las normas de confidencialidad institucional del CEUT.
+                                Este dictamen contiene información sensible relacionada con la salud mental y académica del estudiante. Su resguardo y custodia están regulados estrictamente por la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP), en su Artículo 9. Se prohíbe estrictamente su difusión por medios electrónicos no institucionales, copiado parcial o divulgación sin de confidencialidad institucional del CEUT.
                             </div>
                         </div>
                     </div>
@@ -2485,6 +2506,14 @@ Tono confidencial, profesional y alineado con la LFPDPPP. Evita saludos introduc
             window.renderReportes();
             window.actualizarEstadisticas();
             
+            // Forzar resolución absoluta de Favicon de la pestaña actual al iniciar
+            const fav = document.getElementById('dynamicFavicon');
+            if (fav) {
+                try {
+                    fav.href = obtenerLogoAbsoluto();
+                } catch(e) {}
+            }
+
             const savedKey = localStorage.getItem('ceut_gemini_api_key') || "";
             const inputKey = document.getElementById('txtGeminiApiKey');
             if (inputKey) inputKey.value = savedKey;
