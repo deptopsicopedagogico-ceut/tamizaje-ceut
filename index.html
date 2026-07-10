@@ -681,7 +681,7 @@
                     </div>
                     <div id="loadingIA" class="hidden flex flex-col items-center justify-center py-10 space-y-3">
                         <div class="w-9 h-9 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin"></div>
-                        <span class="text-[10px] text-indigo-600 font-extrabold uppercase tracking-widest animate-pulse">Procesando y correlacionando respuestas de forma clínica con IA...</span>
+                        <span id="txtLoadingIA" class="text-[10px] text-indigo-600 font-extrabold uppercase tracking-widest animate-pulse">Procesando y correlacionando respuestas de forma clínica con IA...</span>
                     </div>
                     <div id="mdIAAnalysisContent" class="text-xs text-slate-700 leading-relaxed hidden max-h-80 overflow-y-auto bg-slate-50 border border-slate-200 p-5 rounded-2xl shadow-inner txt-justificado font-semibold text-justify">
                         <!-- El diagnóstico es inyectado aquí -->
@@ -1108,10 +1108,12 @@
             const btnDesc = document.getElementById('btnDescargarReporteIA');
             const loading = document.getElementById('loadingIA');
             const content = document.getElementById('mdIAAnalysisContent');
+            const txtLoading = document.getElementById('txtLoadingIA');
 
             btnGen.classList.add('hidden');
             loading.classList.remove('hidden');
             content.classList.add('hidden');
+            if (txtLoading) txtLoading.textContent = "Estableciendo conexión con el motor de IA Gemini 3...";
 
             // Preparación del prompt de análisis correlacionando las puntuaciones
             let prompt = `Actúa como el Asistente Clínico de Diagnóstico Psicopedagógico de Inteligencia Artificial del Centro Universitario Tehuacán (CEUT). Tu tarea es analizar rigurosamente los resultados del Tamizaje Multidimensional de 18 reactivos del siguiente estudiante y generar un reporte técnico-pedagógico formal con base en el Manual de Interpretación de Resultados.
@@ -1156,12 +1158,13 @@ Recomendaciones concretas y aplicables en el aula para los profesores de este al
 Sé altamente profesional, descriptivo y preciso en tu vocabulario clínico-pedagógico. El tono debe ser estrictamente confidencial, formal y alineado con los protocolos del CEUT y la LFPDPPP.`;
 
             const systemPrompt = "Eres un neuropsicólogo y especialista en psicopedagogía institucional con vasta experiencia en diagnóstico clínico de estudiantes universitarios y de bachillerato.";
+            const finalPrompt = `Instrucciones del Sistema:\n${systemPrompt}\n\nDatos y Solicitud del Alumno:\n${prompt}`;
+
             const apiKey = "";
             const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
 
             const payload = {
-                contents: [{ parts: [{ text: prompt }] }],
-                systemInstruction: { parts: [{ text: systemPrompt }] }
+                contents: [{ parts: [{ text: finalPrompt }] }]
             };
 
             // Implementación de Exponential Backoff para protección de red contra Throttling
@@ -1170,9 +1173,11 @@ Sé altamente profesional, descriptivo y preciso en tu vocabulario clínico-peda
             let delay = 1000;
             let success = false;
             let responseData;
+            let lastErrorMsg = "Fallo de conexión inicial o de resolución DNS.";
 
             while (attempts < maxAttempts && !success) {
                 try {
+                    if (txtLoading) txtLoading.textContent = `Generando análisis con IA... (Intento ${attempts + 1} de ${maxAttempts})`;
                     const response = await fetch(apiUrl, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
@@ -1183,6 +1188,8 @@ Sé altamente profesional, descriptivo y preciso en tu vocabulario clínico-peda
                         responseData = await response.json();
                         success = true;
                     } else {
+                        const errJson = await response.json().catch(() => ({}));
+                        lastErrorMsg = errJson.error?.message || `Código de Error HTTP: ${response.status}`;
                         attempts++;
                         if (attempts < maxAttempts) {
                             await new Promise(res => setTimeout(res, delay));
@@ -1190,6 +1197,7 @@ Sé altamente profesional, descriptivo y preciso en tu vocabulario clínico-peda
                         }
                     }
                 } catch (error) {
+                    lastErrorMsg = error.message || String(error);
                     attempts++;
                     if (attempts < maxAttempts) {
                         await new Promise(res => setTimeout(res, delay));
@@ -1207,18 +1215,31 @@ Sé altamente profesional, descriptivo y preciso en tu vocabulario clínico-peda
                     content.innerHTML = formatMarkdownToHtml(text);
                     content.classList.remove('hidden');
                     btnDesc.classList.remove('hidden');
+                    window.mostrarNotificacion("Análisis psicopedagógico generado exitosamente.", "success");
                 } else {
-                    window.mostrarNotificacion("Formato de respuesta de IA inesperado.", "error");
+                    content.innerHTML = `
+                        <div class="p-4 rounded-xl bg-rose-50 text-rose-800 border border-rose-200">
+                            <strong>Fallo de procesamiento:</strong> La estructura de respuesta de la IA no contenía texto procesable.
+                        </div>`;
+                    content.classList.remove('hidden');
                     btnGen.classList.remove('hidden');
+                    window.mostrarNotificacion("Formato de respuesta de IA inesperado.", "error");
                 }
             } else {
-                window.mostrarNotificacion("Fallo al conectar con el motor de IA Gemini. Intente de nuevo.", "error");
+                content.innerHTML = `
+                    <div class="p-4 rounded-xl bg-rose-50 text-rose-800 border border-rose-200 space-y-2">
+                        <strong class="block">No se pudo establecer conexión con el motor Gemini IA:</strong>
+                        <p class="text-[11px] leading-relaxed">El servidor de Google rechazó la petición de diagnóstico. Esto suele ocurrir por cuotas del API key o falta de permisos en el entorno.</p>
+                        <span class="block text-[10px] text-rose-600 font-mono bg-white p-2 rounded border border-rose-200 mt-2 font-bold">Error Diagnóstico: ${lastErrorMsg}</span>
+                    </div>`;
+                content.classList.remove('hidden');
                 btnGen.classList.remove('hidden');
+                window.mostrarNotificacion(`Error Gemini: ${lastErrorMsg}`, "error");
             }
             loading.classList.add('hidden');
         };
 
-        // --- Procesando resultados numéricos y semaforización de alertas psicopedagógicas ---
+        // --- PARSER DE RESPUESTAS ---
         async function procesarYFinalizarCuestionario() {
             let scoreAcad = 0;
             let scoreEmoc = 0;
