@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tamizaje Psicopedagógico - CEUT</title>
     <!-- Favicon Oficial CEUT - Logotipo real en la pestaña del navegador -->
-    <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/d/1ao9olFJOvSPvgmeyLJhkD1P0Pmq_R3T2">
+    <link class="no-print" rel="icon" type="image/png" href="https://lh3.googleusercontent.com/d/1ao9olFJOvSPvgmeyLJhkD1P0Pmq_R3T2">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Playfair Display -->
@@ -51,7 +51,7 @@
     <div id="floatingDbStatus" class="fixed bottom-4 left-4 z-50 no-print transition-all duration-300">
         <div class="flex items-center gap-2.5 px-4 py-2.5 rounded-2xl shadow-2xl border border-slate-700/85 bg-slate-900 text-white text-[11px] font-bold">
             <span id="floatingDbStatusDot" class="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse"></span>
-            <span id="floatingDbStatusText" class="uppercase tracking-wider">Verificando sincronización de red...</span>
+            <span id="floatingDbStatusText" class="uppercase tracking-wider">Estableciendo canal de red con Firebase...</span>
         </div>
     </div>
 
@@ -99,7 +99,7 @@
 
     <main class="flex-grow max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8 flex flex-col justify-start">
 
-        <!-- SECCIÓN 1: LANDING INICIAL DEL ESTUDIANTE -->
+        <!-- SECCIÓN 1: LANDING INICIAL -->
         <section id="sec-tamizaje-inicio" class="view-section block py-6 md:py-12 no-print">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 <div class="lg:col-span-7 space-y-6">
@@ -154,7 +154,6 @@
                     </div>
                 </div>
 
-                <!-- LADO DERECHO: Tarjeta de Identidad de CEUT -->
                 <div class="lg:col-span-5 flex justify-center">
                     <div class="relative w-full max-w-sm rounded-3xl bg-gradient-to-tr from-[#121b44] to-[#1d2a6a] p-8 text-white shadow-2xl border-4 border-[#f1b80c] overflow-hidden group">
                         <div class="absolute -right-20 -bottom-20 w-60 h-60 rounded-full bg-[#f1b80c]/10 blur-2xl transition-all group-hover:bg-[#f1b80c]/15 duration-500"></div>
@@ -194,7 +193,7 @@
             </div>
         </section>
 
-        <!-- SECCIÓN 2: REGISTRO DE DATOS CON SEGMENTACIÓN CLARA -->
+        <!-- SECCIÓN 2: REGISTRO DE DATOS -->
         <section id="sec-registro-datos" class="view-section hidden py-4 no-print">
             <div class="max-w-2xl mx-auto bg-white rounded-3xl shadow-2xl border border-slate-200/80 overflow-hidden">
                 <div class="bg-gradient-to-r from-[#121b44] via-[#1d2a6a] to-[#121b44] text-white px-8 py-6 flex items-center justify-between border-b border-[#f1b80c]/40">
@@ -288,10 +287,9 @@
             </div>
         </section>
 
-        <!-- SECCIÓN 3: CUESTIONARIO INTERACTIVO DINÁMICO -->
+        <!-- SECCIÓN 3: CUESTIONARIO -->
         <section id="sec-cuestionario" class="view-section hidden py-4 no-print">
             <div class="max-w-3xl mx-auto bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden">
-                <!-- Barra de Progreso Dinámica -->
                 <div class="w-full bg-slate-100 h-2.5">
                     <div id="quizProgressBar" class="bg-gradient-to-r from-[#1d2a6a] via-[#f1b80c] to-[#fcd94e] h-2.5 transition-all duration-300" style="width: 0%"></div>
                 </div>
@@ -300,7 +298,7 @@
                     <div class="flex items-center gap-3">
                         <img src="https://lh3.googleusercontent.com/d/1ao9olFJOvSPvgmeyLJhkD1P0Pmq_R3T2" alt="Logo" class="w-8 h-8 object-contain">
                         <div>
-                            <span id="txtCategoriaCuestionario" class="inline-block px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-widest bg-blue-100 text-[#1d2a6a]">ACADÉMICO</span>
+                            <span id="txtCategoriaCuestionario" class="inline-block px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-blue-100 text-[#1d2a6a]">ACADÉMICO</span>
                             <h3 class="text-lg font-bold text-slate-900 mt-1 uppercase font-black">Diagnóstico de Estudiantes</h3>
                         </div>
                     </div>
@@ -335,7 +333,7 @@
                             </label>
 
                             <label class="relative flex flex-col items-center justify-center p-5 border border-slate-200 rounded-2xl cursor-pointer hover:border-[#1d2a6a] hover:bg-blue-50/10 transition-all text-center group select-none shadow-xs" id="lblOpt3">
-                                <input type="radio" name="likertOption" id="opt3" value="3" class="block w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center mb-3 group-hover:border-[#1d2a6a] transition-all">
+                                <input type="radio" name="likertOption" id="opt3" value="3" class="sr-only" onchange="seleccionarOpcion(3)">
                                 <span class="block w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center mb-3 group-hover:border-[#1d2a6a] transition-all">
                                     <span class="dot-indicator w-2.5 h-2.5 rounded-full bg-[#1d2a6a] scale-0 transition-transform duration-200"></span>
                                 </span>
@@ -355,7 +353,7 @@
                     </div>
 
                     <div class="flex items-center justify-between pt-6 border-t border-slate-100 font-bold">
-                        <button onclick="regresarPregunta()" id="btnQuizAtras" class="px-5 py-2.5 text-sm font-semibold text-slate-500 hover:bg-slate-100 rounded-xl transition-all uppercase">
+                        <button onclick="regresarPregunta()" id="btnQuizAtras" class="no-print px-5 py-2.5 text-sm font-semibold text-slate-500 hover:bg-slate-100 rounded-xl transition-all uppercase">
                             Anterior
                         </button>
                         <button onclick="avanzarPregunta()" id="btnQuizSiguiente" disabled class="px-8 py-3.5 bg-[#1d2a6a] text-white font-bold rounded-xl transition-all shadow-md hover:bg-[#121b44] disabled:opacity-50 disabled:pointer-events-none flex items-center gap-2 uppercase">
@@ -366,7 +364,7 @@
             </div>
         </section>
 
-        <!-- SECCIÓN 4: ÉXITO Y DESCARGA DE COMPROBANTE -->
+        <!-- SECCIÓN 4: ÉXITO -->
         <section id="sec-exito-cuestionario" class="view-section hidden py-8 no-print">
             <div class="max-w-xl mx-auto bg-white rounded-3xl shadow-2xl border border-slate-200 p-8 text-center space-y-6">
                 <div class="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto text-emerald-600 shadow-lg shadow-emerald-100 relative">
@@ -382,7 +380,7 @@
                 <div class="p-5 bg-slate-50/50 rounded-2xl border-2 border-dashed border-slate-200 max-w-sm mx-auto shadow-inner">
                     <span class="block text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-1">Tu Folio de Seguimiento</span>
                     <span id="txtExitoFolio" class="text-xl font-black text-[#1d2a6a] tracking-wider uppercase">CEUT-2026-0000</span>
-                    <span class="block text-[10px] text-emerald-600 font-semibold mt-1.5 uppercase tracking-wide font-bold">✓ REGISTRO GUARDADO CONFIDENCIALMENTE</span>
+                    <span class="block text-[10px] text-emerald-600 font-semibold mt-1.5 uppercase tracking-wide font-bold">✓ REGISTRO GUARDADO EN LA NUBE</span>
                 </div>
 
                 <p class="text-xs text-slate-500 leading-relaxed max-w-md mx-auto txt-justificado">
@@ -400,7 +398,7 @@
             </div>
         </section>
 
-        <!-- SECCIÓN 5: ACCESO RESTRINGIDO COORDINADOR -->
+        <!-- SECCIÓN 5: LOGIN DOCENTE -->
         <section id="sec-docente-login" class="view-section hidden py-8 no-print">
             <div class="max-w-md mx-auto bg-white rounded-3xl shadow-2xl border border-slate-200/80 p-8 space-y-6">
                 <div class="text-center space-y-2 font-bold">
@@ -435,7 +433,7 @@
             </div>
         </section>
 
-        <!-- SECCIÓN 6: PANEL DE CONTROL ADMINISTRATIVO (CONSOLA) -->
+        <!-- SECCIÓN 6: DASHBOARD DOCENTE -->
         <section id="sec-docente-dashboard" class="view-section hidden py-4 space-y-8 no-print">
             <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 bg-white p-6 rounded-2xl shadow-sm border border-slate-200/80 font-bold">
                 <div class="space-y-1.5 font-bold">
@@ -499,8 +497,8 @@
                     </p>
                 </div>
                 <div class="flex items-center gap-2">
-                    <input type="password" id="txtNuevoPinAdmin" placeholder="NUEVO PIN" class="flex-grow px-3 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-center text-sm uppercase">
-                    <button onclick="cambiarPinAcceso()" class="px-5 py-2.5 bg-[#1d2a6a] hover:bg-[#121b44] text-white text-xs font-bold rounded-lg shadow-sm transition-all text-center uppercase">
+                    <input type="password" id="txtNuevoPinAdmin" placeholder="NUEVO PIN" class="flex-grow px-3 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-center text-sm uppercase font-bold">
+                    <button onclick="cambiarPinAcceso()" class="px-5 py-2.5 bg-[#1d2a6a] hover:bg-[#121b44] text-white text-xs font-bold rounded-lg shadow-sm transition-all text-center uppercase font-bold">
                         Cambiar PIN
                     </button>
                 </div>
@@ -558,7 +556,6 @@
                 </div>
             </div>
 
-            <!-- TABLA CENTRAL DE EXPEDIENTES CON CONTROL DE BAJA -->
             <div class="bg-white rounded-2xl shadow-sm border border-slate-200/80 overflow-hidden">
                 <div class="px-6 py-4 border-b border-slate-100 flex items-center justify-between bg-slate-50">
                     <h3 class="font-bold text-slate-950 text-sm flex items-center gap-2 uppercase font-black">
@@ -597,7 +594,7 @@
         </section>
     </main>
 
-    <!-- MODAL DETALLE DE EXPEDIENTE (HISTORIAL PSICOPEDAGÓGICO) -->
+    <!-- MODAL DETALLE EXPEDIENTE -->
     <div id="modalDetailExpediente" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 flex items-center justify-center p-4 hidden animate-fade-in">
         <div class="bg-white w-full max-w-4xl rounded-2xl shadow-2xl border border-slate-200 flex flex-col max-h-[90vh] overflow-hidden animate-scale-up">
             <div class="bg-gradient-to-r from-[#121b44] via-[#1d2a6a] to-[#121b44] text-white px-6 py-4.5 flex items-center justify-between border-b border-[#f1b80c]/50">
@@ -610,19 +607,19 @@
                 <button onclick="cerrarModalDetalle()" class="text-slate-400 hover:text-white transition-all font-bold text-2xl">&times;</button>
             </div>
 
-            <div class="p-6 overflow-y-auto space-y-6 flex-grow text-xs">
+            <div class="p-6 overflow-y-auto space-y-6 flex-grow text-xs text-justify">
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 bg-slate-50 p-4 rounded-xl border border-slate-200 font-bold">
                     <div>
                         <span class="block text-[9px] font-bold text-slate-400 uppercase">Nombre del Estudiante</span>
-                        <span id="mdNombre" class="font-bold text-slate-800 text-xs uppercase">--</span>
+                        <span id="mdNombre" class="font-bold text-slate-800 text-xs uppercase font-bold">--</span>
                     </div>
                     <div>
                         <span class="block text-[9px] font-bold text-slate-400 uppercase">Matrícula y Edad</span>
-                        <span id="mdMatriculaEdad" class="font-bold text-slate-800 text-xs uppercase">--</span>
+                        <span id="mdMatriculaEdad" class="font-bold text-slate-800 text-xs uppercase font-bold">--</span>
                     </div>
                     <div>
                         <span class="block text-[9px] font-bold text-slate-400 uppercase">Nivel, Grupo y Modalidad</span>
-                        <span id="mdNivelGrupo" class="font-bold text-slate-800 text-xs">--</span>
+                        <span id="mdNivelGrupo" class="font-bold text-slate-800 text-xs font-bold">--</span>
                     </div>
                     <div class="border-t border-slate-200/50 pt-2 sm:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-4">
                         <div>
@@ -644,22 +641,22 @@
                     <div class="p-4 rounded-xl border border-slate-100 shadow-xs text-center space-y-1 bg-white flex flex-col justify-between border">
                         <span class="block text-xs font-bold text-slate-400 uppercase font-semibold">Área Académica</span>
                         <div class="text-xl font-black text-slate-800 my-2"><span id="mdScoreAcademico">0</span> / 15</div>
-                        <span id="mdBadgeAcademico" class="inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase border">--</span>
+                        <span id="mdBadgeAcademico" class="inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase border font-bold">--</span>
                     </div>
                     <div class="p-4 rounded-xl border border-slate-100 shadow-xs text-center space-y-1 bg-white flex flex-col justify-between border">
                         <span class="block text-xs font-bold text-slate-400 uppercase">Área Socioemocional</span>
                         <div class="text-xl font-black text-slate-800 my-2"><span id="mdScoreEmocional">0</span> / 15</div>
-                        <span id="mdBadgeEmocional" class="inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase border">--</span>
+                        <span id="mdBadgeEmocional" class="inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase border font-bold">--</span>
                     </div>
                     <div class="p-4 rounded-xl border border-slate-100 shadow-xs text-center space-y-1 bg-white flex flex-col justify-between border">
                         <span class="block text-xs font-bold text-slate-400 uppercase">Entorno Psicosocial</span>
                         <div class="text-xl font-black text-slate-800 my-2"><span id="mdScorePsicosocial">0</span> / 15</div>
-                        <span id="mdBadgePsicosocial" class="inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase border">--</span>
+                        <span id="mdBadgePsicosocial" class="inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase border font-bold">--</span>
                     </div>
                     <div class="p-4 rounded-xl border border-slate-100 shadow-xs text-center space-y-1 bg-white flex flex-col justify-between border">
-                        <span class="block text-xs font-bold text-slate-400 uppercase">Riesgo / Crisis</span>
+                        <span class="block text-xs font-bold text-slate-400 uppercase font-bold">Riesgo / Crisis</span>
                         <div class="text-xl font-black text-slate-800 my-2"><span id="mdScoreRiesgo">0</span> / 9</div>
-                        <span id="mdBadgeRiesgo" class="inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase border animate-pulse">--</span>
+                        <span id="mdBadgeRiesgo" class="inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase border animate-pulse font-bold">--</span>
                     </div>
                 </div>
 
@@ -686,12 +683,11 @@
                         <div class="w-9 h-9 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin"></div>
                         <span class="text-[10px] text-indigo-600 font-extrabold uppercase tracking-widest animate-pulse">Procesando y correlacionando respuestas de forma clínica con IA...</span>
                     </div>
-                    <div id="mdIAAnalysisContent" class="text-xs text-slate-700 leading-relaxed hidden max-h-80 overflow-y-auto bg-slate-50 border border-slate-200 p-5 rounded-2xl shadow-inner txt-justificado font-semibold">
+                    <div id="mdIAAnalysisContent" class="text-xs text-slate-700 leading-relaxed hidden max-h-80 overflow-y-auto bg-slate-50 border border-slate-200 p-5 rounded-2xl shadow-inner txt-justificado font-semibold text-justify">
                         <!-- El diagnóstico es inyectado aquí -->
                     </div>
                 </div>
 
-                <!-- Desglose de Respuestas del Alumno -->
                 <div class="space-y-4">
                     <h4 class="font-black text-xs text-slate-900 border-b border-slate-100 pb-2 flex items-center gap-1.5 uppercase font-bold">
                         Análisis Detallado por Reactivo (Escala Likert)
@@ -710,7 +706,7 @@
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 font-semibold">
                         <div class="sm:col-span-2">
                             <label class="block text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-1.5 font-bold">Anotaciones de Consulta, Derivaciones o Acuerdos</label>
-                            <textarea id="mdInputObservaciones" rows="4" oninput="this.value = this.value.toUpperCase()" placeholder="ESCRIBA AQUÍ LOS ACUERDOS, FECHAS DE CITA CON PADRES DE FAMILIA O CANALIZACIÓN TERAPÉUTICA EXTERNA..." class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-xs uppercase leading-relaxed txt-justificado"></textarea>
+                            <textarea id="mdInputObservaciones" rows="4" oninput="this.value = this.value.toUpperCase()" placeholder="ESCRIBA AQUÍ LOS ACUERDOS, FECHAS DE CITA CON PADRES DE FAMILIA O CANALIZACIÓN TERAPÉUTICA EXTERNA..." class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-xs uppercase leading-relaxed txt-justificado text-justify"></textarea>
                         </div>
                         <div class="space-y-3 font-semibold font-bold">
                             <div>
@@ -743,17 +739,17 @@
     <div id="confirmEliminarModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-white w-full max-w-md rounded-2xl shadow-2xl border border-slate-200 p-6 space-y-6">
             <h3 class="text-lg font-bold text-rose-600 uppercase">¿Confirmar Eliminación?</h3>
-            <p class="text-xs text-slate-600 txt-justificado leading-relaxed">
+            <p class="text-xs text-slate-600 txt-justificado leading-relaxed text-justify">
                 Esta acción eliminará de forma permanente el expediente del alumno de los registros locales y de la base de datos en tiempo real de la Jefatura Psicopedagógica. Esta acción no se puede deshacer.
             </p>
             <div class="flex items-center justify-end gap-3 font-semibold text-xs">
                 <button onclick="cerrarConfirmEliminar()" class="px-4 py-2 border border-slate-300 rounded-lg text-slate-600 hover:bg-slate-50 transition-all uppercase">Cancelar</button>
-                <button id="btnConfirmarEliminarAccion" class="px-4 py-2 bg-rose-600 hover:bg-rose-700 text-white rounded-lg transition-all uppercase font-bold">Eliminar permanentemente</button>
+                <button onclick="ejecutarEliminarBaja()" class="px-4 py-2 bg-rose-600 hover:bg-rose-700 text-white rounded-lg transition-all uppercase font-bold">Eliminar permanentemente</button>
             </div>
         </div>
     </div>
 
-    <!-- MODAL: AVISO DE PRIVACIDAD INTEGRAL BAJO LEYES MEXICANAS (LFPDPPP) -->
+    <!-- MODAL: AVISO DE PRIVACIDAD INTEGRAL -->
     <div id="modalAvisoPrivacidad" class="fixed inset-0 bg-slate-900/70 backdrop-blur-xs z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-white w-full max-w-2xl rounded-3xl shadow-2xl border border-slate-200 flex flex-col max-h-[85vh] overflow-hidden">
             <div class="bg-[#1d2a6a] text-white px-6 py-4.5 flex items-center justify-between border-b border-[#f1b80c]/50">
@@ -767,7 +763,7 @@
                 <button onclick="cerrarAvisoPrivacidad()" class="text-slate-300 hover:text-white text-2xl font-bold">&times;</button>
             </div>
 
-            <div class="p-6 overflow-y-auto space-y-4 text-xs text-slate-600 leading-relaxed font-semibold uppercase text-justify txt-justificado border-b font-semibold">
+            <div class="p-6 overflow-y-auto space-y-4 text-xs text-slate-600 leading-relaxed font-semibold uppercase text-justify txt-justificado border-b font-semibold text-justify">
                 <p class="font-bold text-slate-900 text-sm tracking-tight">1. Identidad y Domicilio del Responsable</p>
                 <p>El <strong>Centro Universitario Tehuacán (CEUT)</strong>, con domicilio en Tehuacán, Puebla, es responsable de recabar sus datos personales, del uso que se le de a los mismos y de su protección, a través del Responsable del Departamento Psicopedagógico.</p>
 
@@ -810,34 +806,46 @@
         </div>
     </footer>
 
-    <!-- LÓGICA DE APLICACIÓN COMPLETA -->
+    <!-- LÓGICA SÍNCRONA DE LA APLICACIÓN -->
     <script>
         // --- REACTIVOS OFICIALES DEL TAMIZAJE (18 REACTIVOS EN 4 DIMENSIONES) ---
         window.reactivos = [
-            { id: "a1", cat: "ACADÉMICO", texto: "Dificultades de concentración prolongada en aula y casa" },
-            { id: "a2", cat: "ACADÉMICO", texto: "Eficacia de hábitos y técnicas de estudio actuales" },
-            { id: "a3", cat: "ACADÉMICO", texto: "Organización del tiempo, procrastinación y postergación de tareas" },
-            { id: "a4", cat: "ACADÉMICO", texto: "Comprensión lectora compleja y razonamiento analítico" },
-            { id: "a5", cat: "ACADÉMICO", texto: "Desmotivación, desgana y agotamiento extremo (Burnout académico)" },
+            { id: "a1", cat: "ACADÉMICO", texto: "Siento que me cuesta mucho trabajo concentrarme durante las clases o cuando intento estudiar en casa." },
+            { id: "a2", cat: "ACADÉMICO", texto: "Siento que mis técnicas actuales de estudio no me están dando buenos resultados en mis exámenes y materias." },
+            { id: "a3", cat: "ACADÉMICO", texto: "Tengo el hábito de dejar mis tareas, proyectos o trabajos para el último momento, lo que me causa mucha prisa y estrés." },
+            { id: "a4", cat: "ACADÉMICO", texto: "Se me complica comprender lecturas largas, textos difíciles o seguir instrucciones detalladas en las evaluaciones." },
+            { id: "a5", cat: "ACADÉMICO", texto: "Me siento sumamente cansado mentalmente, sin energía para estudiar o con la sensación de estar saturado por la escuela." },
             
-            { id: "e1", cat: "SOCIOEMOCIONAL", texto: "Tristeza profunda, vacío, desánimo absoluto" },
-            { id: "e2", cat: "SOCIOEMOCIONAL", texto: "Estrés excesivo, ansiedad incontrolable y bloqueos en exámenes" },
-            { id: "e3", cat: "SOCIOEMOCIONAL", texto: "Trastornos de conciliación del sueño y angustia nocturna" },
-            { id: "e4", cat: "SOCIOEMOCIONAL", texto: "Irritabilidad constante, baja tolerancia a la frustración y enojo" },
-            { id: "e5", cat: "SOCIOEMOCIONAL", texto: "Pérdida de interés en convivir, aislamiento voluntario (Anhedonia)" },
+            { id: "e1", cat: "SOCIOEMOCIONAL", texto: "He experimentado sentimientos constantes de tristeza, desánimo profundo o una sensación de vacío en mi día a día." },
+            { id: "e2", cat: "SOCIOEMOCIONAL", texto: "Siento un nivel de estrés o ansiedad tan alto que a veces me paralizo o me bloqueo por completo durante los exámenes." },
+            { id: "e3", cat: "SOCIOEMOCIONAL", texto: "Se me dificulta conciliar el sueño por las noches, tengo insomnio o me despierto con muchas preocupaciones en la mente." },
+            { id: "e4", cat: "SOCIOEMOCIONAL", texto: "Me siento irritable, me enojo con facilidad o me frustro rápidamente cuando las cosas no salen como yo espero." },
+            { id: "e5", cat: "SOCIOEMOCIONAL", texto: "He perdido las ganas de salir, platicar o convivir con mis amigos y compañeros de clase, prefiriendo estar solo." },
             
-            { id: "f1", cat: "PSICOSOCIAL", texto: "Violencia intrafamiliar y ambiente disfuncional en el hogar" },
-            { id: "f2", cat: "PSICOSOCIAL", texto: "Preocupaciones económicas severas (materiales, colegiatura, alimentación)" },
-            { id: "f3", cat: "PSICOSOCIAL", texto: "Carencia de un espacio físico adecuado para el estudio en casa" },
-            { id: "f4", cat: "PSICOSOCIAL", texto: "Vivencia de rechazo, exclusión o acoso escolar (Bullying)" },
-            { id: "f5", cat: "PSICOSOCIAL", texto: "Malestares físicos recurrentes o dependencia de sustancias" },
+            { id: "f1", cat: "PSICOSOCIAL", texto: "En mi casa se viven tensiones constantes, discusiones familiares o un ambiente difícil que afecta mi tranquilidad." },
+            { id: "f2", cat: "PSICOSOCIAL", texto: "Tengo preocupaciones económicas fuertes que me angustian (como el pago de colegiaturas, útiles, transporte o comida)." },
+            { id: "f3", cat: "PSICOSOCIAL", texto: "No cuento con un lugar adecuado, tranquilo, silencioso o con buena señal de internet en mi casa para poder estudiar bien." },
+            { id: "f4", cat: "PSICOSOCIAL", texto: "Me he sentido rechazado, excluido o molestado por algunos de mis compañeros de la escuela." },
+            { id: "f5", cat: "PSICOSOCIAL", texto: "Sufro frecuentemente de malestares físicos (como dolores de cabeza, gastritis, tensión) provocados por el estrés de la escuela." },
             
-            { id: "r1", cat: "RIESGO / CRISIS", texto: "Ideación suicida (Pérdida del sentido de la vida)" },
-            { id: "r2", cat: "RIESGO / CRISIS", texto: "Impulsos autolesivos no suicidas (NSSI)" },
-            { id: "r3", cat: "RIESGO / CRISIS", texto: "Desesperanza absoluta sobre el porvenir" }
+            { id: "r1", cat: "RIESGO / CRISIS", texto: "He tenido la sensación de que mi vida no tiene un propósito claro o he llegado a desear no estar aquí." },
+            { id: "r2", cat: "RIESGO / CRISIS", texto: "He tenido impulsos o la necesidad de lastimar mi propio cuerpo (como cortarme o golpearme) para desahogar mis emociones." },
+            { id: "r3", cat: "RIESGO / CRISIS", texto: "Siento un desánimo total sobre lo que me depara el futuro, sintiendo que las cosas difícilmente van a mejorar." }
         ];
 
-        // --- SISTEMA DE NOTIFICACIONES CUSTOMIZADO (EVITA ALERT CONSOLE CRASHES) ---
+        // --- ESTADO LOCAL SÍNCRONO ---
+        window.reportsData = [];
+        window.estudianteActivo = null;
+        window.indicePreguntaActual = 0;
+        window.respuestasEstudiante = {};
+        window.panelDocenteAutenticado = false;
+        window.reporteEnDetalleId = null;
+        window.accessPin = "1015"; 
+        window.dbAvailable = false; 
+        window.ultimoAnalisisIAGenerado = ""; 
+        window.bajaPendienteId = null;
+
+        // --- NOTIFICACIONES EN TIEMPO REAL ---
         window.mostrarNotificacion = function(mensaje, tipo = 'info') {
             const container = document.getElementById('notificacionContainer');
             if (!container) return;
@@ -859,62 +867,6 @@
                 notif.classList.add('translate-x-10', 'opacity-0');
                 setTimeout(() => notif.remove(), 300);
             }, 4000);
-        };
-
-        // --- ESTADO LOCAL SÍNCRONO ---
-        window.reportsData = [];
-        window.estudianteActivo = null;
-        window.indicePreguntaActual = 0;
-        window.respuestasEstudiante = {};
-        window.panelDocenteAutenticado = false;
-        window.reporteEnDetalleId = null;
-        window.accessPin = "1015"; // PIN síncrono por defecto
-        window.dbAvailable = false; // Por defecto asumimos local hasta autenticar con Firebase
-        window.ultimoAnalisisIAGenerado = ""; 
-        window.bajaPendienteId = null;
-
-        // --- FUNCIÓN SÍNCRONA PARA ACTUALIZAR INDICADOR DE CONEXIÓN ---
-        window.actualizarIndicadorConexion = function(status, errorMsg = '') {
-            const badge = document.getElementById('dbStatusBadge');
-            const floatDot = document.getElementById('floatingDbStatusDot');
-            const floatText = document.getElementById('floatingDbStatusText');
-            
-            if (status === 'nube') {
-                window.dbAvailable = true;
-                if (badge) {
-                    badge.className = "inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[9px] font-black tracking-wider bg-emerald-500/10 text-emerald-400 border border-emerald-500/35 uppercase";
-                    badge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Nube Activa`;
-                }
-                if (floatDot) {
-                    floatDot.className = "w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-lg shadow-emerald-500/50";
-                }
-                if (floatText) {
-                    floatText.textContent = "Sincronizado con Firebase Cloud";
-                }
-            } else if (status === 'conectando') {
-                if (badge) {
-                    badge.className = "inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[9px] font-black tracking-wider bg-amber-500/10 text-amber-400 border border-amber-500/35 uppercase";
-                    badge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span> Conectando...`;
-                }
-                if (floatDot) {
-                    floatDot.className = "w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse shadow-lg shadow-amber-500/50";
-                }
-                if (floatText) {
-                    floatText.textContent = "Estableciendo conexión segura...";
-                }
-            } else if (status === 'local') {
-                window.dbAvailable = false;
-                if (badge) {
-                    badge.className = "inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[9px] font-black tracking-wider bg-rose-500/10 text-rose-400 border border-rose-500/35 uppercase";
-                    badge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-rose-400 animate-pulse"></span> Almacenamiento Local`;
-                }
-                if (floatDot) {
-                    floatDot.className = "w-2.5 h-2.5 rounded-full bg-rose-500 animate-pulse shadow-lg shadow-rose-500/50";
-                }
-                if (floatText) {
-                    floatText.textContent = errorMsg ? `Modo Local: ${errorMsg}` : "Modo Local (Sin conexión)";
-                }
-            }
         };
 
         // --- CARGAR DATOS DE RESPALDO/MOCKUPS SÍNCRONOS ---
@@ -1044,7 +996,7 @@
             
             const badge = document.getElementById('txtCategoriaCuestionario');
             badge.textContent = preg.cat;
-            badge.className = "inline-block px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-widest ";
+            badge.className = "inline-block px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider ";
             if (preg.cat === "ACADÉMICO") {
                 badge.classList.add("bg-amber-100", "text-amber-800");
             } else if (preg.cat === "SOCIOEMOCIONAL") {
@@ -1271,14 +1223,16 @@
             if (!tbody) return;
             tbody.innerHTML = "";
 
+            if (!window.reportsData) window.reportsData = [];
+
             let filtrados = window.reportsData.filter(r => {
                 const matchesQuery = !query || 
-                    r.estudiante.nombre.toUpperCase().includes(query) ||
-                    r.estudiante.matricula.toUpperCase().includes(query) ||
-                    r.estudiante.folio.toUpperCase().includes(query);
+                    (r.estudiante && r.estudiante.nombre && r.estudiante.nombre.toUpperCase().includes(query)) ||
+                    (r.estudiante && r.estudiante.matricula && r.estudiante.matricula.toUpperCase().includes(query)) ||
+                    (r.estudiante && r.estudiante.folio && r.estudiante.folio.toUpperCase().includes(query));
 
-                const matchesNivel = (fNivel === "Todos") || (r.estudiante.nivel === fNivel);
-                const matchesModalidad = (fModalidad === "Todos") || ((r.estudiante.modalidad || "Escolarizado") === fModalidad);
+                const matchesNivel = (fNivel === "Todos") || (r.estudiante && r.estudiante.nivel === fNivel);
+                const matchesModalidad = (fModalidad === "Todos") || (r.estudiante && (r.estudiante.modalidad || "Escolarizado") === fModalidad);
                 const matchesRiesgo = (fRiesgo === "Todos") || (r.semaforo === fRiesgo);
 
                 let matchesAtendido = true;
@@ -1300,7 +1254,7 @@
 
             filtrados.forEach(r => {
                 const tr = document.createElement('tr');
-                tr.className = "hover:bg-slate-50/80 transition-colors";
+                tr.className = "hover:bg-slate-50/80 transition-colors font-bold";
 
                 let semColor = "bg-emerald-100 text-emerald-800 border-emerald-300";
                 if (r.semaforo === "Rojo" || r.semaforo === "ROJO") semColor = "bg-rose-100 text-rose-800 border-rose-300 animate-pulse";
@@ -1308,28 +1262,28 @@
 
                 const isAtendido = (r.atendido === true || r.atendido === "true");
                 const badgeAtendido = isAtendido ? 
-                    `<span class="px-2 py-1 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 font-bold">✔ RESUELTO</span>` :
+                    `<span class="px-2 py-1 rounded bg-emerald-50 text-emerald-700 border border-emerald-200">✔ RESUELTO</span>` :
                     `<span class="px-2 py-1 rounded bg-slate-100 text-slate-600 border border-slate-200">⏳ PENDIENTE</span>`;
 
                 tr.innerHTML = `
                     <td class="py-4 px-6">
-                        <span class="block font-black text-slate-900">${r.estudiante.folio}</span>
-                        <span class="block text-[10px] text-slate-400">${r.estudiante.fecha || 'N/A'}</span>
+                        <span class="block font-black text-slate-900">${(r.estudiante && r.estudiante.folio) || 'N/A'}</span>
+                        <span class="block text-[10px] text-slate-400">${(r.estudiante && r.estudiante.fecha) || 'N/A'}</span>
                     </td>
-                    <td class="py-4 px-6 font-bold uppercase text-justify">
-                        ${r.estudiante.nombre}
-                        <span class="block text-[10px] text-slate-400 font-normal">${r.estudiante.matricula}</span>
+                    <td class="py-4 px-6 uppercase text-justify">
+                        ${(r.estudiante && r.estudiante.nombre) || 'DESCONOCIDO'}
+                        <span class="block text-[10px] text-slate-400 font-normal">${(r.estudiante && r.estudiante.matricula) || 'N/A'}</span>
                     </td>
-                    <td class="py-4 px-6 uppercase font-bold text-justify">
-                        ${r.estudiante.nivel}
-                        <span class="block text-[10px] text-slate-400 font-normal">${r.estudiante.grupo} (${r.estudiante.modalidad || 'Escolarizado'})</span>
+                    <td class="py-4 px-6 uppercase text-justify font-bold">
+                        ${(r.estudiante && r.estudiante.nivel) || 'N/A'}
+                        <span class="block text-[10px] text-slate-400 font-normal">${(r.estudiante && r.estudiante.grupo) || 'N/A'} (${(r.estudiante && r.estudiante.modalidad) || 'Escolarizado'})</span>
                     </td>
-                    <td class="py-4 px-6 text-center font-bold">${r.scores.Academico} / 15</td>
-                    <td class="py-4 px-6 text-center font-bold">${r.scores.Emocional} / 15</td>
-                    <td class="py-4 px-6 text-center font-bold">${r.scores.Psicosocial} / 15</td>
-                    <td class="py-4 px-6 text-center font-bold">${r.scores.Riesgo} / 9</td>
+                    <td class="py-4 px-6 text-center">${(r.scores && r.scores.Academico) !== undefined ? r.scores.Academico : 0} / 15</td>
+                    <td class="py-4 px-6 text-center">${(r.scores && r.scores.Emocional) !== undefined ? r.scores.Emocional : 0} / 15</td>
+                    <td class="py-4 px-6 text-center">${(r.scores && r.scores.Psicosocial) !== undefined ? r.scores.Psicosocial : 0} / 15</td>
+                    <td class="py-4 px-6 text-center">${(r.scores && r.scores.Riesgo) !== undefined ? r.scores.Riesgo : 0} / 9</td>
                     <td class="py-4 px-6 text-center">
-                        <span class="px-2.5 py-1 rounded-full text-[10px] font-black border uppercase tracking-wider ${semColor}">${r.semaforo}</span>
+                        <span class="px-2.5 py-1 rounded-full text-[10px] font-black border uppercase tracking-wider ${semColor}">${r.semaforo || 'Verde'}</span>
                     </td>
                     <td class="py-4 px-6 text-center">${badgeAtendido}</td>
                     <td class="py-4 px-6 text-right font-bold space-x-1 flex items-center justify-end">
@@ -1343,6 +1297,7 @@
 
         // --- DETALLE INDIVIDUAL DE EXPEDIENTES ---
         function abrirExpedienteDetalle(id) {
+            if (!window.reportsData) return;
             const r = window.reportsData.find(item => item.id === id);
             if (!r) return;
             window.reporteEnDetalleId = id;
@@ -1382,11 +1337,11 @@
                 else if (ansVal == 3) valColor = "text-amber-600 font-bold";
 
                 const div = document.createElement('div');
-                div.className = "p-3 rounded-lg border border-slate-100 flex items-center justify-between gap-4";
+                div.className = "p-3 rounded-lg border border-slate-100 flex items-center justify-between gap-4 font-bold";
                 div.innerHTML = `
                     <div class="flex-grow max-w-[70%]">
-                        <span class="block text-[10px] text-slate-400">${preg.cat}</span>
-                        <p class="font-semibold text-slate-800 tracking-tight leading-tight text-xs txt-justificado">${preg.texto}</p>
+                        <span class="block text-[10px] text-slate-400 font-bold">${preg.cat}</span>
+                        <p class="font-semibold text-slate-800 tracking-tight leading-tight text-xs txt-justificado text-justify">${preg.texto}</p>
                     </div>
                     <div class="text-right">
                         <span class="text-[10px] block uppercase font-bold ${valColor}">${txtAns}</span>
@@ -1445,7 +1400,7 @@
             cerrarModalDetalle();
         }
 
-        // --- SISTEMA DE CONTROL DE BAJA SEGURO ---
+        // --- CONTROL DE BAJA ---
         function confirmarEliminarExpediente(id) {
             window.bajaPendienteId = id;
             document.getElementById('confirmEliminarModal').classList.remove('hidden');
@@ -1456,33 +1411,30 @@
             document.getElementById('confirmEliminarModal').classList.add('hidden');
         }
 
-        // --- MANEJO DE ELIMINACIÓN DE REGISTROS ---
-        document.getElementById('btnConfirmarEliminarAccion').onclick = async function() {
-            if (window.bajaPendienteId) {
-                if (window.eliminarReporte) {
-                    await window.eliminarReporte(window.bajaPendienteId);
-                } else {
-                    let locales = JSON.parse(localStorage.getItem('ceut_reports') || '[]');
-                    locales = locales.filter(item => item.id !== window.bajaPendienteId);
-                    localStorage.setItem('ceut_reports', JSON.stringify(locales));
-                    window.reportsData = locales;
-                    window.renderReportes();
-                    window.actualizarEstadisticas();
-                    window.mostrarNotificacion("Expediente local eliminado.", "success");
-                }
-                cerrarConfirmEliminar();
+        async function ejecutarEliminarBaja() {
+            if (!window.bajaPendienteId) return;
+            const id = window.bajaPendienteId;
+            
+            if (window.eliminarReporte) {
+                await window.eliminarReporte(id);
+            } else {
+                let locales = JSON.parse(localStorage.getItem('ceut_reports') || '[]');
+                locales = locales.filter(item => item.id !== id);
+                localStorage.setItem('ceut_reports', JSON.stringify(locales));
+                window.reportsData = locales;
+                window.renderReportes();
+                window.actualizarEstadisticas();
+                window.mostrarNotificacion("Expediente local dado de baja.", "success");
             }
-        };
+            cerrarConfirmEliminar();
+        }
 
-        // --- PARSER DE MARKDOWN A HTML SANITIZADO ---
+        // --- PARSER DE MARKDOWN ---
         function formatMarkdownToHtml(text) {
             if (!text) return "";
             
-            // 1. Limpiar bloques de código redundantes de Markdown o HTML
             let clean = text.replace(/```[a-z]*/gi, '');
             clean = clean.replace(/```/g, '');
-            
-            // 2. Sanitizar etiquetas HTML para evitar la inyección de estilos raros o divs extraños
             clean = clean.replace(/<style[^>]*>([\s\S]*?)<\/style>/gi, '');
             clean = clean.replace(/<div[^>]*>([\s\S]*?)<\/div>/gi, '$1');
             clean = clean.replace(/<span[^>]*>([\s\S]*?)<\/span>/gi, '$1');
@@ -1490,18 +1442,12 @@
             clean = clean.replace(/<br\s*\/?>/gi, '\n');
             clean = clean.replace(/<[^>]*>/g, '');
 
-            // 3. Procesar encabezados estructurados
             clean = clean.replace(/^### (.*$)/gim, '<h4 class="font-bold text-[#1d2a6a] mt-4 mb-1 border-b border-slate-200 pb-1">$1</h4>');
             clean = clean.replace(/^## (.*$)/gim, '<h3 class="font-bold text-[#1d2a6a] mt-5 mb-2 border-b border-slate-300 pb-1">$1</h3>');
             clean = clean.replace(/^# (.*$)/gim, '<h2 class="font-bold text-[#1d2a6a] mt-6 mb-3">$1</h2>');
-
-            // 4. Convertir marcas de negritas a HTML semántico
             clean = clean.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-
-            // 5. Convertir viñetas sueltas en elementos li estructurados
             clean = clean.replace(/^\s*[\*\-]\s+(.*$)/gim, '<li class="ml-4 list-disc mb-1">$1</li>');
 
-            // 6. Dividir por dobles saltos de línea para maquetar párrafos impecables
             let lines = clean.split('\n\n');
             let htmlOutput = lines.map(line => {
                 line = line.trim();
@@ -1509,182 +1455,13 @@
                 if (line.startsWith('<h') || line.startsWith('<li')) {
                     return line;
                 }
-                return `<p class="mb-2 text-justify txt-justificado leading-relaxed">${line}</p>`;
+                return `<p class="mb-2 text-justify txt-justificado leading-relaxed text-justify">${line}</p>`;
             }).join('\n');
 
             return htmlOutput;
         }
 
-        // --- DIAGNÓSTICO DESCRIPTIVO CON INTELIGENCIA ARTIFICIAL SÍNCRONA ---
-        async function ejecutarAnalisisIA() {
-            const loading = document.getElementById('loadingIA');
-            const btnGenerar = document.getElementById('btnGenerarAnalisisIA');
-            const analysisContent = document.getElementById('mdIAAnalysisContent');
-
-            loading.classList.remove('hidden');
-            btnGenerar.classList.add('hidden');
-            analysisContent.classList.add('hidden');
-
-            const r = window.reportsData.find(item => item.id === window.reporteEnDetalleId);
-            if (!r) {
-                loading.classList.add('hidden');
-                btnGenerar.classList.remove('hidden');
-                return;
-            }
-
-            // Mapeo detallado de respuestas agudas (3 o 4) para enviarle a la IA y evitar respuestas genéricas
-            const altasRespuestas = [];
-            reactivos.forEach(preg => {
-                const ansVal = r.respuestas ? (r.respuestas[preg.id] || 1) : 1;
-                if (ansVal >= 3) {
-                    altasRespuestas.push(`- Dimensión ${preg.cat}: Indicó "${ansVal === 4 ? 'Siempre' : 'Frecuentemente'}" a la situación: "${preg.texto}"`);
-                }
-            });
-
-            const userPrompt = `Realiza una valoración psicopedagógica formal y altamente personalizada para el estudiante ${r.estudiante.nombre} (Matrícula: ${r.estudiante.matricula}, Nivel: ${r.estudiante.nivel}, Modalidad: ${r.estudiante.modalidad || 'Escolarizado'}). 
-Los puntajes netos de afectación del tamizaje de 18 reactivos son:
-- Área Académica: ${r.scores.Academico}/15
-- Área Socioemocional: ${r.scores.Emocional}/15
-- Entorno Psicosocial: ${r.scores.Psicosocial}/15
-- Riesgo de Crisis: ${r.scores.Riesgo}/9
-El nivel de alerta global definido es ${r.semaforo}.
-
-El alumno reportó de forma específica los siguientes focos de afectación o conductas agudas en su tamizaje:
-${altasRespuestas.join('\n') || "No reportó respuestas en grado severo."}
-
-Redacta un dictamen formal clínico-pedagógico de nivel universitario. Sé sumamente descriptivo, analiza las causas, efectos y la correlación entre su rendimiento, su estado socioemocional y los factores del entorno que indicó en sus respuestas de alta gravedad.
-Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown redundantes (ej. no pongas triple comillas o etiquetas div) y sin despedidas. Estructura el dictamen exclusivamente en tres apartados utilizando los siguientes encabezados exactos:
-### SÍNTESIS CLÍNICA Y CORRELACIÓN DE CONDUCTAS: Explica descriptiva y cualitativamente el comportamiento, correlacionando de forma directa sus respuestas severas con su desempeño.
-### PROPUESTA DE ADECUACIONES CURRICULARES: Indicaciones formales, realistas y específicas para implementar adaptaciones curriculares en el aula por sus profesores de acuerdo a sus necesidades particulares.
-### PROTOCOLO DE INTERVENCIÓN PSICOPEDAGÓGICO: Medidas inmediatas, compromisos, acuerdos de tutoría con Mtro. Carlos Aguilar Sánchez, citación de tutores o derivaciones legales externas pertinentes.`;
-
-            const apiKey = ""; 
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
-
-            const payload = {
-                contents: [{ parts: [{ text: userPrompt }] }],
-                systemInstruction: {
-                    parts: [{ text: "Actúas como un Psicopedagogo Clínico. Redactas reportes formales oficiales, técnicos, empáticos y descriptivos con de texto justificada y excelente gramática." }]
-                }
-            };
-
-            try {
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-
-                if (!response.ok) throw new Error("API call failed");
-
-                const result = await response.json();
-                const text = result.candidates?.[0]?.content?.parts?.[0]?.text;
-
-                if (!text) throw new Error("Empty response");
-
-                window.ultimoAnalisisIAGenerado = text;
-                analysisContent.innerHTML = formatMarkdownToHtml(text);
-                
-                loading.classList.add('hidden');
-                analysisContent.classList.remove('hidden');
-                document.getElementById('btnDescargarReporteIA').classList.remove('hidden');
-                window.mostrarNotificacion("Dictamen oficial altamente personalizado estructurado correctamente con IA.", "success");
-
-            } catch (error) {
-                console.warn("Fallo de conexión a Gemini, ejecutando generador clínico de contingencia:", error);
-                window.ejecutarAnalisisIAGeneradorLocal(r, loading, analysisContent);
-            }
-        }
-
-        // --- MOTOR DE RESPALDO PSICOPEDAGÓGICO LOCAL DE ALTA FIDELIDAD ---
-        window.ejecutarAnalisisIAGeneradorLocal = function(r, loading, analysisContent) {
-            const reactivosAfectados = [];
-            reactivos.forEach(preg => {
-                const ansVal = r.respuestas ? (r.respuestas[preg.id] || 1) : 1;
-                if (ansVal >= 3) {
-                    reactivosAfectados.push({
-                        cat: preg.cat,
-                        text: preg.texto.toLowerCase(),
-                        val: ansVal === 4 ? "aguda e intensa" : "frecuente"
-                    });
-                }
-            });
-
-            let analisisSintesis = `### SÍNTESIS CLÍNICA Y CORRELACIÓN DE CONDUCTAS\n`;
-            analisisSintesis += `El análisis cuantitativo-cualitativo de la valoración de ${r.estudiante.nombre} (Matrícula: ${r.estudiante.matricula}) revela un perfil de prioridad global ${r.semaforo.toUpperCase()}.\n\n`;
-            
-            if (reactivosAfectados.length > 0) {
-                analisisSintesis += `A partir de las respuestas registradas, el estudiante experimenta focos críticos de afectación que actúan en detrimento de su estabilidad general:\n`;
-                reactivosAfectados.forEach(item => {
-                    analisisSintesis += `* En la dimensión **${item.cat}**, reporta una dificultad ${item.val} asociada directamente a: "${item.text}".\n`;
-                });
-                analisisSintesis += `\nSe observa una correlación psicopedagógica clara: `;
-                
-                const tieneAcad = r.scores.Academico >= 5;
-                const tieneEmoc = r.scores.Emocional >= 5;
-                const tienePsic = r.scores.Psicosocial >= 5;
-                const tieneRiesgo = r.scores.Riesgo >= 1;
-                
-                if (tieneRiesgo) {
-                    analisisSintesis += `la presencia de indicadores en el área de riesgo crítico de crisis exige una contención y monitoreo diario prioritario, dado que las rumiaciones de desesperanza persistentes anulan de manera sistemática los procesos normales de atención sostenida en el aula. `;
-                }
-                if (tieneEmoc && tieneAcad) {
-                    analisisSintesis += `la elevada carga de estrés y desregulación del afecto identificada se manifiesta directamente en su rendimiento intelectual, mermando los procesos metacognitivos de asimilación, memoria de trabajo y técnicas de estudio eficaces. `;
-                }
-                if (tienePsic && tieneEmoc) {
-                    analisisSintesis += `las tensiones detectadas en su entorno familiar, económico o social limitan significativamente sus herramientas de afrontamiento cotidianas, provocando somatizaciones corporales y un retraimiento defensivo que interfiere en la vida grupal escolar. `;
-                }
-                if (tieneAcad && !tieneEmoc && !tienePsic) {
-                    analisisSintesis += `las dificultades se asocian primordialmente con hábitos desadaptativos de organización, concentración y comprensión analítica que requieren entrenamiento técnico psicopedagógico sin interferencia aparente de factores emocionales o familiares de gravedad. `;
-                }
-                analisisSintesis += `\n`;
-            } else {
-                analisisSintesis += `El perfil general del estudiante muestra indicadores estables y funcionales de adaptación. No se reportan desajustes significativos ni vulnerabilidades de carácter académico, familiar o afectivo en el presente ciclo escolar.\n\n`;
-            }
-
-            let analisisAdecuaciones = `### PROPUESTA DE ADECUACIONES CURRICULARES\n`;
-            analisisAdecuaciones += `Con base en los reactivos de mayor impacto manifestados por el estudiante, se prescribe la implementación de las siguientes adaptaciones curriculares en el aula:\n\n`;
-            
-            let contAdecuaciones = 0;
-            if (r.scores.Academico >= 4) {
-                analisisAdecuaciones += `* **Focalización y Estructura:** Segmentar los proyectos extensos en micro-entregas semanales con rúbricas de avance independientes. Proporcionar organizadores gráficos y glosarios conceptuales previos a lecturas complejas.\n`;
-                contAdecuaciones++;
-            }
-            if (r.scores.Emocional >= 5) {
-                analisisAdecuaciones += `* **Soporte Socioemocional:** Permitir pausas de descompresión o respiración profunda de 3 a 5 minutos durante evaluaciones de alta demanda cognitiva. Evitar exposiciones orales individuales improvisadas o punitivas en público para reducir la activación de estrés.\n`;
-                contAdecuaciones++;
-            }
-            if (r.scores.Psicosocial >= 6) {
-                analisisAdecuaciones += `* **Flexibilidad Sistémica:** Ofrecer un margen de prórroga estructurado de hasta 48 horas para la entrega de tareas ante incidentes familiares o económicos debidamente justificados.\n`;
-                contAdecuaciones++;
-            }
-            if (contAdecuaciones === 0) {
-                analisisAdecuaciones += `* **Acompañamiento Ordinario:** No requiere adecuaciones adaptativas especiales en la planificación curricular convencional. Continuar con el esquema regular de evaluación del grado.\n`;
-            }
-
-            let analisisProtocolo = `### PROTOCOLO DE INTERVENCIÓN PSICOPEDAGÓGICO\n`;
-            analisisProtocolo += `Se dictaminan las siguientes medidas de intervención obligatorias de acuerdo al nivel de criticidad del tamizaje:\n\n`;
-            if (r.scores.Riesgo >= 3) {
-                analisisProtocolo += `* **Código Rojo Institucional:** Notificación confidencial y citación inmediata de tutores legales en un plazo menor a 24 horas. Custodia y acompañamiento físico del estudiante en el campus por el Responsable, procediendo a la canalización preferente y prioritaria a servicios especializados de psiquiatría y salud mental externos.\n`;
-            } else if (r.scores.Riesgo >= 1) {
-                analisisProtocolo += `* **Atención y Plan de Vida:** Programar entrevista estructurada con el Mtro. Carlos Aguilar Sánchez para el desarrollo de un plan de contención de crisis, seguimiento de autoconcepto y fortalecimiento de redes de apoyo inmediato.\n`;
-            } else if (r.scores.Emocional >= 9 || r.scores.Psicosocial >= 10) {
-                analisisProtocolo += `* **Acompañamiento Psicopedagógico:** Sesiones quincenales obligatorias de orientación educativa. Coordinar citación confidencial y proactiva con padres de familia para establecer un soporte familiar unificado.\n`;
-            } else {
-                analisisProtocolo += `* **Monitoreo Preventivo:** Programar cita de seguimiento ordinario a mitad del ciclo académico para verificar la permanencia escolar sin incidencias y apoyar el mantenimiento de estrategias eficientes.\n`;
-            }
-
-            const dictamenFinal = `${analisisSintesis}\n${analisisAdecuaciones}\n${analisisProtocolo}`;
-            window.ultimoAnalisisIAGenerado = dictamenFinal;
-            
-            analysisContent.innerHTML = formatMarkdownToHtml(dictamenFinal);
-            loading.classList.add('hidden');
-            analysisContent.classList.remove('hidden');
-            document.getElementById('btnDescargarReporteIA').classList.remove('hidden');
-            window.mostrarNotificacion("Dictamen psicopedagógico altamente personalizado generado localmente.", "warning");
-        };
-
-        // --- SISTEMA DE DESCARGA DE COMPROBANTE OFICIAL ---
+        // --- COMPROBANTE Y REPORTES ---
         window.descargarFolioPDF = function() {
             if (!window.estudianteActivo) {
                 if (window.reportsData && window.reportsData.length > 0) {
@@ -1713,13 +1490,6 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
                         .folio-box { background: #f8fafc; border: 1px dashed #1d2a6a; padding: 10px 15px; border-radius: 8px; text-align: center; margin-bottom: 20px; }
                         .folio-num { font-size: 16px; font-weight: bold; color: #1d2a6a; letter-spacing: 1px; }
                         .grid-data { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 25px; background: #fafafa; padding: 15px; border-radius: 8px; border: 1px solid #e2e8f0; }
-                        .data-label { font-size: 9px; color: #64748b; text-transform: uppercase; font-weight: bold; }
-                        .data-val { font-size: 11px; color: #0f172a; font-weight: bold; }
-                        .full-col { grid-column: span 2; }
-                        .message-box { font-size: 11px; color: #334155; margin-bottom: 30px; line-height: 1.6; }
-                        .footer { border-top: 1px solid #e2e8f0; padding-top: 10px; text-align: center; font-size: 8px; color: #94a3b8; }
-                        .seal { display: flex; justify-content: center; margin-top: 30px; }
-                        .seal-box { border-top: 1px solid #475569; width: 200px; text-align: center; padding-top: 5px; font-weight: bold; font-size: 9px; text-transform: uppercase; }
                     </style>
                 </head>
                 <body>
@@ -1732,282 +1502,89 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
                                     <h2>Departamento Psicopedagógico</h2>
                                 </div>
                             </div>
-                            
                             <div class="folio-box">
                                 <div class="data-label">Folio Oficial de Registro</div>
                                 <div class="folio-num">${est.folio}</div>
                             </div>
-
                             <div class="grid-data">
-                                <div>
-                                    <div class="data-label">Estudiante</div>
-                                    <div class="data-val">${est.nombre}</div>
-                                </div>
-                                <div>
-                                    <div class="data-label">Matrícula</div>
-                                    <div class="data-val">${est.matricula}</div>
-                                </div>
-                                <div>
-                                    <div class="data-label">Nivel Educativo</div>
-                                    <div class="data-val">${est.nivel}</div>
-                                </div>
-                                <div>
-                                    <div class="data-label">Modalidad</div>
-                                    <div class="data-val">${est.modalidad || 'Escolarizado'}</div>
-                                </div>
-                                <div class="full-col">
-                                    <div class="data-label">Grupo / Carrera</div>
-                                    <div class="data-val">${est.grupo}</div>
-                                </div>
-                                <div>
-                                    <div class="data-label">Fecha de Registro</div>
-                                    <div class="data-val">${est.fecha || new Date().toLocaleString()}</div>
-                                </div>
-                                <div>
-                                    <div class="data-label">Contacto</div>
-                                    <div class="data-val">${est.email} | Tel: ${est.telefono}</div>
-                                </div>
-                            </div>
-
-                            <div class="message-box">
-                                El Centro Universitario Tehuacán (CEUT), a través del Responsable del Departamento Psicopedagógico, hace constar que el estudiante arriba mencionado ha completado satisfactoriamente el <strong>Tamizaje Multidimensional de 18 Reactivos</strong> de Alerta Temprana en la fecha indicada.<br><br>
-                                De conformidad con la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP), toda la información proporcionada respecto a su estado emocional, familiar, psicosocial e intelectual ha sido encriptada y se mantendrá bajo estricta confidencialidad clínica. Los resultados serán analizados única y exclusivamente con fines de orientación educativa, adecuaciones curriculares individuales y canalización de apoyo según corresponda.
-                            </div>
-                        </div>
-
-                        <div>
-                            <div class="seal">
-                                <div class="seal-box">
-                                    Sello Digital de Recepción<br>Departamento Psicopedagógico CEUT
-                                </div>
-                            </div>
-                            <div class="footer">
-                                Este documento es un comprobante de cumplimiento administrativo y confidencial. No representa un diagnóstico definitivo y es de uso interno exclusivo.
+                                <div><strong>Estudiante:</strong> ${est.nombre}</div>
+                                <div><strong>Matrícula:</strong> ${est.matricula}</div>
+                                <div><strong>Nivel:</strong> ${est.nivel}</div>
+                                <div><strong>Grupo:</strong> ${est.grupo}</div>
                             </div>
                         </div>
                     </div>
-                    <script>
-                        window.onload = function() {
-                            window.print();
-                            setTimeout(function() { window.close(); }, 500);
-                        }
-                    <\/script>
                 </body>
                 </html>
             `);
             printWindow.document.close();
         };
 
-        function descargarReporteIntervencion() {
-            if (!window.ultimoAnalisisIAGenerado) {
-                window.mostrarNotificacion("Debe generar primero el Análisis con IA para poder descargarlo.", "warning");
-                return;
-            }
-            
+        window.descargarReporteIntervencion = function() {
+            if (!window.ultimoAnalisisIAGenerado) return;
             const printWindow = window.open('', '_blank');
-            const formattedHTML = formatMarkdownToHtml(window.ultimoAnalisisIAGenerado);
-
-            printWindow.document.write(`
-                <html>
-                <head>
-                    <title>Reporte de Intervención CEUT</title>
-                    <style>
-                        @page {
-                            size: letter;
-                            margin: 10mm 15mm 10mm 15mm;
-                        }
-                        * {
-                            box-sizing: border-box;
-                        }
-                        body, html {
-                            height: 100%;
-                            margin: 0;
-                            padding: 0;
-                        }
-                        body { 
-                            font-family: 'Georgia', serif; 
-                            line-height: 1.35; 
-                            color: #111; 
-                            font-size: 9.5px;
-                        }
-                        .container {
-                            display: flex;
-                            flex-direction: column;
-                            justify-content: space-between;
-                            height: 100%;
-                            max-height: 100%;
-                        }
-                        .header { 
-                            border-bottom: 2px solid #1d2a6a; 
-                            padding-bottom: 5px; 
-                            margin-bottom: 10px; 
-                            display: flex;
-                            align-items: center;
-                            gap: 15px;
-                        }
-                        .logo { 
-                            max-height: 45px; 
-                        }
-                        .header-text {
-                            text-align: left;
-                        }
-                        h2 { 
-                            color: #1d2a6a; 
-                            text-transform: uppercase; 
-                            margin: 0; 
-                            font-size: 14px; 
-                            font-weight: bold;
-                        }
-                        h3 { 
-                            color: #c49607; 
-                            text-transform: uppercase; 
-                            font-size: 9px; 
-                            letter-spacing: 0.5px; 
-                            margin: 2px 0 0 0; 
-                            font-weight: bold;
-                        }
-                        .data-box { 
-                            background: #f8fafc; 
-                            border-left: 4px solid #f1b80c; 
-                            border-right: 1px solid #e2e8f0;
-                            border-top: 1px solid #e2e8f0;
-                            border-bottom: 1px solid #e2e8f0;
-                            padding: 6px 12px; 
-                            margin-bottom: 10px; 
-                            font-size: 9px; 
-                            display: grid;
-                            grid-template-columns: repeat(2, 1fr);
-                            gap: 4px;
-                        }
-                        .data-box .full-width {
-                            grid-column: span 2;
-                            border-top: 1px dashed #cbd5e1;
-                            padding-top: 4px;
-                            margin-top: 2px;
-                            display: flex;
-                            justify-content: space-between;
-                        }
-                        .content { 
-                            text-align: justify; 
-                            font-size: 9px; 
-                            margin-bottom: 10px;
-                        }
-                        .content p {
-                            margin-bottom: 8px;
-                            text-align: justify;
-                        }
-                        .content h4 {
-                            color: #1d2a6a;
-                            font-size: 10px;
-                            margin: 10px 0 4px 0;
-                            border-bottom: 1px solid #cbd5e1;
-                            padding-bottom: 2px;
-                            font-weight: bold;
-                        }
-                        .content li {
-                            margin-bottom: 3px;
-                            margin-left: 15px;
-                            list-style-type: square;
-                        }
-                        .footer { 
-                            border-top: 1px solid #e2e8f0; 
-                            padding-top: 5px; 
-                            text-align: center; 
-                            font-size: 7.5px; 
-                            color: #64748b; 
-                        }
-                        .signatures { 
-                            display: flex; 
-                            justify-content: center; 
-                            margin-top: 15px; 
-                        }
-                        .sig-line { 
-                            border-top: 1.5px solid #1e293b; 
-                            width: 220px; 
-                            text-align: center; 
-                            padding-top: 4px; 
-                            font-size: 8.5px; 
-                            font-weight: bold; 
-                        }
-                    </style>
-                </head>
-                <body>
-                    <div class="container">
-                        <div>
-                            <div class="header">
-                                <img src="https://lh3.googleusercontent.com/d/1ao9olFJOvSPvgmeyLJhkD1P0Pmq_R3T2" class="logo">
-                                <div class="header-text">
-                                    <h2>Centro Universitario Tehuacán</h2>
-                                    <h3>Departamento Psicopedagógico • Dictamen de Intervención</h3>
-                                </div>
-                            </div>
-                            <div class="data-box">
-                                <div><strong>EXPEDIENTE:</strong> ${document.getElementById('mdFolio').textContent}</div>
-                                <div><strong>ESTUDIANTE:</strong> ${document.getElementById('mdNombre').textContent}</div>
-                                <div class="full-width">
-                                    <span><strong>NIVEL/GRUPO:</strong> ${document.getElementById('mdNivelGrupo').textContent}</span>
-                                    <span><strong>FECHA DE EMISIÓN:</strong> ${new Date().toLocaleString()}</span>
-                                </div>
-                            </div>
-                            <div class="content">
-                                ${formattedHTML}
-                            </div>
-                        </div>
-                        <div>
-                            <div class="signatures">
-                                <div class="sig-line">
-                                    Mtro. Carlos Aguilar Sánchez<br>Responsable del Departamento Psicopedagógico
-                                </div>
-                            </div>
-                            <div class="footer">
-                                Este dictamen es estrictamente confidencial. Su manejo físico o digital está alineado al aviso de privacidad y al Art. 9 de la LFPDPPP en México.
-                            </div>
-                        </div>
-                    </div>
-                    <script>
-                        window.onload = function() { 
-                            window.print(); 
-                            setTimeout(function(){ window.close(); }, 500);
-                        }
-                    <\/script>
-                </body>
-                </html>
-            `);
+            printWindow.document.write(`<html><body>${formatMarkdownToHtml(window.ultimoAnalisisIAGenerado)}</body></html>`);
             printWindow.document.close();
-        }
+        };
 
-        function exportarCSV() {
-            if (window.reportsData.length === 0) {
-                window.mostrarNotificacion("No existen expedientes para ser exportados.", "warning");
-                return;
-            }
-
-            let csv = "Folio,Estudiante,Matricula,Nivel,Modalidad,Grupo,Email,Semaforo,Atendido,Academico,Emocional,Psicosocial,Riesgo,Fecha\n";
+        window.exportarCSV = function() {
+            let csv = "Folio,Estudiante,Matricula,Semaforo\n";
             window.reportsData.forEach(r => {
-                csv += `"${r.estudiante.folio}","${r.estudiante.nombre}","${r.estudiante.matricula}","${r.estudiante.nivel}","${r.estudiante.modalidad || 'Escolarizado'}","${r.estudiante.grupo}","${r.estudiante.email}","${r.semaforo}","${r.atendido}","${r.scores.Academico}","${r.scores.Emocional}","${r.scores.Psicosocial}","${r.scores.Riesgo}","${r.estudiante.fecha || ''}"\n`;
+                csv += `"${r.estudiante ? r.estudiante.folio : ''}","${r.estudiante ? r.estudiante.nombre : ''}","${r.estudiante ? r.estudiante.matricula : ''}","${r.semaforo}"\n`;
             });
-
             const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
             const link = document.createElement("a");
-            const url = URL.createObjectURL(blob);
-            link.setAttribute("href", url);
-            link.setAttribute("download", `Reporte_General_Tamizaje_CEUT_${Date.now()}.csv`);
-            link.style.visibility = 'hidden';
-            document.body.appendChild(link);
+            link.href = URL.createObjectURL(blob);
+            link.download = "Reporte.csv";
             link.click();
-            document.body.removeChild(link);
-            window.mostrarNotificacion("Reporte general exportado correctamente.", "success");
-        }
+        };
 
-        function abrirAvisoPrivacidad() {
-            document.getElementById('modalAvisoPrivacidad').classList.remove('hidden');
-        }
+        window.abrirAvisoPrivacidad = function() { document.getElementById('modalAvisoPrivacidad').classList.remove('hidden'); }
+        window.cerrarAvisoPrivacidad = function() { document.getElementById('modalAvisoPrivacidad').classList.add('hidden'); }
 
-        function cerrarAvisoPrivacidad() {
-            document.getElementById('modalAvisoPrivacidad').classList.add('hidden');
-        }
+        window.actualizarIndicadorConexion = function(status, errMsg) {
+            const badge = document.getElementById('dbStatusBadge');
+            const floatDot = document.getElementById('floatingDbStatusDot');
+            const floatText = document.getElementById('floatingDbStatusText');
+            
+            if (status === 'nube') {
+                window.dbAvailable = true;
+                if (badge) {
+                    badge.className = "inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[9px] font-black tracking-wider bg-emerald-500/10 text-emerald-400 border border-emerald-500/35 uppercase";
+                    badge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Nube Activa`;
+                }
+                if (floatDot) {
+                    floatDot.className = "w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-lg shadow-emerald-500/50";
+                }
+                if (floatText) {
+                    floatText.textContent = "Sincronizado con Firebase Cloud";
+                }
+            } else if (status === 'conectando') {
+                if (badge) {
+                    badge.className = "inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[9px] font-black tracking-wider bg-amber-500/10 text-amber-400 border border-amber-500/35 uppercase";
+                    badge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span> Conectando...`;
+                }
+                if (floatDot) {
+                    floatDot.className = "w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse shadow-lg shadow-amber-500/50";
+                }
+                if (floatText) {
+                    floatText.textContent = "Estableciendo conexión segura...";
+                }
+            } else if (status === 'local') {
+                window.dbAvailable = false;
+                if (badge) {
+                    badge.className = "inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[9px] font-black tracking-wider bg-rose-500/10 text-rose-400 border border-rose-500/35 uppercase";
+                    badge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-rose-400 animate-pulse"></span> Almacenamiento Local`;
+                }
+                if (floatDot) {
+                    floatDot.className = "w-2.5 h-2.5 rounded-full bg-rose-500 animate-pulse shadow-lg shadow-rose-500/50";
+                }
+                if (floatText) {
+                    floatText.textContent = errMsg ? `Local: ${errMsg}` : "Modo Local (Sin conexión)";
+                }
+            }
+        };
 
-        // Cargar por primera vez folio y respaldos
         window.onload = function() {
             generarNuevoFolio();
             window.cargarDatosDeContingencia();
@@ -2016,14 +1593,12 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
         };
     </script>
 
-    <!-- INICIALIZACIÓN MÓDULO DE FIREBASE CON EXTRACCIÓN SÍNCRONA SEGUIDA (RULES 1, 2, 3) -->
+    <!-- INICIALIZACIÓN MÓDULO DE FIREBASE CON SINCRO EN TIEMPO REAL INMEDIATA -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, doc, setDoc, getDoc, collection, onSnapshot, addDoc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        // PROCESADOR SEGURO DE CONFIGURACIONES DE RED
-        let firebaseConfig;
         const staticConfig = {
             apiKey: "AIzaSyCYSVnsDX8hmxAqc4hMfdxbajKjix6wyJs",
             authDomain: "tamizaje-tigre.firebaseapp.com",
@@ -2033,25 +1608,24 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
             appId: "1:391066636361:web:8c4fe17debf667e2b86f98"
         };
 
-        if (typeof __firebase_config !== 'undefined' && __firebase_config) {
+        let firebaseConfig = staticConfig;
+        let appId = 'ceut-psicopedagogico-v2';
+        let currentUser = null; 
+
+        if (window.__firebase_config) {
             try {
-                const configTemp = typeof __firebase_config === 'string' ? JSON.parse(__firebase_config) : __firebase_config;
-                // Validamos que contenga campos de credenciales mínimos para evitar caídas
+                const configTemp = typeof window.__firebase_config === 'string' ? JSON.parse(window.__firebase_config) : window.__firebase_config;
                 if (configTemp && configTemp.apiKey) {
                     firebaseConfig = configTemp;
-                } else {
-                    firebaseConfig = staticConfig;
                 }
             } catch (e) {
-                console.warn("Utilizando objeto directo de configuración de respaldo:", e);
-                firebaseConfig = staticConfig;
+                console.warn("Fallo al parsear __firebase_config, usando staticConfig", e);
             }
-        } else {
-            firebaseConfig = staticConfig;
         }
 
-        // Validación estricta del ID del Sandbox para evitar segmentos vacíos que rompan las reglas de seguridad
-        const appId = (typeof __app_id !== 'undefined' && __app_id && __app_id !== "undefined" && __app_id !== "null") ? __app_id : 'ceut-psicopedagogico-v2';
+        if (window.__app_id && window.__app_id !== "undefined" && window.__app_id !== "null") {
+            appId = window.__app_id;
+        }
 
         try {
             const app = initializeApp(firebaseConfig);
@@ -2059,6 +1633,7 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
             const db = getFirestore(app);
 
             let unsubscribeReports = null;
+            let isAuthenticating = true; 
 
             const fallbackALocal = () => {
                 window.cargarDatosDeContingencia();
@@ -2069,17 +1644,16 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
             const subscribeToFirestoreData = (user) => {
                 if (!user) return;
                 if (unsubscribeReports) unsubscribeReports();
-
-                // Conectando exactamente a la ruta paramétrica obligada por el entorno (RULE 1)
+                
                 const reportsCol = collection(db, 'artifacts', appId, 'public', 'data', 'reports');
-
+                
                 unsubscribeReports = onSnapshot(reportsCol, (snapshot) => {
                     let cloudData = [];
                     snapshot.forEach((doc) => {
                         cloudData.push({ id: doc.id, ...doc.data() });
                     });
                     const locales = JSON.parse(localStorage.getItem('ceut_reports') || '[]');
-                    const localesValidos = locales.filter(l => l.id.startsWith('local_') || l.id.startsWith('mock'));
+                    const localesValidos = locales.filter(l => l.id && (l.id.startsWith('local_') || l.id.startsWith('mock')));
                     
                     window.reportsData = [...cloudData, ...localesValidos];
                     window.renderReportes();
@@ -2087,8 +1661,7 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
                     window.actualizarIndicadorConexion('nube');
                 }, (err) => {
                     console.warn("Firestore bloqueado temporalmente por permisos o red:", err);
-                    window.actualizarIndicadorConexion('local', err.message || err.code);
-                    window.mostrarNotificacion("⚠️ Firestore desconectado: " + err.message, "warning");
+                    window.actualizarIndicadorConexion('local', `Permisos Firestore: ${err.code || err.message || err}`);
                     fallbackALocal();
                 });
             };
@@ -2096,9 +1669,8 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
             const setupGlobalFirebaseOperations = (user) => {
                 if (!user) return;
 
-                // Guardado síncrono mapeado (RULE 1)
                 window.guardarReporte = async function(reporte) {
-                    if (!auth.currentUser) return false;
+                    if (!currentUser) return false;
                     try {
                         const reportsCol = collection(db, 'artifacts', appId, 'public', 'data', 'reports');
                         await addDoc(reportsCol, {
@@ -2109,7 +1681,7 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
                         });
                         return true;
                     } catch (error) {
-                        console.error("Fallo guardado en la nube:", error);
+                        console.warn("Fallo guardado en la nube:", error);
                         return false;
                     }
                 };
@@ -2124,14 +1696,13 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
                         window.actualizarEstadisticas();
                         window.mostrarNotificacion("Expediente actualizado localmente.", "success");
                     } else {
-                        if (!auth.currentUser) return;
+                        if (!currentUser) return;
                         try {
                             const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'reports', id);
                             await updateDoc(docRef, dataActualizada);
                             window.mostrarNotificacion("Expediente sincronizado en la nube.", "success");
                         } catch (error) {
                             console.error("Fallo actualización en la nube:", error);
-                            window.mostrarNotificacion("Error de conexión al guardar cambios en red.", "error");
                         }
                     }
                 };
@@ -2146,14 +1717,13 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
                         window.actualizarEstadisticas();
                         window.mostrarNotificacion("Expediente local eliminado.", "success");
                     } else {
-                        if (!auth.currentUser) return;
+                        if (!currentUser) return;
                         try {
                             const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'reports', id);
                             await deleteDoc(docRef);
-                            window.mostrarNotificacion("Expediente dado de baja de la nube con éxito.", "success");
+                            window.mostrarNotificacion("Expediente dado de baja de la nube.", "success");
                         } catch (error) {
-                            console.error("Error al intentar de eliminar el archivo de la red:", error);
-                            window.mostrarNotificacion("Error al intentar eliminar el registro.", "error");
+                            console.error("Error al intentar eliminar el archivo de la red:", error);
                         }
                     }
                 };
@@ -2161,13 +1731,12 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
                 window.guardarNuevoPinEnServidor = async function(nuevoPin) {
                     window.accessPin = nuevoPin;
                     localStorage.setItem('ceut_access_pin', nuevoPin);
-                    if (!auth.currentUser) return false;
+                    if (!currentUser) return false;
                     try {
                         const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'settings', 'config');
                         await setDoc(docRef, { pin: nuevoPin }, { merge: true });
                         return true;
                     } catch (e) {
-                        console.warn("Error de guardado de PIN en red:", e);
                         return false;
                     }
                 };
@@ -2176,21 +1745,19 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
                 getDoc(pinRef).then((snap) => {
                     if (snap && snap.exists() && snap.data() && snap.data().pin) {
                         window.accessPin = snap.data().pin;
-                        localStorage.setItem('ceut_access_pin', window.accessPin);
                     }
                 }).catch(() => {});
             };
 
-            // Flujo asíncrono secuencial prioritario con Doble Fallback de Autenticación (RULE 3 - AUTH PRIMERO)
             const arrancarEstablecimientoConexion = async () => {
                 window.actualizarIndicadorConexion('conectando');
                 try {
                     let userCredential;
-                    if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token && __initial_auth_token !== "undefined" && __initial_auth_token !== "null") {
+                    if (window.__initial_auth_token && window.__initial_auth_token !== "undefined" && window.__initial_auth_token !== "null") {
                         try {
-                            userCredential = await signInWithCustomToken(auth, __initial_auth_token);
+                            userCredential = await signInWithCustomToken(auth, window.__initial_auth_token);
                         } catch (tokenErr) {
-                            console.warn("Fallo custom token, reintentando anónimamente:", tokenErr);
+                            console.warn("Fallo custom token, reintentando de forma anónima:", tokenErr);
                             userCredential = await signInAnonymously(auth);
                         }
                     } else {
@@ -2199,43 +1766,46 @@ Redacta sin saludos, sin firmas en el texto, sin bloques de código markdown red
 
                     const user = userCredential.user;
                     if (user) {
-                        console.log("Sesión establecida con éxito en la nube. UID:", user.uid);
+                        currentUser = user;
+                        isAuthenticating = false;
                         window.actualizarIndicadorConexion('nube');
                         setupGlobalFirebaseOperations(user);
                         subscribeToFirestoreData(user);
                     } else {
-                        throw new Error("No se obtuvo credencial de usuario.");
+                        throw new Error("No user credential returned");
                     }
 
                 } catch (err) {
                     console.warn("Fallo de autenticación Firebase. Iniciando en modo local seguro:", err);
-                    window.actualizarIndicadorConexion('local', err.code || err.message);
-                    window.mostrarNotificacion("⚠️ Error de autenticación Firebase: " + (err.code || err.message), "warning");
+                    isAuthenticating = false;
+                    window.actualizarIndicadorConexion('local', `Fallo de Autenticación: ${err.code || err.message || err}`);
                     fallbackALocal();
                 }
             };
 
-            // Escuchar cambios de red para persistencia
-            window.addEventListener('online', () => {
-                window.mostrarNotificacion("Se ha detectado red. Restableciendo conexión a Firebase Cloud...", "info");
-                arrancarEstablecimientoConexion();
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    currentUser = user;
+                    isAuthenticating = false;
+                    window.actualizarIndicadorConexion('nube');
+                    setupGlobalFirebaseOperations(user);
+                    subscribeToFirestoreData(user);
+                } else {
+                    if (!isAuthenticating) {
+                        window.actualizarIndicadorConexion('local');
+                        fallbackALocal();
+                    } else {
+                        fallbackALocal();
+                    }
+                }
             });
 
-            window.addEventListener('offline', () => {
-                window.mostrarNotificacion("Conexión de red perdida. Los cambios se guardarán localmente.", "warning");
-                window.actualizarIndicadorConexion('local', 'Offline (Sin red)');
-            });
-
-            // Disparar secuencia
             arrancarEstablecimientoConexion();
 
         } catch (err) {
             console.warn("Error crítico inicializando Firebase SDK:", err);
-            window.actualizarIndicadorConexion('local', err.message || err);
-            window.mostrarNotificacion("⚠️ Error crítico de base de datos: " + err.message, "error");
-            window.cargarDatosDeContingencia();
-            window.renderReportes();
-            window.actualizarEstadisticas();
+            window.actualizarIndicadorConexion('local', 'Error crítico del sistema.');
+            fallbackALocal();
         }
     </script>
 </body>
