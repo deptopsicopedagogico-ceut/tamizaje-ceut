@@ -84,13 +84,13 @@
             </div>
             
             <div class="flex items-center gap-3">
-                <button onclick="irSeccion('tamizaje-inicio')" id="btnNavTamizaje" class="px-4 py-2 text-xs font-bold rounded-xl bg-gradient-to-r from-[#f1b80c] to-[#fcd94e] text-[#121b44] hover:shadow-lg hover:shadow-[#f1b80c]/20 hover:-translate-y-0.5 transition-all flex items-center gap-1.5 shadow-md uppercase">
+                <button onclick="irSeccion('tamizaje-inicio')" id="btnNavTamizaje" class="px-4 py-2 text-xs font-bold rounded-xl bg-gradient-to-r from-[#f1b80c] to-[#fcd94e] text-[#121b44] hover:shadow-lg hover:shadow-[#f1b80c]/20 hover:-translate-y-0.5 transition-all flex items-center gap-1.5 shadow-md uppercase font-bold">
                     Nuevo Tamizaje
                 </button>
-                <button onclick="abrirLoginDocente()" id="btnNavDocente" class="px-4 py-2 text-xs font-bold rounded-xl bg-slate-900 text-slate-200 hover:bg-slate-800 hover:text-white transition-all border border-slate-700/60 flex items-center gap-1.5 shadow-sm uppercase">
+                <button onclick="abrirLoginDocente()" id="btnNavDocente" class="px-4 py-2 text-xs font-bold rounded-xl bg-slate-900 text-slate-200 hover:bg-slate-800 hover:text-white transition-all border border-slate-700/60 flex items-center gap-1.5 shadow-sm uppercase font-bold">
                     Acceso Responsable
                 </button>
-                <button onclick="logoutDocente()" id="btnCerrarSesion" class="hidden px-4 py-2 text-xs font-bold rounded-xl bg-rose-600 text-white hover:bg-rose-700 transition-all flex items-center gap-1.5 shadow-md uppercase">
+                <button onclick="logoutDocente()" id="btnCerrarSesion" class="hidden px-4 py-2 text-xs font-bold rounded-xl bg-rose-600 text-white hover:bg-rose-700 transition-all flex items-center gap-1.5 shadow-md uppercase font-bold">
                     Cerrar Panel
                 </button>
             </div>
@@ -270,7 +270,7 @@
                         <div class="flex items-start gap-3">
                             <input type="checkbox" id="chkConsentimientoLegal" required class="mt-1.5 h-5 w-5 rounded border border-slate-300 text-[#1d2a6a] focus:ring-[#1d2a6a] cursor-pointer">
                             <label for="chkConsentimientoLegal" class="font-bold text-slate-900 select-none cursor-pointer text-xs leading-relaxed txt-justificado">
-                                Consiento expresamente que mis datos personales, incluidos los de carácter emocional, familiar, psicosocial e ideación (sensibles), sean tratados de acuerdo con los de este sistema y el <a href="javascript:void(0)" onclick="abrirAvisoPrivacidad()" class="text-[#1d2a6a] underline font-bold hover:text-[#121b44] transition-colors">Aviso de Privacidad Integral de CEUT</a>.
+                                Consiento expresamente que mis datos personales, incluidos los de carácter emocional, familiar, psicosocial e ideación (sensibles), sean tratados de acuerdo con los de este sistema y el <a href="javascript:void(0)" onclick="abrirAvisoPrivacidad()" class="text-[#1d2a6a] underline font-bold hover:text-[#121b44] transition-colors font-bold">Aviso de Privacidad Integral de CEUT</a>.
                             </label>
                         </div>
                     </div>
@@ -279,7 +279,7 @@
                         <button type="button" onclick="irSeccion('tamizaje-inicio')" class="px-5 py-2.5 text-sm font-semibold text-slate-500 hover:bg-slate-100 rounded-xl transition-all uppercase">
                             Regresar
                         </button>
-                        <button type="submit" class="px-8 py-3.5 bg-[#1d2a6a] hover:bg-[#121b44] text-white font-bold rounded-xl transition-all shadow-lg flex items-center gap-2 hover:shadow-indigo-900/10 hover:-translate-y-0.5 uppercase">
+                        <button type="submit" class="px-8 py-3.5 bg-[#1d2a6a] hover:bg-[#121b44] text-white font-bold rounded-xl transition-all shadow-lg flex items-center gap-2 hover:shadow-indigo-900/10 hover:-translate-y-0.5 uppercase font-bold">
                             Iniciar Tamizaje
                         </button>
                     </div>
@@ -481,7 +481,7 @@
                     <div>
                         <span class="block text-slate-400 uppercase text-xs font-bold font-semibold">Casos Resueltos</span>
                         <span id="metricAtendidos" class="text-3xl font-black text-emerald-600">0</span>
-                        <span id="metricTasaAtencion" class="block text-[10px] text-slate-500 font-semibold mt-1 uppercase">0% de Tasa de Cierre</span>
+                        <span id="metricTasaAtencion" class="block text-[10px] text-slate-500 font-semibold mt-1 uppercase font-bold">0% de Tasa de Cierre</span>
                     </div>
                 </div>
             </div>
@@ -492,7 +492,7 @@
                     <h3 class="text-sm font-bold text-slate-900 uppercase flex items-center gap-1.5">
                         🔑 Gestión de Seguridad de Jefatura
                     </h3>
-                    <p class="text-xs text-slate-500 font-medium uppercase leading-normal txt-justificado">
+                    <p class="text-xs text-slate-500 font-medium uppercase leading-normal txt-justificado font-semibold">
                         Como Responsable del Departamento, puede modificar el PIN de acceso del sistema en tiempo real. Este se sincronizará localmente y en la nube de forma instantánea.
                     </p>
                 </div>
@@ -610,15 +610,15 @@
             <div class="p-6 overflow-y-auto space-y-6 flex-grow text-xs text-justify">
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 bg-slate-50 p-4 rounded-xl border border-slate-200 font-bold">
                     <div>
-                        <span class="block text-[9px] font-bold text-slate-400 uppercase">Nombre del Estudiante</span>
+                        <span class="block text-[9px] font-bold text-slate-400 uppercase font-bold">Nombre del Estudiante</span>
                         <span id="mdNombre" class="font-bold text-slate-800 text-xs uppercase font-bold">--</span>
                     </div>
                     <div>
-                        <span class="block text-[9px] font-bold text-slate-400 uppercase">Matrícula y Edad</span>
+                        <span class="block text-[9px] font-bold text-slate-400 uppercase font-bold">Matrícula y Edad</span>
                         <span id="mdMatriculaEdad" class="font-bold text-slate-800 text-xs uppercase font-bold">--</span>
                     </div>
                     <div>
-                        <span class="block text-[9px] font-bold text-slate-400 uppercase">Nivel, Grupo y Modalidad</span>
+                        <span class="block text-[9px] font-bold text-slate-400 uppercase font-bold">Nivel, Grupo y Modalidad</span>
                         <span id="mdNivelGrupo" class="font-bold text-slate-800 text-xs font-bold">--</span>
                     </div>
                     <div class="border-t border-slate-200/50 pt-2 sm:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -644,12 +644,12 @@
                         <span id="mdBadgeAcademico" class="inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase border font-bold">--</span>
                     </div>
                     <div class="p-4 rounded-xl border border-slate-100 shadow-xs text-center space-y-1 bg-white flex flex-col justify-between border">
-                        <span class="block text-xs font-bold text-slate-400 uppercase">Área Socioemocional</span>
+                        <span class="block text-xs font-bold text-slate-400 uppercase font-semibold">Área Socioemocional</span>
                         <div class="text-xl font-black text-slate-800 my-2"><span id="mdScoreEmocional">0</span> / 15</div>
                         <span id="mdBadgeEmocional" class="inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase border font-bold">--</span>
                     </div>
                     <div class="p-4 rounded-xl border border-slate-100 shadow-xs text-center space-y-1 bg-white flex flex-col justify-between border">
-                        <span class="block text-xs font-bold text-slate-400 uppercase">Entorno Psicosocial</span>
+                        <span class="block text-xs font-bold text-slate-400 uppercase font-semibold">Entorno Psicosocial</span>
                         <div class="text-xl font-black text-slate-800 my-2"><span id="mdScorePsicosocial">0</span> / 15</div>
                         <span id="mdBadgePsicosocial" class="inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase border font-bold">--</span>
                     </div>
@@ -739,7 +739,7 @@
     <div id="confirmEliminarModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-white w-full max-w-md rounded-2xl shadow-2xl border border-slate-200 p-6 space-y-6">
             <h3 class="text-lg font-bold text-rose-600 uppercase">¿Confirmar Eliminación?</h3>
-            <p class="text-xs text-slate-600 txt-justificado leading-relaxed text-justify">
+            <p class="text-xs text-slate-600 txt-justificado leading-relaxed text-justify font-semibold">
                 Esta acción eliminará de forma permanente el expediente del alumno de los registros locales y de la base de datos en tiempo real de la Jefatura Psicopedagógica. Esta acción no se puede deshacer.
             </p>
             <div class="flex items-center justify-end gap-3 font-semibold text-xs">
@@ -808,6 +808,18 @@
 
     <!-- LÓGICA SÍNCRONA DE LA APLICACIÓN -->
     <script>
+        // --- ESTADO LOCAL SÍNCRONO ---
+        window.reportsData = [];
+        window.estudianteActivo = null;
+        window.indicePreguntaActual = 0;
+        window.respuestasEstudiante = {};
+        window.panelDocenteAutenticado = false;
+        window.reporteEnDetalleId = null;
+        window.accessPin = "1015"; 
+        window.dbAvailable = false; 
+        window.ultimoAnalisisIAGenerado = ""; 
+        window.bajaPendienteId = null;
+
         // --- REACTIVOS OFICIALES DEL TAMIZAJE (18 REACTIVOS EN 4 DIMENSIONES) ---
         window.reactivos = [
             { id: "a1", cat: "ACADÉMICO", texto: "Siento que me cuesta mucho trabajo concentrarme durante las clases o cuando intento estudiar en casa." },
@@ -832,18 +844,6 @@
             { id: "r2", cat: "RIESGO / CRISIS", texto: "He tenido impulsos o la necesidad de lastimar mi propio cuerpo (como cortarme o golpearme) para desahogar mis emociones." },
             { id: "r3", cat: "RIESGO / CRISIS", texto: "Siento un desánimo total sobre lo que me depara el futuro, sintiendo que las cosas difícilmente van a mejorar." }
         ];
-
-        // --- ESTADO LOCAL SÍNCRONO ---
-        window.reportsData = [];
-        window.estudianteActivo = null;
-        window.indicePreguntaActual = 0;
-        window.respuestasEstudiante = {};
-        window.panelDocenteAutenticado = false;
-        window.reporteEnDetalleId = null;
-        window.accessPin = "1015"; 
-        window.dbAvailable = false; 
-        window.ultimoAnalisisIAGenerado = ""; 
-        window.bajaPendienteId = null;
 
         // --- NOTIFICACIONES EN TIEMPO REAL ---
         window.mostrarNotificacion = function(mensaje, tipo = 'info') {
@@ -904,10 +904,13 @@
 
         // --- ACTUALIZAR MÉTRICAS GENERALES DE CONSOLA ---
         window.actualizarEstadisticas = function() {
-            const total = window.reportsData.length;
-            const rojo = window.reportsData.filter(r => r.semaforo === "Rojo" || r.semaforo === "ROJO").length;
-            const amarillo = window.reportsData.filter(r => r.semaforo === "Amarillo" || r.semaforo === "AMARILLO").length;
-            const atendidos = window.reportsData.filter(r => r.atendido === true || r.atendido === "true").length;
+            if (!window.reportsData) window.reportsData = [];
+            const validReports = window.reportsData.filter(r => r && r.estudiante);
+            
+            const total = validReports.length;
+            const rojo = validReports.filter(r => r.semaforo && (r.semaforo === "Rojo" || r.semaforo === "ROJO")).length;
+            const amarillo = validReports.filter(r => r.semaforo && (r.semaforo === "Amarillo" || r.semaforo === "AMARILLO")).length;
+            const atendidos = validReports.filter(r => r.atendido === true || r.atendido === "true").length;
             const tasa = total > 0 ? Math.round((atendidos / total) * 100) : 0;
 
             const elTotal = document.getElementById('metricTotalEvaluados');
@@ -1092,6 +1095,129 @@
             }
         }
 
+        // --- ASISTENTE DE DIAGNÓSTICO EN VIVO CON IA GEMINI ✨ ---
+        window.ejecutarAnalisisIA = async function() {
+            const id = window.reporteEnDetalleId;
+            const r = window.reportsData.find(item => item.id === id);
+            if (!r) {
+                window.mostrarNotificacion("No se ha seleccionado ningún expediente.", "error");
+                return;
+            }
+
+            const btnGen = document.getElementById('btnGenerarAnalisisIA');
+            const btnDesc = document.getElementById('btnDescargarReporteIA');
+            const loading = document.getElementById('loadingIA');
+            const content = document.getElementById('mdIAAnalysisContent');
+
+            btnGen.classList.add('hidden');
+            loading.classList.remove('hidden');
+            content.classList.add('hidden');
+
+            // Preparación del prompt de análisis correlacionando las puntuaciones
+            let prompt = `Actúa como el Asistente Clínico de Diagnóstico Psicopedagógico de Inteligencia Artificial del Centro Universitario Tehuacán (CEUT). Tu tarea es analizar rigurosamente los resultados del Tamizaje Multidimensional de 18 reactivos del siguiente estudiante y generar un reporte técnico-pedagógico formal con base en el Manual de Interpretación de Resultados.
+
+DATOS DEL ESTUDIANTE:
+- Nombre: ${r.estudiante ? r.estudiante.nombre : 'N/A'}
+- Matrícula: ${r.estudiante ? r.estudiante.matricula : 'N/A'}
+- Edad: ${r.estudiante ? r.estudiante.edad : 'N/A'} años
+- Nivel Educativo: ${r.estudiante ? r.estudiante.nivel : 'N/A'} (${r.estudiante ? r.estudiante.grupo : 'N/A'})
+- Modalidad: ${r.estudiante ? (r.estudiante.modalidad || 'Escolarizado') : 'Escolarizado'}
+- Fecha de Aplicación: ${r.estudiante ? (r.estudiante.fecha || 'N/A') : 'N/A'}
+- Folio: ${r.estudiante ? r.estudiante.folio : 'N/A'}
+
+PUNTUACIONES NETAS OBTENIDAS POR DIMENSIÓN:
+- Área Académica: ${r.scores ? r.scores.Academico : 0} / 15 pts
+- Área Socioemocional: ${r.scores ? r.scores.Emocional : 0} / 15 pts
+- Entorno Psicosocial: ${r.scores ? r.scores.Psicosocial : 0} / 15 pts
+- Área de Riesgo o Crisis: ${r.scores ? r.scores.Riesgo : 0} / 9 pts
+- Semáforo de Prioridad de Intervención: ${r.semaforo || 'Verde'}
+
+RESPUESTAS DETALLADAS (Escala de 1 a 4, donde 1 es Nunca, 2 A veces, 3 Frecuente, 4 Siempre):
+`;
+
+            reactivos.forEach(preg => {
+                const ansVal = r.respuestas ? (r.respuestas[preg.id] || 1) : 1;
+                prompt += `- [${preg.cat}] ${preg.texto} -> Respuesta: ${ansVal}/4\n`;
+            });
+
+            prompt += `\nGenera un dictamen formal estructurado exactamente con las siguientes secciones:
+### 1. ANÁLISIS SINDROMÁTICO Y CORRELACIÓN CONDUCTUAL
+Correlaciona los reactivos clave para identificar patrones de conducta, estrés, burnout, vulnerabilidad socioeconómica o riesgo crítico conforme al Manual oficial de CEUT.
+
+### 2. SÍNTESIS DIAGNÓSTICA CUALITATIVA
+Describe detalladamente el estado del estudiante en las dimensiones Académica, Socioemocional, Familiar y de Riesgo.
+
+### 3. PROTOCOLO DE INTERVENCIÓN PSICOPEDAGÓGICO
+Acciones inmediatas, acuerdos, y canalizaciones específicas (DIF, CIJ, etc.) si es pertinente de acuerdo al semáforo de riesgo.
+
+### 4. ADECUACIONES CURRICULARES Y ESTRATEGIAS PARA DOCENTES
+Recomendaciones concretas y aplicables en el aula para los profesores de este alumno de acuerdo a sus necesidades identificadas.
+
+Sé altamente profesional, descriptivo y preciso en tu vocabulario clínico-pedagógico. El tono debe ser estrictamente confidencial, formal y alineado con los protocolos del CEUT y la LFPDPPP.`;
+
+            const systemPrompt = "Eres un neuropsicólogo y especialista en psicopedagogía institucional con vasta experiencia en diagnóstico clínico de estudiantes universitarios y de bachillerato.";
+            const apiKey = "";
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+
+            const payload = {
+                contents: [{ parts: [{ text: prompt }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] }
+            };
+
+            // Implementación de Exponential Backoff para protección de red contra Throttling
+            let attempts = 0;
+            const maxAttempts = 3;
+            let delay = 1000;
+            let success = false;
+            let responseData;
+
+            while (attempts < maxAttempts && !success) {
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (response.ok) {
+                        responseData = await response.json();
+                        success = true;
+                    } else {
+                        attempts++;
+                        if (attempts < maxAttempts) {
+                            await new Promise(res => setTimeout(res, delay));
+                            delay *= 2;
+                        }
+                    }
+                } catch (error) {
+                    attempts++;
+                    if (attempts < maxAttempts) {
+                        await new Promise(res => setTimeout(res, delay));
+                        delay *= 2;
+                    }
+                }
+            }
+
+            if (success && responseData) {
+                const candidate = responseData.candidates?.[0];
+                const text = candidate?.content?.parts?.[0]?.text;
+
+                if (text) {
+                    window.ultimoAnalisisIAGenerado = text;
+                    content.innerHTML = formatMarkdownToHtml(text);
+                    content.classList.remove('hidden');
+                    btnDesc.classList.remove('hidden');
+                } else {
+                    window.mostrarNotificacion("Formato de respuesta de IA inesperado.", "error");
+                    btnGen.classList.remove('hidden');
+                }
+            } else {
+                window.mostrarNotificacion("Fallo al conectar con el motor de IA Gemini. Intente de nuevo.", "error");
+                btnGen.classList.remove('hidden');
+            }
+            loading.classList.add('hidden');
+        };
+
         // --- Procesando resultados numéricos y semaforización de alertas psicopedagógicas ---
         async function procesarYFinalizarCuestionario() {
             let scoreAcad = 0;
@@ -1225,14 +1351,21 @@
 
             if (!window.reportsData) window.reportsData = [];
 
+            // Limpieza y validación defensiva estricta de variables para prevenir crashes por esquemas huérfanos
             let filtrados = window.reportsData.filter(r => {
-                const matchesQuery = !query || 
-                    (r.estudiante && r.estudiante.nombre && r.estudiante.nombre.toUpperCase().includes(query)) ||
-                    (r.estudiante && r.estudiante.matricula && r.estudiante.matricula.toUpperCase().includes(query)) ||
-                    (r.estudiante && r.estudiante.folio && r.estudiante.folio.toUpperCase().includes(query));
+                if (!r || !r.estudiante) return false;
 
-                const matchesNivel = (fNivel === "Todos") || (r.estudiante && r.estudiante.nivel === fNivel);
-                const matchesModalidad = (fModalidad === "Todos") || (r.estudiante && (r.estudiante.modalidad || "Escolarizado") === fModalidad);
+                const name = r.estudiante.nombre ? String(r.estudiante.nombre).toUpperCase() : "";
+                const matricula = r.estudiante.matricula ? String(r.estudiante.matricula).toUpperCase() : "";
+                const folio = r.estudiante.folio ? String(r.estudiante.folio).toUpperCase() : "";
+
+                const matchesQuery = !query || 
+                    name.includes(query) ||
+                    matricula.includes(query) ||
+                    folio.includes(query);
+
+                const matchesNivel = (fNivel === "Todos") || (r.estudiante.nivel === fNivel);
+                const matchesModalidad = (fModalidad === "Todos") || ((r.estudiante.modalidad || "Escolarizado") === fModalidad);
                 const matchesRiesgo = (fRiesgo === "Todos") || (r.semaforo === fRiesgo);
 
                 let matchesAtendido = true;
@@ -1267,21 +1400,21 @@
 
                 tr.innerHTML = `
                     <td class="py-4 px-6">
-                        <span class="block font-black text-slate-900">${(r.estudiante && r.estudiante.folio) || 'N/A'}</span>
-                        <span class="block text-[10px] text-slate-400">${(r.estudiante && r.estudiante.fecha) || 'N/A'}</span>
+                        <span class="block font-black text-slate-900">${r.estudiante.folio || 'N/A'}</span>
+                        <span class="block text-[10px] text-slate-400">${r.estudiante.fecha || 'N/A'}</span>
                     </td>
                     <td class="py-4 px-6 uppercase text-justify">
-                        ${(r.estudiante && r.estudiante.nombre) || 'DESCONOCIDO'}
-                        <span class="block text-[10px] text-slate-400 font-normal">${(r.estudiante && r.estudiante.matricula) || 'N/A'}</span>
+                        ${r.estudiante.nombre || 'DESCONOCIDO'}
+                        <span class="block text-[10px] text-slate-400 font-normal">${r.estudiante.matricula || 'N/A'}</span>
                     </td>
                     <td class="py-4 px-6 uppercase text-justify font-bold">
-                        ${(r.estudiante && r.estudiante.nivel) || 'N/A'}
-                        <span class="block text-[10px] text-slate-400 font-normal">${(r.estudiante && r.estudiante.grupo) || 'N/A'} (${(r.estudiante && r.estudiante.modalidad) || 'Escolarizado'})</span>
+                        ${r.estudiante.nivel || 'N/A'}
+                        <span class="block text-[10px] text-slate-400 font-normal">${r.estudiante.grupo || 'N/A'} (${r.estudiante.modalidad || 'Escolarizado'})</span>
                     </td>
-                    <td class="py-4 px-6 text-center">${(r.scores && r.scores.Academico) !== undefined ? r.scores.Academico : 0} / 15</td>
-                    <td class="py-4 px-6 text-center">${(r.scores && r.scores.Emocional) !== undefined ? r.scores.Emocional : 0} / 15</td>
-                    <td class="py-4 px-6 text-center">${(r.scores && r.scores.Psicosocial) !== undefined ? r.scores.Psicosocial : 0} / 15</td>
-                    <td class="py-4 px-6 text-center">${(r.scores && r.scores.Riesgo) !== undefined ? r.scores.Riesgo : 0} / 9</td>
+                    <td class="py-4 px-6 text-center">${r.scores ? r.scores.Academico : 0} / 15</td>
+                    <td class="py-4 px-6 text-center">${r.scores ? r.scores.Emocional : 0} / 15</td>
+                    <td class="py-4 px-6 text-center">${r.scores ? r.scores.Psicosocial : 0} / 15</td>
+                    <td class="py-4 px-6 text-center">${r.scores ? r.scores.Riesgo : 0} / 9</td>
                     <td class="py-4 px-6 text-center">
                         <span class="px-2.5 py-1 rounded-full text-[10px] font-black border uppercase tracking-wider ${semColor}">${r.semaforo || 'Verde'}</span>
                     </td>
@@ -1297,29 +1430,33 @@
 
         // --- DETALLE INDIVIDUAL DE EXPEDIENTES ---
         function abrirExpedienteDetalle(id) {
-            if (!window.reportsData) return;
             const r = window.reportsData.find(item => item.id === id);
-            if (!r) return;
+            if (!r || !r.estudiante) return;
             window.reporteEnDetalleId = id;
             window.ultimoAnalisisIAGenerado = ""; 
 
-            document.getElementById('mdFolio').textContent = r.estudiante.folio;
-            document.getElementById('mdNombre').textContent = r.estudiante.nombre;
-            document.getElementById('mdMatriculaEdad').textContent = `${r.estudiante.matricula} | ${r.estudiante.edad} AÑOS`;
-            document.getElementById('mdNivelGrupo').textContent = `${r.estudiante.nivel} - ${r.estudiante.grupo} (${r.estudiante.modalidad || 'Escolarizado'})`;
-            document.getElementById('mdEmail').textContent = r.estudiante.email;
-            document.getElementById('mdTelefono').textContent = r.estudiante.telefono;
+            document.getElementById('mdFolio').textContent = r.estudiante.folio || 'N/A';
+            document.getElementById('mdNombre').textContent = r.estudiante.nombre || 'N/A';
+            document.getElementById('mdMatriculaEdad').textContent = `${r.estudiante.matricula || 'N/A'} | ${r.estudiante.edad || 'N/A'} AÑOS`;
+            document.getElementById('mdNivelGrupo').textContent = `${r.estudiante.nivel || 'N/A'} - ${r.estudiante.grupo || 'N/A'} (${r.estudiante.modalidad || 'Escolarizado'})`;
+            document.getElementById('mdEmail').textContent = r.estudiante.email || 'N/A';
+            document.getElementById('mdTelefono').textContent = r.estudiante.telefono || 'N/A';
             document.getElementById('mdFecha').textContent = r.estudiante.fecha || 'FECHA NO REGISTRADA';
 
-            document.getElementById('mdScoreAcademico').textContent = r.scores.Academico;
-            document.getElementById('mdScoreEmocional').textContent = r.scores.Emocional;
-            document.getElementById('mdScorePsicosocial').textContent = r.scores.Psicosocial;
-            document.getElementById('mdScoreRiesgo').textContent = r.scores.Riesgo;
+            const scoreAcad = r.scores ? r.scores.Academico : 0;
+            const scoreEmoc = r.scores ? r.scores.Emocional : 0;
+            const scorePsic = r.scores ? r.scores.Psicosocial : 0;
+            const scoreRiesgo = r.scores ? r.scores.Riesgo : 0;
 
-            setupScoreBadge('mdBadgeAcademico', r.scores.Academico, 3, 7);
-            setupScoreBadge('mdBadgeEmocional', r.scores.Emocional, 4, 8);
-            setupScoreBadge('mdBadgePsicosocial', r.scores.Psicosocial, 5, 9);
-            setupScoreBadge('mdBadgeRiesgo', r.scores.Riesgo, 0, 2);
+            document.getElementById('mdScoreAcademico').textContent = scoreAcad;
+            document.getElementById('mdScoreEmocional').textContent = scoreEmoc;
+            document.getElementById('mdScorePsicosocial').textContent = scorePsic;
+            document.getElementById('mdScoreRiesgo').textContent = scoreRiesgo;
+
+            setupScoreBadge('mdBadgeAcademico', scoreAcad, 3, 7);
+            setupScoreBadge('mdBadgeEmocional', scoreEmoc, 4, 8);
+            setupScoreBadge('mdBadgePsicosocial', scorePsic, 5, 9);
+            setupScoreBadge('mdBadgeRiesgo', scoreRiesgo, 0, 2);
 
             document.getElementById('mdInputObservaciones').value = (r.observaciones || "").toUpperCase();
             document.getElementById('mdSelectEstatus').value = String(r.atendido);
@@ -1400,7 +1537,7 @@
             cerrarModalDetalle();
         }
 
-        // --- CONTROL DE BAJA ---
+        // --- CONTROL DE BAJA DE EXPEDIENTES (VINCULADO CORRECTAMENTE) ---
         function confirmarEliminarExpediente(id) {
             window.bajaPendienteId = id;
             document.getElementById('confirmEliminarModal').classList.remove('hidden');
@@ -1479,39 +1616,154 @@
                 <head>
                     <title>Comprobante de Registro - CEUT</title>
                     <style>
-                        @page { size: letter; margin: 15mm; }
-                        body { font-family: 'Georgia', serif; line-height: 1.5; color: #1e293b; font-size: 11px; text-align: justify; }
-                        .wrapper { border: 2px solid #1d2a6a; padding: 25px; border-radius: 12px; position: relative; min-height: 90vh; display: flex; flex-direction: column; justify-content: space-between; }
-                        .header { display: flex; align-items: center; justify-content: space-between; border-bottom: 3px double #f1b80c; padding-bottom: 15px; margin-bottom: 20px; }
-                        .logo { max-height: 55px; }
-                        .title-area { text-align: right; }
-                        h1 { color: #1d2a6a; font-size: 15px; margin: 0; font-weight: bold; text-transform: uppercase; }
-                        h2 { color: #c49607; font-size: 9px; margin: 3px 0 0 0; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; }
-                        .folio-box { background: #f8fafc; border: 1px dashed #1d2a6a; padding: 10px 15px; border-radius: 8px; text-align: center; margin-bottom: 20px; }
-                        .folio-num { font-size: 16px; font-weight: bold; color: #1d2a6a; letter-spacing: 1px; }
-                        .grid-data { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 25px; background: #fafafa; padding: 15px; border-radius: 8px; border: 1px solid #e2e8f0; }
+                        @media print {
+                            .no-print { display: none !important; }
+                        }
+                        body {
+                            font-family: 'Georgia', serif;
+                            margin: 0;
+                            padding: 20px;
+                            background-color: #f8fafc;
+                            color: #1e293b;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                        }
+                        .control-bar {
+                            width: 100%;
+                            max-width: 480px;
+                            display: flex;
+                            justify-content: space-between;
+                            margin-bottom: 12px;
+                        }
+                        .btn {
+                            padding: 8px 14px;
+                            font-family: 'Georgia', serif;
+                            font-size: 10px;
+                            font-weight: bold;
+                            text-transform: uppercase;
+                            border: none;
+                            border-radius: 6px;
+                            cursor: pointer;
+                        }
+                        .btn-print {
+                            background-color: #1d2a6a;
+                            color: white;
+                        }
+                        .btn-close {
+                            background-color: #e2e8f0;
+                            color: #475569;
+                        }
+                        .ticket {
+                            width: 100%;
+                            max-width: 480px;
+                            background: white;
+                            border: 2px solid #1d2a6a;
+                            border-radius: 12px;
+                            padding: 16px;
+                            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+                            box-sizing: border-box;
+                        }
+                        .header {
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            border-bottom: 2px solid #f1b80c;
+                            padding-bottom: 8px;
+                            margin-bottom: 12px;
+                        }
+                        .logo {
+                            max-height: 38px;
+                        }
+                        .title-area {
+                            text-align: right;
+                        }
+                        h1 {
+                            color: #1d2a6a;
+                            font-size: 12px;
+                            margin: 0;
+                            font-weight: bold;
+                            text-transform: uppercase;
+                        }
+                        h2 {
+                            color: #f1b80c;
+                            font-size: 8px;
+                            margin: 1px 0 0 0;
+                            font-weight: bold;
+                            text-transform: uppercase;
+                        }
+                        .folio-box {
+                            background: #f8fafc;
+                            border: 1px dashed #1d2a6a;
+                            padding: 6px;
+                            border-radius: 6px;
+                            text-align: center;
+                            margin-bottom: 12px;
+                        }
+                        .folio-label {
+                            font-size: 8px;
+                            text-transform: uppercase;
+                            color: #64748b;
+                            font-weight: bold;
+                        }
+                        .folio-num {
+                            font-size: 13px;
+                            font-weight: bold;
+                            color: #1d2a6a;
+                            letter-spacing: 0.5px;
+                        }
+                        .data-grid {
+                            display: grid;
+                            grid-template-columns: 1fr;
+                            gap: 5px;
+                            margin-bottom: 12px;
+                            font-size: 10.5px;
+                        }
+                        .data-row {
+                            border-bottom: 1px solid #f1f5f9;
+                            padding-bottom: 3px;
+                        }
+                        .data-row strong {
+                            color: #1d2a6a;
+                        }
+                        .legal-legend {
+                            font-size: 8px;
+                            line-height: 1.3;
+                            color: #64748b;
+                            text-align: justify;
+                            border-top: 1px solid #e2e8f0;
+                            padding-top: 8px;
+                            margin-top: 8px;
+                        }
                     </style>
                 </head>
                 <body>
-                    <div class="wrapper">
-                        <div>
-                            <div class="header">
-                                <img src="https://lh3.googleusercontent.com/d/1ao9olFJOvSPvgmeyLJhkD1P0Pmq_R3T2" class="logo">
-                                <div class="title-area">
-                                    <h1>Centro Universitario Tehuacán</h1>
-                                    <h2>Departamento Psicopedagógico</h2>
-                                </div>
+                    <div class="control-bar no-print">
+                        <button class="btn btn-close" onclick="window.close()">Cerrar Ventana</button>
+                        <button class="btn btn-print" onclick="window.print()">Imprimir Comprobante</button>
+                    </div>
+                    <div class="ticket">
+                        <div class="header">
+                            <img src="https://lh3.googleusercontent.com/d/1ao9olFJOvSPvgmeyLJhkD1P0Pmq_R3T2" class="logo">
+                            <div class="title-area">
+                                <h1>Centro Universitario Tehuacán</h1>
+                                <h2>Departamento Psicopedagógico</h2>
                             </div>
-                            <div class="folio-box">
-                                <div class="data-label">Folio Oficial de Registro</div>
-                                <div class="folio-num">${est.folio}</div>
-                            </div>
-                            <div class="grid-data">
-                                <div><strong>Estudiante:</strong> ${est.nombre}</div>
-                                <div><strong>Matrícula:</strong> ${est.matricula}</div>
-                                <div><strong>Nivel:</strong> ${est.nivel}</div>
-                                <div><strong>Grupo:</strong> ${est.grupo}</div>
-                            </div>
+                        </div>
+                        <div class="folio-box">
+                            <div class="folio-label">Folio Oficial de Registro</div>
+                            <div class="folio-num">${est.folio}</div>
+                        </div>
+                        <div class="data-grid">
+                            <div class="data-row"><strong>Estudiante:</strong> ${est.nombre}</div>
+                            <div class="data-row"><strong>Matrícula:</strong> ${est.matricula}</div>
+                            <div class="data-row"><strong>Nivel Educativo:</strong> ${est.nivel}</div>
+                            <div class="data-row"><strong>Semestre/Grupo:</strong> ${est.grupo} (${est.modalidad || 'Escolarizado'})</div>
+                            <div class="data-row"><strong>Fecha de Aplicación:</strong> ${est.fecha}</div>
+                        </div>
+                        <div class="legal-legend">
+                            <strong>CONFIDENCIALIDAD Y LEY DE DATOS (LFPDPPP):</strong> 
+                            Los datos recopilados en este tamizaje se clasifican como sensibles y están bajo la estricta custodia del Departamento Psicopedagógico del CEUT. Conforme al Artículo 9 de la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP) de México, esta información no será compartida con terceros sin su consentimiento expreso, salvaguardando su derecho constitucional a la confidencialidad. Su folio sirve de referencia confidencial.
                         </div>
                     </div>
                 </body>
@@ -1523,14 +1775,164 @@
         window.descargarReporteIntervencion = function() {
             if (!window.ultimoAnalisisIAGenerado) return;
             const printWindow = window.open('', '_blank');
-            printWindow.document.write(`<html><body>${formatMarkdownToHtml(window.ultimoAnalisisIAGenerado)}</body></html>`);
+            const formattedContent = formatMarkdownToHtml(window.ultimoAnalisisIAGenerado);
+            printWindow.document.write(`
+                <html>
+                <head>
+                    <title>Reporte de Intervención Psicopedagógica - CEUT</title>
+                    <style>
+                        @media print {
+                            .no-print { display: none !important; }
+                        }
+                        body {
+                            font-family: 'Georgia', serif;
+                            margin: 0;
+                            padding: 20px;
+                            background-color: #f8fafc;
+                            color: #1e293b;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                        }
+                        .control-bar {
+                            width: 100%;
+                            max-width: 800px;
+                            display: flex;
+                            justify-content: space-between;
+                            margin-bottom: 15px;
+                        }
+                        .btn {
+                            padding: 8px 16px;
+                            font-family: 'Georgia', serif;
+                            font-size: 11px;
+                            font-weight: bold;
+                            text-transform: uppercase;
+                            border: none;
+                            border-radius: 6px;
+                            cursor: pointer;
+                        }
+                        .btn-print {
+                            background-color: #1d2a6a;
+                            color: white;
+                        }
+                        .btn-close {
+                            background-color: #e2e8f0;
+                            color: #475569;
+                        }
+                        .report-container {
+                            width: 100%;
+                            max-width: 800px;
+                            background: white;
+                            border: 2px solid #1d2a6a;
+                            border-radius: 12px;
+                            padding: 40px;
+                            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+                            box-sizing: border-box;
+                        }
+                        .header {
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            border-bottom: 3px double #f1b80c;
+                            padding-bottom: 15px;
+                            margin-bottom: 25px;
+                        }
+                        .logo {
+                            max-height: 50px;
+                        }
+                        .title-area {
+                            text-align: right;
+                        }
+                        h1 {
+                            color: #1d2a6a;
+                            font-size: 16px;
+                            margin: 0;
+                            font-weight: bold;
+                            text-transform: uppercase;
+                        }
+                        h2 {
+                            color: #f1b80c;
+                            font-size: 10px;
+                            margin: 3px 0 0 0;
+                            font-weight: bold;
+                            text-transform: uppercase;
+                        }
+                        .content {
+                            font-size: 11px;
+                            line-height: 1.6;
+                            text-align: justify;
+                        }
+                        .content p {
+                            margin-bottom: 12px;
+                        }
+                        .content h2, .content h3, .content h4 {
+                            color: #1d2a6a;
+                            border-bottom: 1px solid #e2e8f0;
+                            padding-bottom: 4px;
+                            margin-top: 20px;
+                            margin-bottom: 8px;
+                        }
+                        .legal-legend {
+                            font-size: 8px;
+                            line-height: 1.3;
+                            color: #64748b;
+                            text-align: justify;
+                            border-top: 1px solid #e2e8f0;
+                            padding-top: 15px;
+                            margin-top: 30px;
+                        }
+                        .signature-area {
+                            margin-top: 40px;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            text-align: center;
+                            font-size: 11px;
+                        }
+                        .signature-line {
+                            width: 200px;
+                            border-top: 1px solid #475569;
+                            margin-bottom: 8px;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="control-bar no-print">
+                        <button class="btn btn-close" onclick="window.close()">Cerrar Ventana</button>
+                        <button class="btn btn-print" onclick="window.print()">Imprimir Dictamen</button>
+                    </div>
+                    <div class="report-container">
+                        <div class="header">
+                            <img src="https://lh3.googleusercontent.com/d/1ao9olFJOvSPvgmeyLJhkD1P0Pmq_R3T2" class="logo">
+                            <div class="title-area">
+                                <h1>Centro Universitario Tehuacán</h1>
+                                <h2>Departamento Psicopedagógico</h2>
+                            </div>
+                        </div>
+                        <div class="content">
+                            ${formattedContent}
+                        </div>
+                        <div class="signature-area">
+                            <div class="signature-line"></div>
+                            <strong>Mtro. Carlos Aguilar Sánchez</strong>
+                            <span>Responsable del Departamento Psicopedagógico</span>
+                            <span>Centro Universitario Tehuacán (CEUT)</span>
+                        </div>
+                        <div class="legal-legend">
+                            <strong>EXPEDIENTE CLÍNICO INTEGRAL - CONFIDENCIALIDAD ABSOLUTA (LFPDPPP):</strong>
+                            Este dictamen técnico contiene información de carácter altamente sensible y confidencial relacionada con la salud mental, comportamiento y desempeño del estudiante evaluado. Su consulta, resguardo y custodia están regulados estrictamente por la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP) de los Estados Unidos Mexicanos, en su Artículo 9. Se prohíbe estrictamente su difusión por medios electrónicos no institucionales, copiado parcial o divulgación no autorizada sin apego estricto a las normas de confidencialidad institucional del CEUT.
+                        </div>
+                    </div>
+                </body>
+                </html>
+            `);
             printWindow.document.close();
         };
 
         window.exportarCSV = function() {
             let csv = "Folio,Estudiante,Matricula,Semaforo\n";
             window.reportsData.forEach(r => {
-                csv += `"${r.estudiante ? r.estudiante.folio : ''}","${r.estudiante ? r.estudiante.nombre : ''}","${r.estudiante ? r.estudiante.matricula : ''}","${r.semaforo}"\n`;
+                csv += `"${r.estudiante ? r.estudiante.folio : ''}","${r.estudiante ? r.estudiante.nombre : ''}","${r.estudiante ? r.estudiante.matricula : ''}","${r.semaforo || ''}"\n`;
             });
             const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
             const link = document.createElement("a");
