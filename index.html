@@ -33,6 +33,7 @@
         .border-ceut-blue { border-color: var(--ceut-blue); }
         .border-ceut-yellow { border-color: var(--ceut-yellow); }
         
+        /* Justificación estricta para expedientes clínicos y reportes formales */
         .txt-justificado { 
             text-align: justify !important; 
             text-justify: inter-word !important; 
@@ -92,14 +93,15 @@
         }
     </style>
 </head>
-<body class="h-full flex flex-col text-slate-800 antialiased overflow-x-hidden selection:bg-[#1d2a6a]/10 relative bg-slate-50/40 font-bold">
+<body class="h-full flex flex-col text-slate-800 antialiased overflow-x-hidden selection:bg-[#1d2a6a]/10 relative bg-slate-50/40">
 
-    <!-- FLOATING DECORATIONS -->
+    <!-- DECORACIONES FLOTANTES CON MOVIMIENTO DE FONDO (DETRÁS DEL TEXTO) -->
     <div class="absolute inset-0 overflow-hidden pointer-events-none z-0 no-print">
         <div class="absolute top-[8%] left-[4%] w-80 h-80 rounded-full bg-blue-200/20 blur-3xl animate-float-1"></div>
         <div class="absolute bottom-[15%] right-[4%] w-96 h-96 rounded-full bg-[#f1b80c]/10 blur-3xl animate-float-2"></div>
     </div>
 
+    <!-- NOTIFICACIONES CUSTOM -->
     <div id="notificacionContainer" class="fixed top-5 right-5 z-50 flex flex-col gap-2 pointer-events-none font-bold"></div>
 
     <!-- INDICADOR DE CONEXIÓN FLOTANTE -->
@@ -147,13 +149,13 @@
         </div>
     </header>
 
-    <main class="flex-grow max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8 flex flex-col justify-start relative z-10 font-bold">
+    <main class="flex-grow max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8 flex flex-col justify-start relative z-10 font-normal">
 
         <!-- SECCIÓN 1: LANDING INICIAL -->
         <section id="sec-tamizaje-inicio" class="view-section block py-6 md:py-12 no-print animate-fade-up">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center font-normal">
                 <div class="lg:col-span-7 space-y-6">
-                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-[#1d2a6a] border border-blue-200/60 shadow-sm">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-[#1d2a6a] border border-blue-200/60 shadow-sm font-bold">
                         <span class="w-2.5 h-2.5 rounded-full bg-[#f1b80c] animate-pulse"></span>
                         Diagnóstico Oficial e Institucional CEUT
                     </span>
@@ -164,35 +166,35 @@
                         Bienvenido a la plataforma de tamizaje del <strong>Centro Universitario Tehuacán (CEUT)</strong>. Este es un espacio seguro, estructurado y **estrictamente confidencial** diseñado para analizar tus necesidades socioemocionales y tus estrategias de estudio, administrado directamente por la Jefatura del Departamento Psicopedagógico con apego a las normativas nacionales de protección de datos sensibles.
                     </p>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 font-bold">
                         <div class="p-5 rounded-2xl border border-slate-200 bg-white/90 backdrop-blur-xs shadow-sm flex flex-col justify-between transition-all-custom hover:shadow-md hover:scale-[1.03] duration-300">
                             <div>
                                 <span class="p-2.5 inline-block rounded-xl bg-amber-50 text-amber-600 mb-3 shadow-sm">🎓</span>
                                 <h4 class="font-extrabold text-slate-900 text-sm uppercase">Foco Académico</h4>
                             </div>
-                            <p class="text-[10px] text-slate-500 mt-2 uppercase font-semibold leading-normal txt-justificado">Evaluación de tus hábitos cotidianos de estudio, atención sostenida y concentración.</p>
+                            <p class="text-[10px] text-slate-500 mt-2 uppercase font-semibold leading-normal txt-justificado font-normal">Evaluación de tus hábitos cotidianos de estudio, atención sostenida y concentración.</p>
                         </div>
                         <div class="p-5 rounded-2xl border border-slate-200 bg-white/90 backdrop-blur-xs shadow-sm flex flex-col justify-between transition-all-custom hover:shadow-md hover:scale-[1.03] duration-300">
                             <div>
                                 <span class="p-2.5 inline-block rounded-xl bg-rose-50 text-rose-600 mb-3 shadow-sm">❤️</span>
                                 <h4 class="font-extrabold text-slate-900 text-sm uppercase font-bold">Salud Emocional</h4>
                             </div>
-                            <p class="text-[10px] text-slate-500 mt-2 uppercase font-semibold leading-normal txt-justificado font-bold">Monitoreo de factores de estrés ante evaluaciones, desánimo y bienestar emocional.</p>
+                            <p class="text-[10px] text-slate-500 mt-2 uppercase font-semibold leading-normal txt-justificado font-normal">Monitoreo de factores de estrés ante evaluaciones, desánimo y bienestar emocional.</p>
                         </div>
                         <div class="p-5 rounded-2xl border border-slate-200 bg-white/90 backdrop-blur-xs shadow-sm flex flex-col justify-between transition-all-custom hover:shadow-md hover:scale-[1.03] duration-300">
                             <div>
                                 <span class="p-2.5 inline-block rounded-xl bg-red-50 text-red-600 mb-3 shadow-sm">⚖️</span>
                                 <h4 class="font-extrabold text-slate-900 text-sm uppercase font-bold">Blindaje Legal</h4>
                             </div>
-                            <p class="text-[10px] text-slate-500 mt-2 uppercase font-semibold leading-normal txt-justificado font-bold">Alineación estricta al artículo 9 de la LFPDPPP en el resguardo de datos sensibles.</p>
+                            <p class="text-[10px] text-slate-500 mt-2 uppercase font-semibold leading-normal txt-justificado font-normal">Alineación estricta al artículo 9 de la LFPDPPP en el resguardo de datos sensibles.</p>
                         </div>
                     </div>
 
-                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-5 pt-3">
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-5 pt-3 font-bold">
                         <button onclick="irSeccion('registro-datos')" class="px-8 py-4 rounded-xl bg-[#1d2a6a] text-white text-base font-bold shadow-xl hover:shadow-blue-900/20 transform hover:-translate-y-1 transition-all-custom text-center flex items-center justify-center gap-2 uppercase glow-yellow-hover">
                             Comenzar Evaluación
                         </button>
-                        <p class="text-xs text-slate-500 text-center sm:text-left flex items-center gap-1.5 justify-center font-semibold txt-justificado">
+                        <p class="text-xs text-slate-500 text-center sm:text-left flex items-center gap-1.5 justify-center font-semibold txt-justificado font-normal">
                             🔒 Tratamiento confidencial de datos personales de salud garantizado.
                         </p>
                     </div>
@@ -215,13 +217,13 @@
                                 <p class="text-[#f1b80c] font-bold text-xs tracking-widest uppercase">CONGRESO • FORMACIÓN • APOYO</p>
                             </div>
 
-                            <p class="text-slate-200 text-xs leading-relaxed max-w-xs italic txt-justificado">
+                            <p class="text-slate-200 text-xs leading-relaxed max-w-xs italic txt-justificado font-normal">
                                 "La fuerza para crecer reside en ti, pero también la sabiduría de buscar guía. Este cuestionario te ayudará a liberar tu máximo potencial."
                             </p>
 
                             <div class="w-full h-[1px] bg-white/10"></div>
 
-                            <div class="flex items-center justify-around w-full text-center">
+                            <div class="flex items-center justify-around w-full text-center font-bold">
                                 <div>
                                     <span class="block text-lg font-bold text-[#f1b80c]">100%</span>
                                     <span class="text-[9px] text-slate-400 uppercase tracking-wider">Confidencial</span>
@@ -229,7 +231,7 @@
                                 <div class="w-[1px] h-8 bg-white/10"></div>
                                 <div>
                                     <span class="block text-lg font-bold text-[#f1b80c]">LFPDPPP</span>
-                                    <span class="text-[9px] text-slate-300 uppercase tracking-wider">Alineado</span>
+                                    <span class="text-[9px] text-slate-300 uppercase tracking-wider font-normal">Alineado</span>
                                 </div>
                             </div>
                         </div>
@@ -248,7 +250,7 @@
                              alt="CEUT Mini Logo" class="w-10 h-10 object-contain bg-white rounded-lg p-0.5 border border-[#f1b80c]">
                         <div>
                             <h3 class="text-xl font-bold uppercase tracking-wide font-black">Ficha de Identificación</h3>
-                            <p class="text-xs text-slate-300 text-justify uppercase">Resguardo oficial de datos personales.</p>
+                            <p class="text-xs text-slate-300 text-justify uppercase font-normal">Resguardo oficial de datos personales.</p>
                         </div>
                     </div>
                     <div class="bg-[#f1b80c]/10 border border-[#f1b80c]/40 rounded-xl px-4 py-2 text-center shadow-inner">
@@ -261,17 +263,17 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
                         <div class="sm:col-span-2">
                             <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Nombre Completo</label>
-                            <input type="text" id="stdNombre" required placeholder="EJ. ANA BELÉN GARCÍA PÉREZ" oninput="this.value = this.value.toUpperCase()" class="w-full px-4 py-3.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-sm uppercase transition-all-custom">
+                            <input type="text" id="stdNombre" required placeholder="EJ. ANA BELÉN GARCÍA PÉREZ" oninput="this.value = this.value.toUpperCase()" class="w-full px-4 py-3.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-sm uppercase transition-all-custom font-normal">
                         </div>
 
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Matrícula Escolar</label>
-                            <input type="text" id="stdMatricula" required placeholder="EJ. 24100523" oninput="this.value = this.value.toUpperCase()" class="w-full px-4 py-3.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-sm uppercase transition-all-custom">
+                            <input type="text" id="stdMatricula" required placeholder="EJ. 24100523" oninput="this.value = this.value.toUpperCase()" class="w-full px-4 py-3.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-sm uppercase transition-all-custom font-normal">
                         </div>
 
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Edad</label>
-                            <input type="number" id="stdEdad" required min="12" max="99" placeholder="Ej. 18" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-sm transition-all-custom">
+                            <input type="number" id="stdEdad" required min="12" max="99" placeholder="Ej. 18" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-sm transition-all-custom font-normal">
                         </div>
 
                         <div>
@@ -294,22 +296,22 @@
 
                         <div class="sm:col-span-2">
                             <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" id="lblGrupo">Semestre, Grupo o Carrera</label>
-                            <input type="text" id="stdGrupo" required placeholder="EJ. 6° SEMESTRE GRUPO A / LIC. EN ADMINISTRACIÓN" oninput="this.value = this.value.toUpperCase()" class="w-full px-4 py-3.5 rounded-lg border border-slate-300 focus:outline-none border-[#1d2a6a] text-sm uppercase transition-all-custom">
+                            <input type="text" id="stdGrupo" required placeholder="EJ. 6° SEMESTRE GRUPO A / LIC. EN ADMINISTRACIÓN" oninput="this.value = this.value.toUpperCase()" class="w-full px-4 py-3.5 rounded-lg border border-slate-300 focus:outline-none border-[#1d2a6a] text-sm uppercase transition-all-custom font-normal">
                         </div>
 
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Correo Electrónico</label>
-                            <input type="email" id="stdEmail" required placeholder="alumno@ceut.edu.mx" oninput="this.value = this.value.toLowerCase()" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none border-[#1d2a6a] text-sm lowercase transition-all-custom">
+                            <input type="email" id="stdEmail" required placeholder="alumno@ceut.edu.mx" oninput="this.value = this.value.toLowerCase()" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none border-[#1d2a6a] text-sm lowercase transition-all-custom font-normal">
                         </div>
 
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Teléfono Celular</label>
-                            <input type="tel" id="stdTelefono" required placeholder="10 dígitos" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none border-[#1d2a6a] text-sm transition-all-custom">
+                            <input type="tel" id="stdTelefono" required placeholder="10 dígitos" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none border-[#1d2a6a] text-sm transition-all-custom font-normal">
                         </div>
                     </div>
 
                     <div class="bg-[#1d2a6a]/5 border-l-4 border-[#1d2a6a] p-5 rounded-r-2xl text-xs text-slate-700 space-y-4">
-                        <p class="leading-relaxed text-[11px] txt-justificado">
+                        <p class="leading-relaxed text-[11px] txt-justificado font-normal">
                             <strong>Consentimiento para Tratamiento de Datos Personales Sensibles:</strong>
                             En cumplimiento con la <em>Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP)</em> de los Estados Unidos Mexicanos, se le informa que las respuestas asociadas a su estado emocional, entorno social y riesgo latente se consideran <strong>datos sensibles</strong>. Sus respuestas serán tratadas de manera estrictamente confidencial bajo la custodia y supervisión del Responsable del Departamento Psicopedagógico con la única finalidad de brindarle orientación y apoyo preventivo.
                         </p>
@@ -317,12 +319,12 @@
                         <div class="flex items-start gap-3">
                             <input type="checkbox" id="chkConsentimientoLegal" required class="mt-1.5 h-5 w-5 rounded border border-slate-300 text-[#1d2a6a] focus:ring-[#1d2a6a] cursor-pointer">
                             <label for="chkConsentimientoLegal" class="font-bold text-slate-900 select-none cursor-pointer text-xs leading-relaxed txt-justificado">
-                                Consiento expresamente que mis datos personales, incluidos los de carácter emocional, familiar, psicosocial e ideación (sensibles), sean tratados de acuerdo con los de este sistema y el <a href="javascript:void(0)" onclick="abrirAvisoPrivacidad()" class="text-[#1d2a6a] underline hover:text-[#121b44] transition-colors">Aviso de Privacidad Integral de CEUT</a>.
+                                Consiento expresamente que mis datos personales, incluidos los de carácter emocional, familiar, psicosocial e ideación (sensibles), sean tratados de acuerdo con los de este sistema y el <a href="javascript:void(0)" onclick="abrirAvisoPrivacidad()" class="text-[#1d2a6a] underline hover:text-[#121b44] transition-colors font-bold">Aviso de Privacidad Integral de CEUT</a>.
                             </label>
                         </div>
                     </div>
 
-                    <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+                    <div class="flex items-center justify-between pt-4 border-t border-slate-100 font-bold">
                         <button type="button" onclick="irSeccion('tamizaje-inicio')" class="px-5 py-2.5 text-sm font-semibold text-slate-500 hover:bg-slate-100 rounded-xl transition-all-custom uppercase">
                             Regresar
                         </button>
@@ -369,7 +371,7 @@
                                     <span class="dot-indicator w-2.5 h-2.5 rounded-full bg-[#1d2a6a] scale-0 transition-transform duration-200"></span>
                                 </span>
                                 <span class="block text-sm font-black text-slate-800 uppercase tracking-wide">Nunca</span>
-                                <span class="block text-[9px] text-slate-400 mt-1 font-semibold uppercase">Pocas o ninguna vez</span>
+                                <span class="block text-[9px] text-slate-400 mt-1 font-semibold uppercase font-normal">Pocas o ninguna vez</span>
                             </label>
                             
                             <label class="relative flex flex-col items-center justify-center p-5 border border-slate-200 rounded-2xl cursor-pointer hover:border-[#1d2a6a] hover:bg-blue-50/10 transition-all duration-300 text-center group select-none shadow-xs hover:scale-[1.04]" id="lblOpt2">
@@ -378,7 +380,7 @@
                                     <span class="dot-indicator w-2.5 h-2.5 rounded-full bg-[#1d2a6a] scale-0 transition-transform duration-200"></span>
                                 </span>
                                 <span class="block text-sm font-black text-slate-800 uppercase">A veces</span>
-                                <span class="block text-[9px] text-slate-400 mt-1 font-semibold uppercase">Ocasionalmente</span>
+                                <span class="block text-[9px] text-slate-400 mt-1 font-semibold uppercase font-bold font-bold font-bold font-bold">Ocasionalmente</span>
                             </label>
 
                             <label class="relative flex flex-col items-center justify-center p-5 border border-slate-200 rounded-2xl cursor-pointer hover:border-[#1d2a6a] hover:bg-blue-50/10 transition-all duration-300 text-center group select-none shadow-xs hover:scale-[1.04]" id="lblOpt3">
@@ -386,8 +388,8 @@
                                 <span class="block w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center mb-3 group-hover:border-[#1d2a6a] transition-all-custom">
                                     <span class="dot-indicator w-2.5 h-2.5 rounded-full bg-[#1d2a6a] scale-0 transition-transform duration-200"></span>
                                 </span>
-                                <span class="block text-sm font-black text-slate-800 uppercase">Frecuente</span>
-                                <span class="block text-[9px] text-slate-400 mt-1 font-semibold uppercase">La mayor parte</span>
+                                <span class="block text-sm font-black text-slate-800 uppercase font-bold">Frecuente</span>
+                                <span class="block text-[9px] text-slate-400 mt-1 font-semibold uppercase font-bold font-bold font-bold font-bold font-bold">La mayor parte</span>
                             </label>
 
                             <label class="relative flex flex-col items-center justify-center p-5 border border-slate-200 rounded-2xl cursor-pointer hover:border-[#1d2a6a] hover:bg-blue-50/10 transition-all duration-300 text-center group select-none shadow-xs hover:scale-[1.04]" id="lblOpt4">
@@ -395,13 +397,13 @@
                                 <span class="block w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center mb-3 group-hover:border-[#1d2a6a] transition-all-custom">
                                     <span class="dot-indicator w-2.5 h-2.5 rounded-full bg-[#1d2a6a] scale-0 transition-transform duration-200"></span>
                                 </span>
-                                <span class="block text-sm font-black text-slate-800 uppercase">Siempre</span>
-                                <span class="block text-[9px] text-slate-400 mt-1 font-semibold uppercase">Todos los días</span>
+                                <span class="block text-sm font-black text-slate-800 uppercase font-bold">Siempre</span>
+                                <span class="block text-[9px] text-slate-400 mt-1 font-semibold uppercase font-bold font-bold font-bold font-bold font-bold font-bold font-bold font-bold">Todos los días</span>
                             </label>
                         </div>
                     </div>
 
-                    <div class="flex items-center justify-between pt-6 border-t border-slate-100">
+                    <div class="flex items-center justify-between pt-6 border-t border-slate-100 font-bold">
                         <button onclick="regresarPregunta()" id="btnQuizAtras" class="no-print px-5 py-2.5 text-sm font-semibold text-slate-500 hover:bg-slate-100 rounded-xl transition-all-custom uppercase">
                             Anterior
                         </button>
@@ -425,7 +427,7 @@
 
                 <div class="space-y-2">
                     <h3 class="text-2xl font-black text-[#1d2a6a] uppercase tracking-tight">¡Tamizaje Enviado con Éxito!</h3>
-                    <p class="text-slate-500 text-sm font-medium leading-relaxed txt-justificado">Tu información ha sido resguardada con confidencialidad absoluta en los servidores psicopedagógicos del CEUT, bajo encriptación y de acuerdo con la LFPDPPP.</p>
+                    <p class="text-slate-500 text-sm font-medium leading-relaxed txt-justificado font-normal">Tu información ha sido resguardada con confidencialidad absoluta en los servidores psicopedagógicos del CEUT, bajo encriptación y de acuerdo con la LFPDPPP.</p>
                 </div>
 
                 <div class="p-5 bg-slate-50/50 rounded-2xl border-2 border-dashed border-slate-200 max-w-sm mx-auto shadow-inner">
@@ -434,7 +436,7 @@
                     <span class="block text-[10px] text-emerald-600 font-semibold mt-1.5 uppercase tracking-wide">✓ REGISTRO GUARDADO CON BLINDAJE DUAL</span>
                 </div>
 
-                <p class="text-xs text-slate-500 leading-relaxed max-w-md mx-auto txt-justificado">
+                <p class="text-xs text-slate-500 leading-relaxed max-w-md mx-auto txt-justificado font-normal">
                     El Responsable del Departamento Psicopedagógico analizará tus resultados con apego al secreto clínico. Si es pertinente, nos pondremos en contacto contigo de forma privada para ofrecerte atención y acompañamiento personalizado.
                 </p>
 
@@ -466,7 +468,7 @@
                 <form onsubmit="validarLoginDocente(event)" class="space-y-4">
                     <div>
                         <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 font-semibold">PIN de Acceso Especial</label>
-                        <input type="password" id="txtDocenteClave" required placeholder="DIGITE SU PIN DE ACCESO" class="w-full px-4 py-4 rounded-xl border-2 border-slate-300 focus:outline-none focus:border-[#1d2a6a] transition-all-custom text-center text-lg font-bold tracking-widest">
+                        <input type="password" id="txtDocenteClave" required placeholder="DIGITE SU PIN DE ACCESO" class="w-full px-4 py-4 rounded-xl border-2 border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-center text-lg font-bold tracking-widest font-normal">
                     </div>
 
                     <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-xl text-xs text-amber-800 leading-relaxed font-semibold uppercase txt-justificado">
@@ -491,7 +493,7 @@
                 <div class="space-y-1.5">
                     <span class="text-xs font-bold text-amber-700 tracking-widest uppercase bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200">Responsable del Departamento: Mtro. Carlos Aguilar Sánchez</span>
                     <h2 class="text-2xl font-black text-slate-900 uppercase font-black">Consola Central Psicopedagógica CEUT</h2>
-                    <p class="text-xs text-slate-500 uppercase leading-relaxed text-justify txt-justificado">Métricas globales de salud emocional, factores del entorno psicosocial, alerta de crisis e intervenciones de la institución.</p>
+                    <p class="text-xs text-slate-500 uppercase leading-relaxed text-justify txt-justificado font-normal">Métricas globales de salud emocional, factores del entorno psicosocial, alerta de crisis e intervenciones de la institución.</p>
                 </div>
                 <div class="flex items-center gap-3 w-full md:w-auto text-xs font-bold">
                     <button onclick="exportarCSV()" class="px-4 py-2.5 font-bold rounded-lg border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 transition-all-custom flex items-center gap-1.5 shadow-xs uppercase">
@@ -509,7 +511,7 @@
                     <div>
                         <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider">Total Evaluados</span>
                         <span id="metricTotalEvaluados" class="text-3xl font-black text-slate-900">0</span>
-                        <span class="block text-[10px] text-emerald-600 font-semibold mt-1 uppercase">Registrados en el CEUT</span>
+                        <span class="block text-[10px] text-emerald-600 font-semibold mt-1 uppercase font-normal">Registrados en el CEUT</span>
                     </div>
                 </div>
 
@@ -525,7 +527,7 @@
                     <div>
                         <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider">Riesgo Medio (Amarillo)</span>
                         <span id="metricRiesgoAmarillo" class="text-3xl font-black text-amber-500">0</span>
-                        <span class="block text-[10px] text-amber-600 font-semibold mt-1 uppercase">Seguimiento ordinario</span>
+                        <span class="block text-[10px] text-amber-600 font-semibold mt-1 uppercase font-normal">Seguimiento ordinario</span>
                     </div>
                 </div>
 
@@ -546,12 +548,12 @@
                         <h3 class="text-sm font-bold text-slate-900 uppercase flex items-center gap-1.5">
                             🔑 Gestión de Seguridad de Jefatura
                         </h3>
-                        <p class="text-xs text-slate-500 font-medium uppercase leading-normal txt-justificado">
+                        <p class="text-xs text-slate-500 font-medium uppercase leading-normal txt-justificado font-normal">
                             Como Responsable del Departamento, puede modificar el PIN de acceso del sistema en tiempo real. Este se sincronizará de forma instantánea.
                         </p>
                     </div>
                     <div class="flex items-center gap-2">
-                        <input type="password" id="txtNuevoPinAdmin" placeholder="NUEVO PIN" class="flex-grow px-3 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-center text-sm uppercase font-bold">
+                        <input type="password" id="txtNuevoPinAdmin" placeholder="NUEVO PIN" class="flex-grow px-3 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-center text-sm uppercase font-bold font-normal">
                         <button onclick="cambiarPinAcceso()" class="px-5 py-2.5 bg-[#1d2a6a] hover:bg-[#121b44] text-white text-xs font-bold rounded-lg shadow-sm transition-all-custom text-center uppercase">
                             Cambiar PIN
                         </button>
@@ -564,12 +566,12 @@
                         <h3 class="text-sm font-bold text-[#1d2a6a] uppercase flex items-center gap-1.5">
                             🤖 Credenciales del Motor de IA Gemini
                         </h3>
-                        <p class="text-xs text-slate-500 font-medium uppercase leading-normal txt-justificado">
+                        <p class="text-xs text-slate-500 font-medium uppercase leading-normal txt-justificado font-normal">
                             Para activar los análisis automáticos enriquecidos con Gemini, inserte su API Key de Google AI Studio. Los datos se guardan de manera segura en el navegador.
                         </p>
                     </div>
                     <div class="flex items-center gap-2">
-                        <input type="password" id="txtGeminiApiKey" placeholder="API KEY DE GEMINI (AIza...)" class="flex-grow px-3 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-center text-xs font-bold">
+                        <input type="password" id="txtGeminiApiKey" placeholder="API KEY DE GEMINI (AIza...)" class="flex-grow px-3 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-center text-xs font-bold font-normal">
                         <button onclick="guardarApiKeyGemini()" class="px-5 py-2.5 bg-[#1d2a6a] hover:bg-[#121b44] text-white text-xs font-bold rounded-lg shadow-sm transition-all-custom text-center uppercase">
                             Guardar Key
                         </button>
@@ -583,12 +585,12 @@
                     <div class="flex-grow max-w-md">
                         <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">Búsqueda Rápida de Expediente</label>
                         <div class="relative">
-                            <input type="text" id="adminSearchInput" oninput="this.value = this.value.toUpperCase(); filtrarYRenderizarReportes()" placeholder="BUSCAR POR NOMBRE, FOLIO, MATRÍCULA..." class="w-full pl-10 pr-4 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-xs uppercase font-semibold">
+                            <input type="text" id="adminSearchInput" oninput="this.value = this.value.toUpperCase(); filtrarYRenderizarReportes()" placeholder="BUSCAR POR NOMBRE, FOLIO, MATRÍCULA..." class="w-full pl-10 pr-4 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-xs uppercase font-semibold font-normal">
                             <span class="absolute left-3 top-3 text-slate-400">🔍</span>
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 w-full lg:w-auto">
+                    <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 w-full lg:w-auto font-normal">
                         <div>
                             <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">Nivel</label>
                             <select id="adminFiltroNivel" onchange="filtrarYRenderizarReportes()" class="w-full px-3 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-xs uppercase font-bold text-slate-800">
@@ -635,7 +637,7 @@
                         <span>Buzón de Expedientes Registrados</span>
                         <span id="txtAdminMostrandoRegistros" class="bg-blue-100 text-blue-800 text-[10px] px-2.5 py-0.5 rounded-full font-black">0</span>
                     </h3>
-                    <span class="text-xs text-slate-500 font-semibold">Sincronización activa: <span class="text-emerald-600 animate-pulse">● EN TIEMPO REAL</span></span>
+                    <span class="text-xs text-slate-500 font-semibold font-normal">Sincronización activa: <span class="text-emerald-600 animate-pulse">● EN TIEMPO REAL</span></span>
                 </div>
 
                 <div class="overflow-x-auto">
@@ -654,7 +656,7 @@
                                 <th class="py-4 px-6 text-right font-bold">Acciones</th>
                             </tr>
                         </thead>
-                        <tbody id="tablaExpedientesBody" class="divide-y divide-slate-100 text-xs font-semibold">
+                        <tbody id="tablaExpedientesBody" class="divide-y divide-slate-100 text-xs font-semibold font-normal">
                             <!-- Inyección dinámica -->
                         </tbody>
                     </table>
@@ -668,9 +670,9 @@
     </main>
 
     <!-- MODAL DETALLE EXPEDIENTE -->
-    <div id="modalDetailExpediente" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 flex items-center justify-center p-4 hidden animate-fade-in">
+    <div id="modalDetailExpediente" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 flex items-center justify-center p-4 hidden animate-fade-in font-normal">
         <div class="bg-white w-full max-w-4xl rounded-2xl shadow-2xl border border-slate-200 flex flex-col max-h-[90vh] overflow-hidden transition-all-custom">
-            <div class="bg-gradient-to-r from-[#121b44] via-[#1d2a6a] to-[#121b44] text-white px-6 py-4.5 flex items-center justify-between border-b border-[#f1b80c]/50">
+            <div class="bg-gradient-to-r from-[#121b44] via-[#1d2a6a] to-[#121b44] text-white px-6 py-4.5 flex items-center justify-between border-b border-[#f1b80c]/50 font-bold">
                 <div class="space-y-0.5">
                     <h3 class="text-base font-bold flex items-center gap-2 uppercase">
                         Expediente de Tamizaje: <span id="mdFolio" class="text-[#f1b80c]">CEUT-2026-0000</span>
@@ -680,8 +682,8 @@
                 <button onclick="cerrarModalDetalle()" class="text-slate-400 hover:text-white transition-all-custom font-bold text-2xl">&times;</button>
             </div>
 
-            <div class="p-6 overflow-y-auto space-y-6 flex-grow text-xs text-justify font-bold">
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 bg-slate-50 p-4 rounded-xl border border-slate-200">
+            <div class="p-6 overflow-y-auto space-y-6 flex-grow text-xs text-justify">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 bg-slate-50 p-4 rounded-xl border border-slate-200 font-bold">
                     <div>
                         <span class="block text-[9px] font-bold text-slate-400 uppercase">Nombre del Estudiante</span>
                         <span id="mdNombre" class="font-bold text-slate-800 text-xs uppercase">--</span>
@@ -694,7 +696,7 @@
                         <span class="block text-[9px] font-bold text-slate-400 uppercase">Nivel, Grupo y Modalidad</span>
                         <span id="mdNivelGrupo" class="font-bold text-slate-800 text-xs">--</span>
                     </div>
-                    <div class="border-t border-slate-200/50 pt-2 sm:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="border-t border-slate-200/50 pt-2 sm:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-4 font-bold">
                         <div>
                             <span class="block text-[9px] font-bold text-slate-400 uppercase">Correo de Contacto</span>
                             <span id="mdEmail" class="font-semibold text-blue-600 text-xs lowercase">--</span>
@@ -710,7 +712,7 @@
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
+                <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 font-bold">
                     <div class="p-4 rounded-xl text-center space-y-1 bg-white flex flex-col justify-between border border-slate-200/60 transition-all duration-300 hover:shadow-md">
                         <span class="block text-xs font-bold text-slate-400 uppercase">Área Académica</span>
                         <div class="text-xl font-black text-slate-800 my-2"><span id="mdScoreAcademico">0</span> / 15</div>
@@ -727,14 +729,14 @@
                         <span id="mdBadgePsicosocial" class="inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase border">--</span>
                     </div>
                     <div class="p-4 rounded-xl text-center space-y-1 bg-white flex flex-col justify-between border border-slate-200/60 transition-all duration-300 hover:shadow-md">
-                        <span class="block text-xs font-bold text-slate-400 uppercase">Riesgo / Crisis</span>
+                        <span class="block text-xs font-bold text-slate-400 uppercase font-bold">Riesgo / Crisis</span>
                         <div class="text-xl font-black text-slate-800 my-2"><span id="mdScoreRiesgo">0</span> / 9</div>
                         <span id="mdBadgeRiesgo" class="inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase border animate-pulse">--</span>
                     </div>
                 </div>
 
                 <!-- INTEGRACIÓN DE ASISTENTE DE DIAGNÓSTICO CON IA GEMINI ✨ / SISTEMA HÍBRIDO -->
-                <div class="border-2 border-indigo-100 rounded-3xl p-6 bg-gradient-to-br from-indigo-50/40 via-white to-indigo-50/10 space-y-4">
+                <div class="border-2 border-indigo-100 rounded-3xl p-6 bg-gradient-to-br from-indigo-50/40 via-white to-indigo-50/10 space-y-4 font-bold">
                     <div class="flex items-center justify-between flex-wrap gap-4">
                         <div class="flex items-center gap-3">
                             <span class="p-3 bg-indigo-600 text-white rounded-2xl shadow-md shadow-indigo-200">✨</span>
@@ -754,24 +756,24 @@
                     </div>
                     <div id="loadingIA" class="hidden flex flex-col items-center justify-center py-10 space-y-3">
                         <div class="w-9 h-9 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin"></div>
-                        <span id="txtLoadingIA" class="text-[10px] text-indigo-600 font-extrabold uppercase tracking-widest animate-pulse">Procesando y correlacionando respuestas de forma clínica con IA...</span>
+                        <span id="txtLoadingIA" class="text-[10px] text-indigo-600 font-extrabold uppercase tracking-widest animate-pulse font-bold">Procesando y correlacionando respuestas de forma clínica con IA...</span>
                     </div>
-                    <div id="mdIAAnalysisContent" class="text-xs text-slate-700 leading-relaxed hidden max-h-80 overflow-y-auto bg-slate-50 border border-slate-200 p-5 rounded-2xl shadow-inner txt-justificado font-semibold text-justify font-bold">
+                    <div id="mdIAAnalysisContent" class="text-xs text-slate-700 leading-relaxed hidden max-h-80 overflow-y-auto bg-slate-50 border border-slate-200 p-5 rounded-2xl shadow-inner txt-justificado font-normal text-justify">
                         <!-- El diagnóstico es inyectado aquí -->
                     </div>
                 </div>
 
                 <div class="space-y-4">
-                    <h4 class="font-black text-xs text-slate-900 border-b border-slate-100 pb-2 flex items-center gap-1.5 uppercase">
+                    <h4 class="font-black text-xs text-slate-900 border-b border-slate-100 pb-2 flex items-center gap-1.5 uppercase font-bold">
                         Análisis Detallado por Reactivo (Escala Likert)
                     </h4>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-semibold" id="mdContenedorRespuestas">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-semibold" id="mdContenedorRespuestas font-bold">
                         <!-- Respuestas dinámicas -->
                     </div>
                 </div>
 
                 <!-- Seguimiento Clínico de Carlos Aguilar -->
-                <div class="space-y-4 border-t border-slate-100 pt-4">
+                <div class="space-y-4 border-t border-slate-100 pt-4 font-bold">
                     <h4 class="font-extrabold text-xs text-slate-900 flex items-center gap-1.5 uppercase">
                         📝 Seguimiento del Responsable del Departamento
                     </h4>
@@ -779,11 +781,11 @@
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 font-semibold">
                         <div class="sm:col-span-2">
                             <label class="block text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">Anotaciones de Consulta, Derivaciones o Acuerdos</label>
-                            <textarea id="mdInputObservaciones" rows="4" oninput="this.value = this.value.toUpperCase()" placeholder="ESCRIBA AQUÍ LOS ACUERDOS, FECHAS DE CITA CON PADRES DE FAMILIA O CANALIZACIÓN TERAPÉUTICA EXTERNA..." class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-xs uppercase leading-relaxed txt-justificado text-justify transition-all-custom"></textarea>
+                            <textarea id="mdInputObservaciones" rows="4" oninput="this.value = this.value.toUpperCase()" placeholder="ESCRIBA AQUÍ LOS ACUERDOS, FECHAS DE CITA CON PADRES DE FAMILIA O CANALIZACIÓN TERAPÉUTICA EXTERNA..." class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-xs uppercase leading-relaxed txt-justificado text-justify transition-all-custom font-normal"></textarea>
                         </div>
-                        <div class="space-y-3 font-semibold">
+                        <div class="space-y-3 font-semibold font-bold">
                             <div>
-                                <label class="block text-[9px] font-bold text-slate-400 uppercase tracking-wider">Estatus del Expediente</label>
+                                <label class="block text-[9px] font-bold text-slate-400 uppercase tracking-wider font-bold">Estatus del Expediente</label>
                                 <select id="mdSelectEstatus" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none border-[#1d2a6a] text-xs uppercase text-slate-800 font-bold">
                                     <option value="false">⏳ PENDIENTE DE ATENCIÓN</option>
                                     <option value="true">✔ CASO ATENDIDO / RESUELTO</option>
@@ -799,7 +801,7 @@
                 </div>
             </div>
 
-            <div class="bg-slate-50 px-6 py-4.5 border-t border-slate-100 flex items-center justify-between">
+            <div class="bg-slate-50 px-6 py-4.5 border-t border-slate-100 flex items-center justify-between font-bold">
                 <span class="text-[9px] text-slate-400 font-semibold uppercase">Departamento de Orientación Educativa CEUT</span>
                 <button onclick="cerrarModalDetalle()" class="px-5 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-100 rounded-lg transition-all uppercase">
                     Cerrar Detalle
@@ -809,7 +811,7 @@
     </div>
 
     <!-- MODAL DE CONFIRMACIÓN DE ELIMINACIÓN (BAJA) -->
-    <div id="confirmEliminarModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 flex items-center justify-center p-4 hidden">
+    <div id="confirmEliminarModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 flex items-center justify-center p-4 hidden font-bold">
         <div class="bg-white w-full max-w-md rounded-2xl shadow-2xl border border-slate-200 p-6 space-y-6">
             <h3 class="text-lg font-bold text-rose-600 uppercase">¿Confirmar Eliminación?</h3>
             <p class="text-xs text-slate-600 txt-justificado leading-relaxed text-justify font-bold">
@@ -823,7 +825,7 @@
     </div>
 
     <!-- MODAL: AVISO DE PRIVACIDAD INTEGRAL -->
-    <div id="modalAvisoPrivacidad" class="fixed inset-0 bg-slate-900/70 backdrop-blur-xs z-50 flex items-center justify-center p-4 hidden">
+    <div id="modalAvisoPrivacidad" class="fixed inset-0 bg-slate-900/70 backdrop-blur-xs z-50 flex items-center justify-center p-4 hidden font-bold">
         <div class="bg-white w-full max-w-2xl rounded-3xl shadow-2xl border border-slate-200 flex flex-col max-h-[85vh] overflow-hidden">
             <div class="bg-[#1d2a6a] text-white px-6 py-4.5 flex items-center justify-between border-b border-[#f1b80c]/50">
                 <div class="flex items-center gap-3">
@@ -838,17 +840,17 @@
                 <button onclick="cerrarAvisoPrivacidad()" class="text-slate-300 hover:text-white text-2xl font-bold">&times;</button>
             </div>
 
-            <div class="p-6 overflow-y-auto space-y-4 text-xs text-slate-600 leading-relaxed font-semibold uppercase text-justify txt-justificado border-b text-justify font-bold">
-                <p class="font-bold text-slate-900 text-sm tracking-tight">1. Identidad y Domicilio del Responsable</p>
+            <div class="p-6 overflow-y-auto space-y-4 text-xs text-slate-600 leading-relaxed font-semibold uppercase text-justify txt-justificado border-b text-justify font-normal">
+                <p class="font-bold text-slate-900 text-sm tracking-tight font-bold">1. Identidad y Domicilio del Responsable</p>
                 <p>El <strong>Centro Universitario Tehuacán (CEUT)</strong>, con domicilio en Tehuacán, Puebla, es responsable de recabar sus datos personales, del uso que se le de a los mismos y de su protección, a través del Responsable del Departamento Psicopedagógico.</p>
 
-                <p class="font-bold text-slate-900 text-sm">2. Datos Personales Sensibles Recabados</p>
+                <p class="font-bold text-slate-900 text-sm font-bold">2. Datos Personales Sensibles Recabados</p>
                 <p>Para las finalidades informadas en este documento, recabamos datos de identificación (Nombre, Matrícula, Edad, Correo, Teléfono) y, de manera muy específica, <strong>Datos Personales Sensibles</strong> relativos a su estado emocional, riesgos de salud mental, rendimiento intelectivo y su entorno familiar.</p>
 
-                <p class="font-bold text-slate-900 text-sm">3. Finalidades del Tratamiento</p>
+                <p class="font-bold text-slate-900 text-sm font-bold">3. Finalidades del Tratamiento</p>
                 <p>Realizar un tamizaje preventivo, detectar alertas de crisis emocionales para brindar apoyo y establecer canales de comunicación de forma legal de acuerdo con el consentimiento correspondiente.</p>
 
-                <p class="font-bold text-slate-900 text-sm">4. Limitación de Uso y Medidas de Seguridad</p>
+                <p class="font-bold text-slate-900 text-sm font-bold">4. Limitación de Uso y Medidas de Seguridad</p>
                 <p>CEUT se compromete a no transferir sus datos a terceros ajenos a la institución sin su consentimiento, salvo las excepciones previstas en el <strong>Artículo 37 de la LFPDPPP</strong>. Los datos son almacenados de forma encriptada y su visualización está estrictamente limitada al Responsable del Departamento Psicopedagógico mediante un PIN de control total.</p>
             </div>
 
@@ -871,7 +873,7 @@
                          class="max-h-full max-w-full object-contain">
                 </div>
                 <div>
-                    <span class="block text-white font-bold">Centro Universitario Tehuacán (CEUT)</span>
+                    <span class="block text-white font-bold font-bold font-bold">Centro Universitario Tehuacán (CEUT)</span>
                     <span class="block font-medium">Copyright © 2026 - Todos los derechos reservados.</span>
                 </div>
             </div>
@@ -898,7 +900,6 @@
         function obtenerLogoActivo() {
             const logoImg = document.getElementById('mainLogo');
             if (logoImg && logoImg.src && logoImg.src.trim() !== '') {
-                // Si la imagen ya se renderizó correctamente, usamos exactamente ese enlace (resuelve local o Google Drive)
                 return logoImg.src;
             }
             return 'https://lh3.googleusercontent.com/d/1ao9olFJOvSPvgmeyLJhkD1P0Pmq_R3T2';
@@ -1259,33 +1260,32 @@
             text += `**SEMÁFORO DE PRIORIDAD INSTITUCIONAL:** **${sem.toUpperCase()}**\n\n`;
             
             text += `## 2. SÍNTESIS CUALITATIVA Y CORRELACIÓN SINDROMÁTICA\n`;
-            text += `Se identifican correlaciones complejas entre sus hábitos académicos y su homeostasis socioemocional, permitiendo estructurar los siguientes diagnósticos descriptivos:\n\n`;
+            text += `Se identifican correlaciones complejas entre sus hábitos académicos y su homeostasis socioemocional, permitiendo estructurar los siguientes diagnósticos descriptivos de manera formal e integrada:\n\n`;
 
             let diagnosticos = [];
             if (r.respuestas) {
                 if (r.respuestas.a1 >= 3 || r.respuestas.a4 >= 3) {
-                    diagnodsticos = [];
-                    diagnosticos.push("**Disminución de la Atención Sostenida y Procesamiento Metacognitivo:** El estudiante presenta dificultades severas para retener y evocar información compleja en el aula. Esto sugiere un estado latente de sobrecarga cognitiva o parálisis ejecutiva en clase que frena de forma preocupante los mecanismos naturales de andamiaje conceptual.");
+                    diagnosticos.push("**Disminución de la Atención Sostenida y Procesamiento Metacognitivo:** El estudiante presenta dificultades de carácter severo para retener, codificar y evocar información teórica compleja en el salón. Esto sugiere un estado latente de sobrecarga ejecutiva o parálisis cognitiva transitoria que frena e interrumpe de forma alarmante los mecanismos naturales de andamiaje conceptual e integración de conocimientos.");
                 }
                 if (r.respuestas.a3 >= 3) {
-                    diagnosticos.push("**Procrastinación Evasiva y Evasión del Estrés:** La tendencia sistemática a postergar entregas académicas y proyectos (A3) funciona como un mecanismo defensivo desadaptativo para eludir la angustia situacional y el miedo patológico al fracaso evaluativo.");
+                    diagnosticos.push("**Procrastinación Evasiva y Evasión del Estrés Evaluativo:** La tendencia sistemática a postergar entregas académicas de alto impacto, tareas y proyectos (A3) funciona como un mecanismo defensivo de carácter desadaptativo, cuyo propósito inconsciente es eludir la angustia situacional y el miedo patológico al fracaso escolar de fin de parcial.");
                 }
                 if (r.respuestas.e2 >= 3) {
-                    diagnosticos.push("**Bloqueo Amigdalino ante la Evaluación:** La ansiedad situacional excesiva durante exámenes satura la corteza prefrontal del alumno, impidiendo la recuperación de contenidos previamente consolidados en la memoria de largo plazo, provocando lagunas mentales.");
+                    diagnosticos.push("**Bloqueo Amigdalino ante la Evaluación Formal:** La ansiedad situacional excesiva registrada durante la aplicación de exámenes satura la capacidad operativa de la corteza prefrontal del alumno, impidiendo la recuperación de contenidos previamente consolidados en la memoria de largo plazo y provocando lagunas mentales recurrentes.");
                 }
                 if (r.respuestas.e3 >= 3) {
-                    diagnosticos.push("**Alteración del Ciclo Circadiano por Rumiación Cognitiva:** El insomnio reportado afecta de forma colateral los periodos de sueño REM, fase neurobiológica fundamental para la consolidación sináptica de nuevos aprendizajes y la regulación afectiva diurna.");
+                    diagnosticos.push("**Alteración del Ciclo Circadiano por Rumiación Cognitiva:** El insomnio reportado afecta de forma colateral y progresiva los periodos de sueño REM del estudiante, fase neurobiológica que resulta fundamental para la consolidación sináptica de nuevos aprendizajes y la autorregulación afectiva diurna en el campus.");
                 }
                 if (r.respuestas.f2 >= 3) {
-                    diagnosticos.push("**Síndrome de Saturación Alostática por Estrés Financiero:** Las presiones socioeconómicas familiares interfieren de forma directo con los procesos cognitivos superiores del alumno, desviando su energía mental a la resolución de necesidades básicas de subsistencia.");
+                    diagnosticos.push("**Síndrome de Saturación Alostática por Estrés Financiero Directo:** Las presiones socioeconómicas familiares e institucionales interfieren de forma directa con los procesos cognitivos superiores del alumno, desviando su energía ejecutiva y de planificación a la resolución de necesidades materiales de subsistencia inmediata.");
                 }
                 if (r.respuestas.r1 >= 3 || r.respuestas.r2 >= 3) {
-                    diagnosticos.push("🚨 **CÓDIGO ROJO - RIESGO DE AUTÓLISIS O CONDUCTA AUTOLESIVA:** La presencia de ideación de pérdida de sentido de vida o impulsos autolesivos sistemáticos exige la suspensión inmediata del protocolo ordinario y la activación de la red de crisis presencial del CEUT.");
+                    diagnosticos.push("🚨 **CÓDIGO ROJO - RIESGO DE AUTÓLISIS O CONDUCTA AUTOLESIVA ACTIVA:** La presencia de ideación severa de pérdida de sentido de vida o impulsos autolesivos sistemáticos de carácter inminente exige la suspensión del protocolo regular del aula y la activación coordinada de la red de crisis presencial del CEUT.");
                 }
             }
 
             if (diagnosticos.length === 0) {
-                text += "* No se detectan indicadores clínicos o académicos fuera de los rangos de homeostasis funcional estándar. El alumno presenta un perfil de adaptación psicopedagógica estable.\n\n";
+                text += "No se detectan indicadores clínicos, afectivos o académicos fuera de los rangos de homeostasis funcional estándar. El alumno presenta un perfil de adaptación psicopedagógica regular y estable, sin barreras críticas activas para el aprendizaje y la participación.\n\n";
             } else {
                 diagnosticos.forEach(d => {
                     text += `* ${d}\n\n`;
@@ -1294,10 +1294,10 @@
 
             text += `## 3. PROTOCOLO DE INTERVENCIÓN PSICOLÓGICA Y ACUERDOS\n`;
             if (sr >= 3) {
-                text += `* **MEDIDA DE CONTENCIÓN URGENTE (CÓDIGO ROJO):** Citación obligatoria a padres de familia o tutores legales en un plazo menor a 24 horas. Firma conjunta de acta de corresponsabilidad para la protección a la vida del alumno y seguimiento clínico urgente.\n`;
+                text += `* **MEDIDA DE CONTENCIÓN URGENTE (CÓDIGO ROJO):** Citación obligatoria de padres de familia o tutores legales en un plazo menor a 24 horas. Firma conjunta de acta de corresponsabilidad para la protección a la integridad del alumno y derivación clínica coordinada.\n`;
                 text += `* **CANALIZACIÓN ESPECIALIZADA:** Derivación formal a servicios externos de Psiquiatría o Psicología Clínica de Tehuacán. Suministro de redes directas de salud mental pública institucional.\n`;
             } else if (se >= 9) {
-                text += `* **ACOMPAÑAMIENTO EMOCIONAL INTERNO:** Agendar de inmediato consulta psicopedagógica de contención afectiva con el Mtro. Carlos Aguilar Sánchez de manera programada en las próximas 48 horas.\n`;
+                text += `* **ACOMPAÑAMIENTO EMOCIONAL INTERNO:** Agendar de inmediato consulta psicopedagógica de contención afectiva de carácter individual con el Mtro. Carlos Aguilar Sánchez de manera programada en las próximas 48 horas.\n`;
                 text += `* **DERIVACIÓN PREVENTIVA:** Recomendar la consulta asertiva con profesionales de salud mental externos para el desarrollo de resiliencia y reestructuración cognitiva.\n`;
             } else {
                 text += `* **SEGUIMIENTO ORDINARIO:** Monitoreo regular por parte del tutor grupal. Invitación abierta a talleres de técnicas de estudio activas y relajación progresiva.\n`;
@@ -1361,7 +1361,7 @@
             });
 
             if (apiKey && apiKey.startsWith("AIza")) {
-                const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+                const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
                 
                 const prompt = `Actúa como un psicopedagogo clínico senior del Centro Universitario Tehuacán (CEUT). Redacta un Dictamen de Intervención Psicopedagógica formal para el estudiante ${r.estudiante.nombre} (Matrícula: ${r.estudiante.matricula}, Edad: ${r.estudiante.edad}, Nivel: ${r.estudiante.nivel}, Grupo: ${r.estudiante.grupo}, Modalidad: ${r.estudiante.modalidad || 'Escolarizado'}).
                 
@@ -1401,7 +1401,7 @@
                 **SEMÁFORO DE PRIORIDAD DE INTERVENCIÓN:** ${r.semaforo.toUpperCase()}
                 
                 ### 3. SÍNTESIS CUALITATIVA Y CORRELACIÓN DE CONDUCTAS
-                [Redacta aquí una detallada correlación técnica, profesional e interdisciplinaria de al menos dos párrafos bien explicados. Describe cómo la homeostasis o las alteraciones socioemocionales interactúan de forma directa con los procesos cognitivos de retención, atención y concentración de este alumno].
+                [Redacta aquí una detallada correlación técnica, profesional e interdisciplinaria de al menos dos párrafos bien explicados de forma justificada. Describe cómo la homeostasis o las alteraciones socioemocionales interactúan de forma directa con los procesos cognitivos de retención, atención y concentración de este alumno].
                 
                 ### 4. PROTOCOLO DE INTERVENCIÓN Y ACUERDOS
                 [Especifica cronológicamente las acciones preventivas, derivaciones con psicólogos o citas obligatorias con la familia, justificando detalladamente cada paso].
@@ -1694,17 +1694,18 @@
                     <style>
                         @page {
                             size: letter;
-                            margin: 10mm 12mm 10mm 12mm;
+                            margin: 10mm 15mm;
                         }
                         @media print {
                             .no-print { display: none !important; }
                             body {
                                 background-color: #ffffff !important;
                                 padding: 0 !important;
+                                margin: 0 !important;
                             }
                             .page-frame {
                                 border: 1.5px solid #1d2a6a !important;
-                                height: 252mm !important;
+                                height: 246mm !important;
                                 padding: 8mm !important;
                                 box-sizing: border-box !important;
                             }
@@ -1718,40 +1719,15 @@
                             padding: 20px;
                             background-color: #f1f5f9;
                             color: #0f172a;
-                            font-size: 8px;
+                            font-size: 8.5px;
                             display: flex;
                             flex-direction: column;
                             align-items: center;
                         }
-                        .control-bar {
-                            width: 100%;
-                            max-width: 760px;
-                            display: flex;
-                            justify-content: space-between;
-                            margin-bottom: 10px;
-                        }
-                        .btn {
-                            padding: 6px 12px;
-                            font-family: 'Georgia', serif;
-                            font-size: 9px;
-                            font-weight: bold;
-                            text-transform: uppercase;
-                            border: none;
-                            border-radius: 6px;
-                            cursor: pointer;
-                        }
-                        .btn-print {
-                            background-color: #1d2a6a;
-                            color: white;
-                        }
-                        .btn-close {
-                            background-color: #cbd5e1;
-                            color: #1e293b;
-                        }
                         .page-frame {
                             width: 100%;
                             max-width: 760px;
-                            height: 255mm;
+                            height: 246mm;
                             background: white;
                             border: 2px solid #1d2a6a;
                             border-radius: 8px;
@@ -1768,12 +1744,12 @@
                         /* Marca de Agua Centrada */
                         .watermark {
                             position: absolute;
-                            top: 40%;
+                            top: 45%;
                             left: 50%;
                             transform: translate(-50%, -50%);
                             width: 250px;
                             height: 250px;
-                            opacity: 0.04;
+                            opacity: 0.03;
                             pointer-events: none;
                             z-index: 0;
                         }
@@ -1818,7 +1794,7 @@
                             border: 0.5px solid #cbd5e1;
                             padding: 4px 8px;
                             border-radius: 6px;
-                            margin-bottom: 6px;
+                            margin-bottom: 8px;
                             font-size: 7.5px;
                             position: relative;
                             z-index: 10;
@@ -1829,48 +1805,40 @@
                         .report-body {
                             text-align: justify !important;
                             text-justify: inter-word !important;
-                            line-height: 1.25;
+                            line-height: 1.35;
                             position: relative;
                             z-index: 10;
                         }
                         .report-body h2 {
                             color: #1d2a6a;
-                            font-size: 8px;
-                            margin-top: 4px;
+                            font-size: 9px;
+                            margin-top: 5px;
                             margin-bottom: 2px;
                             border-bottom: 0.5px solid #e2e8f0;
                             padding-bottom: 1px;
                             font-weight: bold;
                             text-transform: uppercase;
-                            text-align: justify !important;
-                            text-justify: inter-word !important;
                         }
                         .report-body h3 {
                             color: #1d2a6a;
-                            font-size: 7.5px;
-                            margin-top: 3px;
-                            margin-bottom: 1px;
+                            font-size: 8px;
+                            margin-top: 4px;
+                            margin-bottom: 1.5px;
                             font-weight: bold;
                             text-transform: uppercase;
-                            text-align: justify !important;
-                            text-justify: inter-word !important;
                         }
                         .report-body p {
-                            margin: 0 0 3px 0;
-                            text-align: justify !important;
-                            text-justify: inter-word !important;
+                            margin: 0 0 4px 0;
                         }
                         .report-body ul, .report-body ol {
-                            margin: 0 0 3px 0;
+                            margin: 0 0 4px 0;
                             padding-left: 12px;
                         }
                         .report-body li {
-                            margin-bottom: 1px;
-                            text-align: justify !important;
-                            text-justify: inter-word !important;
+                            margin-bottom: 1.5px;
                         }
                         .signature-area {
-                            margin-top: 4px;
+                            margin-top: 6px;
                             display: flex;
                             flex-direction: column;
                             align-items: center;
@@ -1889,7 +1857,7 @@
                             text-align: justify;
                             text-justify: inter-word;
                             color: #64748b;
-                            line-height: 1.2;
+                            line-height: 1.25;
                             margin-top: 4px;
                             border-top: 0.5px solid #cbd5e1;
                             padding-top: 2px;
@@ -1904,7 +1872,6 @@
                         <button onclick="window.print()" class="btn btn-print">Imprimir Dictamen</button>
                     </div>
                     <div class="page-frame">
-                        <!-- Marca de Agua de Fondo -->
                         <img src="${logoUrl}" onerror="this.src='${fallbackLogoUrl}'" class="watermark">
                         
                         <div>
@@ -2051,7 +2018,7 @@
 
             filtrados.forEach(r => {
                 const tr = document.createElement('tr');
-                tr.className = "hover:bg-slate-50/80 transition-colors font-bold";
+                tr.className = "hover:bg-slate-50/80 transition-colors font-bold font-normal";
 
                 let semColor = "bg-emerald-100 text-emerald-800 border-emerald-300";
                 if (r.semaforo === "Rojo" || r.semaforo === "ROJO") semColor = "bg-rose-100 text-rose-800 border-rose-300 glow-red-active";
@@ -2065,20 +2032,20 @@
                 tr.innerHTML = `
                     <td class="py-4 px-6">
                         <span class="block font-black text-slate-900">${r.estudiante.folio || 'N/A'}</span>
-                        <span class="block text-[10px] text-slate-400">${r.estudiante.fecha || 'N/A'}</span>
+                        <span class="block text-[10px] text-slate-400 font-bold">${r.estudiante.fecha || 'N/A'}</span>
                     </td>
                     <td class="py-4 px-6 uppercase text-justify font-bold">
                         ${r.estudiante.nombre || 'N/A'}
                         <span class="block text-[10px] text-slate-400 font-normal">${r.estudiante.matricula || 'N/A'}</span>
                     </td>
-                    <td class="py-4 px-6 uppercase text-justify font-bold">
+                    <td class="py-4 px-6 uppercase text-justify font-bold font-normal">
                         ${r.estudiante.nivel || 'N/A'}
                         <span class="block text-[10px] text-slate-400 font-normal">${r.estudiante.grupo || 'N/A'} (${r.estudiante.modalidad || 'Escolarizado'})</span>
                     </td>
-                    <td class="py-4 px-6 text-center">${r.scores ? r.scores.Academico : 0} / 15</td>
-                    <td class="py-4 px-6 text-center">${r.scores ? r.scores.Emocional : 0} / 15</td>
-                    <td class="py-4 px-6 text-center">${r.scores ? r.scores.Psicosocial : 0} / 15</td>
-                    <td class="py-4 px-6 text-center">${r.scores ? r.scores.Riesgo : 0} / 9</td>
+                    <td class="py-4 px-6 text-center font-normal">${r.scores ? r.scores.Academico : 0} / 15</td>
+                    <td class="py-4 px-6 text-center font-normal">${r.scores ? r.scores.Emocional : 0} / 15</td>
+                    <td class="py-4 px-6 text-center font-normal">${r.scores ? r.scores.Psicosocial : 0} / 15</td>
+                    <td class="py-4 px-6 text-center font-normal">${r.scores ? r.scores.Riesgo : 0} / 9</td>
                     <td class="py-4 px-6 text-center">
                         <span class="px-2.5 py-1 rounded-full text-[10px] font-black border uppercase tracking-wider ${semColor}">${r.semaforo || 'Verde'}</span>
                     </td>
@@ -2141,11 +2108,11 @@
                     div.innerHTML = `
                         <div class="flex-grow max-w-[70%]">
                             <span class="block text-[10px] text-slate-400 font-bold">${preg.cat}</span>
-                            <p class="font-semibold text-slate-800 tracking-tight leading-tight text-xs txt-justificado text-justify">${preg.texto}</p>
+                            <p class="font-semibold text-slate-800 tracking-tight leading-tight text-xs txt-justificado text-justify font-normal">${preg.texto}</p>
                         </div>
-                        <div class="text-right">
+                        <div class="text-right font-bold">
                             <span class="text-[10px] block uppercase font-bold ${valColor}">${txtAns}</span>
-                            <span class="text-[9px] text-slate-400">(${ansVal} PTS)</span>
+                            <span class="text-[9px] text-slate-400 font-normal">(${ansVal} PTS)</span>
                         </div>
                     `;
                     container.appendChild(div);
@@ -2264,7 +2231,7 @@
                 if (trimmed.startsWith('<h') || trimmed.startsWith('<li') || trimmed.startsWith('<hr')) {
                     return trimmed;
                 }
-                return `<p class="mb-3 text-justify txt-justificado leading-relaxed text-justify font-bold">${trimmed}</p>`;
+                return `<p class="mb-3 text-justify txt-justificado leading-relaxed text-justify font-normal">${trimmed}</p>`;
             }).join('\n');
 
             return htmlOutput;
