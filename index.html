@@ -2,7 +2,7 @@
 <html lang="es" class="h-full bg-slate-50/50">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Tamizaje Psicopedagógico - CEUT</title>
     
     <!-- Favicon Oficial CEUT con Fallback Redundante -->
@@ -35,7 +35,7 @@
         
         /* Justificación estricta para expedientes clínicos y reportes formales */
         .txt-justificado { 
-            text-align: justify !important; 
+            text-align: justify !important;
             text-justify: inter-word !important; 
         }
         
@@ -106,115 +106,115 @@
 
     <!-- INDICADOR DE CONEXIÓN FLOTANTE -->
     <div id="floatingDbStatus" class="fixed bottom-4 left-4 z-50 no-print transition-all-custom">
-        <div class="flex items-center gap-2.5 px-4 py-2.5 rounded-2xl shadow-2xl border border-slate-700/85 bg-slate-900 text-white text-[11px] font-bold">
+        <div class="flex items-center gap-2.5 px-4 py-2.5 rounded-2xl shadow-2xl border border-slate-700/85 bg-slate-900 text-white text-[10px] sm:text-[11px] font-bold">
             <span id="floatingDbStatusDot" class="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse"></span>
             <span id="floatingDbStatusText" class="uppercase tracking-wider">Estableciendo canal de red con Firebase...</span>
         </div>
     </div>
 
-    <header class="bg-gradient-to-r from-[#121b44] via-[#1d2a6a] to-[#121b44] text-white py-5 px-6 shadow-xl border-b-4 border-[#f1b80c] relative z-40 no-print font-bold">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-5 font-bold">
-            <div class="flex items-center gap-4">
-                <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-lg border border-[#f1b80c]/50 p-1 flex-shrink-0 relative overflow-hidden transition-all-custom hover:scale-110 duration-300">
+    <header class="bg-gradient-to-r from-[#121b44] via-[#1d2a6a] to-[#121b44] text-white py-4 sm:py-5 px-4 sm:px-6 shadow-xl border-b-4 border-[#f1b80c] relative z-40 no-print font-bold">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 md:gap-5 font-bold">
+            <div class="flex flex-row items-center gap-3 sm:gap-4 w-full md:w-auto">
+                <div class="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-2xl flex items-center justify-center shadow-lg border border-[#f1b80c]/50 p-1 flex-shrink-0 relative overflow-hidden transition-all-custom hover:scale-110 duration-300">
                     <img id="mainLogo" src="Gemini_Generated_Image_ob1grpob1grpob1g-removebg-preview.png" 
                          onerror="this.src='https://lh3.googleusercontent.com/d/1ao9olFJOvSPvgmeyLJhkD1P0Pmq_R3T2'"
                          alt="Logo CEUT" 
                          class="max-h-full max-w-full object-contain">
                 </div>
-                <div class="space-y-1">
-                    <div class="flex items-center gap-2 flex-wrap">
-                        <h1 class="text-xl sm:text-2xl font-black tracking-wide text-white">
-                            CEUT <span class="text-[#f1b80c] font-semibold text-xs sm:text-sm border-l border-slate-500 pl-2 uppercase tracking-wider">Departamento Psicopedagógico</span>
+                <div class="space-y-0.5">
+                    <div class="flex items-center gap-1.5 flex-wrap">
+                        <h1 class="text-lg sm:text-2xl font-black tracking-wide text-white">
+                            CEUT <span class="text-[#f1b80c] font-semibold text-xs sm:text-sm border-l border-slate-500 pl-1.5 uppercase tracking-wider font-bold">Psicopedagógico</span>
                         </h1>
                         <!-- BADGE DE ESTADO DE CONEXIÓN EN CABECERA -->
-                        <div id="dbStatusBadge" class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[9px] font-black tracking-wider bg-amber-500/10 text-amber-400 border border-amber-500/35 uppercase">
-                            <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span> Conectando...
+                        <div id="dbStatusBadge" class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[8px] font-black tracking-wider bg-amber-500/10 text-amber-400 border border-amber-500/35 uppercase">
+                            <span class="w-1 h-1 rounded-full bg-amber-400 animate-pulse"></span> Conectando...
                         </div>
                     </div>
-                    <p class="text-[11px] text-slate-300 uppercase tracking-widest font-bold">Unidad de Alerta Temprana y Diagnóstico Estudiantil</p>
+                    <p class="text-[9px] sm:text-[11px] text-slate-300 uppercase tracking-widest font-bold">Unidad de Alerta Temprana y Diagnóstico Estudiantil</p>
                 </div>
             </div>
             
-            <div class="flex items-center gap-3 font-semibold text-xs">
-                <button onclick="irSeccion('tamizaje-inicio')" id="btnNavTamizaje" class="px-4 py-2 font-bold rounded-xl bg-gradient-to-r from-[#f1b80c] to-[#fcd94e] text-[#121b44] hover:shadow-lg hover:shadow-[#f1b80c]/20 hover:-translate-y-0.5 transition-all-custom flex items-center gap-1.5 shadow-md uppercase glow-yellow-hover">
+            <div class="flex items-center gap-2 sm:gap-3 font-semibold text-[10px] sm:text-xs w-full md:w-auto justify-end">
+                <button onclick="irSeccion('tamizaje-inicio')" id="btnNavTamizaje" class="flex-1 md:flex-initial px-3 py-3 sm:px-4 sm:py-2.5 font-bold rounded-xl bg-gradient-to-r from-[#f1b80c] to-[#fcd94e] text-[#121b44] hover:shadow-lg hover:shadow-[#f1b80c]/20 hover:-translate-y-0.5 transition-all-custom flex items-center justify-center gap-1.5 shadow-md uppercase glow-yellow-hover">
                     Nuevo Tamizaje
                 </button>
-                <button onclick="abrirLoginDocente()" id="btnNavDocente" class="px-4 py-2 font-bold rounded-xl bg-slate-900 text-slate-200 hover:bg-slate-800 hover:text-white transition-all-custom border border-slate-700/60 flex items-center gap-1.5 shadow-sm uppercase">
+                <button onclick="abrirLoginDocente()" id="btnNavDocente" class="flex-1 md:flex-initial px-3 py-3 sm:px-4 sm:py-2.5 font-bold rounded-xl bg-slate-900 text-slate-200 hover:bg-slate-800 hover:text-white transition-all-custom border border-slate-700/60 flex items-center justify-center gap-1.5 shadow-sm uppercase">
                     Acceso Responsable
                 </button>
-                <button onclick="logoutDocente()" id="btnCerrarSesion" class="hidden px-4 py-2 font-bold rounded-xl bg-rose-600 text-white hover:bg-rose-700 transition-all-custom flex items-center gap-1.5 shadow-md uppercase">
+                <button onclick="logoutDocente()" id="btnCerrarSesion" class="hidden flex-1 md:flex-initial px-3 py-3 sm:px-4 sm:py-2.5 font-bold rounded-xl bg-rose-600 text-white hover:bg-rose-700 transition-all-custom flex items-center justify-center gap-1.5 shadow-md uppercase">
                     Cerrar Panel
                 </button>
             </div>
         </div>
     </header>
 
-    <main class="flex-grow max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8 flex flex-col justify-start relative z-10 font-normal">
+    <main class="flex-grow max-w-7xl w-full mx-auto p-3 sm:p-6 lg:p-8 flex flex-col justify-start relative z-10 font-normal">
 
         <!-- SECCIÓN 1: LANDING INICIAL -->
-        <section id="sec-tamizaje-inicio" class="view-section block py-6 md:py-12 no-print animate-fade-up">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center font-normal">
-                <div class="lg:col-span-7 space-y-6">
-                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-[#1d2a6a] border border-blue-200/60 shadow-sm font-bold">
+        <section id="sec-tamizaje-inicio" class="view-section block py-4 md:py-8 lg:py-12 no-print animate-fade-up">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center font-normal">
+                <div class="lg:col-span-7 space-y-5 sm:space-y-6">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] sm:text-xs font-semibold bg-blue-50 text-[#1d2a6a] border border-blue-200/60 shadow-sm font-bold">
                         <span class="w-2.5 h-2.5 rounded-full bg-[#f1b80c] animate-pulse"></span>
                         Diagnóstico Oficial e Institucional CEUT
                     </span>
-                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight serif-title text-justify txt-justificado">
+                    <h2 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight serif-title text-justify txt-justificado">
                         Tu bienestar emocional y tu éxito de aprendizaje son nuestra mayor prioridad.
                     </h2>
-                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed txt-justificado">
+                    <p class="text-slate-600 text-xs sm:text-sm lg:text-base leading-relaxed txt-justificado">
                         Bienvenido a la plataforma de tamizaje del <strong>Centro Universitario Tehuacán (CEUT)</strong>. Este es un espacio seguro, estructurado y **estrictamente confidencial** diseñado para analizar tus necesidades socioemocionales y tus estrategias de estudio, administrado directamente por la Jefatura del Departamento Psicopedagógico con apego a las normativas nacionales de protección de datos sensibles.
                     </p>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 font-bold">
-                        <div class="p-5 rounded-2xl border border-slate-200 bg-white/90 backdrop-blur-xs shadow-sm flex flex-col justify-between transition-all-custom hover:shadow-md hover:scale-[1.03] duration-300">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 font-bold">
+                        <div class="p-4 sm:p-5 rounded-2xl border border-slate-200 bg-white/90 backdrop-blur-xs shadow-sm flex flex-col justify-between transition-all-custom hover:shadow-md hover:scale-[1.03] duration-300">
                             <div>
-                                <span class="p-2.5 inline-block rounded-xl bg-amber-50 text-amber-600 mb-3 shadow-sm">🎓</span>
-                                <h4 class="font-extrabold text-slate-900 text-sm uppercase">Foco Académico</h4>
+                                <span class="p-2 inline-block rounded-xl bg-amber-50 text-amber-600 mb-2 shadow-sm text-sm">🎓</span>
+                                <h4 class="font-extrabold text-slate-900 text-xs sm:text-sm uppercase">Foco Académico</h4>
                             </div>
-                            <p class="text-[10px] text-slate-500 mt-2 uppercase font-semibold leading-normal txt-justificado font-normal">Evaluación de tus hábitos cotidianos de estudio, atención sostenida y concentración.</p>
+                            <p class="text-[9px] sm:text-[10px] text-slate-500 mt-2 uppercase font-semibold leading-normal txt-justificado font-normal">Evaluación de tus hábitos cotidianos de estudio, atención sostenida y concentración.</p>
                         </div>
-                        <div class="p-5 rounded-2xl border border-slate-200 bg-white/90 backdrop-blur-xs shadow-sm flex flex-col justify-between transition-all-custom hover:shadow-md hover:scale-[1.03] duration-300">
+                        <div class="p-4 sm:p-5 rounded-2xl border border-slate-200 bg-white/90 backdrop-blur-xs shadow-sm flex flex-col justify-between transition-all-custom hover:shadow-md hover:scale-[1.03] duration-300">
                             <div>
-                                <span class="p-2.5 inline-block rounded-xl bg-rose-50 text-rose-600 mb-3 shadow-sm">❤️</span>
-                                <h4 class="font-extrabold text-slate-900 text-sm uppercase font-bold">Salud Emocional</h4>
+                                <span class="p-2 inline-block rounded-xl bg-rose-50 text-rose-600 mb-2 shadow-sm text-sm">❤️</span>
+                                <h4 class="font-extrabold text-slate-900 text-xs sm:text-sm uppercase font-bold">Salud Emocional</h4>
                             </div>
-                            <p class="text-[10px] text-slate-500 mt-2 uppercase font-semibold leading-normal txt-justificado font-normal">Monitoreo de factores de estrés ante evaluaciones, desánimo y bienestar emocional.</p>
+                            <p class="text-[9px] sm:text-[10px] text-slate-500 mt-2 uppercase font-semibold leading-normal txt-justificado font-normal">Monitoreo de factores de estrés ante evaluaciones, desánimo y bienestar emocional.</p>
                         </div>
-                        <div class="p-5 rounded-2xl border border-slate-200 bg-white/90 backdrop-blur-xs shadow-sm flex flex-col justify-between transition-all-custom hover:shadow-md hover:scale-[1.03] duration-300">
+                        <div class="p-4 sm:p-5 rounded-2xl border border-slate-200 bg-white/90 backdrop-blur-xs shadow-sm flex flex-col justify-between transition-all-custom hover:shadow-md hover:scale-[1.03] duration-300">
                             <div>
-                                <span class="p-2.5 inline-block rounded-xl bg-red-50 text-red-600 mb-3 shadow-sm">⚖️</span>
-                                <h4 class="font-extrabold text-slate-900 text-sm uppercase font-bold">Blindaje Legal</h4>
+                                <span class="p-2 inline-block rounded-xl bg-red-50 text-red-600 mb-2 shadow-sm text-sm">⚖️</span>
+                                <h4 class="font-extrabold text-slate-900 text-xs sm:text-sm uppercase font-bold">Blindaje Legal</h4>
                             </div>
-                            <p class="text-[10px] text-slate-500 mt-2 uppercase font-semibold leading-normal txt-justificado font-normal">Alineación estricta al artículo 9 de la LFPDPPP en el resguardo de datos sensibles.</p>
+                            <p class="text-[9px] sm:text-[10px] text-slate-500 mt-2 uppercase font-semibold leading-normal txt-justificado font-normal">Alineación estricta al artículo 9 de la LFPDPPP en el resguardo de datos sensibles.</p>
                         </div>
                     </div>
 
-                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-5 pt-3 font-bold">
-                        <button onclick="irSeccion('registro-datos')" class="px-8 py-4 rounded-xl bg-[#1d2a6a] text-white text-base font-bold shadow-xl hover:shadow-blue-900/20 transform hover:-translate-y-1 transition-all-custom text-center flex items-center justify-center gap-2 uppercase glow-yellow-hover">
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-5 pt-2 sm:pt-3 font-bold">
+                        <button onclick="irSeccion('registro-datos')" class="px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl bg-[#1d2a6a] text-white text-sm sm:text-base font-bold shadow-xl hover:shadow-blue-900/20 transform hover:-translate-y-1 transition-all-custom text-center flex items-center justify-center gap-2 uppercase glow-yellow-hover">
                             Comenzar Evaluación
                         </button>
-                        <p class="text-xs text-slate-500 text-center sm:text-left flex items-center gap-1.5 justify-center font-semibold txt-justificado font-normal">
+                        <p class="text-[10px] sm:text-xs text-slate-500 text-center sm:text-left flex items-center gap-1.5 justify-center font-semibold txt-justificado font-normal">
                             🔒 Tratamiento confidencial de datos personales de salud garantizado.
                         </p>
                     </div>
                 </div>
 
-                <div class="lg:col-span-5 flex justify-center">
-                    <div class="relative w-full max-w-sm rounded-3xl bg-gradient-to-tr from-[#121b44] to-[#1d2a6a] p-8 text-white shadow-2xl border-4 border-[#f1b80c] overflow-hidden group">
+                <div class="lg:col-span-5 flex justify-center mt-6 lg:mt-0">
+                    <div class="relative w-full max-w-sm rounded-3xl bg-gradient-to-tr from-[#121b44] to-[#1d2a6a] p-6 sm:p-8 text-white shadow-2xl border-4 border-[#f1b80c] overflow-hidden group">
                         <div class="absolute -right-20 -bottom-20 w-60 h-60 rounded-full bg-[#f1b80c]/10 blur-2xl transition-all duration-500 group-hover:bg-[#f1b80c]/20"></div>
                         
-                        <div class="relative z-10 flex flex-col items-center text-center space-y-6">
-                            <div class="w-36 h-36 bg-white rounded-2xl flex items-center justify-center shadow-2xl border-2 border-[#f1b80c] p-2 relative overflow-hidden transition-all-custom duration-500 group-hover:scale-110">
+                        <div class="relative z-10 flex flex-col items-center text-center space-y-5 sm:space-y-6">
+                            <div class="w-28 h-24 sm:w-36 sm:h-36 bg-white rounded-2xl flex items-center justify-center shadow-2xl border-2 border-[#f1b80c] p-2 relative overflow-hidden transition-all-custom duration-500 group-hover:scale-110">
                                 <img src="Gemini_Generated_Image_ob1grpob1grpob1g-removebg-preview.png" 
                                      onerror="this.src='https://lh3.googleusercontent.com/d/1ao9olFJOvSPvgmeyLJhkD1P0Pmq_R3T2'"
                                      alt="Logo CEUT Principal" 
                                      class="max-h-full max-w-full object-contain">
                             </div>
                             
-                            <div class="space-y-2">
-                                <h3 class="text-2xl font-black tracking-wide border-b border-white/10 pb-2">CEUT</h3>
-                                <p class="text-[#f1b80c] font-bold text-xs tracking-widest uppercase">CONGRESO • FORMACIÓN • APOYO</p>
+                            <div class="space-y-1.5">
+                                <h3 class="text-xl sm:text-2xl font-black tracking-wide border-b border-white/10 pb-2">CEUT</h3>
+                                <p class="text-[#f1b80c] font-bold text-[10px] sm:text-xs tracking-widest uppercase">CONGRESO • FORMACIÓN • APOYO</p>
                             </div>
 
                             <p class="text-slate-200 text-xs leading-relaxed max-w-xs italic txt-justificado font-normal">
@@ -225,13 +225,13 @@
 
                             <div class="flex items-center justify-around w-full text-center font-bold">
                                 <div>
-                                    <span class="block text-lg font-bold text-[#f1b80c]">100%</span>
-                                    <span class="text-[9px] text-slate-400 uppercase tracking-wider">Confidencial</span>
+                                    <span class="block text-sm sm:text-lg font-bold text-[#f1b80c]">100%</span>
+                                    <span class="text-[8px] sm:text-[9px] text-slate-400 uppercase tracking-wider">Confidencial</span>
                                 </div>
                                 <div class="w-[1px] h-8 bg-white/10"></div>
                                 <div>
-                                    <span class="block text-lg font-bold text-[#f1b80c]">LFPDPPP</span>
-                                    <span class="text-[9px] text-slate-300 uppercase tracking-wider font-normal">Alineado</span>
+                                    <span class="block text-sm sm:text-lg font-bold text-[#f1b80c]">LFPDPPP</span>
+                                    <span class="text-[8px] sm:text-[9px] text-slate-300 uppercase tracking-wider font-normal">Alineado</span>
                                 </div>
                             </div>
                         </div>
@@ -243,24 +243,24 @@
         <!-- SECCIÓN 2: REGISTRO DE DATOS -->
         <section id="sec-registro-datos" class="view-section hidden py-4 no-print animate-fade-up">
             <div class="max-w-2xl mx-auto bg-white/95 backdrop-blur-xs rounded-3xl shadow-2xl border border-slate-200/80 overflow-hidden font-bold">
-                <div class="bg-gradient-to-r from-[#121b44] via-[#1d2a6a] to-[#121b44] text-white px-8 py-6 flex items-center justify-between border-b border-[#f1b80c]/40">
+                <div class="bg-gradient-to-r from-[#121b44] via-[#1d2a6a] to-[#121b44] text-white px-5 py-5 sm:px-8 sm:py-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#f1b80c]/40">
                     <div class="flex items-center gap-3">
                         <img src="Gemini_Generated_Image_ob1grpob1grpob1g-removebg-preview.png" 
                              onerror="this.src='https://lh3.googleusercontent.com/d/1ao9olFJOvSPvgmeyLJhkD1P0Pmq_R3T2'"
                              alt="CEUT Mini Logo" class="w-10 h-10 object-contain bg-white rounded-lg p-0.5 border border-[#f1b80c]">
                         <div>
-                            <h3 class="text-xl font-bold uppercase tracking-wide font-black">Ficha de Identificación</h3>
-                            <p class="text-xs text-slate-300 text-justify uppercase font-normal">Resguardo oficial de datos personales.</p>
+                            <h3 class="text-base sm:text-xl font-bold uppercase tracking-wide font-black">Ficha de Identificación</h3>
+                            <p class="text-[10px] sm:text-xs text-slate-300 text-justify uppercase font-normal">Resguardo oficial de datos personales.</p>
                         </div>
                     </div>
-                    <div class="bg-[#f1b80c]/10 border border-[#f1b80c]/40 rounded-xl px-4 py-2 text-center shadow-inner">
+                    <div class="bg-[#f1b80c]/10 border border-[#f1b80c]/40 rounded-xl px-4 py-2.5 text-center shadow-inner self-start sm:self-auto w-full sm:w-auto">
                         <span class="block text-[8px] text-[#f1b80c] uppercase tracking-widest font-black">Folio de Control</span>
-                        <span id="txtFolioEstudiante" class="text-white font-black text-sm tracking-widest">CEUT-2026-0000</span>
+                        <span id="txtFolioEstudiante" class="text-white font-black text-xs sm:text-sm tracking-widest">CEUT-2026-0000</span>
                     </div>
                 </div>
 
-                <form id="formEstudiante" onsubmit="validarYComenzarTamizaje(event)" class="p-8 space-y-6">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
+                <form id="formEstudiante" onsubmit="validarYComenzarTamizaje(event)" class="p-4 sm:p-8 space-y-5 sm:space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 text-sm">
                         <div class="sm:col-span-2">
                             <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Nombre Completo</label>
                             <input type="text" id="stdNombre" required placeholder="EJ. ANA BELÉN GARCÍA PÉREZ" oninput="this.value = this.value.toUpperCase()" class="w-full px-4 py-3.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-sm uppercase transition-all-custom font-normal">
@@ -310,25 +310,25 @@
                         </div>
                     </div>
 
-                    <div class="bg-[#1d2a6a]/5 border-l-4 border-[#1d2a6a] p-5 rounded-r-2xl text-xs text-slate-700 space-y-4">
+                    <div class="bg-[#1d2a6a]/5 border-l-4 border-[#1d2a6a] p-4 sm:p-5 rounded-r-2xl text-xs text-slate-700 space-y-4">
                         <p class="leading-relaxed text-[11px] txt-justificado font-normal">
                             <strong>Consentimiento para Tratamiento de Datos Personales Sensibles:</strong>
                             En cumplimiento con la <em>Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP)</em> de los Estados Unidos Mexicanos, se le informa que las respuestas asociadas a su estado emocional, entorno social y riesgo latente se consideran <strong>datos sensibles</strong>. Sus respuestas serán tratadas de manera estrictamente confidencial bajo la custodia y supervisión del Responsable del Departamento Psicopedagógico con la única finalidad de brindarle orientación y apoyo preventivo.
                         </p>
                         
                         <div class="flex items-start gap-3">
-                            <input type="checkbox" id="chkConsentimientoLegal" required class="mt-1.5 h-5 w-5 rounded border border-slate-300 text-[#1d2a6a] focus:ring-[#1d2a6a] cursor-pointer">
+                            <input type="checkbox" id="chkConsentimientoLegal" required class="mt-1 h-6 w-6 rounded border border-slate-300 text-[#1d2a6a] focus:ring-[#1d2a6a] cursor-pointer">
                             <label for="chkConsentimientoLegal" class="font-bold text-slate-900 select-none cursor-pointer text-xs leading-relaxed txt-justificado">
-                                Consiento expresamente que mis datos personales, incluidos los de carácter emocional, familiar, psicosocial e ideación (sensibles), sean tratados de acuerdo con los de este sistema y el <a href="javascript:void(0)" onclick="abrirAvisoPrivacidad()" class="text-[#1d2a6a] underline hover:text-[#121b44] transition-colors font-bold">Aviso de Privacidad Integral de CEUT</a>.
+                                Consiento expresamente que mis datos personales, incluidos los de carácter emocional, familiar, psicosocial e ideación (sensibles), sean tratados de acuerdo con los términos de este sistema y el <a href="javascript:void(0)" onclick="abrirAvisoPrivacidad()" class="text-[#1d2a6a] underline hover:text-[#121b44] transition-colors font-bold">Aviso de Privacidad Integral de CEUT</a>.
                             </label>
                         </div>
                     </div>
 
-                    <div class="flex items-center justify-between pt-4 border-t border-slate-100 font-bold">
-                        <button type="button" onclick="irSeccion('tamizaje-inicio')" class="px-5 py-2.5 text-sm font-semibold text-slate-500 hover:bg-slate-100 rounded-xl transition-all-custom uppercase">
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-4 border-t border-slate-100 font-bold">
+                        <button type="button" onclick="irSeccion('tamizaje-inicio')" class="py-3 px-5 text-xs sm:text-sm font-semibold text-slate-500 hover:bg-slate-100 rounded-xl transition-all-custom uppercase text-center order-2 sm:order-1">
                             Regresar
                         </button>
-                        <button type="submit" class="px-8 py-3.5 bg-[#1d2a6a] hover:bg-[#121b44] text-white font-bold rounded-xl transition-all-custom shadow-lg flex items-center gap-2 hover:-translate-y-0.5 uppercase glow-yellow-hover">
+                        <button type="submit" class="py-4 px-8 bg-[#1d2a6a] hover:bg-[#121b44] text-white font-bold rounded-xl transition-all-custom shadow-lg flex items-center justify-center gap-2 hover:-translate-y-0.5 uppercase glow-yellow-hover order-1 sm:order-2 w-full sm:w-auto">
                             Iniciar Tamizaje
                         </button>
                     </div>
@@ -343,14 +343,14 @@
                     <div id="quizProgressBar" class="bg-gradient-to-r from-[#1d2a6a] via-[#f1b80c] to-[#fcd94e] h-2.5 transition-all duration-500" style="width: 0%"></div>
                 </div>
 
-                <div class="px-8 py-6 bg-gradient-to-b from-slate-50 to-white border-b border-slate-100 flex items-center justify-between flex-wrap gap-4">
-                    <div class="flex items-center gap-3">
+                <div class="px-5 py-4 sm:px-8 sm:py-6 bg-gradient-to-b from-slate-50 to-white border-b border-slate-100 flex items-center justify-between flex-wrap gap-3">
+                    <div class="flex items-center gap-2.5">
                         <img src="Gemini_Generated_Image_ob1grpob1grpob1g-removebg-preview.png" 
                              onerror="this.src='https://lh3.googleusercontent.com/d/1ao9olFJOvSPvgmeyLJhkD1P0Pmq_R3T2'"
-                             alt="Logo" class="w-8 h-8 object-contain">
+                             alt="Logo" class="w-7 h-7 sm:w-8 sm:h-8 object-contain">
                         <div>
-                            <span id="txtCategoriaCuestionario" class="inline-block px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-blue-100 text-[#1d2a6a]">ACADÉMICO</span>
-                            <h3 class="text-lg font-bold text-slate-900 mt-1 uppercase font-black">Diagnóstico de Estudiantes</h3>
+                            <span id="txtCategoriaCuestionario" class="inline-block px-2.5 py-0.5 rounded-full text-[9px] sm:text-[10px] font-extrabold uppercase tracking-wider bg-blue-100 text-[#1d2a6a]">ACADÉMICO</span>
+                            <h3 class="text-sm sm:text-lg font-bold text-slate-900 mt-0.5 uppercase">Diagnóstico de Estudiantes</h3>
                         </div>
                     </div>
                     <div class="text-right">
@@ -358,56 +358,64 @@
                     </div>
                 </div>
 
-                <div class="p-8 space-y-8">
-                    <div id="quizPreguntaCard" class="space-y-6">
-                        <h4 id="txtEnunciadoPregunta" class="text-base sm:text-lg font-bold text-slate-800 leading-relaxed uppercase tracking-tight text-justify txt-justificado">
+                <div class="p-5 sm:p-8 space-y-6 sm:space-y-8">
+                    <div id="quizPreguntaCard" class="space-y-5 sm:space-y-6">
+                        <h4 id="txtEnunciadoPregunta" class="text-sm sm:text-lg font-bold text-slate-800 leading-relaxed uppercase tracking-tight text-justify txt-justificado">
                             -- Enunciado de la Pregunta --
                         </h4>
 
-                        <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 pt-4 text-sm font-semibold">
-                            <label class="relative flex flex-col items-center justify-center p-5 border border-slate-200 rounded-2xl cursor-pointer hover:border-[#1d2a6a] hover:bg-blue-50/10 transition-all duration-300 text-center group select-none shadow-xs hover:scale-[1.04]" id="lblOpt1">
+                        <div class="grid grid-cols-1 sm:grid-cols-4 gap-3 sm:gap-4 pt-2 sm:pt-4 text-xs sm:text-sm font-semibold">
+                            <label class="relative flex flex-row sm:flex-col items-center justify-start sm:justify-center p-4 sm:p-5 border border-slate-200 rounded-2xl cursor-pointer hover:border-[#1d2a6a] hover:bg-blue-50/10 transition-all duration-300 text-left sm:text-center group select-none shadow-xs hover:scale-[1.03] gap-3 sm:gap-0" id="lblOpt1">
                                 <input type="radio" name="likertOption" id="opt1" value="1" class="sr-only" onchange="seleccionarOpcion(1)">
-                                <span class="w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center mb-3 group-hover:border-[#1d2a6a] transition-all-custom">
+                                <span class="w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center sm:mb-3 group-hover:border-[#1d2a6a] transition-all-custom flex-shrink-0">
                                     <span class="dot-indicator w-2.5 h-2.5 rounded-full bg-[#1d2a6a] scale-0 transition-transform duration-200"></span>
                                 </span>
-                                <span class="block text-sm font-black text-slate-800 uppercase tracking-wide">Nunca</span>
-                                <span class="block text-[9px] text-slate-400 mt-1 font-semibold uppercase font-normal">Pocas o ninguna vez</span>
+                                <div>
+                                    <span class="block text-xs sm:text-sm font-black text-slate-800 uppercase tracking-wide">Nunca</span>
+                                    <span class="block text-[8px] sm:text-[9px] text-slate-400 mt-0.5 sm:mt-1 font-semibold uppercase">Pocas o ninguna vez</span>
+                                </div>
                             </label>
                             
-                            <label class="relative flex flex-col items-center justify-center p-5 border border-slate-200 rounded-2xl cursor-pointer hover:border-[#1d2a6a] hover:bg-blue-50/10 transition-all duration-300 text-center group select-none shadow-xs hover:scale-[1.04]" id="lblOpt2">
+                            <label class="relative flex flex-row sm:flex-col items-center justify-start sm:justify-center p-4 sm:p-5 border border-slate-200 rounded-2xl cursor-pointer hover:border-[#1d2a6a] hover:bg-blue-50/10 transition-all duration-300 text-left sm:text-center group select-none shadow-xs hover:scale-[1.03] gap-3 sm:gap-0" id="lblOpt2">
                                 <input type="radio" name="likertOption" id="opt2" value="2" class="sr-only" onchange="seleccionarOpcion(2)">
-                                <span class="block w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center mb-3 group-hover:border-[#1d2a6a] transition-all-custom">
+                                <span class="w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center sm:mb-3 group-hover:border-[#1d2a6a] transition-all-custom flex-shrink-0">
                                     <span class="dot-indicator w-2.5 h-2.5 rounded-full bg-[#1d2a6a] scale-0 transition-transform duration-200"></span>
                                 </span>
-                                <span class="block text-sm font-black text-slate-800 uppercase">A veces</span>
-                                <span class="block text-[9px] text-slate-400 mt-1 font-semibold uppercase font-bold font-bold font-bold font-bold">Ocasionalmente</span>
+                                <div>
+                                    <span class="block text-xs sm:text-sm font-black text-slate-800 uppercase">A veces</span>
+                                    <span class="block text-[8px] sm:text-[9px] text-slate-400 mt-0.5 sm:mt-1 font-semibold uppercase font-bold">Ocasionalmente</span>
+                                </div>
                             </label>
 
-                            <label class="relative flex flex-col items-center justify-center p-5 border border-slate-200 rounded-2xl cursor-pointer hover:border-[#1d2a6a] hover:bg-blue-50/10 transition-all duration-300 text-center group select-none shadow-xs hover:scale-[1.04]" id="lblOpt3">
+                            <label class="relative flex flex-row sm:flex-col items-center justify-start sm:justify-center p-4 sm:p-5 border border-slate-200 rounded-2xl cursor-pointer hover:border-[#1d2a6a] hover:bg-blue-50/10 transition-all duration-300 text-left sm:text-center group select-none shadow-xs hover:scale-[1.03] gap-3 sm:gap-0" id="lblOpt3">
                                 <input type="radio" name="likertOption" id="opt3" value="3" class="sr-only" onchange="seleccionarOpcion(3)">
-                                <span class="block w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center mb-3 group-hover:border-[#1d2a6a] transition-all-custom">
+                                <span class="w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center sm:mb-3 group-hover:border-[#1d2a6a] transition-all-custom flex-shrink-0">
                                     <span class="dot-indicator w-2.5 h-2.5 rounded-full bg-[#1d2a6a] scale-0 transition-transform duration-200"></span>
                                 </span>
-                                <span class="block text-sm font-black text-slate-800 uppercase font-bold">Frecuente</span>
-                                <span class="block text-[9px] text-slate-400 mt-1 font-semibold uppercase font-bold font-bold font-bold font-bold font-bold">La mayor parte</span>
+                                <div>
+                                    <span class="block text-xs sm:text-sm font-black text-slate-800 uppercase font-bold">Frecuente</span>
+                                    <span class="block text-[8px] sm:text-[9px] text-slate-400 mt-0.5 sm:mt-1 font-semibold uppercase font-bold">La mayor parte</span>
+                                </div>
                             </label>
 
-                            <label class="relative flex flex-col items-center justify-center p-5 border border-slate-200 rounded-2xl cursor-pointer hover:border-[#1d2a6a] hover:bg-blue-50/10 transition-all duration-300 text-center group select-none shadow-xs hover:scale-[1.04]" id="lblOpt4">
+                            <label class="relative flex flex-row sm:flex-col items-center justify-start sm:justify-center p-4 sm:p-5 border border-slate-200 rounded-2xl cursor-pointer hover:border-[#1d2a6a] hover:bg-blue-50/10 transition-all duration-300 text-left sm:text-center group select-none shadow-xs hover:scale-[1.03] gap-3 sm:gap-0" id="lblOpt4">
                                 <input type="radio" name="likertOption" id="opt4" value="4" class="sr-only" onchange="seleccionarOpcion(4)">
-                                <span class="block w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center mb-3 group-hover:border-[#1d2a6a] transition-all-custom">
+                                <span class="w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center sm:mb-3 group-hover:border-[#1d2a6a] transition-all-custom flex-shrink-0">
                                     <span class="dot-indicator w-2.5 h-2.5 rounded-full bg-[#1d2a6a] scale-0 transition-transform duration-200"></span>
                                 </span>
-                                <span class="block text-sm font-black text-slate-800 uppercase font-bold">Siempre</span>
-                                <span class="block text-[9px] text-slate-400 mt-1 font-semibold uppercase font-bold font-bold font-bold font-bold font-bold font-bold font-bold font-bold">Todos los días</span>
+                                <div>
+                                    <span class="block text-xs sm:text-sm font-black text-slate-800 uppercase font-bold">Siempre</span>
+                                    <span class="block text-[8px] sm:text-[9px] text-slate-400 mt-0.5 sm:mt-1 font-semibold uppercase font-bold">Todos los días</span>
+                                </div>
                             </label>
                         </div>
                     </div>
 
-                    <div class="flex items-center justify-between pt-6 border-t border-slate-100 font-bold">
-                        <button onclick="regresarPregunta()" id="btnQuizAtras" class="no-print px-5 py-2.5 text-sm font-semibold text-slate-500 hover:bg-slate-100 rounded-xl transition-all-custom uppercase">
+                    <div class="flex items-center justify-between pt-5 sm:pt-6 border-t border-slate-100 font-bold">
+                        <button onclick="regresarPregunta()" id="btnQuizAtras" class="no-print px-4 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-semibold text-slate-500 hover:bg-slate-100 rounded-xl transition-all-custom uppercase">
                             Anterior
                         </button>
-                        <button onclick="avanzarPregunta()" id="btnQuizSiguiente" disabled class="px-8 py-3.5 bg-[#1d2a6a] text-white font-bold rounded-xl transition-all-custom shadow-md hover:bg-[#121b44] disabled:opacity-50 disabled:pointer-events-none flex items-center gap-2 uppercase">
+                        <button onclick="avanzarPregunta()" id="btnQuizSiguiente" disabled class="px-6 py-3 sm:px-8 sm:py-3.5 bg-[#1d2a6a] text-white font-bold rounded-xl transition-all-custom shadow-md hover:bg-[#121b44] disabled:opacity-50 disabled:pointer-events-none flex items-center gap-2 uppercase">
                             Siguiente
                         </button>
                     </div>
@@ -416,35 +424,35 @@
         </section>
 
         <!-- SECCIÓN 4: ÉXITO -->
-        <section id="sec-exito-cuestionario" class="view-section hidden py-8 no-print animate-fade-up font-bold">
-            <div class="max-w-xl mx-auto bg-white/95 backdrop-blur-xs rounded-3xl shadow-2xl border border-slate-200 p-8 text-center space-y-6">
-                <div class="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto text-emerald-600 shadow-lg shadow-emerald-100 relative">
+        <section id="sec-exito-cuestionario" class="view-section hidden py-6 sm:py-8 no-print animate-fade-up font-bold">
+            <div class="max-w-xl mx-auto bg-white/95 backdrop-blur-xs rounded-3xl shadow-2xl border border-slate-200 p-5 sm:p-8 text-center space-y-5 sm:space-y-6">
+                <div class="w-16 h-16 sm:w-20 sm:h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto text-emerald-600 shadow-lg shadow-emerald-100 relative">
                     <img src="Gemini_Generated_Image_ob1grpob1grpob1g-removebg-preview.png" 
                          onerror="this.src='https://lh3.googleusercontent.com/d/1ao9olFJOvSPvgmeyLJhkD1P0Pmq_R3T2'"
                          alt="Success Logo" class="absolute inset-0 w-full h-full object-contain p-3 opacity-20">
-                    <svg class="w-10 h-10 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <svg class="w-8 h-8 sm:w-10 sm:h-10 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 </div>
 
                 <div class="space-y-2">
-                    <h3 class="text-2xl font-black text-[#1d2a6a] uppercase tracking-tight">¡Tamizaje Enviado con Éxito!</h3>
-                    <p class="text-slate-500 text-sm font-medium leading-relaxed txt-justificado font-normal">Tu información ha sido resguardada con confidencialidad absoluta en los servidores psicopedagógicos del CEUT, bajo encriptación y de acuerdo con la LFPDPPP.</p>
+                    <h3 class="text-xl sm:text-2xl font-black text-[#1d2a6a] uppercase tracking-tight">¡Tamizaje Enviado con Éxito!</h3>
+                    <p class="text-slate-500 text-xs sm:text-sm font-medium leading-relaxed txt-justificado font-normal">Tu información ha sido resguardada con confidencialidad absoluta en los servidores psicopedagógicos del CEUT, bajo encriptación y de acuerdo con la LFPDPPP.</p>
                 </div>
 
-                <div class="p-5 bg-slate-50/50 rounded-2xl border-2 border-dashed border-slate-200 max-w-sm mx-auto shadow-inner">
-                    <span class="block text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-1">Tu Folio de Seguimiento</span>
-                    <span id="txtExitoFolio" class="text-xl font-black text-[#1d2a6a] tracking-wider uppercase">CEUT-2026-0000</span>
-                    <span class="block text-[10px] text-emerald-600 font-semibold mt-1.5 uppercase tracking-wide">✓ REGISTRO GUARDADO CON BLINDAJE DUAL</span>
+                <div class="p-4 sm:p-5 bg-slate-50/50 rounded-2xl border-2 border-dashed border-slate-200 max-w-sm mx-auto shadow-inner">
+                    <span class="block text-[8px] sm:text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-1">Tu Folio de Seguimiento</span>
+                    <span id="txtExitoFolio" class="text-lg sm:text-xl font-black text-[#1d2a6a] tracking-wider uppercase">CEUT-2026-0000</span>
+                    <span class="block text-[9px] sm:text-[10px] text-emerald-600 font-semibold mt-1.5 uppercase tracking-wide">✓ REGISTRO GUARDADO CON BLINDAJE DUAL</span>
                 </div>
 
                 <p class="text-xs text-slate-500 leading-relaxed max-w-md mx-auto txt-justificado font-normal">
                     El Responsable del Departamento Psicopedagógico analizará tus resultados con apego al secreto clínico. Si es pertinente, nos pondremos en contacto contigo de forma privada para ofrecerte atención y acompañamiento personalizado.
                 </p>
 
-                <div class="pt-4 flex flex-col sm:flex-row justify-center gap-3 font-semibold">
-                    <button onclick="irSeccion('tamizaje-inicio')" class="px-6 py-2.5 rounded-lg border-2 border-slate-200 text-slate-700 font-bold text-sm hover:bg-slate-50 transition-all-custom uppercase">
+                <div class="pt-2 sm:pt-4 flex flex-col sm:flex-row justify-center gap-3 font-semibold">
+                    <button onclick="irSeccion('tamizaje-inicio')" class="px-5 py-2.5 rounded-lg border-2 border-slate-200 text-slate-700 font-bold text-xs sm:text-sm hover:bg-slate-50 transition-all-custom uppercase">
                         Ir al Inicio
                     </button>
-                    <button onclick="descargarFolioPDF()" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-[#f1b80c] to-[#fcd94e] text-[#121b44] font-black text-sm shadow-md transition-all-custom flex items-center justify-center gap-1.5 hover:shadow-lg hover:shadow-[#f1b80c]/15 uppercase">
+                    <button onclick="descargarFolioPDF()" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#f1b80c] to-[#fcd94e] text-[#121b44] font-black text-xs sm:text-sm shadow-md transition-all-custom flex items-center justify-center gap-1.5 hover:shadow-lg hover:shadow-[#f1b80c]/15 uppercase">
                         Descargar Comprobante
                     </button>
                 </div>
@@ -452,23 +460,23 @@
         </section>
 
         <!-- SECCIÓN 5: LOGIN DOCENTE -->
-        <section id="sec-docente-login" class="view-section hidden py-8 no-print animate-fade-up font-bold">
-            <div class="max-w-md mx-auto bg-white/95 backdrop-blur-xs rounded-3xl shadow-2xl border border-slate-200/80 p-8 space-y-6">
+        <section id="sec-docente-login" class="view-section hidden py-6 sm:py-8 no-print animate-fade-up font-bold">
+            <div class="max-w-md mx-auto bg-white/95 backdrop-blur-xs rounded-3xl shadow-2xl border border-slate-200/80 p-5 sm:p-8 space-y-5 sm:space-y-6">
                 <div class="text-center space-y-2">
-                    <div class="w-24 h-24 mx-auto bg-slate-50 rounded-full flex items-center justify-center p-3 relative overflow-hidden border-2 border-slate-200 shadow-inner">
+                    <div class="w-20 h-20 sm:w-24 sm:h-24 mx-auto bg-slate-50 rounded-full flex items-center justify-center p-3 relative overflow-hidden border-2 border-slate-200 shadow-inner">
                         <img src="Gemini_Generated_Image_ob1grpob1grpob1g-removebg-preview.png" 
                              onerror="this.src='https://lh3.googleusercontent.com/d/1ao9olFJOvSPvgmeyLJhkD1P0Pmq_R3T2'"
                              alt="Logo CEUT Coordinador" 
                              class="max-h-full max-w-full object-contain">
                     </div>
-                    <h3 class="text-xl font-extrabold text-[#1d2a6a] uppercase tracking-wide font-black">Control de Jefatura</h3>
+                    <h3 class="text-lg sm:text-xl font-extrabold text-[#1d2a6a] uppercase tracking-wide font-black">Control de Jefatura</h3>
                     <p class="text-xs text-slate-500 uppercase font-semibold">Exclusivo para el Responsable: Mtro. Carlos Aguilar Sánchez</p>
                 </div>
 
                 <form onsubmit="validarLoginDocente(event)" class="space-y-4">
                     <div>
                         <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 font-semibold">PIN de Acceso Especial</label>
-                        <input type="password" id="txtDocenteClave" required placeholder="DIGITE SU PIN DE ACCESO" class="w-full px-4 py-4 rounded-xl border-2 border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-center text-lg font-bold tracking-widest font-normal">
+                        <input type="password" id="txtDocenteClave" required placeholder="DIGITE SU PIN DE ACCESO" class="w-full px-4 py-3 sm:py-4 rounded-xl border-2 border-slate-300 focus:outline-none focus:border-[#1d2a6a] transition-all-custom text-center text-base sm:text-lg font-bold tracking-widest">
                     </div>
 
                     <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-xl text-xs text-amber-800 leading-relaxed font-semibold uppercase txt-justificado">
@@ -488,64 +496,64 @@
         </section>
 
         <!-- SECCIÓN 6: DASHBOARD DOCENTE -->
-        <section id="sec-docente-dashboard" class="view-section hidden py-4 space-y-8 no-print animate-fade-up font-bold">
-            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 bg-white/95 backdrop-blur-xs p-6 rounded-2xl shadow-sm border border-slate-200/80">
-                <div class="space-y-1.5">
-                    <span class="text-xs font-bold text-amber-700 tracking-widest uppercase bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200">Responsable del Departamento: Mtro. Carlos Aguilar Sánchez</span>
-                    <h2 class="text-2xl font-black text-slate-900 uppercase font-black">Consola Central Psicopedagógica CEUT</h2>
+        <section id="sec-docente-dashboard" class="view-section hidden py-4 space-y-6 sm:space-y-8 no-print animate-fade-up font-bold">
+            <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 bg-white/95 backdrop-blur-xs p-5 sm:p-6 rounded-2xl shadow-sm border border-slate-200/80">
+                <div class="space-y-1.5 w-full lg:max-w-2xl">
+                    <span class="inline-block text-[10px] font-bold text-amber-700 tracking-wider uppercase bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200">Responsable del Departamento: Mtro. Carlos Aguilar Sánchez</span>
+                    <h2 class="text-xl sm:text-2xl font-black text-slate-900 uppercase">Consola Central Psicopedagógica CEUT</h2>
                     <p class="text-xs text-slate-500 uppercase leading-relaxed text-justify txt-justificado font-normal">Métricas globales de salud emocional, factores del entorno psicosocial, alerta de crisis e intervenciones de la institución.</p>
                 </div>
-                <div class="flex items-center gap-3 w-full md:w-auto text-xs font-bold">
-                    <button onclick="exportarCSV()" class="px-4 py-2.5 font-bold rounded-lg border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 transition-all-custom flex items-center gap-1.5 shadow-xs uppercase">
-                        Descargar Reporte (CSV)
+                <div class="flex items-center gap-2 sm:gap-3 w-full lg:w-auto text-[10px] sm:text-xs">
+                    <button onclick="exportarCSV()" class="flex-1 lg:flex-none px-3.5 py-3 sm:py-2.5 font-bold rounded-lg border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 transition-all-custom flex items-center justify-center gap-1.5 shadow-xs uppercase">
+                        Exportar (CSV)
                     </button>
-                    <button onclick="forzarActualizacion()" class="px-4 py-2.5 font-bold rounded-lg bg-slate-800 text-white hover:bg-slate-700 transition-all-custom flex items-center gap-1.5 shadow-xs uppercase">
+                    <button onclick="forzarActualizacion()" class="flex-1 lg:flex-none px-3.5 py-3 sm:py-2.5 bg-slate-800 text-white hover:bg-slate-700 transition-all-custom flex items-center justify-center gap-1.5 shadow-xs uppercase">
                         Sincronizar
                     </button>
                 </div>
             </div>
 
             <!-- TARJETAS DE ESTADÍSTICAS EN TIEMPO REAL -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 font-bold animate-fade-in border-b border-slate-100 pb-2">
-                <div class="bg-white/90 backdrop-blur-xs p-6 rounded-2xl shadow-xs border border-slate-200 flex items-center justify-between transition-all duration-300 hover:shadow-md hover:scale-[1.03]">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 font-bold animate-fade-in border-b border-slate-100 pb-2">
+                <div class="bg-white/90 backdrop-blur-xs p-5 sm:p-6 rounded-2xl shadow-xs border border-slate-200 flex items-center justify-between transition-all duration-300 hover:shadow-md hover:scale-[1.03]">
                     <div>
-                        <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider">Total Evaluados</span>
-                        <span id="metricTotalEvaluados" class="text-3xl font-black text-slate-900">0</span>
-                        <span class="block text-[10px] text-emerald-600 font-semibold mt-1 uppercase font-normal">Registrados en el CEUT</span>
+                        <span class="block text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-wider">Total Evaluados</span>
+                        <span id="metricTotalEvaluados" class="text-2xl sm:text-3xl font-black text-slate-900">0</span>
+                        <span class="block text-[9px] sm:text-[10px] text-emerald-600 font-semibold mt-1 uppercase font-normal">Registrados en el CEUT</span>
                     </div>
                 </div>
 
-                <div class="bg-white/90 backdrop-blur-xs p-6 rounded-2xl shadow-xs border border-slate-200 flex items-center justify-between transition-all duration-300 hover:shadow-md hover:scale-[1.03]">
+                <div class="bg-white/90 backdrop-blur-xs p-5 sm:p-6 rounded-2xl shadow-xs border border-slate-200 flex items-center justify-between transition-all duration-300 hover:shadow-md hover:scale-[1.03]">
                     <div>
-                        <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider">Riesgo Crítico (Rojo)</span>
-                        <span id="metricRiesgoRojo" class="text-3xl font-black text-rose-600">0</span>
-                        <span class="block text-[10px] text-rose-500 font-semibold mt-1 uppercase">Atención urgente</span>
+                        <span class="block text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-wider">Riesgo Crítico (Rojo)</span>
+                        <span id="metricRiesgoRojo" class="text-2xl sm:text-3xl font-black text-rose-600">0</span>
+                        <span class="block text-[9px] sm:text-[10px] text-rose-500 font-semibold mt-1 uppercase font-normal">Atención urgente</span>
                     </div>
                 </div>
 
-                <div class="bg-white/90 backdrop-blur-xs p-6 rounded-2xl shadow-xs border border-slate-200 flex items-center justify-between transition-all duration-300 hover:shadow-md hover:scale-[1.03]">
+                <div class="bg-white/90 backdrop-blur-xs p-5 sm:p-6 rounded-2xl shadow-xs border border-slate-200 flex items-center justify-between transition-all duration-300 hover:shadow-md hover:scale-[1.03]">
                     <div>
-                        <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider">Riesgo Medio (Amarillo)</span>
-                        <span id="metricRiesgoAmarillo" class="text-3xl font-black text-amber-500">0</span>
-                        <span class="block text-[10px] text-amber-600 font-semibold mt-1 uppercase font-normal">Seguimiento ordinario</span>
+                        <span class="block text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-wider">Riesgo Medio (Amarillo)</span>
+                        <span id="metricRiesgoAmarillo" class="text-2xl sm:text-3xl font-black text-amber-500">0</span>
+                        <span class="block text-[9px] sm:text-[10px] text-amber-600 font-semibold mt-1 uppercase font-normal font-normal">Seguimiento ordinario</span>
                     </div>
                 </div>
 
-                <div class="bg-white/90 backdrop-blur-xs p-6 rounded-2xl shadow-xs border border-slate-200 flex items-center justify-between transition-all duration-300 hover:shadow-md hover:scale-[1.03]">
+                <div class="bg-white/90 backdrop-blur-xs p-5 sm:p-6 rounded-2xl shadow-xs border border-slate-200 flex items-center justify-between transition-all duration-300 hover:shadow-md hover:scale-[1.03]">
                     <div>
-                        <span class="block text-slate-400 uppercase text-xs font-semibold">Casos Resueltos</span>
-                        <span id="metricAtendidos" class="text-3xl font-black text-emerald-600">0</span>
-                        <span id="metricTasaAtencion" class="block text-[10px] text-slate-500 font-semibold mt-1 uppercase">0% de Tasa de Cierre</span>
+                        <span class="block text-[10px] sm:text-xs font-semibold uppercase text-slate-400">Casos Resueltos</span>
+                        <span id="metricAtendidos" class="text-2xl sm:text-3xl font-black text-emerald-600">0</span>
+                        <span id="metricTasaAtencion" class="block text-[9px] sm:text-[10px] text-slate-500 font-semibold mt-1 uppercase font-normal">0% de Tasa de Cierre</span>
                     </div>
                 </div>
             </div>
 
             <!-- GESTIÓN DE SEGURIDAD (PIN) & CONFIGURACIÓN DE IA -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 font-bold">
                 <!-- SEGURIDAD PIN -->
-                <div class="bg-white/90 backdrop-blur-xs p-6 rounded-2xl shadow-sm border border-slate-200/80 flex flex-col justify-between space-y-4">
+                <div class="bg-white/90 backdrop-blur-xs p-5 sm:p-6 rounded-2xl shadow-sm border border-slate-200/80 flex flex-col justify-between space-y-4">
                     <div class="space-y-1">
-                        <h3 class="text-sm font-bold text-slate-900 uppercase flex items-center gap-1.5">
+                        <h3 class="text-sm sm:text-base font-bold text-slate-900 uppercase flex items-center gap-1.5">
                             🔑 Gestión de Seguridad de Jefatura
                         </h3>
                         <p class="text-xs text-slate-500 font-medium uppercase leading-normal txt-justificado font-normal">
@@ -553,17 +561,17 @@
                         </p>
                     </div>
                     <div class="flex items-center gap-2">
-                        <input type="password" id="txtNuevoPinAdmin" placeholder="NUEVO PIN" class="flex-grow px-3 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-center text-sm uppercase font-bold font-normal">
-                        <button onclick="cambiarPinAcceso()" class="px-5 py-2.5 bg-[#1d2a6a] hover:bg-[#121b44] text-white text-xs font-bold rounded-lg shadow-sm transition-all-custom text-center uppercase">
+                        <input type="password" id="txtNuevoPinAdmin" placeholder="NUEVO PIN" class="flex-grow px-3 py-2 sm:py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-center text-xs sm:text-sm uppercase font-bold font-normal">
+                        <button onclick="cambiarPinAcceso()" class="px-4 py-2 sm:px-5 sm:py-2.5 bg-[#1d2a6a] hover:bg-[#121b44] text-white text-xs font-bold rounded-lg shadow-sm transition-all-custom text-center uppercase">
                             Cambiar PIN
                         </button>
                     </div>
                 </div>
 
                 <!-- CONFIGURACIÓN IA -->
-                <div class="bg-white/90 backdrop-blur-xs p-6 rounded-2xl shadow-sm border border-slate-200/80 flex flex-col justify-between space-y-4">
+                <div class="bg-white/90 backdrop-blur-xs p-5 sm:p-6 rounded-2xl shadow-sm border border-slate-200/80 flex flex-col justify-between space-y-4 font-bold">
                     <div class="space-y-1">
-                        <h3 class="text-sm font-bold text-[#1d2a6a] uppercase flex items-center gap-1.5">
+                        <h3 class="text-sm sm:text-base font-bold text-[#1d2a6a] uppercase flex items-center gap-1.5">
                             🤖 Credenciales del Motor de IA Gemini
                         </h3>
                         <p class="text-xs text-slate-500 font-medium uppercase leading-normal txt-justificado font-normal">
@@ -571,8 +579,8 @@
                         </p>
                     </div>
                     <div class="flex items-center gap-2">
-                        <input type="password" id="txtGeminiApiKey" placeholder="API KEY DE GEMINI (AIza...)" class="flex-grow px-3 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-center text-xs font-bold font-normal">
-                        <button onclick="guardarApiKeyGemini()" class="px-5 py-2.5 bg-[#1d2a6a] hover:bg-[#121b44] text-white text-xs font-bold rounded-lg shadow-sm transition-all-custom text-center uppercase">
+                        <input type="password" id="txtGeminiApiKey" placeholder="API KEY DE GEMINI (AIza...)" class="flex-grow px-3 py-2 sm:py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-center text-xs font-bold font-normal">
+                        <button onclick="guardarApiKeyGemini()" class="px-4 py-2 sm:px-5 sm:py-2.5 bg-[#1d2a6a] hover:bg-[#121b44] text-white text-xs font-bold rounded-lg shadow-sm transition-all-custom text-center uppercase">
                             Guardar Key
                         </button>
                     </div>
@@ -580,20 +588,20 @@
             </div>
 
             <!-- FILTROS Y SEGMENTACIÓN AVANZADA -->
-            <div class="bg-white/90 backdrop-blur-xs p-6 rounded-2xl shadow-sm border border-slate-200/80 space-y-4">
+            <div class="bg-white/90 backdrop-blur-xs p-5 sm:p-6 rounded-2xl shadow-sm border border-slate-200/80 space-y-4">
                 <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-                    <div class="flex-grow max-w-md">
+                    <div class="flex-grow w-full lg:max-w-md">
                         <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">Búsqueda Rápida de Expediente</label>
                         <div class="relative">
-                            <input type="text" id="adminSearchInput" oninput="this.value = this.value.toUpperCase(); filtrarYRenderizarReportes()" placeholder="BUSCAR POR NOMBRE, FOLIO, MATRÍCULA..." class="w-full pl-10 pr-4 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-xs uppercase font-semibold font-normal">
-                            <span class="absolute left-3 top-3 text-slate-400">🔍</span>
+                            <input type="text" id="adminSearchInput" oninput="this.value = this.value.toUpperCase(); filtrarYRenderizarReportes()" placeholder="BUSCAR POR NOMBRE, FOLIO, MATRÍCULA..." class="w-full pl-10 pr-4 py-3 sm:py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-xs uppercase font-semibold font-normal">
+                            <span class="absolute left-3 top-3.5 sm:top-3 text-slate-400">🔍</span>
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 w-full lg:w-auto font-normal">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 w-full lg:w-auto font-normal">
                         <div>
                             <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">Nivel</label>
-                            <select id="adminFiltroNivel" onchange="filtrarYRenderizarReportes()" class="w-full px-3 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-xs uppercase font-bold text-slate-800">
+                            <select id="adminFiltroNivel" onchange="filtrarYRenderizarReportes()" class="w-full px-3 py-3 sm:px-3 sm:py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-[10px] sm:text-xs uppercase font-bold text-slate-800">
                                 <option value="Todos">TODOS</option>
                                 <option value="Preparatoria">PREPARATORIA</option>
                                 <option value="Universidad">UNIVERSIDAD</option>
@@ -602,7 +610,7 @@
 
                         <div>
                             <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">Modalidad</label>
-                            <select id="adminFiltroModalidad" onchange="filtrarYRenderizarReportes()" class="w-full px-3 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-xs uppercase font-bold text-slate-800">
+                            <select id="adminFiltroModalidad" onchange="filtrarYRenderizarReportes()" class="w-full px-3 py-3 sm:px-3 sm:py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-[10px] sm:text-xs uppercase font-bold text-slate-800">
                                 <option value="Todos">TODAS</option>
                                 <option value="Escolarizado">ESCOLARIZADO</option>
                                 <option value="Mixto">MIXTO</option>
@@ -610,8 +618,8 @@
                         </div>
 
                         <div>
-                            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider">Estatus de Riesgo</label>
-                            <select id="adminFiltroRiesgo" onchange="filtrarYRenderizarReportes()" class="w-full px-3 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-xs uppercase font-bold text-slate-800">
+                            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">Estatus Riesgo</label>
+                            <select id="adminFiltroRiesgo" onchange="filtrarYRenderizarReportes()" class="w-full px-3 py-3 sm:px-3 sm:py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-[10px] sm:text-xs uppercase font-bold text-slate-800">
                                 <option value="Todos">TODOS</option>
                                 <option value="Rojo">RIESGO ALTO (ROJO)</option>
                                 <option value="Amarillo">RIESGO MEDIO (AMARILLO)</option>
@@ -620,8 +628,8 @@
                         </div>
 
                         <div>
-                            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider">Seguimiento</label>
-                            <select id="adminFiltroAtendido" onchange="filtrarYRenderizarReportes()" class="w-full px-3 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-xs uppercase text-slate-800">
+                            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">Seguimiento</label>
+                            <select id="adminFiltroAtendido" onchange="filtrarYRenderizarReportes()" class="w-full px-3 py-3 sm:px-3 sm:py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-[10px] sm:text-xs uppercase text-slate-800">
                                 <option value="Todos">TODOS</option>
                                 <option value="Pendiente">PENDIENTE</option>
                                 <option value="Atendido">RESUELTO</option>
@@ -631,29 +639,31 @@
                 </div>
             </div>
 
+            <!-- BUZÓN DE EXPEDIENTES (HÍBRIDO ADAPTATIVO MÓVIL/ESCRITORIO) -->
             <div class="bg-white/95 backdrop-blur-xs rounded-2xl shadow-sm border border-slate-200/80 overflow-hidden">
-                <div class="px-6 py-4 border-b border-slate-100 flex items-center justify-between bg-slate-50">
+                <div class="px-5 py-4 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2 bg-slate-50">
                     <h3 class="font-bold text-slate-950 text-sm flex items-center gap-2 uppercase font-black">
                         <span>Buzón de Expedientes Registrados</span>
                         <span id="txtAdminMostrandoRegistros" class="bg-blue-100 text-blue-800 text-[10px] px-2.5 py-0.5 rounded-full font-black">0</span>
                     </h3>
-                    <span class="text-xs text-slate-500 font-semibold font-normal">Sincronización activa: <span class="text-emerald-600 animate-pulse">● EN TIEMPO REAL</span></span>
+                    <span class="text-xs text-slate-500 font-semibold font-normal">Sincronización activa: <span class="text-emerald-600 animate-pulse font-bold text-[10px] sm:text-xs">● EN TIEMPO REAL</span></span>
                 </div>
 
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left border-collapse border-slate-100">
+                <!-- VISTA ESCRITORIO (REVELADA EN PANTALLAS MD O SUPERIORES) -->
+                <div class="hidden md:block overflow-x-auto">
+                    <table class="w-full text-left border-collapse border-slate-100 min-w-[900px] lg:min-w-0">
                         <thead>
                             <tr class="bg-slate-100/60 text-slate-500 uppercase text-[9px] tracking-widest border-b border-slate-200/60 font-black">
-                                <th class="py-4 px-6">Folio / Fecha</th>
-                                <th class="py-4 px-6 font-bold">Estudiante / Matrícula</th>
-                                <th class="py-4 px-6 font-bold">Nivel / Modalidad</th>
-                                <th class="py-4 px-6 text-center font-bold">Académico</th>
-                                <th class="py-4 px-6 text-center font-bold">Emocional</th>
-                                <th class="py-4 px-6 text-center font-bold">Psicosocial</th>
-                                <th class="py-4 px-6 text-center font-bold">Riesgo</th>
-                                <th class="py-4 px-6 text-center font-bold">Semáforo</th>
-                                <th class="py-4 px-6 text-center font-bold">Seguimiento</th>
-                                <th class="py-4 px-6 text-right font-bold">Acciones</th>
+                                <th class="py-4 px-5">Folio / Fecha</th>
+                                <th class="py-4 px-5">Estudiante / Matrícula</th>
+                                <th class="py-4 px-5">Nivel / Modalidad</th>
+                                <th class="py-4 px-5 text-center">Académico</th>
+                                <th class="py-4 px-5 text-center">Emocional</th>
+                                <th class="py-4 px-5 text-center">Psicosocial</th>
+                                <th class="py-4 px-5 text-center">Riesgo</th>
+                                <th class="py-4 px-5 text-center">Semáforo</th>
+                                <th class="py-4 px-5 text-center">Seguimiento</th>
+                                <th class="py-4 px-5 text-right">Acciones</th>
                             </tr>
                         </thead>
                         <tbody id="tablaExpedientesBody" class="divide-y divide-slate-100 text-xs font-semibold font-normal">
@@ -662,103 +672,108 @@
                     </table>
                 </div>
 
-                <div id="sinDatosAdmin" class="hidden p-16 text-center text-slate-400 space-y-3 animate-fade-up">
-                    <p class="font-bold text-slate-700 uppercase">No se encontraron expedientes con los filtros seleccionados.</p>
+                <!-- VISTA TÁCTIL MÓVIL (COMPACTA, REVELADA EN DISPOSITIVOS < MD) -->
+                <div id="contenedorMobileExpedientes" class="block md:hidden divide-y divide-slate-100 bg-white">
+                    <!-- Inyección dinámica de tarjetas móviles -->
+                </div>
+
+                <div id="sinDatosAdmin" class="hidden p-12 sm:p-16 text-center text-slate-400 space-y-3 animate-fade-up">
+                    <p class="font-bold text-slate-700 uppercase text-sm">No se encontraron expedientes con los filtros seleccionados.</p>
                 </div>
             </div>
         </section>
     </main>
 
     <!-- MODAL DETALLE EXPEDIENTE -->
-    <div id="modalDetailExpediente" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 flex items-center justify-center p-4 hidden animate-fade-in font-normal">
-        <div class="bg-white w-full max-w-4xl rounded-2xl shadow-2xl border border-slate-200 flex flex-col max-h-[90vh] overflow-hidden transition-all-custom">
-            <div class="bg-gradient-to-r from-[#121b44] via-[#1d2a6a] to-[#121b44] text-white px-6 py-4.5 flex items-center justify-between border-b border-[#f1b80c]/50 font-bold">
+    <div id="modalDetailExpediente" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 flex items-center justify-center p-2 sm:p-4 hidden animate-fade-in font-normal">
+        <div class="bg-white w-full max-w-4xl rounded-2xl shadow-2xl border border-slate-200 flex flex-col h-[95dvh] sm:h-auto sm:max-h-[90vh] overflow-hidden transition-all-custom">
+            <div class="bg-gradient-to-r from-[#121b44] via-[#1d2a6a] to-[#121b44] text-white px-4 py-4 sm:px-6 sm:py-4.5 flex items-center justify-between border-b border-[#f1b80c]/50 flex-shrink-0">
                 <div class="space-y-0.5">
-                    <h3 class="text-base font-bold flex items-center gap-2 uppercase">
+                    <h3 class="text-xs sm:text-base font-bold flex items-center gap-2 uppercase">
                         Expediente de Tamizaje: <span id="mdFolio" class="text-[#f1b80c]">CEUT-2026-0000</span>
                     </h3>
-                    <p class="text-[11px] text-slate-300 uppercase tracking-widest">Análisis de conductas socioemocionales e indicadores de aprendizaje.</p>
+                    <p class="text-[9px] sm:text-[11px] text-slate-300 uppercase tracking-widest">Análisis de conductas socioemocionales e indicadores de aprendizaje.</p>
                 </div>
-                <button onclick="cerrarModalDetalle()" class="text-slate-400 hover:text-white transition-all-custom font-bold text-2xl">&times;</button>
+                <button onclick="cerrarModalDetalle()" class="text-slate-400 hover:text-white transition-all-custom font-bold text-3xl leading-none p-2" aria-label="Cerrar modal">&times;</button>
             </div>
 
-            <div class="p-6 overflow-y-auto space-y-6 flex-grow text-xs text-justify">
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 bg-slate-50 p-4 rounded-xl border border-slate-200 font-bold">
+            <div class="p-4 sm:p-6 overflow-y-auto space-y-5 sm:space-y-6 text-xs text-justify flex-grow">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 bg-slate-50 p-4 rounded-xl border border-slate-200 font-bold">
                     <div>
-                        <span class="block text-[9px] font-bold text-slate-400 uppercase">Nombre del Estudiante</span>
-                        <span id="mdNombre" class="font-bold text-slate-800 text-xs uppercase">--</span>
+                        <span class="block text-[8px] sm:text-[9px] font-bold text-slate-400 uppercase mb-0.5">Nombre del Estudiante</span>
+                        <span id="mdNombre" class="font-bold text-slate-800 text-xs uppercase block">--</span>
                     </div>
                     <div>
-                        <span class="block text-[9px] font-bold text-slate-400 uppercase">Matrícula y Edad</span>
-                        <span id="mdMatriculaEdad" class="font-bold text-slate-800 text-xs uppercase">--</span>
+                        <span class="block text-[8px] sm:text-[9px] font-bold text-slate-400 uppercase mb-0.5">Matrícula y Edad</span>
+                        <span id="mdMatriculaEdad" class="font-bold text-slate-800 text-xs uppercase block">--</span>
                     </div>
                     <div>
-                        <span class="block text-[9px] font-bold text-slate-400 uppercase">Nivel, Grupo y Modalidad</span>
-                        <span id="mdNivelGrupo" class="font-bold text-slate-800 text-xs">--</span>
+                        <span class="block text-[8px] sm:text-[9px] font-bold text-slate-400 uppercase mb-0.5">Nivel, Grupo y Modalidad</span>
+                        <span id="mdNivelGrupo" class="font-bold text-slate-800 text-xs block">--</span>
                     </div>
-                    <div class="border-t border-slate-200/50 pt-2 sm:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-4 font-bold">
+                    <div class="border-t border-slate-200/50 pt-3 md:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 font-bold">
                         <div>
-                            <span class="block text-[9px] font-bold text-slate-400 uppercase">Correo de Contacto</span>
-                            <span id="mdEmail" class="font-semibold text-blue-600 text-xs lowercase">--</span>
+                            <span class="block text-[8px] sm:text-[9px] font-bold text-slate-400 uppercase mb-0.5">Correo de Contacto</span>
+                            <span id="mdEmail" class="font-semibold text-blue-600 text-xs lowercase block truncate">--</span>
                         </div>
                         <div>
-                            <span class="block text-[9px] font-bold text-slate-400 uppercase">Teléfono Celular</span>
-                            <span id="mdTelefono" class="font-bold text-slate-800 text-xs">--</span>
+                            <span class="block text-[8px] sm:text-[9px] font-bold text-slate-400 uppercase mb-0.5">Teléfono Celular</span>
+                            <span id="mdTelefono" class="font-bold text-slate-800 text-xs block">--</span>
                         </div>
                         <div>
-                            <span class="block text-[9px] font-bold text-slate-400 uppercase">Fecha de Aplicación</span>
-                            <span id="mdFecha" class="font-semibold text-slate-600 text-xs uppercase">--</span>
+                            <span class="block text-[8px] sm:text-[9px] font-bold text-slate-400 uppercase mb-0.5">Fecha de Aplicación</span>
+                            <span id="mdFecha" class="font-semibold text-slate-600 text-xs uppercase block">--</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 font-bold">
-                    <div class="p-4 rounded-xl text-center space-y-1 bg-white flex flex-col justify-between border border-slate-200/60 transition-all duration-300 hover:shadow-md">
-                        <span class="block text-xs font-bold text-slate-400 uppercase">Área Académica</span>
-                        <div class="text-xl font-black text-slate-800 my-2"><span id="mdScoreAcademico">0</span> / 15</div>
-                        <span id="mdBadgeAcademico" class="inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase border">--</span>
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 font-bold">
+                    <div class="p-3 sm:p-4 rounded-xl text-center space-y-1 bg-white border border-slate-200/60 shadow-xs flex flex-col justify-between transition-all duration-300 hover:shadow-md">
+                        <span class="block text-[10px] sm:text-xs font-bold text-slate-400 uppercase">Área Académica</span>
+                        <div class="text-base sm:text-xl font-black text-slate-800 my-1"><span id="mdScoreAcademico">0</span> / 15</div>
+                        <span id="mdBadgeAcademico" class="inline-block px-1.5 py-1 rounded text-[8px] sm:text-[10px] font-bold uppercase border">--</span>
                     </div>
-                    <div class="p-4 rounded-xl text-center space-y-1 bg-white flex flex-col justify-between border border-slate-200/60 transition-all duration-300 hover:shadow-md">
-                        <span class="block text-xs font-bold text-slate-400 uppercase">Área Socioemocional</span>
-                        <div class="text-xl font-black text-slate-800 my-2"><span id="mdScoreEmocional">0</span> / 15</div>
-                        <span id="mdBadgeEmocional" class="inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase border">--</span>
+                    <div class="p-3 sm:p-4 rounded-xl text-center space-y-1 bg-white border border-slate-200/60 shadow-xs flex flex-col justify-between transition-all duration-300 hover:shadow-md">
+                        <span class="block text-[10px] sm:text-xs font-bold text-slate-400 uppercase">Área Socioemocional</span>
+                        <div class="text-base sm:text-xl font-black text-slate-800 my-1"><span id="mdScoreEmocional">0</span> / 15</div>
+                        <span id="mdBadgeEmocional" class="inline-block px-1.5 py-1 rounded text-[8px] sm:text-[10px] font-bold uppercase border">--</span>
                     </div>
-                    <div class="p-4 rounded-xl text-center space-y-1 bg-white flex flex-col justify-between border border-slate-200/60 transition-all duration-300 hover:shadow-md">
-                        <span class="block text-xs font-bold text-slate-400 uppercase">Entorno Psicosocial</span>
-                        <div class="text-xl font-black text-slate-800 my-2"><span id="mdScorePsicosocial">0</span> / 15</div>
-                        <span id="mdBadgePsicosocial" class="inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase border">--</span>
+                    <div class="p-3 sm:p-4 rounded-xl text-center space-y-1 bg-white border border-slate-200/60 shadow-xs flex flex-col justify-between transition-all duration-300 hover:shadow-md">
+                        <span class="block text-[10px] sm:text-xs font-bold text-slate-400 uppercase">Entorno Psicosocial</span>
+                        <div class="text-base sm:text-xl font-black text-slate-800 my-1"><span id="mdScorePsicosocial">0</span> / 15</div>
+                        <span id="mdBadgePsicosocial" class="inline-block px-1.5 py-1 rounded text-[8px] sm:text-[10px] font-bold uppercase border">--</span>
                     </div>
-                    <div class="p-4 rounded-xl text-center space-y-1 bg-white flex flex-col justify-between border border-slate-200/60 transition-all duration-300 hover:shadow-md">
-                        <span class="block text-xs font-bold text-slate-400 uppercase font-bold">Riesgo / Crisis</span>
-                        <div class="text-xl font-black text-slate-800 my-2"><span id="mdScoreRiesgo">0</span> / 9</div>
-                        <span id="mdBadgeRiesgo" class="inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase border animate-pulse">--</span>
+                    <div class="p-3 sm:p-4 rounded-xl text-center space-y-1 bg-white border border-slate-200/60 shadow-xs flex flex-col justify-between transition-all duration-300 hover:shadow-md">
+                        <span class="block text-[10px] sm:text-xs font-bold text-slate-400 uppercase font-bold">Riesgo / Crisis</span>
+                        <div class="text-base sm:text-xl font-black text-slate-800 my-1"><span id="mdScoreRiesgo">0</span> / 9</div>
+                        <span id="mdBadgeRiesgo" class="inline-block px-1.5 py-1 rounded text-[8px] sm:text-[10px] font-bold uppercase border animate-pulse">--</span>
                     </div>
                 </div>
 
                 <!-- INTEGRACIÓN DE ASISTENTE DE DIAGNÓSTICO CON IA GEMINI ✨ / SISTEMA HÍBRIDO -->
-                <div class="border-2 border-indigo-100 rounded-3xl p-6 bg-gradient-to-br from-indigo-50/40 via-white to-indigo-50/10 space-y-4 font-bold">
-                    <div class="flex items-center justify-between flex-wrap gap-4">
+                <div class="border-2 border-indigo-100 rounded-3xl p-4 sm:p-6 bg-gradient-to-br from-indigo-50/40 via-white to-indigo-50/10 space-y-4 font-bold">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
                         <div class="flex items-center gap-3">
-                            <span class="p-3 bg-indigo-600 text-white rounded-2xl shadow-md shadow-indigo-200">✨</span>
+                            <span class="p-2.5 bg-indigo-600 text-white rounded-2xl shadow-md shadow-indigo-200 text-base">✨</span>
                             <div>
-                                <h4 class="font-extrabold text-sm text-indigo-950 uppercase tracking-tight font-black">Dictamen Técnico Psicopedagógico</h4>
-                                <p class="text-[10px] text-indigo-600 uppercase font-bold tracking-widest">Asistencia metodológica y adaptaciones de aula de alta resolución</p>
+                                <h4 class="font-extrabold text-xs sm:text-sm text-indigo-950 uppercase tracking-tight">Dictamen Técnico Psicopedagógico</h4>
+                                <p class="text-[9px] sm:text-[10px] text-indigo-600 uppercase font-bold tracking-widest">Asistencia metodológica y adaptaciones de aula de alta resolución</p>
                             </div>
                         </div>
-                        <div class="flex items-center gap-2 text-xs">
-                            <button id="btnGenerarAnalisisIA" onclick="ejecutarAnalisisIA()" class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-lg transition-all-custom shadow-sm uppercase">
+                        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 text-[10px] sm:text-xs w-full md:w-auto">
+                            <button id="btnGenerarAnalisisIA" onclick="ejecutarAnalisisIA()" class="w-full sm:w-auto px-5 py-3 sm:py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg transition-all-custom shadow-sm uppercase text-center">
                                 Generar Análisis ✨
                             </button>
-                            <button id="btnDescargarReporteIA" onclick="descargarReporteIntervencion()" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-lg transition-all-custom shadow-md flex items-center gap-1.5 uppercase hidden">
-                                Descargar Reporte Membretado 📥
+                            <button id="btnDescargarReporteIA" onclick="descargarReporteIntervencion()" class="w-full sm:w-auto px-5 py-3 sm:py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg transition-all-custom shadow-md flex items-center justify-center gap-1.5 uppercase hidden">
+                                Descargar Reporte 📥
                             </button>
                         </div>
                     </div>
-                    <div id="loadingIA" class="hidden flex flex-col items-center justify-center py-10 space-y-3">
-                        <div class="w-9 h-9 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin"></div>
-                        <span id="txtLoadingIA" class="text-[10px] text-indigo-600 font-extrabold uppercase tracking-widest animate-pulse font-bold">Procesando y correlacionando respuestas de forma clínica con IA...</span>
+                    <div id="loadingIA" class="hidden flex flex-col items-center justify-center py-8 sm:py-10 space-y-3">
+                        <div class="w-8 h-8 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin"></div>
+                        <span id="txtLoadingIA" class="text-[9px] sm:text-[10px] text-indigo-600 font-extrabold uppercase tracking-widest animate-pulse font-bold">Procesando y correlacionando respuestas de forma clínica con IA...</span>
                     </div>
-                    <div id="mdIAAnalysisContent" class="text-xs text-slate-700 leading-relaxed hidden max-h-80 overflow-y-auto bg-slate-50 border border-slate-200 p-5 rounded-2xl shadow-inner txt-justificado font-normal text-justify">
+                    <div id="mdIAAnalysisContent" class="text-xs text-slate-700 leading-relaxed hidden max-h-80 overflow-y-auto bg-slate-50 border border-slate-200 p-4 sm:p-5 rounded-2xl shadow-inner txt-justificado text-justify">
                         <!-- El diagnóstico es inyectado aquí -->
                     </div>
                 </div>
@@ -767,32 +782,32 @@
                     <h4 class="font-black text-xs text-slate-900 border-b border-slate-100 pb-2 flex items-center gap-1.5 uppercase font-bold">
                         Análisis Detallado por Reactivo (Escala Likert)
                     </h4>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-semibold" id="mdContenedorRespuestas font-bold">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 text-xs font-semibold" id="mdContenedorRespuestas">
                         <!-- Respuestas dinámicas -->
                     </div>
                 </div>
 
                 <!-- Seguimiento Clínico de Carlos Aguilar -->
                 <div class="space-y-4 border-t border-slate-100 pt-4 font-bold">
-                    <h4 class="font-extrabold text-xs text-slate-900 flex items-center gap-1.5 uppercase">
+                    <h4 class="font-extrabold text-xs text-slate-900 flex items-center gap-1.5 uppercase font-bold">
                         📝 Seguimiento del Responsable del Departamento
                     </h4>
                     
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 font-semibold">
-                        <div class="sm:col-span-2">
-                            <label class="block text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">Anotaciones de Consulta, Derivaciones o Acuerdos</label>
-                            <textarea id="mdInputObservaciones" rows="4" oninput="this.value = this.value.toUpperCase()" placeholder="ESCRIBA AQUÍ LOS ACUERDOS, FECHAS DE CITA CON PADRES DE FAMILIA O CANALIZACIÓN TERAPÉUTICA EXTERNA..." class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-xs uppercase leading-relaxed txt-justificado text-justify transition-all-custom font-normal"></textarea>
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 font-semibold">
+                        <div class="lg:col-span-2">
+                            <label class="block text-[8px] sm:text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">Anotaciones de Consulta, Derivaciones o Acuerdos</label>
+                            <textarea id="mdInputObservaciones" rows="4" oninput="this.value = this.value.toUpperCase()" placeholder="ESCRIBA AQUÍ LOS ACUERDOS, FECHAS DE CITA CON PADRES DE FAMILIA O CANALIZACIÓN TERAPÉUTICA EXTERNA..." class="w-full px-3.5 py-3 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-xs uppercase leading-relaxed txt-justificado text-justify transition-all-custom font-normal"></textarea>
                         </div>
                         <div class="space-y-3 font-semibold font-bold">
                             <div>
-                                <label class="block text-[9px] font-bold text-slate-400 uppercase tracking-wider font-bold">Estatus del Expediente</label>
-                                <select id="mdSelectEstatus" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none border-[#1d2a6a] text-xs uppercase text-slate-800 font-bold">
+                                <label class="block text-[8px] sm:text-[9px] font-bold text-slate-400 uppercase tracking-wider font-bold">Estatus del Expediente</label>
+                                <select id="mdSelectEstatus" class="w-full px-3.5 py-3 rounded-xl border border-slate-300 focus:outline-none border-[#1d2a6a] text-xs uppercase text-slate-800 font-bold">
                                     <option value="false">⏳ PENDIENTE DE ATENCIÓN</option>
                                     <option value="true">✔ CASO ATENDIDO / RESUELTO</option>
                                 </select>
                             </div>
-                            <div class="pt-2">
-                                <button onclick="guardarSeguimientoDocente()" class="w-full py-2.5 bg-[#1d2a6a] hover:bg-[#121b44] text-white text-xs font-bold rounded-lg shadow-sm transition-all-custom text-center uppercase">
+                            <div class="pt-1">
+                                <button onclick="guardarSeguimientoDocente()" class="w-full py-3.5 bg-[#1d2a6a] hover:bg-[#121b44] text-white text-xs font-bold rounded-lg shadow-sm transition-all-custom text-center uppercase">
                                     Guardar Cambios
                                 </button>
                             </div>
@@ -801,9 +816,9 @@
                 </div>
             </div>
 
-            <div class="bg-slate-50 px-6 py-4.5 border-t border-slate-100 flex items-center justify-between font-bold">
+            <div class="bg-slate-50 px-4 py-4 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3 font-bold flex-shrink-0">
                 <span class="text-[9px] text-slate-400 font-semibold uppercase">Departamento de Orientación Educativa CEUT</span>
-                <button onclick="cerrarModalDetalle()" class="px-5 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-100 rounded-lg transition-all uppercase">
+                <button onclick="cerrarModalDetalle()" class="px-5 py-3 sm:py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 text-xs font-bold rounded-lg transition-all uppercase text-center w-full sm:w-auto">
                     Cerrar Detalle
                 </button>
             </div>
@@ -813,34 +828,34 @@
     <!-- MODAL DE CONFIRMACIÓN DE ELIMINACIÓN (BAJA) -->
     <div id="confirmEliminarModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 flex items-center justify-center p-4 hidden font-bold">
         <div class="bg-white w-full max-w-md rounded-2xl shadow-2xl border border-slate-200 p-6 space-y-6">
-            <h3 class="text-lg font-bold text-rose-600 uppercase">¿Confirmar Eliminación?</h3>
+            <h3 class="text-lg font-bold text-rose-600 uppercase font-bold">¿Confirmar Eliminación?</h3>
             <p class="text-xs text-slate-600 txt-justificado leading-relaxed text-justify font-bold">
                 Esta acción eliminará de forma permanente el expediente del alumno de los registros locales y de la base de datos en tiempo real de la Jefatura Psicopedagógica. Esta acción no se puede deshacer.
             </p>
-            <div class="flex items-center justify-end gap-3 font-semibold text-xs">
+            <div class="flex items-center justify-end gap-3 font-semibold text-xs font-bold">
                 <button onclick="cerrarConfirmEliminar()" class="px-4 py-2 border border-slate-300 rounded-lg text-slate-600 hover:bg-slate-50 transition-all uppercase">Cancelar</button>
-                <button onclick="ejecutarEliminarBaja()" class="px-4 py-2 bg-rose-600 hover:bg-rose-700 text-white rounded-lg transition-all uppercase">Eliminar permanentemente</button>
+                <button onclick="ejecutarEliminarBaja()" class="px-4 py-2 bg-rose-600 hover:bg-rose-700 text-white rounded-lg transition-all uppercase font-bold">Eliminar permanentemente</button>
             </div>
         </div>
     </div>
 
     <!-- MODAL: AVISO DE PRIVACIDAD INTEGRAL -->
-    <div id="modalAvisoPrivacidad" class="fixed inset-0 bg-slate-900/70 backdrop-blur-xs z-50 flex items-center justify-center p-4 hidden font-bold">
+    <div id="modalAvisoPrivacidad" class="fixed inset-0 bg-slate-900/70 backdrop-blur-xs z-50 flex items-center justify-center p-3 sm:p-4 hidden font-bold">
         <div class="bg-white w-full max-w-2xl rounded-3xl shadow-2xl border border-slate-200 flex flex-col max-h-[85vh] overflow-hidden">
-            <div class="bg-[#1d2a6a] text-white px-6 py-4.5 flex items-center justify-between border-b border-[#f1b80c]/50">
-                <div class="flex items-center gap-3">
+            <div class="bg-[#1d2a6a] text-white px-5 py-4 sm:px-6 sm:py-4.5 flex items-center justify-between border-b border-[#f1b80c]/50">
+                <div class="flex items-center gap-2.5">
                     <img src="Gemini_Generated_Image_ob1grpob1grpob1g-removebg-preview.png" 
                          onerror="this.src='https://lh3.googleusercontent.com/d/1ao9olFJOvSPvgmeyLJhkD1P0Pmq_R3T2'"
-                         alt="Aviso Logo" class="w-9 h-9 object-contain bg-white rounded-lg p-0.5 border border-[#f1b80c]">
+                         alt="Aviso Logo" class="w-8 h-8 object-contain bg-white rounded-lg p-0.5 border border-[#f1b80c]">
                     <div>
-                        <h3 class="text-base font-bold font-black uppercase">Aviso de Privacidad Integral</h3>
-                        <p class="text-[10px] text-slate-300 font-bold tracking-wider">Conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP)</p>
+                        <h3 class="text-sm sm:text-base font-bold font-black uppercase font-bold">Aviso de Privacidad Integral</h3>
+                        <p class="text-[9px] sm:text-[10px] text-slate-300 font-bold tracking-wider">Conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP)</p>
                     </div>
                 </div>
-                <button onclick="cerrarAvisoPrivacidad()" class="text-slate-300 hover:text-white text-2xl font-bold">&times;</button>
+                <button onclick="cerrarAvisoPrivacidad()" class="text-slate-300 hover:text-white text-2xl font-bold leading-none">&times;</button>
             </div>
 
-            <div class="p-6 overflow-y-auto space-y-4 text-xs text-slate-600 leading-relaxed font-semibold uppercase text-justify txt-justificado border-b text-justify font-normal">
+            <div class="p-5 sm:p-6 overflow-y-auto space-y-4 text-xs text-slate-600 leading-relaxed font-semibold uppercase text-justify txt-justificado border-b text-justify font-normal">
                 <p class="font-bold text-slate-900 text-sm tracking-tight font-bold">1. Identidad y Domicilio del Responsable</p>
                 <p>El <strong>Centro Universitario Tehuacán (CEUT)</strong>, con domicilio en Tehuacán, Puebla, es responsable de recabar sus datos personales, del uso que se le de a los mismos y de su protección, a través del Responsable del Departamento Psicopedagógico.</p>
 
@@ -854,7 +869,7 @@
                 <p>CEUT se compromete a no transferir sus datos a terceros ajenos a la institución sin su consentimiento, salvo las excepciones previstas en el <strong>Artículo 37 de la LFPDPPP</strong>. Los datos son almacenados de forma encriptada y su visualización está estrictamente limitada al Responsable del Departamento Psicopedagógico mediante un PIN de control total.</p>
             </div>
 
-            <div class="bg-slate-50 px-6 py-4.5 border-t border-slate-100 flex items-center justify-end font-semibold">
+            <div class="bg-slate-50 px-5 py-4 border-t border-slate-100 flex items-center justify-end font-semibold">
                 <button onclick="cerrarAvisoPrivacidad()" class="px-5 py-2 bg-[#1d2a6a] hover:bg-[#121b44] text-white text-xs font-bold rounded-lg transition-all uppercase">
                     Entendido y Cerrar
                 </button>
@@ -863,23 +878,23 @@
     </div>
 
     <!-- FOOTER GENERAL -->
-    <footer class="bg-[#121b44] text-slate-400 py-8 px-6 mt-12 border-t border-slate-800 text-xs no-print font-bold relative z-10">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-5 font-bold">
-            <div class="flex items-center gap-3">
-                <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center p-1.5 relative overflow-hidden shadow-md flex-shrink-0">
+    <footer class="bg-[#121b44] text-slate-400 py-6 sm:py-8 px-4 sm:px-6 mt-12 border-t border-slate-800 text-xs no-print font-bold relative z-10">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 font-bold">
+            <div class="flex items-center gap-3 w-full md:w-auto">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-xl flex items-center justify-center p-1.5 relative overflow-hidden shadow-md flex-shrink-0">
                     <img src="Gemini_Generated_Image_ob1grpob1grpob1g-removebg-preview.png" 
                          onerror="this.src='https://lh3.googleusercontent.com/d/1ao9olFJOvSPvgmeyLJhkD1P0Pmq_R3T2'"
                          alt="Logo CEUT Footer" 
                          class="max-h-full max-w-full object-contain">
                 </div>
                 <div>
-                    <span class="block text-white font-bold font-bold font-bold">Centro Universitario Tehuacán (CEUT)</span>
+                    <span class="block text-white font-bold font-bold">Centro Universitario Tehuacán (CEUT)</span>
                     <span class="block font-medium">Copyright © 2026 - Todos los derechos reservados.</span>
                 </div>
             </div>
-            <div class="text-center sm:text-right space-y-1">
+            <div class="text-left md:text-right space-y-0.5 w-full md:w-auto text-[10px] sm:text-xs">
                 <span class="block text-slate-300 font-medium uppercase font-semibold">Software de Diagnóstico Psicopedagógico v2.6 - Ley de Datos LFPDPPP</span>
-                <span class="block">Confidencialidad a cargo de: <strong>Mtro. Carlos Aguilar Sánchez (Responsable del Departamento)</strong></span>
+                <span class="block font-normal">Confidencialidad a cargo de: <strong class="font-bold">Mtro. Carlos Aguilar Sánchez (Responsable del Departamento)</strong></span>
             </div>
         </div>
     </footer>
@@ -1280,12 +1295,12 @@
                     diagnosticos.push("**Síndrome de Saturación Alostática por Estrés Financiero Directo:** Las presiones socioeconómicas familiares e institucionales interfieren de forma directa con los procesos cognitivos superiores del alumno, desviando su energía ejecutiva y de planificación a la resolución de necesidades materiales de subsistencia inmediata.");
                 }
                 if (r.respuestas.r1 >= 3 || r.respuestas.r2 >= 3) {
-                    diagnosticos.push("🚨 **CÓDIGO ROJO - RIESGO DE AUTÓLISIS O CONDUCTA AUTOLESIVA ACTIVA:** La presencia de ideación severa de pérdida de sentido de vida o impulsos autolesivos sistemáticos de carácter inminente exige la suspensión del protocolo regular del aula y la activación coordinada de la red de crisis presencial del CEUT.");
+                    diagnosticos.push("🚨 **CÓDIGO ROJO - RIESGO DE AUTÓLISIS O CONDUCTA AUTOLESIVA ACTIVA:** La presencia de ideación de pérdida de sentido de vida o impulsos autolesivos sistemáticos de carácter inminente exige la suspensión del protocolo regular del aula y la activación coordinada de la red de crisis presencial del CEUT.");
                 }
             }
 
             if (diagnosticos.length === 0) {
-                text += "No se detectan indicadores clínicos, afectivos o académicos fuera de los rangos de homeostasis funcional estándar. El alumno presenta un perfil de adaptación psicopedagógica regular y estable, sin barreras críticas activas para el aprendizaje y la participación.\n\n";
+                text += "No se detectan indicadores clínicos, afectivos o académicos fuera de los rangos de homeostasis funcional estándar. El alumno presenta un perfil de adaptación psicopedagógica regular y de nivel estable, sin barreras críticas activas para el aprendizaje y la participación.\n\n";
             } else {
                 diagnosticos.forEach(d => {
                     text += `* ${d}\n\n`;
@@ -1407,7 +1422,7 @@
                 [Especifica cronológicamente las acciones preventivas, derivaciones con psicólogos o citas obligatorias con la familia, justificando detalladamente cada paso].
                 
                 ### 5. ESTRATEGIAS ADAPTATIVAS PARA EL DOCENTE EN EL AULA
-                [Prescribe viñetas con adecuaciones específicas para sus docentes de forma estructurada para facilitar el andamiaje del estudiante].
+                [Prescribe viñetas con adecuaciones específicas para sus docentes de forma de lista bien estructurada para facilitar el andamiaje del estudiante].
                 
                 Usa Markdown estándar. No utilices ecuaciones complejas de LaTeX excepto para las variables descritas.`;
 
@@ -1978,6 +1993,823 @@
             const fAtendido = document.getElementById('adminFiltroAtendido') ? document.getElementById('adminFiltroAtendido').value : "Todos";
 
             const tbody = document.getElementById('tablaExpedientesBody');
+            const mobileContainer = document.getElementById('contenedorMobileExpedientes');
+            if (!tbody || !mobileContainer) return;
+            
+            tbody.innerHTML = "";
+            mobileContainer.innerHTML = "";
+
+            if (!window.reportsData) window.reportsData = [];
+
+            let filtrados = window.reportsData.filter(r => {
+                if (!r || !r.estudiante) return false;
+
+                const name = r.estudiante.nombre ? String(r.estudiante.nombre).toUpperCase() : "";
+                const matricula = r.estudiante.matricula ? String(r.estudiante.matricula).toUpperCase() : "";
+                const folio = r.estudiante.folio ? String(r.estudiante.folio).toUpperCase() : "";
+
+                const matchesQuery = !query || 
+                    name.includes(query) ||
+                    matricula.includes(query) ||
+                    folio.includes(query);
+
+                const matchesNivel = (fNivel === "Todos") || (r.estudiante.nivel === fNivel);
+                const matchesModalidad = (fModalidad === "Todos") || ((r.estudiante.modalidad || "Escolarizado") === fModalidad);
+                const matchesRiesgo = (fRiesgo === "Todos") || (r.semaforo === fRiesgo);
+
+                let matchesAtendido = true;
+                if (fAtendido !== "Todos") {
+                    const isAtendido = (r.atendido === true || r.atendido === "true" || r.atendido === "Atendido" || r.atendido === true);
+                    matchesAtendido = (fAtendido === "Atendido") ? isAtendido : !isAtendido;
+                }
+
+                return matchesQuery && matchesNivel && matchesModalidad && matchesRiesgo && matchesAtendido;
+            });
+
+            document.getElementById('txtAdminMostrandoRegistros').textContent = filtrados.length;
+
+            if (filtrados.length === 0) {
+                document.getElementById('sinDatosAdmin').classList.remove('hidden');
+            } else {
+                document.getElementById('sinDatosAdmin').classList.add('hidden');
+            }
+
+            filtrados.forEach(r => {
+                let semColor = "bg-emerald-100 text-emerald-800 border-emerald-300";
+                if (r.semaforo === "Rojo" || r.semaforo === "ROJO") semColor = "bg-rose-100 text-rose-800 border-rose-300 glow-red-active";
+                else if (r.semaforo === "Amarillo" || r.semaforo === "AMARILLO") semColor = "bg-amber-100 text-amber-800 border-amber-300";
+
+                const isAtendido = (r.atendido === true || r.atendido === "true" || r.atendido === "Atendido" || r.atendido === true);
+                const badgeAtendido = isAtendido ? 
+                    `<span class="px-2 py-1 rounded bg-emerald-50 text-emerald-700 border border-emerald-200">✔ RESUELTO</span>` :
+                    `<span class="px-2 py-1 rounded bg-slate-100 text-slate-600 border border-slate-200">⏳ PENDIENTE</span>`;
+
+                // --- 1. RENDERIZADO VISTA ESCRITORIO (TABLA) ---
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-slate-50/80 transition-colors font-bold font-normal";
+                tr.innerHTML = `
+                    <td class="py-4 px-6">
+                        <span class="block font-black text-slate-900">${r.estudiante.folio || 'N/A'}</span>
+                        <span class="block text-[10px] text-slate-400 font-bold">${r.estudiante.fecha || 'N/A'}</span>
+                    </td>
+                    <td class="py-4 px-6 uppercase text-justify font-bold">
+                        ${r.estudiante.nombre || 'N/A'}
+                        <span class="block text-[10px] text-slate-400 font-normal">${r.estudiante.matricula || 'N/A'}</span>
+                    </td>
+                    <td class="py-4 px-6 uppercase text-justify font-bold font-normal">
+                        ${r.estudiante.nivel || 'N/A'}
+                        <span class="block text-[10px] text-slate-400 font-normal">${r.estudiante.grupo || 'N/A'} (${r.estudiante.modalidad || 'Escolarizado'})</span>
+                    </td>
+                    <td class="py-4 px-6 text-center font-normal">${r.scores ? r.scores.Academico : 0} / 15</td>
+                    <td class="py-4 px-6 text-center font-normal">${r.scores ? r.scores.Emocional : 0} / 15</td>
+                    <td class="py-4 px-6 text-center font-normal">${r.scores ? r.scores.Psicosocial : 0} / 15</td>
+                    <td class="py-4 px-6 text-center font-normal">${r.scores ? r.scores.Riesgo : 0} / 9</td>
+                    <td class="py-4 px-6 text-center">
+                        <span class="px-2.5 py-1 rounded-full text-[10px] font-black border uppercase tracking-wider ${semColor}">${r.semaforo || 'Verde'}</span>
+                    </td>
+                    <td class="py-4 px-6 text-center">${badgeAtendido}</td>
+                    <td class="py-4 px-6 text-right font-bold space-x-1 flex items-center justify-end">
+                        <button onclick="abrirExpedienteDetalle('${r.id}')" class="px-3.5 py-1.5 rounded-lg border border-[#1d2a6a] text-[#1d2a6a] hover:bg-[#1d2a6a] hover:text-white transition-all text-[11px] font-bold uppercase">Ver Ficha</button>
+                        <button onclick="confirmarEliminarExpediente('${r.id}')" class="px-3.5 py-1.5 rounded-lg bg-rose-600 hover:bg-rose-700 text-white transition-all text-[11px] font-bold uppercase">Baja</button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+
+                // --- 2. RENDERIZADO VISTA MÓVIL (TARJETAS COMPACTAS COMFORT) ---
+                const card = document.createElement('div');
+                card.className = "p-4 space-y-4 font-bold relative bg-white/70 backdrop-blur-xs rounded-xl my-2 border border-slate-100 transition-all duration-300";
+                card.innerHTML = `
+                    <div class="flex items-center justify-between gap-2 border-b border-slate-100 pb-2">
+                        <div>
+                            <span class="text-[10px] block text-slate-400">Folio de Control</span>
+                            <span class="text-xs font-black text-slate-900">${r.estudiante.folio || 'N/A'}</span>
+                        </div>
+                        <span class="px-2 py-0.5 rounded-full text-[9px] font-black border uppercase tracking-wider ${semColor}">${r.semaforo || 'Verde'}</span>
+                    </div>
+
+                    <div class="space-y-1">
+                        <span class="text-[10px] block text-slate-400">Estudiante</span>
+                        <h4 class="text-xs uppercase text-slate-900 font-extrabold leading-tight">${r.estudiante.nombre || 'N/A'}</h4>
+                        <p class="text-[10px] text-slate-500 font-normal">Matrícula: ${r.estudiante.matricula || 'N/A'} | Nivel: ${r.estudiante.nivel || 'N/A'}</p>
+                    </div>
+
+                    <!-- Cuadro rápido de puntajes -->
+                    <div class="grid grid-cols-4 gap-1.5 bg-slate-50 p-2 rounded-lg text-center text-[10px]">
+                        <div>
+                            <span class="block text-[8px] text-slate-400 uppercase">Acad</span>
+                            <span class="font-black text-slate-800">${r.scores ? r.scores.Academico : 0}/15</span>
+                        </div>
+                        <div>
+                            <span class="block text-[8px] text-slate-400 uppercase">Emoc</span>
+                            <span class="font-black text-slate-800">${r.scores ? r.scores.Emocional : 0}/15</span>
+                        </div>
+                        <div>
+                            <span class="block text-[8px] text-slate-400 uppercase">Psico</span>
+                            <span class="font-black text-slate-800">${r.scores ? r.scores.Psicosocial : 0}/15</span>
+                        </div>
+                        <div>
+                            <span class="block text-[8px] text-slate-400 uppercase">Riesgo</span>
+                            <span class="font-black text-slate-800">${r.scores ? r.scores.Riesgo : 0}/9</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between gap-3 pt-1 border-t border-slate-100/50">
+                        <div>
+                            <span class="text-[8px] block text-slate-400">Atención</span>
+                            ${badgeAtendido}
+                        </div>
+                        <div class="flex items-center gap-1.5">
+                            <button onclick="abrirExpedienteDetalle('${r.id}')" class="px-4 py-2.5 rounded-lg border border-[#1d2a6a] text-[#1d2a6a] bg-white hover:bg-[#1d2a6a] hover:text-white transition-all text-[11px] font-bold uppercase min-h-[40px]">
+                                Ver Ficha
+                            </button>
+                            <button onclick="confirmarEliminarExpediente('${r.id}')" class="px-4 py-2.5 rounded-lg bg-rose-600 hover:bg-rose-700 text-white transition-all text-[11px] font-bold uppercase min-h-[40px]">
+                                Baja
+                            </button>
+                        </div>
+                    </div>
+                `;
+                mobileContainer.appendChild(card);
+            });
+        };
+
+        function abrirExpedienteDetalle(id) {
+            const r = window.reportsData.find(item => item.id === id);
+            if (!r || !r.estudiante) return;
+            window.reporteEnDetalleId = id;
+            window.ultimoAnalisisIAGenerado = ""; 
+
+            document.getElementById('mdFolio').textContent = r.estudiante.folio || 'N/A';
+            document.getElementById('mdNombre').textContent = r.estudiante.nombre || 'N/A';
+            document.getElementById('mdMatriculaEdad').textContent = `${r.estudiante.matricula || 'N/A'} | ${r.estudiante.edad || 'N/A'} AÑOS`;
+            document.getElementById('mdNivelGrupo').textContent = `${r.estudiante.nivel || 'N/A'} - ${r.estudiante.grupo || 'N/A'} (${r.estudiante.modalidad || 'Escolarizado'})`;
+            document.getElementById('mdEmail').textContent = r.estudiante.email || 'N/A';
+            document.getElementById('mdTelefono').textContent = r.estudiante.telefono || 'N/A';
+            document.getElementById('mdFecha').textContent = r.estudiante.fecha || 'FECHA NO REGISTRADA';
+
+            const scoreAcad = r.scores ? r.scores.Academico : 0;
+            const scoreEmoc = r.scores ? r.scores.Emocional : 0;
+            const scorePsic = r.scores ? r.scores.Psicosocial : 0;
+            const scoreRiesgo = r.scores ? r.scores.Riesgo : 0;
+
+            document.getElementById('mdScoreAcademico').textContent = scoreAcad;
+            document.getElementById('mdScoreEmocional').textContent = scoreEmoc;
+            document.getElementById('mdScorePsicosocial').textContent = scorePsic;
+            document.getElementById('mdScoreRiesgo').textContent = scoreRiesgo;
+
+            setupScoreBadge('mdBadgeAcademico', scoreAcad, 3, 7);
+            setupScoreBadge('mdBadgeEmocional', scoreEmoc, 4, 8);
+            setupScoreBadge('mdBadgePsicosocial', scorePsic, 5, 9);
+            setupScoreBadge('mdBadgeRiesgo', scoreRiesgo, 0, 2);
+
+            document.getElementById('mdInputObservaciones').value = (r.observaciones || "").toUpperCase();
+            document.getElementById('mdSelectEstatus').value = String(r.atendido);
+
+            const container = document.getElementById('mdContenedorRespuestas');
+            if (container) {
+                container.innerHTML = "";
+                reactivos.forEach(preg => {
+                    const ansVal = r.respuestas ? (r.respuestas[preg.id] || 1) : 1;
+                    const labels = ["", "NUNCA", "A VECES", "FRECUENTE", "SIEMPRE"];
+                    const txtAns = labels[ansVal];
+                    
+                    let valColor = "text-slate-600";
+                    if (ansVal == 4) valColor = "text-rose-600 font-bold";
+                    else if (ansVal == 3) valColor = "text-amber-600 font-bold";
+
+                    const div = document.createElement('div');
+                    div.className = "p-3 rounded-lg border border-slate-100 flex items-center justify-between gap-4 font-bold transition-all-custom hover:bg-slate-50";
+                    div.innerHTML = `
+                        <div class="flex-grow max-w-[70%]">
+                            <span class="block text-[10px] text-slate-400 font-bold">${preg.cat}</span>
+                            <p class="font-semibold text-slate-800 tracking-tight leading-tight text-xs txt-justificado text-justify font-normal">${preg.texto}</p>
+                        </div>
+                        <div class="text-right font-bold">
+                            <span class="text-[10px] block uppercase font-bold ${valColor}">${txtAns}</span>
+                            <span class="text-[9px] text-slate-400 font-normal">(${ansVal} PTS)</span>
+                        </div>
+                    `;
+                    container.appendChild(div);
+                });
+            }
+
+            // CARGA INTELIGENTE Y MEMORIA DE ANÁLISIS PERSISTIDO
+            const content = document.getElementById('mdIAAnalysisContent');
+            const btnDesc = document.getElementById('btnDescargarReporteIA');
+            const btnGen = document.getElementById('btnGenerarAnalisisIA');
+
+            if (r.analisisPersistido && r.analisisPersistido.trim() !== "") {
+                window.ultimoAnalisisIAGenerado = r.analisisPersistido;
+                content.innerHTML = formatMarkdownToHtml(r.analisisPersistido);
+                content.classList.remove('hidden');
+                btnDesc.classList.remove('hidden');
+                btnGen.textContent = "Regenerar Análisis ✨";
+            } else {
+                content.innerHTML = `<p class="text-center italic text-slate-400 py-4 font-bold">No se ha consolidado un dictamen técnico para este expediente. Pulse "Generar Análisis" para crearlo.</p>`;
+                content.classList.remove('hidden');
+                btnDesc.classList.add('hidden');
+                btnGen.textContent = "Generar Análisis ✨";
+            }
+
+            document.getElementById('modalDetailExpediente').classList.remove('hidden');
+        }
+
+        function setupScoreBadge(elementId, val, lowMax, medMax) {
+            const el = document.getElementById(elementId);
+            if (!el) return;
+            el.className = "inline-block px-2.5 py-1 rounded text-[10px] font-bold uppercase border ";
+            if (val <= lowMax) {
+                el.textContent = "ESTABLE (VERDE)";
+                el.classList.add("bg-emerald-50", "text-emerald-700", "border-emerald-200");
+            } else if (val <= medMax) {
+                el.textContent = "MODERADO (AMARILLO)";
+                el.classList.add("bg-amber-50", "text-amber-700", "border-amber-200");
+            } else {
+                el.textContent = "ALTO RIESGO (ROJO)";
+                el.classList.add("bg-rose-50", "text-rose-700", "border-rose-200", "animate-pulse");
+            }
+        }
+
+        function cerrarModalDetalle() {
+            document.getElementById('modalDetailExpediente').classList.add('hidden');
+        }
+
+        async function guardarSeguimientoDocente() {
+            if (!window.reporteEnDetalleId) return;
+            const obs = document.getElementById('mdInputObservaciones').value.trim().toUpperCase();
+            const est = document.getElementById('mdSelectEstatus').value === "true";
+
+            if (window.actualizarReporte) {
+                await window.actualizarReporte(window.reporteEnDetalleId, {
+                    observaciones: obs,
+                    atendido: est
+                });
+            } else {
+                let locales = JSON.parse(localStorage.getItem('ceut_reports') || '[]');
+                locales = locales.map(item => item.id === window.reporteEnDetalleId ? { ...item, observaciones: obs, atendido: est } : item);
+                localStorage.setItem('ceut_reports', JSON.stringify(locales));
+                window.reportsData = locales;
+                window.renderReportes();
+                window.actualizarEstadisticas();
+                window.mostrarNotificacion("Seguimiento guardado de forma local.", "success");
+            }
+            cerrarModalDetalle();
+        }
+
+        function confirmarEliminarExpediente(id) {
+            window.bajaPendienteId = id;
+            document.getElementById('confirmEliminarModal').classList.remove('hidden');
+        }
+
+        function cerrarConfirmEliminar() {
+            window.bajaPendienteId = null;
+            document.getElementById('confirmEliminarModal').classList.add('hidden');
+        }
+
+        async function ejecutarEliminarBaja() {
+            if (!window.bajaPendienteId) return;
+            const id = window.bajaPendienteId;
+            
+            if (window.eliminarReporte) {
+                await window.eliminarReporte(id);
+            } else {
+                let locales = JSON.parse(localStorage.getItem('ceut_reports') || '[]');
+                locales = locales.filter(item => item.id !== id);
+                localStorage.setItem('ceut_reports', JSON.stringify(locales));
+                window.reportsData = locales;
+                window.renderReportes();
+                window.actualizarEstadisticas();
+                window.mostrarNotificacion("Expediente local eliminado.", "success");
+            }
+            cerrarConfirmEliminar();
+        }
+
+        function formatMarkdownToHtml(text) {
+            if (!text) return "";
+            
+            let clean = text.replace(/```[a-z]*/gi, '');
+            clean = clean.replace(/```/g, '');
+            
+            clean = clean.replace(/^### (.*$)/gim, '<h4 class="font-bold text-[#1d2a6a] mt-4 mb-2 border-b border-slate-200 pb-1 text-justify uppercase tracking-tight">$1</h4>');
+            clean = clean.replace(/^## (.*$)/gim, '<h3 class="font-extrabold text-[#1d2a6a] mt-6 mb-3 border-b-2 border-slate-300 pb-1 text-justify uppercase tracking-wide">$1</h3>');
+            clean = clean.replace(/^# (.*$)/gim, '<h2 class="font-black text-[#1d2a6a] mt-8 mb-4 text-justify uppercase tracking-widest border-l-4 border-[#f1b80c] pl-3">$1</h2>');
+            
+            clean = clean.replace(/\*\*(.*?)\*\*/g, '<strong class="font-black text-slate-900">$1</strong>');
+            clean = clean.replace(/^\s*[\*\-]\s+(.*$)/gim, '<li class="ml-5 list-disc mb-1 text-justify txt-justificado leading-relaxed">$1</li>');
+            clean = clean.replace(/^---$/gim, '<hr class="my-4 border-t border-slate-200">');
+
+            let lines = clean.split('\n');
+            let htmlOutput = lines.map(line => {
+                let trimmed = line.trim();
+                if (!trimmed) return '';
+                if (trimmed.startsWith('<h') || trimmed.startsWith('<li') || trimmed.startsWith('<hr')) {
+                    return trimmed;
+                }
+                return `<p class="mb-3 text-justify txt-justificado leading-relaxed text-justify font-normal">${trimmed}</p>`;
+            }).join('\n');
+
+            return htmlOutput;
+        }
+
+        window.descargarFolioPDF = function() {
+            if (!window.estudianteActivo) {
+                if (window.reportsData && window.reportsData.length > 0) {
+                    window.estudianteActivo = window.reportsData[window.reportsData.length - 1].estudiante;
+                } else {
+                    window.mostrarNotificacion("No se encontró información del tamizaje para generar el comprobante.", "error");
+                    return;
+                }
+            }
+            
+            const est = window.estudianteActivo;
+            const logoUrl = obtenerLogoActivo(); 
+            const fallbackLogoUrl = 'https://lh3.googleusercontent.com/d/1ao9olFJOvSPvgmeyLJhkD1P0Pmq_R3T2';
+            
+            const printWindow = window.open('', '_blank');
+            if (!printWindow) {
+                window.mostrarNotificacion("El navegador bloqueó la ventana emergente. Por favor permita las ventanas emergentes en este sitio.", "error");
+                return;
+            }
+
+            printWindow.document.write(`
+                <html>
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Comprobante de Registro - CEUT</title>
+                    <base href="${window.location.href}">
+                    <link rel="icon" type="image/png" href="${logoUrl}" onerror="this.href='${fallbackLogoUrl}'">
+                    <link rel="shortcut icon" type="image/png" href="${logoUrl}" onerror="this.href='${fallbackLogoUrl}'">
+                    <style>
+                        @page { size: letter; margin: 15mm; }
+                        @media print {
+                            .no-print { display: none !important; }
+                        }
+                        body {
+                            font-family: 'Georgia', serif;
+                            margin: 0;
+                            padding: 20px;
+                            background-color: #f8fafc;
+                            color: #1e293b;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                        }
+                        .control-bar {
+                            width: 100%;
+                            max-width: 480px;
+                            display: flex;
+                            justify-content: space-between;
+                            margin-bottom: 12px;
+                        }
+                        .btn {
+                            padding: 8px 14px;
+                            font-family: 'Georgia', serif;
+                            font-size: 10px;
+                            font-weight: bold;
+                            text-transform: uppercase;
+                            border: none;
+                            border-radius: 6px;
+                            cursor: pointer;
+                        }
+                        .btn-print {
+                            background-color: #1d2a6a;
+                            color: white;
+                        }
+                        .btn-close {
+                            background-color: #e2e8f0;
+                            color: #475569;
+                        }
+                        .ticket {
+                            width: 100%;
+                            max-width: 480px;
+                            background: white;
+                            border: 2px solid #1d2a6a;
+                            border-radius: 12px;
+                            padding: 16px;
+                            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+                            box-sizing: border-box;
+                        }
+                        .header {
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            border-bottom: 2px solid #f1b80c;
+                            padding-bottom: 8px;
+                            margin-bottom: 12px;
+                        }
+                        .logo {
+                            max-height: 48px;
+                            max-width: 48px;
+                            object-fit: contain;
+                        }
+                        .title-area {
+                            text-align: right;
+                        }
+                        h1 {
+                            color: #1d2a6a;
+                            font-size: 12px;
+                            margin: 0;
+                            font-weight: bold;
+                            text-transform: uppercase;
+                        }
+                        h2 {
+                            color: #f1b80c;
+                            font-size: 8px;
+                            margin: 1px 0 0 0;
+                            font-weight: bold;
+                            text-transform: uppercase;
+                        }
+                        .folio-box {
+                            background: #f8fafc;
+                            border: 1px dashed #1d2a6a;
+                            padding: 6px;
+                            border-radius: 6px;
+                            text-align: center;
+                            margin-bottom: 12px;
+                        }
+                        .folio-label {
+                            font-size: 8px;
+                            text-transform: uppercase;
+                            color: #64748b;
+                            font-weight: bold;
+                        }
+                        .folio-num {
+                            font-size: 14px;
+                            font-weight: bold;
+                            color: #1d2a6a;
+                            letter-spacing: 0.5px;
+                        }
+                        .grid-data {
+                            display: grid;
+                            grid-template-columns: 1fr;
+                            gap: 6px;
+                            margin-bottom: 12px;
+                            background: #fafafa;
+                            padding: 8px 12px;
+                            border-radius: 6px;
+                            border: 1px solid #e2e8f0;
+                            font-size: 10px;
+                        }
+                        .legal-legend {
+                            font-size: 7.5px;
+                            text-align: justify;
+                            text-justify: inter-word;
+                            color: #64748b;
+                            line-height: 1.35;
+                            border-top: 1px solid #e2e8f0;
+                            padding-top: 8px;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="control-bar no-print">
+                        <button onclick="window.close()" class="btn btn-close">Cerrar Ventana</button>
+                        <button onclick="window.print()" class="btn btn-print">Imprimir Ficha</button>
+                    </div>
+                    <div class="ticket">
+                        <div class="header">
+                            <img src="${logoUrl}" onerror="this.src='${fallbackLogoUrl}'" class="logo">
+                            <div class="title-area">
+                                <h1>Centro Universitario Tehuacán</h1>
+                                <h2>Departamento Psicopedagógico</h2>
+                            </div>
+                        </div>
+                        <div class="folio-box">
+                            <div class="folio-label">Folio Oficial de Registro</div>
+                            <div class="folio-num">${est.folio}</div>
+                        </div>
+                        <div class="grid-data">
+                            <div><strong>Estudiante:</strong> ${est.nombre}</div>
+                            <div><strong>Matrícula:</strong> ${est.matricula}</div>
+                            <div><strong>Nivel Educativo:</strong> ${est.nivel}</div>
+                            <div><strong>Grupo/Semestre:</strong> ${est.grupo} (${est.modalidad || 'Escolarizado'})</div>
+                            <div><strong>Fecha de Aplicación:</strong> ${est.fecha}</div>
+                        </div>
+                        <div class="legal-legend">
+                            <strong>CONFIDENCIALIDAD Y LEY DE DATOS (LFPDPPP):</strong> 
+                            Los datos recopilados en este tamizaje se clasifican como sensibles y están bajo la estricta custodia del Departamento Psicopedagógico del CEUT. Conforme al Artículo 9 de la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP) de México, esta información no será compartida con terceros sin su consentimiento expreso, salvaguardando su derecho constitucional a la confidencialidad. Su folio serves de referencia confidencial.
+                        </div>
+                    </div>
+                </body>
+                </html>
+            `);
+            printWindow.document.close();
+        };
+
+        window.descargarReporteIntervencion = function() {
+            if (!window.ultimoAnalisisIAGenerado) {
+                window.mostrarNotificacion("Debe generar primero el Análisis con IA para poder descargarlo.", "warning");
+                return;
+            }
+            
+            const r = window.reportsData.find(item => item.id === window.reporteEnDetalleId);
+            if (!r) return;
+
+            const logoUrl = obtenerLogoActivo(); 
+            const fallbackLogoUrl = 'https://lh3.googleusercontent.com/d/1ao9olFJOvSPvgmeyLJhkD1P0Pmq_R3T2';
+            
+            const printWindow = window.open('', '_blank');
+            if (!printWindow) {
+                window.mostrarNotificacion("El navegador bloqueó la ventana emergente. Por favor permita las ventanas emergentes en este sitio.", "error");
+                return;
+            }
+
+            const formattedContent = formatMarkdownToHtml(window.ultimoAnalisisIAGenerado);
+
+            printWindow.document.write(`
+                <html>
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Reporte de Intervención - CEUT</title>
+                    <base href="${window.location.href}">
+                    <link rel="icon" type="image/png" href="${logoUrl}" onerror="this.href='${fallbackLogoUrl}'">
+                    <link rel="shortcut icon" type="image/png" href="${logoUrl}" onerror="this.href='${fallbackLogoUrl}'">
+                    <style>
+                        @page {
+                            size: letter;
+                            margin: 10mm 15mm;
+                        }
+                        @media print {
+                            .no-print { display: none !important; }
+                            body {
+                                background-color: #ffffff !important;
+                                padding: 0 !important;
+                                margin: 0 !important;
+                            }
+                            .page-frame {
+                                border: 1.5px solid #1d2a6a !important;
+                                height: 246mm !important;
+                                padding: 8mm !important;
+                                box-sizing: border-box !important;
+                            }
+                        }
+                        * {
+                            box-sizing: border-box;
+                        }
+                        body {
+                            font-family: 'Georgia', serif;
+                            margin: 0;
+                            padding: 20px;
+                            background-color: #f1f5f9;
+                            color: #0f172a;
+                            font-size: 8.5px;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                        }
+                        .page-frame {
+                            width: 100%;
+                            max-width: 760px;
+                            height: 246mm;
+                            background: white;
+                            border: 2px solid #1d2a6a;
+                            border-radius: 8px;
+                            padding: 8mm;
+                            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+                            position: relative;
+                            background-image: radial-gradient(rgba(29, 42, 106, 0.015) 1px, transparent 0);
+                            background-size: 15px 15px;
+                        }
+                        
+                        /* Marca de Agua Centrada */
+                        .watermark {
+                            position: absolute;
+                            top: 45%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            width: 250px;
+                            height: 250px;
+                            opacity: 0.03;
+                            pointer-events: none;
+                            z-index: 0;
+                        }
+
+                        .header {
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            border-bottom: 1.5px solid #f1b80c;
+                            padding-bottom: 6px;
+                            margin-bottom: 6px;
+                            position: relative;
+                            z-index: 10;
+                        }
+                        .logo {
+                            max-height: 42px;
+                            max-width: 42px;
+                            object-fit: contain;
+                        }
+                        .title-area {
+                            text-align: right;
+                        }
+                        h1 {
+                            color: #1d2a6a;
+                            font-size: 11px;
+                            margin: 0;
+                            font-weight: bold;
+                            text-transform: uppercase;
+                        }
+                        h2 {
+                            color: #f1b80c;
+                            font-size: 7.5px;
+                            margin: 1px 0 0 0;
+                            font-weight: bold;
+                            text-transform: uppercase;
+                        }
+                        .meta-grid {
+                            display: grid;
+                            grid-template-columns: repeat(3, 1fr);
+                            gap: 4px;
+                            background: #f8fafc;
+                            border: 0.5px solid #cbd5e1;
+                            padding: 4px 8px;
+                            border-radius: 6px;
+                            margin-bottom: 8px;
+                            font-size: 7.5px;
+                            position: relative;
+                            z-index: 10;
+                        }
+                        .meta-item strong {
+                            color: #475569;
+                        }
+                        .report-body {
+                            text-align: justify !important;
+                            text-justify: inter-word !important;
+                            line-height: 1.35;
+                            position: relative;
+                            z-index: 10;
+                        }
+                        .report-body h2 {
+                            color: #1d2a6a;
+                            font-size: 9px;
+                            margin-top: 5px;
+                            margin-bottom: 2px;
+                            border-bottom: 0.5px solid #e2e8f0;
+                            padding-bottom: 1px;
+                            font-weight: bold;
+                            text-transform: uppercase;
+                        }
+                        .report-body h3 {
+                            color: #1d2a6a;
+                            font-size: 8px;
+                            margin-top: 4px;
+                            margin-bottom: 1.5px;
+                            font-weight: bold;
+                            text-transform: uppercase;
+                        }
+                        .report-body p {
+                            margin: 0 0 4px 0;
+                        }
+                        .report-body ul, .report-body ol {
+                            margin: 0 0 4px 0;
+                            padding-left: 12px;
+                        }
+                        .report-body li {
+                            margin-bottom: 1.5px;
+                        }
+                        .signature-area {
+                            margin-top: 6px;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            text-align: center;
+                            font-size: 7px;
+                            position: relative;
+                            z-index: 10;
+                        }
+                        .signature-line {
+                            width: 140px;
+                            border-top: 1px solid #0f172a;
+                            margin-bottom: 1px;
+                        }
+                        .legal-legend {
+                            font-size: 6px;
+                            text-align: justify;
+                            text-justify: inter-word;
+                            color: #64748b;
+                            line-height: 1.25;
+                            margin-top: 4px;
+                            border-top: 0.5px solid #cbd5e1;
+                            padding-top: 2px;
+                            position: relative;
+                            z-index: 10;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="control-bar no-print">
+                        <button onclick="window.close()" class="btn btn-close">Cerrar Ventana</button>
+                        <button onclick="window.print()" class="btn btn-print">Imprimir Dictamen</button>
+                    </div>
+                    <div class="page-frame">
+                        <img src="${logoUrl}" onerror="this.src='${fallbackLogoUrl}'" class="watermark">
+                        
+                        <div>
+                            <div class="header">
+                                <img src="${logoUrl}" onerror="this.src='${fallbackLogoUrl}'" class="logo">
+                                <div class="title-area">
+                                    <h1>Centro Universitario Tehuacán</h1>
+                                    <h2>Departamento Psicopedagógico • Dictamen de Intervención</h2>
+                                </div>
+                            </div>
+                            <div class="meta-grid">
+                                <div class="meta-item"><strong>FOLIO:</strong> ${r.estudiante ? r.estudiante.folio : 'N/A'}</div>
+                                <div class="meta-item"><strong>ESTUDIANTE:</strong> ${r.estudiante ? r.estudiante.nombre : 'N/A'}</div>
+                                <div class="meta-item"><strong>FECHA EMISIÓN:</strong> ${new Date().toLocaleDateString()}</div>
+                                <div class="meta-item"><strong>NIVEL/GRUPO:</strong> ${r.estudiante ? r.estudiante.nivel : 'N/A'} (${r.estudiante ? r.estudiante.grupo : 'N/A'})</div>
+                                <div class="meta-item"><strong>MATRÍCULA:</strong> ${r.estudiante ? r.estudiante.matricula : 'N/A'}</div>
+                                <div class="meta-item"><strong>MODALIDAD:</strong> ${r.estudiante ? (r.estudiante.modalidad || 'Escolarizado') : 'Escolarizado'}</div>
+                            </div>
+                            <div class="report-body">
+                                ${formattedContent}
+                            </div>
+                        </div>
+                        <div>
+                            <div class="signature-area">
+                                <div class="signature-line"></div>
+                                <strong>Mtro. Carlos Aguilar Sánchez</strong><br>
+                                <span>Responsable del Departamento Psicopedagógico - CEUT</span>
+                            </div>
+                            <div class="legal-legend">
+                                <strong>EXPEDIENTE CLÍNICO INTEGRAL - CONFIDENCIALIDAD ABSOLUTA (LFPDPPP):</strong>
+                                Este dictamen contiene información sensible relacionada con la salud mental y académica del estudiante. Su resguardo y custodia están regulados estrictamente por la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP), en su Artículo 9. Se prohíbe estrictamente su difusión por medios electrónicos no institucionales, copiado parcial o divulgación sin de confidencialidad institucional del CEUT.
+                            </div>
+                        </div>
+                    </div>
+                </body>
+                </html>
+            `);
+            printWindow.document.close();
+        };
+
+        function abrirLoginDocente() {
+            if (window.panelDocenteAutenticado) {
+                irSeccion('docente-dashboard');
+                document.getElementById('btnNavDocente').classList.add('hidden');
+                document.getElementById('btnCerrarSesion').classList.remove('hidden');
+            } else {
+                irSeccion('docente-login');
+            }
+        }
+
+        function logoutDocente() {
+            window.panelDocenteAutenticado = false;
+            document.getElementById('btnCerrarSesion').classList.add('hidden');
+            document.getElementById('btnNavDocente').classList.remove('hidden');
+            irSeccion('tamizaje-inicio');
+            window.mostrarNotificacion("Se ha cerrado el panel administrativo psicopedagógico.", "info");
+        }
+
+        function validarLoginDocente(event) {
+            event.preventDefault();
+            const pin = document.getElementById('txtDocenteClave').value;
+            if (pin === window.accessPin) {
+                window.panelDocenteAutenticado = true;
+                document.getElementById('txtDocenteClave').value = "";
+                irSeccion('docente-dashboard');
+                document.getElementById('btnNavDocente').classList.add('hidden');
+                document.getElementById('btnCerrarSesion').classList.remove('hidden');
+                window.mostrarNotificacion("Bienvenido Mtro. Carlos Aguilar. Privilegios concedidos.", "success");
+                window.renderReportes();
+                window.actualizarEstadisticas();
+            } else {
+                window.mostrarNotificacion("Código de seguridad incorrecto. Intente de nuevo.", "error");
+            }
+        }
+
+        function cambiarPinAcceso() {
+            const nuevoPin = document.getElementById('txtNuevoPinAdmin').value.trim();
+            if (nuevoPin.length < 4) {
+                window.mostrarNotificacion("El nuevo PIN de Jefatura debe poseer al menos 4 números.", "warning");
+                return;
+            }
+            window.guardarNuevoPinEnServidor(nuevoPin).then(() => {
+                document.getElementById('txtNuevoPinAdmin').value = "";
+                window.mostrarNotificacion(`PIN de Jefatura actualizado con éxito.`, "success");
+            });
+        }
+
+        function forzarActualizacion() {
+            window.mostrarNotificacion("Estableciendo conexión y descargando copias de red...", "info");
+            setTimeout(() => {
+                window.mostrarNotificacion("Sincronización finalizada sin fallos de red.", "success");
+            }, 800);
+        }
+
+        function filtrarYRenderizarReportes() {
+            window.renderReportes();
+        }
+
+        window.renderReportes = function() {
+            const query = document.getElementById('adminSearchInput') ? document.getElementById('adminSearchInput').value.trim().toUpperCase() : "";
+            const fNivel = document.getElementById('adminFiltroNivel') ? document.getElementById('adminFiltroNivel').value : "Todos";
+            const fModalidad = document.getElementById('adminFiltroModalidad') ? document.getElementById('adminFiltroModalidad').value : "Todos";
+            const fRiesgo = document.getElementById('adminFiltroRiesgo') ? document.getElementById('adminFiltroRiesgo').value : "Todos";
+            const fAtendido = document.getElementById('adminFiltroAtendido') ? document.getElementById('adminFiltroAtendido').value : "Todos";
+
+            const tbody = document.getElementById('tablaExpedientesBody');
             if (!tbody) return;
             tbody.innerHTML = "";
 
@@ -2119,7 +2951,764 @@
                 });
             }
 
-            // CARGA INTELIGENTE Y MEMORIA DE ANÁLISIS PERSISTIDO
+            const content = document.getElementById('mdIAAnalysisContent');
+            const btnDesc = document.getElementById('btnDescargarReporteIA');
+            const btnGen = document.getElementById('btnGenerarAnalisisIA');
+
+            if (r.analisisPersistido && r.analisisPersistido.trim() !== "") {
+                window.ultimoAnalisisIAGenerado = r.analisisPersistido;
+                content.innerHTML = formatMarkdownToHtml(r.analisisPersistido);
+                content.classList.remove('hidden');
+                btnDesc.classList.remove('hidden');
+                btnGen.textContent = "Regenerar Análisis ✨";
+            } else {
+                content.innerHTML = `<p class="text-center italic text-slate-400 py-4 font-bold">No se ha consolidado un dictamen técnico para este expediente. Pulse "Generar Análisis" para crearlo.</p>`;
+                content.classList.remove('hidden');
+                btnDesc.classList.add('hidden');
+                btnGen.textContent = "Generar Análisis ✨";
+            }
+
+            document.getElementById('modalDetailExpediente').classList.remove('hidden');
+        }
+
+        function setupScoreBadge(elementId, val, lowMax, medMax) {
+            const el = document.getElementById(elementId);
+            if (!el) return;
+            el.className = "inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase border ";
+            if (val <= lowMax) {
+                el.textContent = "ESTABLE (VERDE)";
+                el.classList.add("bg-emerald-50", "text-emerald-700", "border-emerald-200");
+            } else if (val <= medMax) {
+                el.textContent = "MODERADO (AMARILLO)";
+                el.classList.add("bg-amber-50", "text-amber-700", "border-amber-200");
+            } else {
+                el.textContent = "ALTO RIESGO (ROJO)";
+                el.classList.add("bg-rose-50", "text-rose-700", "border-rose-200", "animate-pulse");
+            }
+        }
+
+        function cerrarModalDetalle() {
+            document.getElementById('modalDetailExpediente').classList.add('hidden');
+        }
+
+        async function guardarSeguimientoDocente() {
+            if (!window.reporteEnDetalleId) return;
+            const obs = document.getElementById('mdInputObservaciones').value.trim().toUpperCase();
+            const est = document.getElementById('mdSelectEstatus').value === "true";
+
+            if (window.actualizarReporte) {
+                await window.actualizarReporte(window.reporteEnDetalleId, {
+                    observaciones: obs,
+                    atendido: est
+                });
+            } else {
+                let locales = JSON.parse(localStorage.getItem('ceut_reports') || '[]');
+                locales = locales.map(item => item.id === window.reporteEnDetalleId ? { ...item, observaciones: obs, atendido: est } : item);
+                localStorage.setItem('ceut_reports', JSON.stringify(locales));
+                window.reportsData = locales;
+                window.renderReportes();
+                window.actualizarEstadisticas();
+                window.mostrarNotificacion("Seguimiento guardado de forma local.", "success");
+            }
+            cerrarModalDetalle();
+        }
+
+        function confirmarEliminarExpediente(id) {
+            window.bajaPendienteId = id;
+            document.getElementById('confirmEliminarModal').classList.remove('hidden');
+        }
+
+        function cerrarConfirmEliminar() {
+            window.bajaPendienteId = null;
+            document.getElementById('confirmEliminarModal').classList.add('hidden');
+        }
+
+        async function ejecutarEliminarBaja() {
+            if (!window.bajaPendienteId) return;
+            const id = window.bajaPendienteId;
+            
+            if (window.eliminarReporte) {
+                await window.eliminarReporte(id);
+            } else {
+                let locales = JSON.parse(localStorage.getItem('ceut_reports') || '[]');
+                locales = locales.filter(item => item.id !== id);
+                localStorage.setItem('ceut_reports', JSON.stringify(locales));
+                window.reportsData = locales;
+                window.renderReportes();
+                window.actualizarEstadisticas();
+                window.mostrarNotificacion("Expediente local eliminado.", "success");
+            }
+            cerrarConfirmEliminar();
+        }
+
+        function formatMarkdownToHtml(text) {
+            if (!text) return "";
+            
+            let clean = text.replace(/```[a-z]*/gi, '');
+            clean = clean.replace(/```/g, '');
+            
+            clean = clean.replace(/^### (.*$)/gim, '<h4 class="font-bold text-[#1d2a6a] mt-4 mb-2 border-b border-slate-200 pb-1 text-justify uppercase tracking-tight">$1</h4>');
+            clean = clean.replace(/^## (.*$)/gim, '<h3 class="font-extrabold text-[#1d2a6a] mt-6 mb-3 border-b-2 border-slate-300 pb-1 text-justify uppercase tracking-wide">$1</h3>');
+            clean = clean.replace(/^# (.*$)/gim, '<h2 class="font-black text-[#1d2a6a] mt-8 mb-4 text-justify uppercase tracking-widest border-l-4 border-[#f1b80c] pl-3">$1</h2>');
+            
+            clean = clean.replace(/\*\*(.*?)\*\*/g, '<strong class="font-black text-slate-900">$1</strong>');
+            clean = clean.replace(/^\s*[\*\-]\s+(.*$)/gim, '<li class="ml-5 list-disc mb-1 text-justify txt-justificado leading-relaxed">$1</li>');
+            clean = clean.replace(/^---$/gim, '<hr class="my-4 border-t border-slate-200">');
+
+            let lines = clean.split('\n');
+            let htmlOutput = lines.map(line => {
+                let trimmed = line.trim();
+                if (!trimmed) return '';
+                if (trimmed.startsWith('<h') || trimmed.startsWith('<li') || trimmed.startsWith('<hr')) {
+                    return trimmed;
+                }
+                return `<p class="mb-3 text-justify txt-justificado leading-relaxed text-justify font-normal">${trimmed}</p>`;
+            }).join('\n');
+
+            return htmlOutput;
+        }
+
+        window.descargarFolioPDF = function() {
+            if (!window.estudianteActivo) {
+                if (window.reportsData && window.reportsData.length > 0) {
+                    window.estudianteActivo = window.reportsData[window.reportsData.length - 1].estudiante;
+                } else {
+                    window.mostrarNotificacion("No se encontró información del tamizaje para generar el comprobante.", "error");
+                    return;
+                }
+            }
+            
+            const est = window.estudianteActivo;
+            const logoUrl = obtenerLogoActivo(); 
+            const fallbackLogoUrl = 'https://lh3.googleusercontent.com/d/1ao9olFJOvSPvgmeyLJhkD1P0Pmq_R3T2';
+            
+            const printWindow = window.open('', '_blank');
+            if (!printWindow) {
+                window.mostrarNotificacion("El navegador bloqueó la ventana emergente. Por favor permita las ventanas emergentes en este sitio.", "error");
+                return;
+            }
+
+            printWindow.document.write(`
+                <html>
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Comprobante de Registro - CEUT</title>
+                    <base href="${window.location.href}">
+                    <link rel="icon" type="image/png" href="${logoUrl}" onerror="this.href='${fallbackLogoUrl}'">
+                    <link rel="shortcut icon" type="image/png" href="${logoUrl}" onerror="this.href='${fallbackLogoUrl}'">
+                    <style>
+                        @page { size: letter; margin: 15mm; }
+                        @media print {
+                            .no-print { display: none !important; }
+                        }
+                        body {
+                            font-family: 'Georgia', serif;
+                            margin: 0;
+                            padding: 20px;
+                            background-color: #f8fafc;
+                            color: #1e293b;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                        }
+                        .control-bar {
+                            width: 100%;
+                            max-width: 480px;
+                            display: flex;
+                            justify-content: space-between;
+                            margin-bottom: 12px;
+                        }
+                        .btn {
+                            padding: 8px 14px;
+                            font-family: 'Georgia', serif;
+                            font-size: 10px;
+                            font-weight: bold;
+                            text-transform: uppercase;
+                            border: none;
+                            border-radius: 6px;
+                            cursor: pointer;
+                        }
+                        .btn-print {
+                            background-color: #1d2a6a;
+                            color: white;
+                        }
+                        .btn-close {
+                            background-color: #e2e8f0;
+                            color: #475569;
+                        }
+                        .ticket {
+                            width: 100%;
+                            max-width: 480px;
+                            background: white;
+                            border: 2px solid #1d2a6a;
+                            border-radius: 12px;
+                            padding: 16px;
+                            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+                            box-sizing: border-box;
+                        }
+                        .header {
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            border-bottom: 2px solid #f1b80c;
+                            padding-bottom: 8px;
+                            margin-bottom: 12px;
+                        }
+                        .logo {
+                            max-height: 48px;
+                            max-width: 48px;
+                            object-fit: contain;
+                        }
+                        .title-area {
+                            text-align: right;
+                        }
+                        h1 {
+                            color: #1d2a6a;
+                            font-size: 12px;
+                            margin: 0;
+                            font-weight: bold;
+                            text-transform: uppercase;
+                        }
+                        h2 {
+                            color: #f1b80c;
+                            font-size: 8px;
+                            margin: 1px 0 0 0;
+                            font-weight: bold;
+                            text-transform: uppercase;
+                        }
+                        .folio-box {
+                            background: #f8fafc;
+                            border: 1px dashed #1d2a6a;
+                            padding: 6px;
+                            border-radius: 6px;
+                            text-align: center;
+                            margin-bottom: 12px;
+                        }
+                        .folio-label {
+                            font-size: 8px;
+                            text-transform: uppercase;
+                            color: #64748b;
+                            font-weight: bold;
+                        }
+                        .folio-num {
+                            font-size: 14px;
+                            font-weight: bold;
+                            color: #1d2a6a;
+                            letter-spacing: 0.5px;
+                        }
+                        .grid-data {
+                            display: grid;
+                            grid-template-columns: 1fr;
+                            gap: 6px;
+                            margin-bottom: 12px;
+                            background: #fafafa;
+                            padding: 8px 12px;
+                            border-radius: 6px;
+                            border: 1px solid #e2e8f0;
+                            font-size: 10px;
+                        }
+                        .legal-legend {
+                            font-size: 7.5px;
+                            text-align: justify;
+                            text-justify: inter-word;
+                            color: #64748b;
+                            line-height: 1.35;
+                            border-top: 1px solid #e2e8f0;
+                            padding-top: 8px;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="control-bar no-print">
+                        <button onclick="window.close()" class="btn btn-close">Cerrar Ventana</button>
+                        <button onclick="window.print()" class="btn btn-print">Imprimir Ficha</button>
+                    </div>
+                    <div class="ticket">
+                        <div class="header">
+                            <img src="${logoUrl}" onerror="this.src='${fallbackLogoUrl}'" class="logo">
+                            <div class="title-area">
+                                <h1>Centro Universitario Tehuacán</h1>
+                                <h2>Departamento Psicopedagógico</h2>
+                            </div>
+                        </div>
+                        <div class="folio-box">
+                            <div class="folio-label">Folio Oficial de Registro</div>
+                            <div class="folio-num">${est.folio}</div>
+                        </div>
+                        <div class="grid-data">
+                            <div><strong>Estudiante:</strong> ${est.nombre}</div>
+                            <div><strong>Matrícula:</strong> ${est.matricula}</div>
+                            <div><strong>Nivel Educativo:</strong> ${est.nivel}</div>
+                            <div><strong>Grupo/Semestre:</strong> ${est.grupo} (${est.modalidad || 'Escolarizado'})</div>
+                            <div><strong>Fecha de Aplicación:</strong> ${est.fecha}</div>
+                        </div>
+                        <div class="legal-legend">
+                            <strong>CONFIDENCIALIDAD Y LEY DE DATOS (LFPDPPP):</strong> 
+                            Los datos recopilados en este tamizaje se clasifican como sensibles y están bajo la estricta custodia del Departamento Psicopedagógico del CEUT. Conforme al Artículo 9 de la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP) de México, esta información no será compartida con terceros sin su consentimiento expreso, salvaguardando su derecho constitucional a la confidencialidad. Su folio serves de referencia confidencial.
+                        </div>
+                    </div>
+                </body>
+                </html>
+            `);
+            printWindow.document.close();
+        };
+
+        window.descargarReporteIntervencion = function() {
+            if (!window.ultimoAnalisisIAGenerado) {
+                window.mostrarNotificacion("Debe generar primero el Análisis con IA para poder descargarlo.", "warning");
+                return;
+            }
+            
+            const r = window.reportsData.find(item => item.id === window.reporteEnDetalleId);
+            if (!r) return;
+
+            const logoUrl = obtenerLogoActivo(); 
+            const fallbackLogoUrl = 'https://lh3.googleusercontent.com/d/1ao9olFJOvSPvgmeyLJhkD1P0Pmq_R3T2';
+            
+            const printWindow = window.open('', '_blank');
+            if (!printWindow) {
+                window.mostrarNotificacion("El navegador bloqueó la ventana emergente. Por favor permita las ventanas emergentes en este sitio.", "error");
+                return;
+            }
+
+            const formattedContent = formatMarkdownToHtml(window.ultimoAnalisisIAGenerado);
+
+            printWindow.document.write(`
+                <html>
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Reporte de Intervención - CEUT</title>
+                    <base href="${window.location.href}">
+                    <link rel="icon" type="image/png" href="${logoUrl}" onerror="this.href='${fallbackLogoUrl}'">
+                    <link rel="shortcut icon" type="image/png" href="${logoUrl}" onerror="this.href='${fallbackLogoUrl}'">
+                    <style>
+                        @page {
+                            size: letter;
+                            margin: 10mm 15mm;
+                        }
+                        @media print {
+                            .no-print { display: none !important; }
+                            body {
+                                background-color: #ffffff !important;
+                                padding: 0 !important;
+                                margin: 0 !important;
+                            }
+                            .page-frame {
+                                border: 1.5px solid #1d2a6a !important;
+                                height: 246mm !important;
+                                padding: 8mm !important;
+                                box-sizing: border-box !important;
+                            }
+                        }
+                        * {
+                            box-sizing: border-box;
+                        }
+                        body {
+                            font-family: 'Georgia', serif;
+                            margin: 0;
+                            padding: 20px;
+                            background-color: #f1f5f9;
+                            color: #0f172a;
+                            font-size: 8.5px;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                        }
+                        .page-frame {
+                            width: 100%;
+                            max-width: 760px;
+                            height: 246mm;
+                            background: white;
+                            border: 2px solid #1d2a6a;
+                            border-radius: 8px;
+                            padding: 8mm;
+                            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+                            position: relative;
+                            background-image: radial-gradient(rgba(29, 42, 106, 0.015) 1px, transparent 0);
+                            background-size: 15px 15px;
+                        }
+                        
+                        /* Marca de Agua Centrada */
+                        .watermark {
+                            position: absolute;
+                            top: 45%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            width: 250px;
+                            height: 250px;
+                            opacity: 0.03;
+                            pointer-events: none;
+                            z-index: 0;
+                        }
+
+                        .header {
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            border-bottom: 1.5px solid #f1b80c;
+                            padding-bottom: 6px;
+                            margin-bottom: 6px;
+                            position: relative;
+                            z-index: 10;
+                        }
+                        .logo {
+                            max-height: 42px;
+                            max-width: 42px;
+                            object-fit: contain;
+                        }
+                        .title-area {
+                            text-align: right;
+                        }
+                        h1 {
+                            color: #1d2a6a;
+                            font-size: 11px;
+                            margin: 0;
+                            font-weight: bold;
+                            text-transform: uppercase;
+                        }
+                        h2 {
+                            color: #f1b80c;
+                            font-size: 7.5px;
+                            margin: 1px 0 0 0;
+                            font-weight: bold;
+                            text-transform: uppercase;
+                        }
+                        .meta-grid {
+                            display: grid;
+                            grid-template-columns: repeat(3, 1fr);
+                            gap: 4px;
+                            background: #f8fafc;
+                            border: 0.5px solid #cbd5e1;
+                            padding: 4px 8px;
+                            border-radius: 6px;
+                            margin-bottom: 8px;
+                            font-size: 7.5px;
+                            position: relative;
+                            z-index: 10;
+                        }
+                        .meta-item strong {
+                            color: #475569;
+                        }
+                        .report-body {
+                            text-align: justify !important;
+                            text-justify: inter-word !important;
+                            line-height: 1.35;
+                            position: relative;
+                            z-index: 10;
+                        }
+                        .report-body h2 {
+                            color: #1d2a6a;
+                            font-size: 9px;
+                            margin-top: 5px;
+                            margin-bottom: 2px;
+                            border-bottom: 0.5px solid #e2e8f0;
+                            padding-bottom: 1px;
+                            font-weight: bold;
+                            text-transform: uppercase;
+                        }
+                        .report-body h3 {
+                            color: #1d2a6a;
+                            font-size: 8px;
+                            margin-top: 4px;
+                            margin-bottom: 1.5px;
+                            font-weight: bold;
+                            text-transform: uppercase;
+                        }
+                        .report-body p {
+                            margin: 0 0 4px 0;
+                        }
+                        .report-body ul, .report-body ol {
+                            margin: 0 0 4px 0;
+                            padding-left: 12px;
+                        }
+                        .report-body li {
+                            margin-bottom: 1.5px;
+                        }
+                        .signature-area {
+                            margin-top: 6px;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            text-align: center;
+                            font-size: 7px;
+                            position: relative;
+                            z-index: 10;
+                        }
+                        .signature-line {
+                            width: 140px;
+                            border-top: 1px solid #0f172a;
+                            margin-bottom: 1px;
+                        }
+                        .legal-legend {
+                            font-size: 6px;
+                            text-align: justify;
+                            text-justify: inter-word;
+                            color: #64748b;
+                            line-height: 1.25;
+                            margin-top: 4px;
+                            border-top: 0.5px solid #cbd5e1;
+                            padding-top: 2px;
+                            position: relative;
+                            z-index: 10;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="control-bar no-print">
+                        <button onclick="window.close()" class="btn btn-close">Cerrar Ventana</button>
+                        <button onclick="window.print()" class="btn btn-print">Imprimir Dictamen</button>
+                    </div>
+                    <div class="page-frame">
+                        <img src="${logoUrl}" onerror="this.src='${fallbackLogoUrl}'" class="watermark">
+                        
+                        <div>
+                            <div class="header">
+                                <img src="${logoUrl}" onerror="this.src='${fallbackLogoUrl}'" class="logo">
+                                <div class="title-area">
+                                    <h1>Centro Universitario Tehuacán</h1>
+                                    <h2>Departamento Psicopedagógico • Dictamen de Intervención</h2>
+                                </div>
+                            </div>
+                            <div class="meta-grid">
+                                <div class="meta-item"><strong>FOLIO:</strong> ${r.estudiante ? r.estudiante.folio : 'N/A'}</div>
+                                <div class="meta-item"><strong>ESTUDIANTE:</strong> ${r.estudiante ? r.estudiante.nombre : 'N/A'}</div>
+                                <div class="meta-item"><strong>FECHA EMISIÓN:</strong> ${new Date().toLocaleDateString()}</div>
+                                <div class="meta-item"><strong>NIVEL/GRUPO:</strong> ${r.estudiante ? r.estudiante.nivel : 'N/A'} (${r.estudiante ? r.estudiante.grupo : 'N/A'})</div>
+                                <div class="meta-item"><strong>MATRÍCULA:</strong> ${r.estudiante ? r.estudiante.matricula : 'N/A'}</div>
+                                <div class="meta-item"><strong>MODALIDAD:</strong> ${r.estudiante ? (r.estudiante.modalidad || 'Escolarizado') : 'Escolarizado'}</div>
+                            </div>
+                            <div class="report-body">
+                                ${formattedContent}
+                            </div>
+                        </div>
+                        <div>
+                            <div class="signature-area">
+                                <div class="signature-line"></div>
+                                <strong>Mtro. Carlos Aguilar Sánchez</strong><br>
+                                <span>Responsable del Departamento Psicopedagógico - CEUT</span>
+                            </div>
+                            <div class="legal-legend">
+                                <strong>EXPEDIENTE CLÍNICO INTEGRAL - CONFIDENCIALIDAD ABSOLUTA (LFPDPPP):</strong>
+                                Este dictamen contiene información sensible relacionada con la salud mental y académica del estudiante. Su resguardo y custodia están regulados estrictamente por la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP), en su Artículo 9. Se prohíbe estrictamente su difusión por medios electrónicos no institucionales, copiado parcial o divulgación sin de confidencialidad institucional del CEUT.
+                            </div>
+                        </div>
+                    </div>
+                </body>
+                </html>
+            `);
+            printWindow.document.close();
+        };
+
+        function abrirLoginDocente() {
+            if (window.panelDocenteAutenticado) {
+                irSeccion('docente-dashboard');
+                document.getElementById('btnNavDocente').classList.add('hidden');
+                document.getElementById('btnCerrarSesion').classList.remove('hidden');
+            } else {
+                irSeccion('docente-login');
+            }
+        }
+
+        function logoutDocente() {
+            window.panelDocenteAutenticado = false;
+            document.getElementById('btnCerrarSesion').classList.add('hidden');
+            document.getElementById('btnNavDocente').classList.remove('hidden');
+            irSeccion('tamizaje-inicio');
+            window.mostrarNotificacion("Se ha cerrado el panel administrativo psicopedagógico.", "info");
+        }
+
+        function validarLoginDocente(event) {
+            event.preventDefault();
+            const pin = document.getElementById('txtDocenteClave').value;
+            if (pin === window.accessPin) {
+                window.panelDocenteAutenticado = true;
+                document.getElementById('txtDocenteClave').value = "";
+                irSeccion('docente-dashboard');
+                document.getElementById('btnNavDocente').classList.add('hidden');
+                document.getElementById('btnCerrarSesion').classList.remove('hidden');
+                window.mostrarNotificacion("Bienvenido Mtro. Carlos Aguilar. Privilegios concedidos.", "success");
+                window.renderReportes();
+                window.actualizarEstadisticas();
+            } else {
+                window.mostrarNotificacion("Código de seguridad incorrecto. Intente de nuevo.", "error");
+            }
+        }
+
+        function cambiarPinAcceso() {
+            const nuevoPin = document.getElementById('txtNuevoPinAdmin').value.trim();
+            if (nuevoPin.length < 4) {
+                window.mostrarNotificacion("El nuevo PIN de Jefatura debe poseer al menos 4 números.", "warning");
+                return;
+            }
+            window.guardarNuevoPinEnServidor(nuevoPin).then(() => {
+                document.getElementById('txtNuevoPinAdmin').value = "";
+                window.mostrarNotificacion(`PIN de Jefatura actualizado con éxito.`, "success");
+            });
+        }
+
+        function forzarActualizacion() {
+            window.mostrarNotificacion("Estableciendo conexión y descargando copias de red...", "info");
+            setTimeout(() => {
+                window.mostrarNotificacion("Sincronización finalizada sin fallos de red.", "success");
+            }, 800);
+        }
+
+        function filtrarYRenderizarReportes() {
+            window.renderReportes();
+        }
+
+        window.renderReportes = function() {
+            const query = document.getElementById('adminSearchInput') ? document.getElementById('adminSearchInput').value.trim().toUpperCase() : "";
+            const fNivel = document.getElementById('adminFiltroNivel') ? document.getElementById('adminFiltroNivel').value : "Todos";
+            const fModalidad = document.getElementById('adminFiltroModalidad') ? document.getElementById('adminFiltroModalidad').value : "Todos";
+            const fRiesgo = document.getElementById('adminFiltroRiesgo') ? document.getElementById('adminFiltroRiesgo').value : "Todos";
+            const fAtendido = document.getElementById('adminFiltroAtendido') ? document.getElementById('adminFiltroAtendido').value : "Todos";
+
+            const tbody = document.getElementById('tablaExpedientesBody');
+            if (!tbody) return;
+            tbody.innerHTML = "";
+
+            if (!window.reportsData) window.reportsData = [];
+
+            let filtrados = window.reportsData.filter(r => {
+                if (!r || !r.estudiante) return false;
+
+                const name = r.estudiante.nombre ? String(r.estudiante.nombre).toUpperCase() : "";
+                const matricula = r.estudiante.matricula ? String(r.estudiante.matricula).toUpperCase() : "";
+                const folio = r.estudiante.folio ? String(r.estudiante.folio).toUpperCase() : "";
+
+                const matchesQuery = !query || 
+                    name.includes(query) ||
+                    matricula.includes(query) ||
+                    folio.includes(query);
+
+                const matchesNivel = (fNivel === "Todos") || (r.estudiante.nivel === fNivel);
+                const matchesModalidad = (fModalidad === "Todos") || ((r.estudiante.modalidad || "Escolarizado") === fModalidad);
+                const matchesRiesgo = (fRiesgo === "Todos") || (r.semaforo === fRiesgo);
+
+                let matchesAtendido = true;
+                if (fAtendido !== "Todos") {
+                    const isAtendido = (r.atendido === true || r.atendido === "true" || r.atendido === "Atendido" || r.atendido === true);
+                    matchesAtendido = (fAtendido === "Atendido") ? isAtendido : !isAtendido;
+                }
+
+                return matchesQuery && matchesNivel && matchesModalidad && matchesRiesgo && matchesAtendido;
+            });
+
+            document.getElementById('txtAdminMostrandoRegistros').textContent = filtrados.length;
+
+            if (filtrados.length === 0) {
+                document.getElementById('sinDatosAdmin').classList.remove('hidden');
+            } else {
+                document.getElementById('sinDatosAdmin').classList.add('hidden');
+            }
+
+            filtrados.forEach(r => {
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-slate-50/80 transition-colors font-bold font-normal";
+
+                let semColor = "bg-emerald-100 text-emerald-800 border-emerald-300";
+                if (r.semaforo === "Rojo" || r.semaforo === "ROJO") semColor = "bg-rose-100 text-rose-800 border-rose-300 glow-red-active";
+                else if (r.semaforo === "Amarillo" || r.semaforo === "AMARILLO") semColor = "bg-amber-100 text-amber-800 border-amber-300";
+
+                const isAtendido = (r.atendido === true || r.atendido === "true" || r.atendido === "Atendido" || r.atendido === true);
+                const badgeAtendido = isAtendido ? 
+                    `<span class="px-2 py-1 rounded bg-emerald-50 text-emerald-700 border border-emerald-200">✔ RESUELTO</span>` :
+                    `<span class="px-2 py-1 rounded bg-slate-100 text-slate-600 border border-slate-200">⏳ PENDIENTE</span>`;
+
+                tr.innerHTML = `
+                    <td class="py-4 px-6">
+                        <span class="block font-black text-slate-900">${r.estudiante.folio || 'N/A'}</span>
+                        <span class="block text-[10px] text-slate-400 font-bold">${r.estudiante.fecha || 'N/A'}</span>
+                    </td>
+                    <td class="py-4 px-6 uppercase text-justify font-bold">
+                        ${r.estudiante.nombre || 'N/A'}
+                        <span class="block text-[10px] text-slate-400 font-normal">${r.estudiante.matricula || 'N/A'}</span>
+                    </td>
+                    <td class="py-4 px-6 uppercase text-justify font-bold font-normal">
+                        ${r.estudiante.nivel || 'N/A'}
+                        <span class="block text-[10px] text-slate-400 font-normal">${r.estudiante.grupo || 'N/A'} (${r.estudiante.modalidad || 'Escolarizado'})</span>
+                    </td>
+                    <td class="py-4 px-6 text-center font-normal">${r.scores ? r.scores.Academico : 0} / 15</td>
+                    <td class="py-4 px-6 text-center font-normal">${r.scores ? r.scores.Emocional : 0} / 15</td>
+                    <td class="py-4 px-6 text-center font-normal">${r.scores ? r.scores.Psicosocial : 0} / 15</td>
+                    <td class="py-4 px-6 text-center font-normal">${r.scores ? r.scores.Riesgo : 0} / 9</td>
+                    <td class="py-4 px-6 text-center">
+                        <span class="px-2.5 py-1 rounded-full text-[10px] font-black border uppercase tracking-wider ${semColor}">${r.semaforo || 'Verde'}</span>
+                    </td>
+                    <td class="py-4 px-6 text-center">${badgeAtendido}</td>
+                    <td class="py-4 px-6 text-right font-bold space-x-1 flex items-center justify-end">
+                        <button onclick="abrirExpedienteDetalle('${r.id}')" class="px-3.5 py-1.5 rounded-lg border border-[#1d2a6a] text-[#1d2a6a] hover:bg-[#1d2a6a] hover:text-white transition-all text-[11px] font-bold uppercase">Ver Ficha</button>
+                        <button onclick="confirmarEliminarExpediente('${r.id}')" class="px-3.5 py-1.5 rounded-lg bg-rose-600 hover:bg-rose-700 text-white transition-all text-[11px] font-bold uppercase">Baja</button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        };
+
+        function abrirExpedienteDetalle(id) {
+            const r = window.reportsData.find(item => item.id === id);
+            if (!r || !r.estudiante) return;
+            window.reporteEnDetalleId = id;
+            window.ultimoAnalisisIAGenerado = ""; 
+
+            document.getElementById('mdFolio').textContent = r.estudiante.folio || 'N/A';
+            document.getElementById('mdNombre').textContent = r.estudiante.nombre || 'N/A';
+            document.getElementById('mdMatriculaEdad').textContent = `${r.estudiante.matricula || 'N/A'} | ${r.estudiante.edad || 'N/A'} AÑOS`;
+            document.getElementById('mdNivelGrupo').textContent = `${r.estudiante.nivel || 'N/A'} - ${r.estudiante.grupo || 'N/A'} (${r.estudiante.modalidad || 'Escolarizado'})`;
+            document.getElementById('mdEmail').textContent = r.estudiante.email || 'N/A';
+            document.getElementById('mdTelefono').textContent = r.estudiante.telefono || 'N/A';
+            document.getElementById('mdFecha').textContent = r.estudiante.fecha || 'FECHA NO REGISTRADA';
+
+            const scoreAcad = r.scores ? r.scores.Academico : 0;
+            const scoreEmoc = r.scores ? r.scores.Emocional : 0;
+            const scorePsic = r.scores ? r.scores.Psicosocial : 0;
+            const scoreRiesgo = r.scores ? r.scores.Riesgo : 0;
+
+            document.getElementById('mdScoreAcademico').textContent = scoreAcad;
+            document.getElementById('mdScoreEmocional').textContent = scoreEmoc;
+            document.getElementById('mdScorePsicosocial').textContent = scorePsic;
+            document.getElementById('mdScoreRiesgo').textContent = scoreRiesgo;
+
+            setupScoreBadge('mdBadgeAcademico', scoreAcad, 3, 7);
+            setupScoreBadge('mdBadgeEmocional', scoreEmoc, 4, 8);
+            setupScoreBadge('mdBadgePsicosocial', scorePsic, 5, 9);
+            setupScoreBadge('mdBadgeRiesgo', scoreRiesgo, 0, 2);
+
+            document.getElementById('mdInputObservaciones').value = (r.observaciones || "").toUpperCase();
+            document.getElementById('mdSelectEstatus').value = String(r.atendido);
+
+            const container = document.getElementById('mdContenedorRespuestas');
+            if (container) {
+                container.innerHTML = "";
+                reactivos.forEach(preg => {
+                    const ansVal = r.respuestas ? (r.respuestas[preg.id] || 1) : 1;
+                    const labels = ["", "NUNCA", "A VECES", "FRECUENTE", "SIEMPRE"];
+                    const txtAns = labels[ansVal];
+                    
+                    let valColor = "text-slate-600";
+                    if (ansVal == 4) valColor = "text-rose-600 font-bold";
+                    else if (ansVal == 3) valColor = "text-amber-600 font-bold";
+
+                    const div = document.createElement('div');
+                    div.className = "p-3 rounded-lg border border-slate-100 flex items-center justify-between gap-4 font-bold transition-all-custom hover:bg-slate-50";
+                    div.innerHTML = `
+                        <div class="flex-grow max-w-[70%]">
+                            <span class="block text-[10px] text-slate-400 font-bold">${preg.cat}</span>
+                            <p class="font-semibold text-slate-800 tracking-tight leading-tight text-xs txt-justificado text-justify font-normal">${preg.texto}</p>
+                        </div>
+                        <div class="text-right font-bold">
+                            <span class="text-[10px] block uppercase font-bold ${valColor}">${txtAns}</span>
+                            <span class="text-[9px] text-slate-400 font-normal">(${ansVal} PTS)</span>
+                        </div>
+                    `;
+                    container.appendChild(div);
+                });
+            }
+
             const content = document.getElementById('mdIAAnalysisContent');
             const btnDesc = document.getElementById('btnDescargarReporteIA');
             const btnGen = document.getElementById('btnGenerarAnalisisIA');
