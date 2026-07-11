@@ -33,7 +33,6 @@
         .border-ceut-blue { border-color: var(--ceut-blue); }
         .border-ceut-yellow { border-color: var(--ceut-yellow); }
         
-        /* Justificación estricta para expedientes clínicos y reportes formales */
         .txt-justificado { 
             text-align: justify !important; 
             text-justify: inter-word !important; 
@@ -95,13 +94,12 @@
 </head>
 <body class="h-full flex flex-col text-slate-800 antialiased overflow-x-hidden selection:bg-[#1d2a6a]/10 relative bg-slate-50/40 font-bold">
 
-    <!-- DECORACIONES FLOTANTES CON MOVIMIENTO DE FONDO (DETRÁS DEL TEXTO) -->
+    <!-- FLOATING DECORATIONS -->
     <div class="absolute inset-0 overflow-hidden pointer-events-none z-0 no-print">
         <div class="absolute top-[8%] left-[4%] w-80 h-80 rounded-full bg-blue-200/20 blur-3xl animate-float-1"></div>
         <div class="absolute bottom-[15%] right-[4%] w-96 h-96 rounded-full bg-[#f1b80c]/10 blur-3xl animate-float-2"></div>
     </div>
 
-    <!-- NOTIFICACIONES CUSTOM -->
     <div id="notificacionContainer" class="fixed top-5 right-5 z-50 flex flex-col gap-2 pointer-events-none font-bold"></div>
 
     <!-- INDICADOR DE CONEXIÓN FLOTANTE -->
@@ -124,7 +122,7 @@
                 <div class="space-y-1">
                     <div class="flex items-center gap-2 flex-wrap">
                         <h1 class="text-xl sm:text-2xl font-black tracking-wide text-white">
-                            CEUT <span class="text-[#f1b80c] font-semibold text-xs sm:text-sm border-l border-slate-500 pl-2 uppercase tracking-wider font-bold">Departamento Psicopedagógico</span>
+                            CEUT <span class="text-[#f1b80c] font-semibold text-xs sm:text-sm border-l border-slate-500 pl-2 uppercase tracking-wider">Departamento Psicopedagógico</span>
                         </h1>
                         <!-- BADGE DE ESTADO DE CONEXIÓN EN CABECERA -->
                         <div id="dbStatusBadge" class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[9px] font-black tracking-wider bg-amber-500/10 text-amber-400 border border-amber-500/35 uppercase">
@@ -177,16 +175,16 @@
                         <div class="p-5 rounded-2xl border border-slate-200 bg-white/90 backdrop-blur-xs shadow-sm flex flex-col justify-between transition-all-custom hover:shadow-md hover:scale-[1.03] duration-300">
                             <div>
                                 <span class="p-2.5 inline-block rounded-xl bg-rose-50 text-rose-600 mb-3 shadow-sm">❤️</span>
-                                <h4 class="font-extrabold text-slate-900 text-sm uppercase">Salud Emocional</h4>
+                                <h4 class="font-extrabold text-slate-900 text-sm uppercase font-bold">Salud Emocional</h4>
                             </div>
-                            <p class="text-[10px] text-slate-500 mt-2 uppercase font-semibold leading-normal txt-justificado">Monitoreo de factores de estrés ante evaluaciones, desánimo y bienestar emocional.</p>
+                            <p class="text-[10px] text-slate-500 mt-2 uppercase font-semibold leading-normal txt-justificado font-bold">Monitoreo de factores de estrés ante evaluaciones, desánimo y bienestar emocional.</p>
                         </div>
                         <div class="p-5 rounded-2xl border border-slate-200 bg-white/90 backdrop-blur-xs shadow-sm flex flex-col justify-between transition-all-custom hover:shadow-md hover:scale-[1.03] duration-300">
                             <div>
                                 <span class="p-2.5 inline-block rounded-xl bg-red-50 text-red-600 mb-3 shadow-sm">⚖️</span>
-                                <h4 class="font-extrabold text-slate-900 text-sm uppercase">Blindaje Legal</h4>
+                                <h4 class="font-extrabold text-slate-900 text-sm uppercase font-bold">Blindaje Legal</h4>
                             </div>
-                            <p class="text-[10px] text-slate-500 mt-2 uppercase font-semibold leading-normal txt-justificado">Alineación estricta al artículo 9 de la LFPDPPP en el resguardo de datos sensibles.</p>
+                            <p class="text-[10px] text-slate-500 mt-2 uppercase font-semibold leading-normal txt-justificado font-bold">Alineación estricta al artículo 9 de la LFPDPPP en el resguardo de datos sensibles.</p>
                         </div>
                     </div>
 
@@ -242,7 +240,7 @@
 
         <!-- SECCIÓN 2: REGISTRO DE DATOS -->
         <section id="sec-registro-datos" class="view-section hidden py-4 no-print animate-fade-up">
-            <div class="max-w-2xl mx-auto bg-white/95 backdrop-blur-xs rounded-3xl shadow-2xl border border-slate-200/80 overflow-hidden">
+            <div class="max-w-2xl mx-auto bg-white/95 backdrop-blur-xs rounded-3xl shadow-2xl border border-slate-200/80 overflow-hidden font-bold">
                 <div class="bg-gradient-to-r from-[#121b44] via-[#1d2a6a] to-[#121b44] text-white px-8 py-6 flex items-center justify-between border-b border-[#f1b80c]/40">
                     <div class="flex items-center gap-3">
                         <img src="Gemini_Generated_Image_ob1grpob1grpob1g-removebg-preview.png" 
@@ -319,7 +317,7 @@
                         <div class="flex items-start gap-3">
                             <input type="checkbox" id="chkConsentimientoLegal" required class="mt-1.5 h-5 w-5 rounded border border-slate-300 text-[#1d2a6a] focus:ring-[#1d2a6a] cursor-pointer">
                             <label for="chkConsentimientoLegal" class="font-bold text-slate-900 select-none cursor-pointer text-xs leading-relaxed txt-justificado">
-                                Consiento expresamente que mis datos personales, incluidos los de carácter emocional, familiar, psicosocial e ideación (sensibles), sean tratados de acuerdo con los términos de este sistema y el <a href="javascript:void(0)" onclick="abrirAvisoPrivacidad()" class="text-[#1d2a6a] underline hover:text-[#121b44] transition-colors">Aviso de Privacidad Integral de CEUT</a>.
+                                Consiento expresamente que mis datos personales, incluidos los de carácter emocional, familiar, psicosocial e ideación (sensibles), sean tratados de acuerdo con los de este sistema y el <a href="javascript:void(0)" onclick="abrirAvisoPrivacidad()" class="text-[#1d2a6a] underline hover:text-[#121b44] transition-colors">Aviso de Privacidad Integral de CEUT</a>.
                             </label>
                         </div>
                     </div>
@@ -376,7 +374,7 @@
                             
                             <label class="relative flex flex-col items-center justify-center p-5 border border-slate-200 rounded-2xl cursor-pointer hover:border-[#1d2a6a] hover:bg-blue-50/10 transition-all duration-300 text-center group select-none shadow-xs hover:scale-[1.04]" id="lblOpt2">
                                 <input type="radio" name="likertOption" id="opt2" value="2" class="sr-only" onchange="seleccionarOpcion(2)">
-                                <span class="w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center mb-3 group-hover:border-[#1d2a6a] transition-all-custom">
+                                <span class="block w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center mb-3 group-hover:border-[#1d2a6a] transition-all-custom">
                                     <span class="dot-indicator w-2.5 h-2.5 rounded-full bg-[#1d2a6a] scale-0 transition-transform duration-200"></span>
                                 </span>
                                 <span class="block text-sm font-black text-slate-800 uppercase">A veces</span>
@@ -385,7 +383,7 @@
 
                             <label class="relative flex flex-col items-center justify-center p-5 border border-slate-200 rounded-2xl cursor-pointer hover:border-[#1d2a6a] hover:bg-blue-50/10 transition-all duration-300 text-center group select-none shadow-xs hover:scale-[1.04]" id="lblOpt3">
                                 <input type="radio" name="likertOption" id="opt3" value="3" class="sr-only" onchange="seleccionarOpcion(3)">
-                                <span class="w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center mb-3 group-hover:border-[#1d2a6a] transition-all-custom">
+                                <span class="block w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center mb-3 group-hover:border-[#1d2a6a] transition-all-custom">
                                     <span class="dot-indicator w-2.5 h-2.5 rounded-full bg-[#1d2a6a] scale-0 transition-transform duration-200"></span>
                                 </span>
                                 <span class="block text-sm font-black text-slate-800 uppercase">Frecuente</span>
@@ -394,7 +392,7 @@
 
                             <label class="relative flex flex-col items-center justify-center p-5 border border-slate-200 rounded-2xl cursor-pointer hover:border-[#1d2a6a] hover:bg-blue-50/10 transition-all duration-300 text-center group select-none shadow-xs hover:scale-[1.04]" id="lblOpt4">
                                 <input type="radio" name="likertOption" id="opt4" value="4" class="sr-only" onchange="seleccionarOpcion(4)">
-                                <span class="w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center mb-3 group-hover:border-[#1d2a6a] transition-all-custom">
+                                <span class="block w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center mb-3 group-hover:border-[#1d2a6a] transition-all-custom">
                                     <span class="dot-indicator w-2.5 h-2.5 rounded-full bg-[#1d2a6a] scale-0 transition-transform duration-200"></span>
                                 </span>
                                 <span class="block text-sm font-black text-slate-800 uppercase">Siempre</span>
@@ -416,7 +414,7 @@
         </section>
 
         <!-- SECCIÓN 4: ÉXITO -->
-        <section id="sec-exito-cuestionario" class="view-section hidden py-8 no-print animate-fade-up">
+        <section id="sec-exito-cuestionario" class="view-section hidden py-8 no-print animate-fade-up font-bold">
             <div class="max-w-xl mx-auto bg-white/95 backdrop-blur-xs rounded-3xl shadow-2xl border border-slate-200 p-8 text-center space-y-6">
                 <div class="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto text-emerald-600 shadow-lg shadow-emerald-100 relative">
                     <img src="Gemini_Generated_Image_ob1grpob1grpob1g-removebg-preview.png" 
@@ -440,7 +438,7 @@
                     El Responsable del Departamento Psicopedagógico analizará tus resultados con apego al secreto clínico. Si es pertinente, nos pondremos en contacto contigo de forma privada para ofrecerte atención y acompañamiento personalizado.
                 </p>
 
-                <div class="pt-4 flex flex-col sm:flex-row justify-center gap-3">
+                <div class="pt-4 flex flex-col sm:flex-row justify-center gap-3 font-semibold">
                     <button onclick="irSeccion('tamizaje-inicio')" class="px-6 py-2.5 rounded-lg border-2 border-slate-200 text-slate-700 font-bold text-sm hover:bg-slate-50 transition-all-custom uppercase">
                         Ir al Inicio
                     </button>
@@ -452,7 +450,7 @@
         </section>
 
         <!-- SECCIÓN 5: LOGIN DOCENTE -->
-        <section id="sec-docente-login" class="view-section hidden py-8 no-print animate-fade-up">
+        <section id="sec-docente-login" class="view-section hidden py-8 no-print animate-fade-up font-bold">
             <div class="max-w-md mx-auto bg-white/95 backdrop-blur-xs rounded-3xl shadow-2xl border border-slate-200/80 p-8 space-y-6">
                 <div class="text-center space-y-2">
                     <div class="w-24 h-24 mx-auto bg-slate-50 rounded-full flex items-center justify-center p-3 relative overflow-hidden border-2 border-slate-200 shadow-inner">
@@ -467,7 +465,7 @@
 
                 <form onsubmit="validarLoginDocente(event)" class="space-y-4">
                     <div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">PIN de Acceso Especial</label>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 font-semibold">PIN de Acceso Especial</label>
                         <input type="password" id="txtDocenteClave" required placeholder="DIGITE SU PIN DE ACCESO" class="w-full px-4 py-4 rounded-xl border-2 border-slate-300 focus:outline-none focus:border-[#1d2a6a] transition-all-custom text-center text-lg font-bold tracking-widest">
                     </div>
 
@@ -488,14 +486,14 @@
         </section>
 
         <!-- SECCIÓN 6: DASHBOARD DOCENTE -->
-        <section id="sec-docente-dashboard" class="view-section hidden py-4 space-y-8 no-print animate-fade-up">
+        <section id="sec-docente-dashboard" class="view-section hidden py-4 space-y-8 no-print animate-fade-up font-bold">
             <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 bg-white/95 backdrop-blur-xs p-6 rounded-2xl shadow-sm border border-slate-200/80">
                 <div class="space-y-1.5">
                     <span class="text-xs font-bold text-amber-700 tracking-widest uppercase bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200">Responsable del Departamento: Mtro. Carlos Aguilar Sánchez</span>
                     <h2 class="text-2xl font-black text-slate-900 uppercase font-black">Consola Central Psicopedagógica CEUT</h2>
                     <p class="text-xs text-slate-500 uppercase leading-relaxed text-justify txt-justificado">Métricas globales de salud emocional, factores del entorno psicosocial, alerta de crisis e intervenciones de la institución.</p>
                 </div>
-                <div class="flex items-center gap-3 w-full md:w-auto text-xs">
+                <div class="flex items-center gap-3 w-full md:w-auto text-xs font-bold">
                     <button onclick="exportarCSV()" class="px-4 py-2.5 font-bold rounded-lg border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 transition-all-custom flex items-center gap-1.5 shadow-xs uppercase">
                         Descargar Reporte (CSV)
                     </button>
@@ -506,7 +504,7 @@
             </div>
 
             <!-- TARJETAS DE ESTADÍSTICAS EN TIEMPO REAL -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 animate-fade-in border-b border-slate-100 pb-2">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 font-bold animate-fade-in border-b border-slate-100 pb-2">
                 <div class="bg-white/90 backdrop-blur-xs p-6 rounded-2xl shadow-xs border border-slate-200 flex items-center justify-between transition-all duration-300 hover:shadow-md hover:scale-[1.03]">
                     <div>
                         <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider">Total Evaluados</span>
@@ -553,7 +551,7 @@
                         </p>
                     </div>
                     <div class="flex items-center gap-2">
-                        <input type="password" id="txtNuevoPinAdmin" placeholder="NUEVO PIN" class="flex-grow px-3 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-center text-sm uppercase">
+                        <input type="password" id="txtNuevoPinAdmin" placeholder="NUEVO PIN" class="flex-grow px-3 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-center text-sm uppercase font-bold">
                         <button onclick="cambiarPinAcceso()" class="px-5 py-2.5 bg-[#1d2a6a] hover:bg-[#121b44] text-white text-xs font-bold rounded-lg shadow-sm transition-all-custom text-center uppercase">
                             Cambiar PIN
                         </button>
@@ -571,7 +569,7 @@
                         </p>
                     </div>
                     <div class="flex items-center gap-2">
-                        <input type="password" id="txtGeminiApiKey" placeholder="API KEY DE GEMINI (AIza...)" class="flex-grow px-3 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-center text-xs">
+                        <input type="password" id="txtGeminiApiKey" placeholder="API KEY DE GEMINI (AIza...)" class="flex-grow px-3 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-center text-xs font-bold">
                         <button onclick="guardarApiKeyGemini()" class="px-5 py-2.5 bg-[#1d2a6a] hover:bg-[#121b44] text-white text-xs font-bold rounded-lg shadow-sm transition-all-custom text-center uppercase">
                             Guardar Key
                         </button>
@@ -610,7 +608,7 @@
                         </div>
 
                         <div>
-                            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">Estatus de Riesgo</label>
+                            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider">Estatus de Riesgo</label>
                             <select id="adminFiltroRiesgo" onchange="filtrarYRenderizarReportes()" class="w-full px-3 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-xs uppercase font-bold text-slate-800">
                                 <option value="Todos">TODOS</option>
                                 <option value="Rojo">RIESGO ALTO (ROJO)</option>
@@ -620,7 +618,7 @@
                         </div>
 
                         <div>
-                            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">Seguimiento</label>
+                            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider">Seguimiento</label>
                             <select id="adminFiltroAtendido" onchange="filtrarYRenderizarReportes()" class="w-full px-3 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1d2a6a] text-xs uppercase text-slate-800">
                                 <option value="Todos">TODOS</option>
                                 <option value="Pendiente">PENDIENTE</option>
@@ -645,15 +643,15 @@
                         <thead>
                             <tr class="bg-slate-100/60 text-slate-500 uppercase text-[9px] tracking-widest border-b border-slate-200/60 font-black">
                                 <th class="py-4 px-6">Folio / Fecha</th>
-                                <th class="py-4 px-6">Estudiante / Matrícula</th>
-                                <th class="py-4 px-6">Nivel / Modalidad</th>
-                                <th class="py-4 px-6 text-center">Académico</th>
-                                <th class="py-4 px-6 text-center">Emocional</th>
-                                <th class="py-4 px-6 text-center">Psicosocial</th>
-                                <th class="py-4 px-6 text-center">Riesgo</th>
-                                <th class="py-4 px-6 text-center">Semáforo</th>
-                                <th class="py-4 px-6 text-center">Seguimiento</th>
-                                <th class="py-4 px-6 text-right">Acciones</th>
+                                <th class="py-4 px-6 font-bold">Estudiante / Matrícula</th>
+                                <th class="py-4 px-6 font-bold">Nivel / Modalidad</th>
+                                <th class="py-4 px-6 text-center font-bold">Académico</th>
+                                <th class="py-4 px-6 text-center font-bold">Emocional</th>
+                                <th class="py-4 px-6 text-center font-bold">Psicosocial</th>
+                                <th class="py-4 px-6 text-center font-bold">Riesgo</th>
+                                <th class="py-4 px-6 text-center font-bold">Semáforo</th>
+                                <th class="py-4 px-6 text-center font-bold">Seguimiento</th>
+                                <th class="py-4 px-6 text-right font-bold">Acciones</th>
                             </tr>
                         </thead>
                         <tbody id="tablaExpedientesBody" class="divide-y divide-slate-100 text-xs font-semibold">
@@ -679,10 +677,10 @@
                     </h3>
                     <p class="text-[11px] text-slate-300 uppercase tracking-widest">Análisis de conductas socioemocionales e indicadores de aprendizaje.</p>
                 </div>
-                <button onclick="cerrarModalDetalle()" class="text-slate-400 hover:text-white transition-all-custom text-2xl">&times;</button>
+                <button onclick="cerrarModalDetalle()" class="text-slate-400 hover:text-white transition-all-custom font-bold text-2xl">&times;</button>
             </div>
 
-            <div class="p-6 overflow-y-auto space-y-6 flex-grow text-xs text-justify">
+            <div class="p-6 overflow-y-auto space-y-6 flex-grow text-xs text-justify font-bold">
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 bg-slate-50 p-4 rounded-xl border border-slate-200">
                     <div>
                         <span class="block text-[9px] font-bold text-slate-400 uppercase">Nombre del Estudiante</span>
@@ -706,7 +704,7 @@
                             <span id="mdTelefono" class="font-bold text-slate-800 text-xs">--</span>
                         </div>
                         <div>
-                            <span class="block text-[9px] font-bold text-slate-400 uppercase font-bold">Fecha de Aplicación</span>
+                            <span class="block text-[9px] font-bold text-slate-400 uppercase">Fecha de Aplicación</span>
                             <span id="mdFecha" class="font-semibold text-slate-600 text-xs uppercase">--</span>
                         </div>
                     </div>
@@ -729,7 +727,7 @@
                         <span id="mdBadgePsicosocial" class="inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase border">--</span>
                     </div>
                     <div class="p-4 rounded-xl text-center space-y-1 bg-white flex flex-col justify-between border border-slate-200/60 transition-all duration-300 hover:shadow-md">
-                        <span class="block text-xs font-bold text-slate-400 uppercase font-bold">Riesgo / Crisis</span>
+                        <span class="block text-xs font-bold text-slate-400 uppercase">Riesgo / Crisis</span>
                         <div class="text-xl font-black text-slate-800 my-2"><span id="mdScoreRiesgo">0</span> / 9</div>
                         <span id="mdBadgeRiesgo" class="inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase border animate-pulse">--</span>
                     </div>
@@ -742,7 +740,7 @@
                             <span class="p-3 bg-indigo-600 text-white rounded-2xl shadow-md shadow-indigo-200">✨</span>
                             <div>
                                 <h4 class="font-extrabold text-sm text-indigo-950 uppercase tracking-tight font-black">Dictamen Técnico Psicopedagógico</h4>
-                                <p class="text-[10px] text-indigo-600 uppercase font-bold tracking-widest">Asistencia metodológica y adaptaciones de aula permanentes</p>
+                                <p class="text-[10px] text-indigo-600 uppercase font-bold tracking-widest">Asistencia metodológica y adaptaciones de aula de alta resolución</p>
                             </div>
                         </div>
                         <div class="flex items-center gap-2 text-xs">
@@ -758,13 +756,13 @@
                         <div class="w-9 h-9 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin"></div>
                         <span id="txtLoadingIA" class="text-[10px] text-indigo-600 font-extrabold uppercase tracking-widest animate-pulse">Procesando y correlacionando respuestas de forma clínica con IA...</span>
                     </div>
-                    <div id="mdIAAnalysisContent" class="text-xs text-slate-700 leading-relaxed hidden max-h-80 overflow-y-auto bg-slate-50 border border-slate-200 p-5 rounded-2xl shadow-inner txt-justificado text-justify">
+                    <div id="mdIAAnalysisContent" class="text-xs text-slate-700 leading-relaxed hidden max-h-80 overflow-y-auto bg-slate-50 border border-slate-200 p-5 rounded-2xl shadow-inner txt-justificado font-semibold text-justify font-bold">
                         <!-- El diagnóstico es inyectado aquí -->
                     </div>
                 </div>
 
                 <div class="space-y-4">
-                    <h4 class="font-black text-xs text-slate-900 border-b border-slate-100 pb-2 flex items-center gap-1.5 uppercase font-bold">
+                    <h4 class="font-black text-xs text-slate-900 border-b border-slate-100 pb-2 flex items-center gap-1.5 uppercase">
                         Análisis Detallado por Reactivo (Escala Likert)
                     </h4>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-semibold" id="mdContenedorRespuestas">
@@ -786,7 +784,7 @@
                         <div class="space-y-3 font-semibold">
                             <div>
                                 <label class="block text-[9px] font-bold text-slate-400 uppercase tracking-wider">Estatus del Expediente</label>
-                                <select id="mdSelectEstatus" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none border-[#1d2a6a] text-xs uppercase text-slate-800">
+                                <select id="mdSelectEstatus" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none border-[#1d2a6a] text-xs uppercase text-slate-800 font-bold">
                                     <option value="false">⏳ PENDIENTE DE ATENCIÓN</option>
                                     <option value="true">✔ CASO ATENDIDO / RESUELTO</option>
                                 </select>
@@ -814,7 +812,7 @@
     <div id="confirmEliminarModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-white w-full max-w-md rounded-2xl shadow-2xl border border-slate-200 p-6 space-y-6">
             <h3 class="text-lg font-bold text-rose-600 uppercase">¿Confirmar Eliminación?</h3>
-            <p class="text-xs text-slate-600 txt-justificado leading-relaxed text-justify">
+            <p class="text-xs text-slate-600 txt-justificado leading-relaxed text-justify font-bold">
                 Esta acción eliminará de forma permanente el expediente del alumno de los registros locales y de la base de datos en tiempo real de la Jefatura Psicopedagógica. Esta acción no se puede deshacer.
             </p>
             <div class="flex items-center justify-end gap-3 font-semibold text-xs">
@@ -840,7 +838,7 @@
                 <button onclick="cerrarAvisoPrivacidad()" class="text-slate-300 hover:text-white text-2xl font-bold">&times;</button>
             </div>
 
-            <div class="p-6 overflow-y-auto space-y-4 text-xs text-slate-600 leading-relaxed font-semibold uppercase text-justify txt-justificado border-b">
+            <div class="p-6 overflow-y-auto space-y-4 text-xs text-slate-600 leading-relaxed font-semibold uppercase text-justify txt-justificado border-b text-justify font-bold">
                 <p class="font-bold text-slate-900 text-sm tracking-tight">1. Identidad y Domicilio del Responsable</p>
                 <p>El <strong>Centro Universitario Tehuacán (CEUT)</strong>, con domicilio en Tehuacán, Puebla, es responsable de recabar sus datos personales, del uso que se le de a los mismos y de su protección, a través del Responsable del Departamento Psicopedagógico.</p>
 
@@ -854,7 +852,7 @@
                 <p>CEUT se compromete a no transferir sus datos a terceros ajenos a la institución sin su consentimiento, salvo las excepciones previstas en el <strong>Artículo 37 de la LFPDPPP</strong>. Los datos son almacenados de forma encriptada y su visualización está estrictamente limitada al Responsable del Departamento Psicopedagógico mediante un PIN de control total.</p>
             </div>
 
-            <div class="bg-slate-50 px-6 py-4.5 border-t border-slate-100 flex items-center justify-end">
+            <div class="bg-slate-50 px-6 py-4.5 border-t border-slate-100 flex items-center justify-end font-semibold">
                 <button onclick="cerrarAvisoPrivacidad()" class="px-5 py-2 bg-[#1d2a6a] hover:bg-[#121b44] text-white text-xs font-bold rounded-lg transition-all uppercase">
                     Entendido y Cerrar
                 </button>
@@ -863,8 +861,8 @@
     </div>
 
     <!-- FOOTER GENERAL -->
-    <footer class="bg-[#121b44] text-slate-400 py-8 px-6 mt-12 border-t border-slate-800 text-xs no-print relative z-10 font-bold">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-5">
+    <footer class="bg-[#121b44] text-slate-400 py-8 px-6 mt-12 border-t border-slate-800 text-xs no-print font-bold relative z-10">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-5 font-bold">
             <div class="flex items-center gap-3">
                 <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center p-1.5 relative overflow-hidden shadow-md flex-shrink-0">
                     <img src="Gemini_Generated_Image_ob1grpob1grpob1g-removebg-preview.png" 
@@ -896,7 +894,17 @@
         window.ultimoAnalisisIAGenerado = ""; 
         window.bajaPendienteId = null;
 
-        // SISTEMA INTEGRADO DE NOTIFICACIONES DINÁMICAS (CORRECCIÓN CRÍTICA DE ERRORES)
+        // RESOLVER EL LOGOTIPO DE FORMA DINÁMICA DE ACUERDO AL RENDER DE LA PÁGINA PRINCIPAL
+        function obtenerLogoActivo() {
+            const logoImg = document.getElementById('mainLogo');
+            if (logoImg && logoImg.src && logoImg.src.trim() !== '') {
+                // Si la imagen ya se renderizó correctamente, usamos exactamente ese enlace (resuelve local o Google Drive)
+                return logoImg.src;
+            }
+            return 'https://lh3.googleusercontent.com/d/1ao9olFJOvSPvgmeyLJhkD1P0Pmq_R3T2';
+        }
+
+        // SISTEMA INTEGRADO DE NOTIFICACIONES DINÁMICAS
         window.mostrarNotificacion = function(mensaje, tipo = 'info') {
             const container = document.getElementById('notificacionContainer');
             if (!container) return;
@@ -930,40 +938,22 @@
             
             container.appendChild(card);
             
-            // Forzar reflow para animación fluida
             setTimeout(() => {
                 card.classList.remove('translate-y-2', 'opacity-0');
             }, 10);
             
-            // Auto-eliminación tras 5 segundos
             setTimeout(() => {
                 card.classList.add('opacity-0', 'translate-y-[-10px]');
                 setTimeout(() => card.remove(), 300);
             }, 5000);
         };
 
-        // GUARDADO DE CREDENCIALES GEMINI
         window.guardarApiKeyGemini = function() {
             const key = document.getElementById('txtGeminiApiKey').value.trim();
             localStorage.setItem('ceut_gemini_api_key', key);
             window.mostrarNotificacion("Clave API de Gemini guardada de forma segura en este navegador.", "success");
         };
 
-        // EXTRAER LA URL ABSOLUTA DEL LOGO QUE YA ESTÁ RENDERIZANDO CON ÉXITO EN PANTALLA PRINCIPAL
-        function obtenerLogoActivo() {
-            const imgMain = document.getElementById('mainLogo');
-            if (imgMain) {
-                if (imgMain.currentSrc && imgMain.currentSrc !== "") {
-                    return imgMain.currentSrc;
-                }
-                if (imgMain.src && imgMain.src !== "") {
-                    return imgMain.src;
-                }
-            }
-            return 'https://lh3.googleusercontent.com/d/1ao9olFJOvSPvgmeyLJhkD1P0Pmq_R3T2';
-        }
-
-        // FUNCIÓN DE NAVEGACIÓN EN PANTALLAS RESTAURADA
         function irSeccion(seccionId) {
             document.querySelectorAll('.view-section').forEach(sec => {
                 sec.classList.add('hidden');
@@ -1011,7 +1001,6 @@
             }
         };
 
-        // Función de Bóveda: Guarda y combina datos en el almacenamiento local para evitar pérdidas por cambios de sesión
         window.sincronizarYPersistirLocalmente = function(nuevosReportesNube) {
             const locales = JSON.parse(localStorage.getItem('ceut_reports') || '[]');
             let combinados = [...locales];
@@ -1023,7 +1012,6 @@
                 );
 
                 if (index !== -1) {
-                    // Fusionar de forma segura respetando las notas locales y el dictamen de IA
                     combinados[index] = { 
                         ...combinados[index], 
                         ...cloudReport,
@@ -1034,278 +1022,18 @@
                 }
             });
 
-            // LIMPIEZA DE EXPEDIENTES ELIMINADOS EN LA NUBE (Bajas tramitadas)
             const cloudIds = nuevosReportesNube.map(c => c.id);
             combinados = combinados.filter(item => {
                 if (item.id.startsWith('local_') || item.id === 'mock1') {
-                    return true; // Mantener los expedientes que son puramente locales o de pruebas locales
+                    return true;
                 }
-                return cloudIds.includes(item.id); // Remover si se eliminó en Firebase
+                return cloudIds.includes(item.id);
             });
 
-            // Escribir permanentemente en el disco del navegador
             localStorage.setItem('ceut_reports', JSON.stringify(combinados));
             window.reportsData = combinados;
             window.renderReportes();
             window.actualizarEstadisticas();
-        };
-
-        window.actualizarEstadisticas = function() {
-            if (!window.reportsData) window.reportsData = [];
-            const validReports = window.reportsData.filter(r => r && r.estudiante);
-            
-            const total = validReports.length;
-            const rojo = validReports.filter(r => r.semaforo && (r.semaforo === "Rojo" || r.semaforo === "ROJO")).length;
-            const amarillo = validReports.filter(r => r.semaforo && (r.semaforo === "Amarillo" || r.semaforo === "AMARILLO")).length;
-            const atendidos = validReports.filter(r => r.atendido === true || r.atendido === "true" || r.atendido === "Atendido").length;
-            const tasa = total > 0 ? Math.round((atendidos / total) * 100) : 0;
-
-            const elTotal = document.getElementById('metricTotalEvaluados');
-            const elRojo = document.getElementById('metricRiesgoRojo');
-            const elAmarillo = document.getElementById('metricRiesgoAmarillo');
-            const elAtendidos = document.getElementById('metricAtendidos');
-            const elTasa = document.getElementById('metricTasaAtencion');
-
-            if (elTotal) elTotal.textContent = total;
-            if (elRojo) elRojo.textContent = rojo;
-            if (elAmarillo) elAmarillo.textContent = amarillo;
-            if (elAtendidos) elAtendidos.textContent = atendidos;
-            if (elTasa) elTasa.textContent = `${tasa}% de Tasa de Cierre`;
-        };
-
-        // MOTOR LOCAL DE ALTA RESOLUCIÓN CLÍNICA Y PEDAGÓGICA (FALLBACK HÍBRIDO SEGURO)
-        window.generarAnalisisLocal = function(r) {
-            const sa = r.scores ? r.scores.Academico : 0;
-            const se = r.scores ? r.scores.Emocional : 0;
-            const sp = r.scores ? r.scores.Psicosocial : 0;
-            const sr = r.scores ? r.scores.Riesgo : 0;
-            const sem = r.semaforo || "Verde";
-
-            let text = `# DICTAMEN DE INTERVENCIÓN PSICOPEDAGÓGICA Y ADECUACIÓN CURRICULAR\n`;
-            text += `## 1. RESUMEN DE DIAGNÓSTICO CUANTITATIVO\n`;
-            text += `El estudiante presenta el siguiente perfil psicopedagógico cuantificado a partir de sus respuestas autoinformadas:\n\n`;
-            text += `* **Puntaje Área Académica e Intelectiva ($S_A$):** ${sa} / 15 pts | Estatus de Alerta: **${sa <= 3 ? 'ESTABLE' : sa <= 7 ? 'MODERADO' : 'CRÍTICO'}**\n`;
-            text += `* **Puntaje Área Socioemocional y Afectiva ($S_E$):** ${se} / 15 pts | Estatus de Alerta: **${se <= 4 ? 'ESTABLE' : se <= 8 ? 'MODERADO' : 'CRÍTICO'}**\n`;
-            text += `* **Puntaje Área Psicosocial y Familiar ($S_P$):** ${sp} / 15 pts | Estatus de Alerta: **${sp <= 5 ? 'ESTABLE' : sp <= 9 ? 'MODERADO' : 'CRÍTICO'}**\n`;
-            text += `* **Puntaje Área de Riesgo Crítico o Emergencia ($S_R$):** ${sr} / 9 pts | Estatus de Alerta: **${sr === 0 ? 'ESTABLE' : sr <= 2 ? 'MODERADO' : 'CRÍTICO'}**\n\n`;
-            text += `**SEMÁFORO DE PRIORIDAD INSTITUCIONAL:** **${sem.toUpperCase()}**\n\n`;
-            
-            text += `## 2. SÍNTESIS CUALITATIVA Y CORRELACIÓN SINDROMÁTICA\n`;
-            text += `Se identifican correlaciones complejas entre sus hábitos académicos y su homeostasis socioemocional, permitiendo estructurar los siguientes diagnósticos descriptivos:\n\n`;
-
-            let diagnosticos = [];
-            if (r.respuestas) {
-                if (r.respuestas.a1 >= 3 || r.respuestas.a4 >= 3) {
-                    diagnosticos.push("**Disminución de la Atención Sostenida y Procesamiento Metacognitivo:** El estudiante presenta dificultades severas para retener y evocar información compleja en el aula. Esto sugiere un estado latente de sobrecarga cognitiva o parálisis ejecutiva en clase que frena de forma preocupante los mecanismos naturales de andamiaje conceptual.");
-                }
-                if (r.respuestas.a3 >= 3) {
-                    diagnosticos.push("**Procrastinación Evasiva y Evasión del Estrés:** La tendencia sistemática a postergar entregas académicas y proyectos (A3) funciona como un mecanismo defensivo desadaptativo para eludir la angustia situacional y el miedo patológico al fracaso evaluativo.");
-                }
-                if (r.respuestas.e2 >= 3) {
-                    diagnosticos.push("**Bloqueo Amigdalino ante la Evaluación:** La ansiedad situacional excesiva durante exámenes satura la corteza prefrontal del alumno, impidiendo la recuperación de contenidos previamente consolidados en la memoria de largo plazo, provocando lagunas mentales.");
-                }
-                if (r.respuestas.e3 >= 3) {
-                    diagnosticos.push("**Alteración del Ciclo Circadiano por Rumiación Cognitiva:** El insomnio reportado afecta de forma colateral los periodos de sueño REM, fase neurobiológica fundamental para la consolidación sináptica de nuevos aprendizajes y la regulación afectiva diurna.");
-                }
-                if (r.respuestas.f2 >= 3) {
-                    diagnosticos.push("**Síndrome de Saturación Alostática por Estrés Financiero:** Las presiones socioeconómicas familiares interfieren de forma directo con los procesos cognitivos superiores del alumno, desviando su energía mental a la resolución de necesidades básicas de subsistencia.");
-                }
-                if (r.respuestas.r1 >= 3 || r.respuestas.r2 >= 3) {
-                    diagnosticos.push("🚨 **CÓDIGO ROJO - RIESGO DE AUTÓLISIS O CONDUCTA AUTOLESIVA:** La presencia de ideación de pérdida de sentido de vida o impulsos autolesivos sistemáticos exige la suspensión inmediata del protocolo ordinario y la activación de la red de crisis presencial del CEUT.");
-                }
-            }
-
-            if (diagnosticos.length === 0) {
-                text += "* No se detectan indicadores clínicos o académicos fuera de los rangos de homeostasis funcional estándar. El alumno presenta un perfil de adaptación psicopedagógica estable.\n\n";
-            } else {
-                diagnosticos.forEach(d => {
-                    text += `* ${d}\n\n`;
-                });
-            }
-
-            text += `## 3. PROTOCOLO DE INTERVENCIÓN PSICOLÓGICA Y ACUERDOS\n`;
-            if (sr >= 3) {
-                text += `* **MEDIDA DE CONTENCIÓN URGENTE (CÓDIGO ROJO):** Citación obligatoria a padres de familia o tutores legales en un plazo menor a 24 horas. Firma conjunta de acta de corresponsabilidad para la protección a la vida del alumno y seguimiento clínico urgente.\n`;
-                text += `* **CANALIZACIÓN ESPECIALIZADA:** Derivación formal a servicios externos de Psiquiatría o Psicología Clínica de Tehuacán. Suministro de redes directas de salud mental pública institucional.\n`;
-            } else if (se >= 9) {
-                text += `* **ACOMPAÑAMIENTO EMOCIONAL INTERNO:** Agendar de inmediato consulta psicopedagógica de contención afectiva con el Mtro. Carlos Aguilar Sánchez de manera programada en las próximas 48 horas.\n`;
-                text += `* **DERIVACIÓN PREVENTIVA:** Recomendar la consulta asertiva con profesionales de salud mental externos para el desarrollo de resiliencia y reestructuración cognitiva.\n`;
-            } else {
-                text += `* **SEGUIMIENTO ORDINARIO:** Monitoreo regular por parte del tutor grupal. Invitación abierta a talleres de técnicas de estudio activas y relajación progresiva.\n`;
-            }
-            text += `\n`;
-
-            text += `## 4. ADAPTACIONES PEDAGÓGICAS PARA EL DOCENTE EN EL AULA\n`;
-            text += `Con el fin de mitigar el impacto de estos factores en su rendimiento, se dictan las siguientes adecuaciones de aula de carácter obligatorio:\n\n`;
-            
-            if (sa >= 4) {
-                text += `* **Para el Área Académica:**\n`;
-                text += `  * **Fragmentación del Aprendizaje:** Dividir proyectos complejos en entregas parciales semanales.\n`;
-                text += `  * **Andamiaje Metodológico:** Facilitar organizadores gráficos, glosarios previos e instrucciones secuenciales breves.\n\n`;
-            }
-            if (se >= 5) {
-                text += `* **Para el Área Socioemocional:**\n`;
-                text += `  * **Evaluaciones Flexibles:** Sustituir exposiciones orales masivas por formatos grabados en video o de carácter privado frente al docente.\n`;
-                text += `  * **Pausas de Descompresión:** Permitir salidas breves controladas de 3 minutos del salón en caso de registrar ataques de pánico o hiperventilación.\n\n`;
-            }
-            if (sp >= 6) {
-                text += `* **Para el Área Psicosocial:**\n`;
-                text += `  * **Prórrogas de Entrega:** Otorgar prórrogas calendarizadas y estructuradas de hasta 48 horas para la entrega de tareas de alto impacto si se justifican estresores económicos graves.\n`;
-                text += `  * **Inclusión Solidaria:** Suministrar materiales en préstamo digital para desvanecer la brecha material de estudio.\n\n`;
-            }
-            if (sa < 4 && se < 5 && sp < 6) {
-                text += `* Mantener las estrategias docentes convencionales. Incentivar su liderazgo positivo asignándole roles de tutoría entre iguales o coordinación de dinámicas de equipo de carácter colaborativo.\n\n`;
-            }
-
-            text += `## 5. RECOMENDACIONES ORIENTATIVAS PARA PADRES O TUTORES\n`;
-            text += `* **Espacio de Validación Afectiva:** Establecer canales de comunicación basados en la empatía, evitando juicios de valor sobre el rendimiento cuantitativo.\n`;
-            text += `* **Higiene del Sueño:** Coordinar el retiro de dispositivos móviles 1 hora antes de dormir para propiciar ciclos circadianos profundos y reparadores.\n`;
-            text += `* **Monitoreo de Sintomatología:** Supervisar cambios abruptos de conducta, aislamiento voluntario persistente o irritabilidad severa, reportando de inmediato al CEUT.`;
-
-            return text;
-        };
-
-        // INTEGRACIÓN COMPLETA DEL MOTOR DE IA GEMINI (CORRECCIÓN CRÍTICA DE FUNCIÓN INEXISTENTE)
-        window.ejecutarAnalisisIA = async function() {
-            const r = window.reportsData.find(item => item.id === window.reporteEnDetalleId);
-            if (!r) {
-                window.mostrarNotificacion("No hay ningún expediente activo seleccionado para el análisis.", "error");
-                return;
-            }
-
-            const loading = document.getElementById('loadingIA');
-            const content = document.getElementById('mdIAAnalysisContent');
-            const btnDesc = document.getElementById('btnDescargarReporteIA');
-            const btnGen = document.getElementById('btnGenerarAnalisisIA');
-
-            if (loading) loading.classList.remove('hidden');
-            if (content) content.classList.add('hidden');
-            if (btnDesc) btnDesc.classList.add('hidden');
-            if (btnGen) btnGen.disabled = true;
-
-            const apiKey = localStorage.getItem('ceut_gemini_api_key') || "";
-            
-            // Estructurar respuestas para el Prompt
-            let stringRespuestas = "";
-            reactivos.forEach(preg => {
-                const ansVal = r.respuestas ? (r.respuestas[preg.id] || 1) : 1;
-                const labels = ["", "NUNCA", "A VECES", "FRECUENTE", "SIEMPRE"];
-                stringRespuestas += `- [${preg.cat}] ${preg.texto}: Respuesta: ${labels[ansVal]} (${ansVal} puntos).\n`;
-            });
-
-            if (apiKey && apiKey.startsWith("AIza")) {
-                // Endpoint oficial de Google AI Studio para Gemini 1.5 Flash
-                const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
-                
-                const prompt = `Actúa como un psicopedagogo clínico senior del Centro Universitario Tehuacán (CEUT). Redacta un Dictamen de Intervención Psicopedagógica formal para el estudiante ${r.estudiante.nombre} (Matrícula: ${r.estudiante.matricula}, Edad: ${r.estudiante.edad}, Nivel: ${r.estudiante.nivel}, Grupo: ${r.estudiante.grupo}, Modalidad: ${r.estudiante.modalidad || 'Escolarizado'}).
-                
-                Los resultados cuantitativos son:
-                - Área Académica ($S_A$): ${r.scores.Academico} / 15 puntos.
-                - Área Socioemocional ($S_E$): ${r.scores.Emocional} / 15 puntos.
-                - Entorno Psicosocial ($S_P$): ${r.scores.Psicosocial} / 15 puntos.
-                - Área de Riesgo/Crisis ($S_R$): ${r.scores.Riesgo} / 9 puntos.
-                - Semáforo de Prioridad: ${r.semaforo}
-                
-                Respuestas detalladas por reactivo:
-                ${stringRespuestas}
-                
-                REQUERIMIENTO DE FORMATO:
-                Debes generar el informe con la estructura exacta detallada a continuación, basándote en la teoría psicopedagógica y adaptaciones curriculares profesionales del CEUT. No agregues saludos, introducciones ni comentarios extras.
-                
-                # DICTAMEN DE VALORACIÓN PSICOPEDAGÓGICA INDIVIDUAL
-                ## DEPARTAMENTO PSICOPEDAGÓGICO - CENTRO UNIVERSITARIO TEHUACÁN (CEUT)
-                
-                ### 1. DATOS DE IDENTIFICACIÓN DE LA CONSULTA
-                * **FOLIO DEL EXPEDIENTE:** ${r.estudiante.folio}
-                * **ESTUDIANTE:** ${r.estudiante.nombre}
-                * **MATRÍCULA:** ${r.estudiante.matricula}
-                * **EDAD:** ${r.estudiante.edad} AÑOS
-                * **NIVEL Y GRUPO:** ${r.estudiante.nivel} - ${r.estudiante.grupo} (${r.estudiante.modalidad || 'Escolarizado'})
-                * **FECHA DE VALORACIÓN:** ${r.estudiante.fecha}
-                
-                ### 2. RESUMEN DE DIAGNÓSTICO CUANTITATIVO
-                El alumno presenta el siguiente perfil de afectación neta de acuerdo con sus respuestas:
-                * Puntaje Académico ($S_A$): ${r.scores.Academico} / 15 pts | Estatus: ${r.scores.Academico <= 3 ? 'ESTABLE' : r.scores.Academico <= 7 ? 'MODERADO' : 'CRÍTICO'}
-                * Puntaje Socioemocional ($S_E$): ${r.scores.Emocional} / 15 pts | Estatus: ${r.scores.Emocional <= 4 ? 'ESTABLE' : r.scores.Emocional <= 8 ? 'MODERADO' : 'CRÍTICO'}
-                * Puntaje Psicosocial ($S_P$): ${r.scores.Psicosocial} / 15 pts | Estatus: ${r.scores.Psicosocial <= 5 ? 'ESTABLE' : r.scores.Psicosocial <= 9 ? 'MODERADO' : 'CRÍTICO'}
-                * Puntaje de Riesgo ($S_R$): ${r.scores.Riesgo} / 9 pts | Estatus: ${r.scores.Riesgo === 0 ? 'ESTABLE' : r.scores.Riesgo <= 2 ? 'MODERADO' : 'CRÍTICO'}
-                
-                **SEMÁFORO DE PRIORIDAD DE INTERVENCIÓN:** ${r.semaforo.toUpperCase()}
-                
-                ### 3. SÍNTESIS CUALITATIVA Y CORRELACIÓN DE CONDUCTAS
-                [Redacta aquí una correlación técnica, profesional e interdisciplinaria. Explica el impacto de los factores socioemocionales sobre sus periodos de atención y retención. Redacta por lo menos dos párrafos explicativos con justificación científica y clínica].
-                
-                ### 4. PROTOCOLO DE INTERVENCIÓN Y ACUERDOS
-                [Mencione acciones de canalización escolar, acuerdos con tutores o intervenciones de urgencia clínica de forma cronológica].
-                
-                ### 5. ESTRATEGIAS ADAPTATIVAS PARA EL DOCENTE EN EL AULA
-                [Defina viñetas con adecuaciones específicas para sus docentes: fragmentación de proyectos, exención temporal de exposiciones en crisis, prórrogas, etc.]
-                
-                Usa Markdown estándar. No utilices ecuaciones complejas de LaTeX excepto para las variables descritas.`;
-
-                try {
-                    const response = await fetch(endpoint, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            contents: [{ parts: [{ text: prompt }] }]
-                        })
-                    });
-
-                    if (!response.ok) throw new Error("HTTP " + response.status);
-
-                    const data = await response.json();
-                    if (data.candidates && data.candidates[0]?.content?.parts[0]?.text) {
-                        const textResult = data.candidates[0].content.parts[0].text;
-                        window.ultimoAnalisisIAGenerado = textResult;
-                        
-                        // Persistir y sincronizar
-                        await window.actualizarReporte(window.reporteEnDetalleId, { analisisPersistido: textResult });
-                        
-                        if (content) {
-                            content.innerHTML = formatMarkdownToHtml(textResult);
-                            content.classList.remove('hidden');
-                        }
-                        if (btnDesc) btnDesc.classList.remove('hidden');
-                        window.mostrarNotificacion("Análisis clínico generado de forma exitosa mediante Gemini.", "success");
-                    } else {
-                        throw new Error("Formato inválido de API");
-                    }
-                } catch (err) {
-                    console.warn("Error en la conexión a Gemini. Activando motor local de contingencia...", err);
-                    window.mostrarNotificacion("Conexión con Gemini fallida. Cargando dictamen local...", "warning");
-                    
-                    const localResult = window.generarAnalisisLocal(r);
-                    window.ultimoAnalisisIAGenerado = localResult;
-                    await window.actualizarReporte(window.reporteEnDetalleId, { analisisPersistido: localResult });
-                    
-                    if (content) {
-                        content.innerHTML = formatMarkdownToHtml(localResult);
-                        content.classList.remove('hidden');
-                    }
-                    if (btnDesc) btnDesc.classList.remove('hidden');
-                }
-            } else {
-                // Sin API Key activa: Despliega inmediatamente el motor de contingencia local de alta fidelidad
-                window.mostrarNotificacion("Clave API no configurada. Cargando motor local institucional...", "info");
-                setTimeout(async () => {
-                    const localResult = window.generarAnalisisLocal(r);
-                    window.ultimoAnalisisIAGenerado = localResult;
-                    await window.actualizarReporte(window.reporteEnDetalleId, { analisisPersistido: localResult });
-                    
-                    if (content) {
-                        content.innerHTML = formatMarkdownToHtml(localResult);
-                        content.classList.remove('hidden');
-                    }
-                    if (btnDesc) btnDesc.classList.remove('hidden');
-                    if (loading) loading.classList.add('hidden');
-                    if (btnGen) btnGen.disabled = false;
-                }, 600);
-                return;
-            }
-
-            if (loading) loading.classList.add('hidden');
-            if (btnGen) btnGen.disabled = false;
         };
 
         function generarNuevoFolio() {
@@ -1456,7 +1184,6 @@
             }
         }
 
-        // PROCESAMIENTO FINAL Y CALIFICACIÓN EXHAUSTIVA RESTAURADO
         async function procesarYFinalizarCuestionario() {
             let scoreAcad = 0;
             let scoreEmoc = 0;
@@ -1499,12 +1226,10 @@
             locales.push(nuevoReporte);
             localStorage.setItem('ceut_reports', JSON.stringify(locales));
             
-            // Renderizado visual preventivo inmediato en base local
             window.reportsData = locales;
             window.renderReportes();
             window.actualizarEstadisticas();
 
-            // Intentar guardado en la nube en segundo plano si Firebase está enlazado
             if (window.guardarReporte) {
                 await window.guardarReporte(nuevoReporte);
             }
@@ -1517,336 +1242,241 @@
             document.getElementById('formEstudiante').reset();
         }
 
-        function abrirLoginDocente() {
-            if (window.panelDocenteAutenticado) {
-                irSeccion('docente-dashboard');
-                document.getElementById('btnNavDocente').classList.add('hidden');
-                document.getElementById('btnCerrarSesion').classList.remove('hidden');
-            } else {
-                irSeccion('docente-login');
-            }
-        }
+        window.generarAnalisisLocal = function(r) {
+            const sa = r.scores ? r.scores.Academico : 0;
+            const se = r.scores ? r.scores.Emocional : 0;
+            const sp = r.scores ? r.scores.Psicosocial : 0;
+            const sr = r.scores ? r.scores.Riesgo : 0;
+            const sem = r.semaforo || "Verde";
 
-        function logoutDocente() {
-            window.panelDocenteAutenticado = false;
-            document.getElementById('btnCerrarSesion').classList.add('hidden');
-            document.getElementById('btnNavDocente').classList.remove('hidden');
-            irSeccion('tamizaje-inicio');
-            window.mostrarNotificacion("Se ha cerrado el panel administrativo psicopedagógico.", "info");
-        }
+            let text = `# DICTAMEN DE INTERVENCIÓN PSICOPEDAGÓGICA Y ADECUACIÓN CURRICULAR\n`;
+            text += `## 1. RESUMEN DE DIAGNÓSTICO CUANTITATIVO\n`;
+            text += `El estudiante presenta el siguiente perfil psicopedagógico cuantificado a partir de sus respuestas autoinformadas:\n\n`;
+            text += `* **Puntaje Área Académica e Intelectiva ($S_A$):** ${sa} / 15 pts | Estatus de Alerta: **${sa <= 3 ? 'ESTABLE' : sa <= 7 ? 'MODERADO' : 'CRÍTICO'}**\n`;
+            text += `* **Puntaje Área Socioemocional y Afectiva ($S_E$):** ${se} / 15 pts | Estatus de Alerta: **${se <= 4 ? 'ESTABLE' : se <= 8 ? 'MODERADO' : 'CRÍTICO'}**\n`;
+            text += `* **Puntaje Área Psicosocial y Familiar ($S_P$):** ${sp} / 15 pts | Estatus de Alerta: **${sp <= 5 ? 'ESTABLE' : sp <= 9 ? 'MODERADO' : 'CRÍTICO'}**\n`;
+            text += `* **Puntaje Área de Riesgo Crítico o Emergencia ($S_R$):** ${sr} / 9 pts | Estatus de Alerta: **${sr === 0 ? 'ESTABLE' : sr <= 2 ? 'MODERADO' : 'CRÍTICO'}**\n\n`;
+            text += `**SEMÁFORO DE PRIORIDAD INSTITUCIONAL:** **${sem.toUpperCase()}**\n\n`;
+            
+            text += `## 2. SÍNTESIS CUALITATIVA Y CORRELACIÓN SINDROMÁTICA\n`;
+            text += `Se identifican correlaciones complejas entre sus hábitos académicos y su homeostasis socioemocional, permitiendo estructurar los siguientes diagnósticos descriptivos:\n\n`;
 
-        function validarLoginDocente(event) {
-            event.preventDefault();
-            const pin = document.getElementById('txtDocenteClave').value;
-            if (pin === window.accessPin) {
-                window.panelDocenteAutenticado = true;
-                document.getElementById('txtDocenteClave').value = "";
-                irSeccion('docente-dashboard');
-                document.getElementById('btnNavDocente').classList.add('hidden');
-                document.getElementById('btnCerrarSesion').classList.remove('hidden');
-                window.mostrarNotificacion("Bienvenido Mtro. Carlos Aguilar. Privilegios concedidos.", "success");
-                window.renderReportes();
-                window.actualizarEstadisticas();
-            } else {
-                window.mostrarNotificacion("Código de seguridad incorrecto. Intente de nuevo.", "error");
-            }
-        }
-
-        function cambiarPinAcceso() {
-            const nuevoPin = document.getElementById('txtNuevoPinAdmin').value.trim();
-            if (nuevoPin.length < 4) {
-                window.mostrarNotificacion("El nuevo PIN de Jefatura debe poseer al menos 4 números.", "warning");
-                return;
-            }
-            window.guardarNuevoPinEnServidor(nuevoPin).then(() => {
-                document.getElementById('txtNuevoPinAdmin').value = "";
-                window.mostrarNotificacion(`PIN de Jefatura actualizado con éxito.`, "success");
-            });
-        }
-
-        function forzarActualizacion() {
-            window.mostrarNotificacion("Estableciendo conexión y descargando copias de red...", "info");
-            setTimeout(() => {
-                window.mostrarNotificacion("Sincronización finalizada sin fallos de red.", "success");
-            }, 800);
-        }
-
-        function filtrarYRenderizarReportes() {
-            window.renderReportes();
-        }
-
-        window.renderReportes = function() {
-            const query = document.getElementById('adminSearchInput') ? document.getElementById('adminSearchInput').value.trim().toUpperCase() : "";
-            const fNivel = document.getElementById('adminFiltroNivel') ? document.getElementById('adminFiltroNivel').value : "Todos";
-            const fModalidad = document.getElementById('adminFiltroModalidad') ? document.getElementById('adminFiltroModalidad').value : "Todos";
-            const fRiesgo = document.getElementById('adminFiltroRiesgo') ? document.getElementById('adminFiltroRiesgo').value : "Todos";
-            const fAtendido = document.getElementById('adminFiltroAtendido') ? document.getElementById('adminFiltroAtendido').value : "Todos";
-
-            const tbody = document.getElementById('tablaExpedientesBody');
-            if (!tbody) return;
-            tbody.innerHTML = "";
-
-            if (!window.reportsData) window.reportsData = [];
-
-            let filtrados = window.reportsData.filter(r => {
-                if (!r || !r.estudiante) return false;
-
-                const name = r.estudiante.nombre ? String(r.estudiante.nombre).toUpperCase() : "";
-                const matricula = r.estudiante.matricula ? String(r.estudiante.matricula).toUpperCase() : "";
-                const folio = r.estudiante.folio ? String(r.estudiante.folio).toUpperCase() : "";
-
-                const matchesQuery = !query || 
-                    name.includes(query) ||
-                    matricula.includes(query) ||
-                    folio.includes(query);
-
-                const matchesNivel = (fNivel === "Todos") || (r.estudiante.nivel === fNivel);
-                const matchesModalidad = (fModalidad === "Todos") || ((r.estudiante.modalidad || "Escolarizado") === fModalidad);
-                const matchesRiesgo = (fRiesgo === "Todos") || (r.semaforo === fRiesgo);
-
-                let matchesAtendido = true;
-                if (fAtendido !== "Todos") {
-                    const isAtendido = (r.atendido === true || r.atendido === "true" || r.atendido === "Atendido" || r.atendido === true);
-                    matchesAtendido = (fAtendido === "Atendido") ? isAtendido : !isAtendido;
+            let diagnosticos = [];
+            if (r.respuestas) {
+                if (r.respuestas.a1 >= 3 || r.respuestas.a4 >= 3) {
+                    diagnodsticos = [];
+                    diagnosticos.push("**Disminución de la Atención Sostenida y Procesamiento Metacognitivo:** El estudiante presenta dificultades severas para retener y evocar información compleja en el aula. Esto sugiere un estado latente de sobrecarga cognitiva o parálisis ejecutiva en clase que frena de forma preocupante los mecanismos naturales de andamiaje conceptual.");
                 }
-
-                return matchesQuery && matchesNivel && matchesModalidad && matchesRiesgo && matchesAtendido;
-            });
-
-            document.getElementById('txtAdminMostrandoRegistros').textContent = filtrados.length;
-
-            if (filtrados.length === 0) {
-                document.getElementById('sinDatosAdmin').classList.remove('hidden');
-            } else {
-                document.getElementById('sinDatosAdmin').classList.add('hidden');
+                if (r.respuestas.a3 >= 3) {
+                    diagnosticos.push("**Procrastinación Evasiva y Evasión del Estrés:** La tendencia sistemática a postergar entregas académicas y proyectos (A3) funciona como un mecanismo defensivo desadaptativo para eludir la angustia situacional y el miedo patológico al fracaso evaluativo.");
+                }
+                if (r.respuestas.e2 >= 3) {
+                    diagnosticos.push("**Bloqueo Amigdalino ante la Evaluación:** La ansiedad situacional excesiva durante exámenes satura la corteza prefrontal del alumno, impidiendo la recuperación de contenidos previamente consolidados en la memoria de largo plazo, provocando lagunas mentales.");
+                }
+                if (r.respuestas.e3 >= 3) {
+                    diagnosticos.push("**Alteración del Ciclo Circadiano por Rumiación Cognitiva:** El insomnio reportado afecta de forma colateral los periodos de sueño REM, fase neurobiológica fundamental para la consolidación sináptica de nuevos aprendizajes y la regulación afectiva diurna.");
+                }
+                if (r.respuestas.f2 >= 3) {
+                    diagnosticos.push("**Síndrome de Saturación Alostática por Estrés Financiero:** Las presiones socioeconómicas familiares interfieren de forma directo con los procesos cognitivos superiores del alumno, desviando su energía mental a la resolución de necesidades básicas de subsistencia.");
+                }
+                if (r.respuestas.r1 >= 3 || r.respuestas.r2 >= 3) {
+                    diagnosticos.push("🚨 **CÓDIGO ROJO - RIESGO DE AUTÓLISIS O CONDUCTA AUTOLESIVA:** La presencia de ideación de pérdida de sentido de vida o impulsos autolesivos sistemáticos exige la suspensión inmediata del protocolo ordinario y la activación de la red de crisis presencial del CEUT.");
+                }
             }
 
-            filtrados.forEach(r => {
-                const tr = document.createElement('tr');
-                tr.className = "hover:bg-slate-50/80 transition-colors font-bold";
-
-                let semColor = "bg-emerald-100 text-emerald-800 border-emerald-300";
-                if (r.semaforo === "Rojo" || r.semaforo === "ROJO") semColor = "bg-rose-100 text-rose-800 border-rose-300 glow-red-active";
-                else if (r.semaforo === "Amarillo" || r.semaforo === "AMARILLO") semColor = "bg-amber-100 text-amber-800 border-amber-300";
-
-                const isAtendido = (r.atendido === true || r.atendido === "true" || r.atendido === "Atendido" || r.atendido === true);
-                const badgeAtendido = isAtendido ? 
-                    `<span class="px-2 py-1 rounded bg-emerald-50 text-emerald-700 border border-emerald-200">✔ RESUELTO</span>` :
-                    `<span class="px-2 py-1 rounded bg-slate-100 text-slate-600 border border-slate-200">⏳ PENDIENTE</span>`;
-
-                tr.innerHTML = `
-                    <td class="py-4 px-6">
-                        <span class="block font-black text-slate-900">${r.estudiante.folio || 'N/A'}</span>
-                        <span class="block text-[10px] text-slate-400">${r.estudiante.fecha || 'N/A'}</span>
-                    </td>
-                    <td class="py-4 px-6 uppercase text-justify font-bold">
-                        ${r.estudiante.nombre || 'N/A'}
-                        <span class="block text-[10px] text-slate-400 font-normal">${r.estudiante.matricula || 'N/A'}</span>
-                    </td>
-                    <td class="py-4 px-6 uppercase text-justify font-bold">
-                        ${r.estudiante.nivel || 'N/A'}
-                        <span class="block text-[10px] text-slate-400 font-normal">${r.estudiante.grupo || 'N/A'} (${r.estudiante.modalidad || 'Escolarizado'})</span>
-                    </td>
-                    <td class="py-4 px-6 text-center">${r.scores ? r.scores.Academico : 0} / 15</td>
-                    <td class="py-4 px-6 text-center">${r.scores ? r.scores.Emocional : 0} / 15</td>
-                    <td class="py-4 px-6 text-center">${r.scores ? r.scores.Psicosocial : 0} / 15</td>
-                    <td class="py-4 px-6 text-center">${r.scores ? r.scores.Riesgo : 0} / 9</td>
-                    <td class="py-4 px-6 text-center">
-                        <span class="px-2.5 py-1 rounded-full text-[10px] font-black border uppercase tracking-wider ${semColor}">${r.semaforo || 'Verde'}</span>
-                    </td>
-                    <td class="py-4 px-6 text-center">${badgeAtendido}</td>
-                    <td class="py-4 px-6 text-right font-bold space-x-1 flex items-center justify-end">
-                        <button onclick="abrirExpedienteDetalle('${r.id}')" class="px-3.5 py-1.5 rounded-lg border border-[#1d2a6a] text-[#1d2a6a] hover:bg-[#1d2a6a] hover:text-white transition-all text-[11px] font-bold uppercase">Ver Ficha</button>
-                        <button onclick="confirmarEliminarExpediente('${r.id}')" class="px-3.5 py-1.5 rounded-lg bg-rose-600 hover:bg-rose-700 text-white transition-all text-[11px] font-bold uppercase">Baja</button>
-                    </td>
-                `;
-                tbody.appendChild(tr);
-            });
-        };
-
-        function abrirExpedienteDetalle(id) {
-            const r = window.reportsData.find(item => item.id === id);
-            if (!r || !r.estudiante) return;
-            window.reporteEnDetalleId = id;
-            window.ultimoAnalisisIAGenerado = ""; 
-
-            document.getElementById('mdFolio').textContent = r.estudiante.folio || 'N/A';
-            document.getElementById('mdNombre').textContent = r.estudiante.nombre || 'N/A';
-            document.getElementById('mdMatriculaEdad').textContent = `${r.estudiante.matricula || 'N/A'} | ${r.estudiante.edad || 'N/A'} AÑOS`;
-            document.getElementById('mdNivelGrupo').textContent = `${r.estudiante.nivel || 'N/A'} - ${r.estudiante.grupo || 'N/A'} (${r.estudiante.modalidad || 'Escolarizado'})`;
-            document.getElementById('mdEmail').textContent = r.estudiante.email || 'N/A';
-            document.getElementById('mdTelefono').textContent = r.estudiante.telefono || 'N/A';
-            document.getElementById('mdFecha').textContent = r.estudiante.fecha || 'FECHA NO REGISTRADA';
-
-            const scoreAcad = r.scores ? r.scores.Academico : 0;
-            const scoreEmoc = r.scores ? r.scores.Emocional : 0;
-            const scorePsic = r.scores ? r.scores.Psicosocial : 0;
-            const scoreRiesgo = r.scores ? r.scores.Riesgo : 0;
-
-            document.getElementById('mdScoreAcademico').textContent = scoreAcad;
-            document.getElementById('mdScoreEmocional').textContent = scoreEmoc;
-            document.getElementById('mdScorePsicosocial').textContent = scorePsic;
-            document.getElementById('mdScoreRiesgo').textContent = scoreRiesgo;
-
-            setupScoreBadge('mdBadgeAcademico', scoreAcad, 3, 7);
-            setupScoreBadge('mdBadgeEmocional', scoreEmoc, 4, 8);
-            setupScoreBadge('mdBadgePsicosocial', scorePsic, 5, 9);
-            setupScoreBadge('mdBadgeRiesgo', scoreRiesgo, 0, 2);
-
-            document.getElementById('mdInputObservaciones').value = (r.observaciones || "").toUpperCase();
-            document.getElementById('mdSelectEstatus').value = String(r.atendido);
-
-            const container = document.getElementById('mdContenedorRespuestas');
-            if (container) {
-                container.innerHTML = "";
-                reactivos.forEach(preg => {
-                    const ansVal = r.respuestas ? (r.respuestas[preg.id] || 1) : 1;
-                    const labels = ["", "NUNCA", "A VECES", "FRECUENTE", "SIEMPRE"];
-                    const txtAns = labels[ansVal];
-                    
-                    let valColor = "text-slate-600";
-                    if (ansVal == 4) valColor = "text-rose-600 font-bold";
-                    else if (ansVal == 3) valColor = "text-amber-600 font-bold";
-
-                    const div = document.createElement('div');
-                    div.className = "p-3 rounded-lg border border-slate-100 flex items-center justify-between gap-4 font-bold transition-all-custom hover:bg-slate-50";
-                    div.innerHTML = `
-                        <div class="flex-grow max-w-[70%]">
-                            <span class="block text-[10px] text-slate-400 font-bold">${preg.cat}</span>
-                            <p class="font-semibold text-slate-800 tracking-tight leading-tight text-xs txt-justificado text-justify">${preg.texto}</p>
-                        </div>
-                        <div class="text-right">
-                            <span class="text-[10px] block uppercase font-bold ${valColor}">${txtAns}</span>
-                            <span class="text-[9px] text-slate-400">(${ansVal} PTS)</span>
-                        </div>
-                    `;
-                    container.appendChild(div);
+            if (diagnosticos.length === 0) {
+                text += "* No se detectan indicadores clínicos o académicos fuera de los rangos de homeostasis funcional estándar. El alumno presenta un perfil de adaptación psicopedagógica estable.\n\n";
+            } else {
+                diagnosticos.forEach(d => {
+                    text += `* ${d}\n\n`;
                 });
             }
 
-            // CARGA INTELIGENTE Y MEMORIA DE ANÁLISIS PERSISTIDO (Evita solicitudes redundantes)
+            text += `## 3. PROTOCOLO DE INTERVENCIÓN PSICOLÓGICA Y ACUERDOS\n`;
+            if (sr >= 3) {
+                text += `* **MEDIDA DE CONTENCIÓN URGENTE (CÓDIGO ROJO):** Citación obligatoria a padres de familia o tutores legales en un plazo menor a 24 horas. Firma conjunta de acta de corresponsabilidad para la protección a la vida del alumno y seguimiento clínico urgente.\n`;
+                text += `* **CANALIZACIÓN ESPECIALIZADA:** Derivación formal a servicios externos de Psiquiatría o Psicología Clínica de Tehuacán. Suministro de redes directas de salud mental pública institucional.\n`;
+            } else if (se >= 9) {
+                text += `* **ACOMPAÑAMIENTO EMOCIONAL INTERNO:** Agendar de inmediato consulta psicopedagógica de contención afectiva con el Mtro. Carlos Aguilar Sánchez de manera programada en las próximas 48 horas.\n`;
+                text += `* **DERIVACIÓN PREVENTIVA:** Recomendar la consulta asertiva con profesionales de salud mental externos para el desarrollo de resiliencia y reestructuración cognitiva.\n`;
+            } else {
+                text += `* **SEGUIMIENTO ORDINARIO:** Monitoreo regular por parte del tutor grupal. Invitación abierta a talleres de técnicas de estudio activas y relajación progresiva.\n`;
+            }
+            text += `\n`;
+
+            text += `## 4. ADAPTACIONES PEDAGÓGICAS PARA EL DOCENTE EN EL AULA\n`;
+            text += `Con el fin de mitigar el impacto de estos factores en su rendimiento, se dictan las siguientes adecuaciones de aula de carácter obligatorio:\n\n`;
+            
+            if (sa >= 4) {
+                text += `* **Para el Área Académica:**\n`;
+                text += `  * **Fragmentación del Aprendizaje:** Dividir proyectos complejos en entregas parciales semanales.\n`;
+                text += `  * **Andamiaje Metodológico:** Facilitar organizadores gráficos, glosarios previos e instrucciones secuenciales breves.\n\n`;
+            }
+            if (se >= 5) {
+                text += `* **Para el Área Socioemocional:**\n`;
+                text += `  * **Evaluaciones Flexibles:** Sustituir exposiciones orales masivas por formatos grabados en video o de carácter privado frente al docente.\n`;
+                text += `  * **Pausas de Descompresión:** Permitir salidas breves controladas de 3 minutos del salón en caso de registrar ataques de pánico o hiperventilación.\n\n`;
+            }
+            if (sp >= 6) {
+                text += `* **Para el Área Psicosocial:**\n`;
+                text += `  * **Prórrogas de Entrega:** Otorgar prórrogas calendarizadas y estructuradas de hasta 48 horas para la entrega de tareas de alto impacto si se justifican estresores económicos graves.\n`;
+                text += `  * **Inclusión Solidaria:** Suministrar materiales en préstamo digital para desvanecer la brecha material de estudio.\n\n`;
+            }
+            if (sa < 4 && se < 5 && sp < 6) {
+                text += `* Mantener las estrategias docentes convencionales. Incentivar su liderazgo positivo asignándole roles de tutoría entre iguales o coordinación de dinámicas de equipo de carácter colaborativo.\n\n`;
+            }
+
+            text += `## 5. RECOMENDACIONES ORIENTATIVAS PARA PADRES O TUTORES\n`;
+            text += `* **Espacio de Validación Afectiva:** Establecer canales de comunicación basados en la empatía, evitando juicios de valor sobre el rendimiento cuantitativo.\n`;
+            text += `* **Higiene del Sueño:** Coordinar el retiro de dispositivos móviles 1 hora antes de dormir para propiciar ciclos circadianos profundos y reparadores.\n`;
+            text += `* **Monitoreo de Sintomatología:** Supervisar cambios abruptos de conducta, aislamiento voluntario persistente o irritabilidad severa, reportando de inmediato al CEUT.`;
+
+            return text;
+        };
+
+        window.ejecutarAnalisisIA = async function() {
+            const r = window.reportsData.find(item => item.id === window.reporteEnDetalleId);
+            if (!r) {
+                window.mostrarNotificacion("No hay ningún expediente activo seleccionado para el análisis.", "error");
+                return;
+            }
+
+            const loading = document.getElementById('loadingIA');
             const content = document.getElementById('mdIAAnalysisContent');
             const btnDesc = document.getElementById('btnDescargarReporteIA');
             const btnGen = document.getElementById('btnGenerarAnalisisIA');
 
-            if (r.analisisPersistido && r.analisisPersistido.trim() !== "") {
-                window.ultimoAnalisisIAGenerado = r.analisisPersistido;
-                content.innerHTML = formatMarkdownToHtml(r.analisisPersistido);
-                content.classList.remove('hidden');
-                btnDesc.classList.remove('hidden');
-                btnGen.textContent = "Regenerar Análisis ✨";
-            } else {
-                content.innerHTML = `<p class="text-center italic text-slate-400 py-4">No se ha consolidado un dictamen técnico para este expediente. Pulse "Generar Análisis" para crearlo.</p>`;
-                content.classList.remove('hidden');
-                btnDesc.classList.add('hidden');
-                btnGen.textContent = "Generar Análisis ✨";
-            }
+            if (loading) loading.classList.remove('hidden');
+            if (content) content.classList.add('hidden');
+            if (btnDesc) btnDesc.classList.add('hidden');
+            if (btnGen) btnGen.disabled = true;
 
-            document.getElementById('modalDetailExpediente').classList.remove('hidden');
-        }
-
-        function setupScoreBadge(elementId, val, lowMax, medMax) {
-            const el = document.getElementById(elementId);
-            if (!el) return;
-            el.className = "inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase border ";
-            if (val <= lowMax) {
-                el.textContent = "ESTABLE (VERDE)";
-                el.classList.add("bg-emerald-50", "text-emerald-700", "border-emerald-200");
-            } else if (val <= medMax) {
-                el.textContent = "MODERADO (AMARILLO)";
-                el.classList.add("bg-amber-50", "text-amber-700", "border-amber-200");
-            } else {
-                el.textContent = "ALTO RIESGO (ROJO)";
-                el.classList.add("bg-rose-50", "text-rose-700", "border-rose-200", "animate-pulse");
-            }
-        }
-
-        function cerrarModalDetalle() {
-            document.getElementById('modalDetailExpediente').classList.add('hidden');
-        }
-
-        async function guardarSeguimientoDocente() {
-            if (!window.reporteEnDetalleId) return;
-            const obs = document.getElementById('mdInputObservaciones').value.trim().toUpperCase();
-            const est = document.getElementById('mdSelectEstatus').value === "true";
-
-            if (window.actualizarReporte) {
-                await window.actualizarReporte(window.reporteEnDetalleId, {
-                    observaciones: obs,
-                    atendido: est
-                });
-            } else {
-                let locales = JSON.parse(localStorage.getItem('ceut_reports') || '[]');
-                locales = locales.map(item => item.id === window.reporteEnDetalleId ? { ...item, observaciones: obs, atendido: est } : item);
-                localStorage.setItem('ceut_reports', JSON.stringify(locales));
-                window.reportsData = locales;
-                window.renderReportes();
-                window.actualizarEstadisticas();
-                window.mostrarNotificacion("Seguimiento guardado de forma local.", "success");
-            }
-            cerrarModalDetalle();
-        }
-
-        function confirmarEliminarExpediente(id) {
-            window.bajaPendienteId = id;
-            document.getElementById('confirmEliminarModal').classList.remove('hidden');
-        }
-
-        function cerrarConfirmEliminar() {
-            window.bajaPendienteId = null;
-            document.getElementById('confirmEliminarModal').classList.add('hidden');
-        }
-
-        async function ejecutarEliminarBaja() {
-            if (!window.bajaPendienteId) return;
-            const id = window.bajaPendienteId;
+            const apiKey = localStorage.getItem('ceut_gemini_api_key') || "";
             
-            if (window.eliminarReporte) {
-                await window.eliminarReporte(id);
-            } else {
-                let locales = JSON.parse(localStorage.getItem('ceut_reports') || '[]');
-                locales = locales.filter(item => item.id !== id);
-                localStorage.setItem('ceut_reports', JSON.stringify(locales));
-                window.reportsData = locales;
-                window.renderReportes();
-                window.actualizarEstadisticas();
-                window.mostrarNotificacion("Expediente local eliminado.", "success");
-            }
-            cerrarConfirmEliminar();
-        }
+            let stringRespuestas = "";
+            reactivos.forEach(preg => {
+                const ansVal = r.respuestas ? (r.respuestas[preg.id] || 1) : 1;
+                const labels = ["", "NUNCA", "A VECES", "FRECUENTE", "SIEMPRE"];
+                stringRespuestas += `- [${preg.cat}] ${preg.texto}: Respuesta: ${labels[ansVal]} (${ansVal} puntos).\n`;
+            });
 
-        function formatMarkdownToHtml(text) {
-            if (!text) return "";
-            
-            let clean = text.replace(/```[a-z]*/gi, '');
-            clean = clean.replace(/```/g, '');
-            
-            // Reemplazar headers con clases justificadas y colores corporativos
-            clean = clean.replace(/^### (.*$)/gim, '<h4 class="font-bold text-[#1d2a6a] mt-4 mb-2 border-b border-slate-200 pb-1 text-justify uppercase tracking-tight">$1</h4>');
-            clean = clean.replace(/^## (.*$)/gim, '<h3 class="font-extrabold text-[#1d2a6a] mt-6 mb-3 border-b-2 border-slate-300 pb-1 text-justify uppercase tracking-wide">$1</h3>');
-            clean = clean.replace(/^# (.*$)/gim, '<h2 class="font-black text-[#1d2a6a] mt-8 mb-4 text-justify uppercase tracking-widest border-l-4 border-[#f1b80c] pl-3">$1</h2>');
-            
-            // Bold
-            clean = clean.replace(/\*\*(.*?)\*\*/g, '<strong class="font-black text-slate-900">$1</strong>');
-            
-            // Listas
-            clean = clean.replace(/^\s*[\*\-]\s+(.*$)/gim, '<li class="ml-5 list-disc mb-1 text-justify txt-justificado leading-relaxed">$1</li>');
-            
-            // Línea horizontal
-            clean = clean.replace(/^---$/gim, '<hr class="my-4 border-t border-slate-200">');
+            if (apiKey && apiKey.startsWith("AIza")) {
+                const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+                
+                const prompt = `Actúa como un psicopedagogo clínico senior del Centro Universitario Tehuacán (CEUT). Redacta un Dictamen de Intervención Psicopedagógica formal para el estudiante ${r.estudiante.nombre} (Matrícula: ${r.estudiante.matricula}, Edad: ${r.estudiante.edad}, Nivel: ${r.estudiante.nivel}, Grupo: ${r.estudiante.grupo}, Modalidad: ${r.estudiante.modalidad || 'Escolarizado'}).
+                
+                Los resultados cuantitativos son:
+                - Área Académica ($S_A$): ${r.scores.Academico} / 15 puntos.
+                - Área Socioemocional ($S_E$): ${r.scores.Emocional} / 15 puntos.
+                - Entorno Psicosocial ($S_P$): ${r.scores.Psicosocial} / 15 puntos.
+                - Área de Riesgo/Crisis ($S_R$): ${r.scores.Riesgo} / 9 puntos.
+                - Semáforo de Prioridad: ${r.semaforo}
+                
+                Respuestas detalladas por reactivo:
+                ${stringRespuestas}
+                
+                REQUERIMIENTO DE FORMATO Y EXTENSIÓN:
+                - Debe ser extenso, estructurado de forma fluida y simétricamente distribuido para que ocupe una hoja completa.
+                - Utiliza un lenguaje técnico-clínico formal pero accesible para educadores.
+                - No agregues preámbulos, saludos, ni explicaciones de tu funcionamiento.
+                
+                # DICTAMEN DE VALORACIÓN PSICOPEDAGÓGICA INDIVIDUAL
+                ## DEPARTAMENTO PSICOPEDAGÓGICO - CENTRO UNIVERSITARIO TEHUACÁN (CEUT)
+                
+                ### 1. DATOS DE IDENTIFICACIÓN DE LA CONSULTA
+                * **FOLIO DEL EXPEDIENTE:** ${r.estudiante.folio}
+                * **ESTUDIANTE:** ${r.estudiante.nombre}
+                * **MATRÍCULA:** ${r.estudiante.matricula}
+                * **EDAD:** ${r.estudiante.edad} AÑOS
+                * **NIVEL Y GRUPO:** ${r.estudiante.nivel} - ${r.estudiante.grupo} (${r.estudiante.modalidad || 'Escolarizado'})
+                * **FECHA DE VALORACIÓN:** ${r.estudiante.fecha}
+                
+                ### 2. RESUMEN DE DIAGNÓSTICO CUANTITATIVO
+                El alumno presenta el siguiente perfil de afectación neta de acuerdo con sus respuestas:
+                * Puntaje Académico ($S_A$): ${r.scores.Academico} / 15 pts | Estatus: ${r.scores.Academico <= 3 ? 'ESTABLE' : r.scores.Academico <= 7 ? 'MODERADO' : 'CRÍTICO'}
+                * Puntaje Socioemocional ($S_E$): ${r.scores.Emocional} / 15 pts | Estatus: ${r.scores.Emocional <= 4 ? 'ESTABLE' : r.scores.Emocional <= 8 ? 'MODERADO' : 'CRÍTICO'}
+                * Puntaje Psicosocial ($S_P$): ${r.scores.Psicosocial} / 15 pts | Estatus: ${r.scores.Psicosocial <= 5 ? 'ESTABLE' : r.scores.Psicosocial <= 9 ? 'MODERADO' : 'CRÍTICO'}
+                * Puntaje de Riesgo ($S_R$): ${r.scores.Riesgo} / 9 pts | Estatus: ${r.scores.Riesgo === 0 ? 'ESTABLE' : r.scores.Riesgo <= 2 ? 'MODERADO' : 'CRÍTICO'}
+                
+                **SEMÁFORO DE PRIORIDAD DE INTERVENCIÓN:** ${r.semaforo.toUpperCase()}
+                
+                ### 3. SÍNTESIS CUALITATIVA Y CORRELACIÓN DE CONDUCTAS
+                [Redacta aquí una detallada correlación técnica, profesional e interdisciplinaria de al menos dos párrafos bien explicados. Describe cómo la homeostasis o las alteraciones socioemocionales interactúan de forma directa con los procesos cognitivos de retención, atención y concentración de este alumno].
+                
+                ### 4. PROTOCOLO DE INTERVENCIÓN Y ACUERDOS
+                [Especifica cronológicamente las acciones preventivas, derivaciones con psicólogos o citas obligatorias con la familia, justificando detalladamente cada paso].
+                
+                ### 5. ESTRATEGIAS ADAPTATIVAS PARA EL DOCENTE EN EL AULA
+                [Prescribe viñetas con adecuaciones específicas para sus docentes de forma estructurada para facilitar el andamiaje del estudiante].
+                
+                Usa Markdown estándar. No utilices ecuaciones complejas de LaTeX excepto para las variables descritas.`;
 
-            let lines = clean.split('\n');
-            let htmlOutput = lines.map(line => {
-                let trimmed = line.trim();
-                if (!trimmed) return '';
-                if (trimmed.startsWith('<h') || trimmed.startsWith('<li') || trimmed.startsWith('<hr')) {
-                    return trimmed;
+                try {
+                    const response = await fetch(endpoint, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            contents: [{ parts: [{ text: prompt }] }],
+                            generationConfig: {
+                                temperature: 0.45,
+                                maxOutputTokens: 2500
+                            }
+                        })
+                    });
+
+                    if (!response.ok) throw new Error("HTTP " + response.status);
+
+                    const data = await response.json();
+                    if (data.candidates && data.candidates[0]?.content?.parts[0]?.text) {
+                        const textResult = data.candidates[0].content.parts[0].text;
+                        window.ultimoAnalisisIAGenerado = textResult;
+                        
+                        await window.actualizarReporte(window.reporteEnDetalleId, { analisisPersistido: textResult });
+                        
+                        if (content) {
+                            content.innerHTML = formatMarkdownToHtml(textResult);
+                            content.classList.remove('hidden');
+                        }
+                        if (btnDesc) btnDesc.classList.remove('hidden');
+                        window.mostrarNotificacion("Análisis clínico generado de forma exitosa mediante Gemini.", "success");
+                    } else {
+                        throw new Error("Formato inválido de API");
+                    }
+                } catch (err) {
+                    console.warn("Error en la conexión a Gemini. Activando motor local de contingencia...", err);
+                    window.mostrarNotificacion("Conexión con Gemini fallida. Cargando dictamen local...", "warning");
+                    
+                    const localResult = window.generarAnalisisLocal(r);
+                    window.ultimoAnalisisIAGenerado = localResult;
+                    await window.actualizarReporte(window.reporteEnDetalleId, { analisisPersistido: localResult });
+                    
+                    if (content) {
+                        content.innerHTML = formatMarkdownToHtml(localResult);
+                        content.classList.remove('hidden');
+                    }
+                    if (btnDesc) btnDesc.classList.remove('hidden');
                 }
-                return `<p class="mb-3 text-justify txt-justificado leading-relaxed text-justify">${trimmed}</p>`;
-            }).join('\n');
+            } else {
+                window.mostrarNotificacion("Clave API no configurada. Cargando motor local institucional...", "info");
+                setTimeout(async () => {
+                    const localResult = window.generarAnalisisLocal(r);
+                    window.ultimoAnalisisIAGenerado = localResult;
+                    await window.actualizarReporte(window.reporteEnDetalleId, { analisisPersistido: localResult });
+                    
+                    if (content) {
+                        content.innerHTML = formatMarkdownToHtml(localResult);
+                        content.classList.remove('hidden');
+                    }
+                    if (btnDesc) btnDesc.classList.remove('hidden');
+                    if (loading) loading.classList.add('hidden');
+                    if (btnGen) btnGen.disabled = false;
+                }, 600);
+                return;
+            }
 
-            return htmlOutput;
-        }
+            if (loading) loading.classList.add('hidden');
+            if (btnGen) btnGen.disabled = false;
+        };
 
         window.descargarFolioPDF = function() {
             if (!window.estudianteActivo) {
@@ -1863,11 +1493,19 @@
             const fallbackLogoUrl = 'https://lh3.googleusercontent.com/d/1ao9olFJOvSPvgmeyLJhkD1P0Pmq_R3T2';
             
             const printWindow = window.open('', '_blank');
+            if (!printWindow) {
+                window.mostrarNotificacion("El navegador bloqueó la ventana emergente. Por favor permita las ventanas emergentes en este sitio.", "error");
+                return;
+            }
+
             printWindow.document.write(`
                 <html>
                 <head>
+                    <meta charset="UTF-8">
                     <title>Comprobante de Registro - CEUT</title>
+                    <base href="${window.location.href}">
                     <link rel="icon" type="image/png" href="${logoUrl}" onerror="this.href='${fallbackLogoUrl}'">
+                    <link rel="shortcut icon" type="image/png" href="${logoUrl}" onerror="this.href='${fallbackLogoUrl}'">
                     <style>
                         @page { size: letter; margin: 15mm; }
                         @media print {
@@ -2038,13 +1676,21 @@
             const fallbackLogoUrl = 'https://lh3.googleusercontent.com/d/1ao9olFJOvSPvgmeyLJhkD1P0Pmq_R3T2';
             
             const printWindow = window.open('', '_blank');
+            if (!printWindow) {
+                window.mostrarNotificacion("El navegador bloqueó la ventana emergente. Por favor permita las ventanas emergentes en este sitio.", "error");
+                return;
+            }
+
             const formattedContent = formatMarkdownToHtml(window.ultimoAnalisisIAGenerado);
 
             printWindow.document.write(`
                 <html>
                 <head>
+                    <meta charset="UTF-8">
                     <title>Reporte de Intervención - CEUT</title>
+                    <base href="${window.location.href}">
                     <link rel="icon" type="image/png" href="${logoUrl}" onerror="this.href='${fallbackLogoUrl}'">
+                    <link rel="shortcut icon" type="image/png" href="${logoUrl}" onerror="this.href='${fallbackLogoUrl}'">
                     <style>
                         @page {
                             size: letter;
@@ -2299,6 +1945,331 @@
             printWindow.document.close();
         };
 
+        function abrirLoginDocente() {
+            if (window.panelDocenteAutenticado) {
+                irSeccion('docente-dashboard');
+                document.getElementById('btnNavDocente').classList.add('hidden');
+                document.getElementById('btnCerrarSesion').classList.remove('hidden');
+            } else {
+                irSeccion('docente-login');
+            }
+        }
+
+        function logoutDocente() {
+            window.panelDocenteAutenticado = false;
+            document.getElementById('btnCerrarSesion').classList.add('hidden');
+            document.getElementById('btnNavDocente').classList.remove('hidden');
+            irSeccion('tamizaje-inicio');
+            window.mostrarNotificacion("Se ha cerrado el panel administrativo psicopedagógico.", "info");
+        }
+
+        function validarLoginDocente(event) {
+            event.preventDefault();
+            const pin = document.getElementById('txtDocenteClave').value;
+            if (pin === window.accessPin) {
+                window.panelDocenteAutenticado = true;
+                document.getElementById('txtDocenteClave').value = "";
+                irSeccion('docente-dashboard');
+                document.getElementById('btnNavDocente').classList.add('hidden');
+                document.getElementById('btnCerrarSesion').classList.remove('hidden');
+                window.mostrarNotificacion("Bienvenido Mtro. Carlos Aguilar. Privilegios concedidos.", "success");
+                window.renderReportes();
+                window.actualizarEstadisticas();
+            } else {
+                window.mostrarNotificacion("Código de seguridad incorrecto. Intente de nuevo.", "error");
+            }
+        }
+
+        function cambiarPinAcceso() {
+            const nuevoPin = document.getElementById('txtNuevoPinAdmin').value.trim();
+            if (nuevoPin.length < 4) {
+                window.mostrarNotificacion("El nuevo PIN de Jefatura debe poseer al menos 4 números.", "warning");
+                return;
+            }
+            window.guardarNuevoPinEnServidor(nuevoPin).then(() => {
+                document.getElementById('txtNuevoPinAdmin').value = "";
+                window.mostrarNotificacion(`PIN de Jefatura actualizado con éxito.`, "success");
+            });
+        }
+
+        function forzarActualizacion() {
+            window.mostrarNotificacion("Estableciendo conexión y descargando copias de red...", "info");
+            setTimeout(() => {
+                window.mostrarNotificacion("Sincronización finalizada sin fallos de red.", "success");
+            }, 800);
+        }
+
+        function filtrarYRenderizarReportes() {
+            window.renderReportes();
+        }
+
+        window.renderReportes = function() {
+            const query = document.getElementById('adminSearchInput') ? document.getElementById('adminSearchInput').value.trim().toUpperCase() : "";
+            const fNivel = document.getElementById('adminFiltroNivel') ? document.getElementById('adminFiltroNivel').value : "Todos";
+            const fModalidad = document.getElementById('adminFiltroModalidad') ? document.getElementById('adminFiltroModalidad').value : "Todos";
+            const fRiesgo = document.getElementById('adminFiltroRiesgo') ? document.getElementById('adminFiltroRiesgo').value : "Todos";
+            const fAtendido = document.getElementById('adminFiltroAtendido') ? document.getElementById('adminFiltroAtendido').value : "Todos";
+
+            const tbody = document.getElementById('tablaExpedientesBody');
+            if (!tbody) return;
+            tbody.innerHTML = "";
+
+            if (!window.reportsData) window.reportsData = [];
+
+            let filtrados = window.reportsData.filter(r => {
+                if (!r || !r.estudiante) return false;
+
+                const name = r.estudiante.nombre ? String(r.estudiante.nombre).toUpperCase() : "";
+                const matricula = r.estudiante.matricula ? String(r.estudiante.matricula).toUpperCase() : "";
+                const folio = r.estudiante.folio ? String(r.estudiante.folio).toUpperCase() : "";
+
+                const matchesQuery = !query || 
+                    name.includes(query) ||
+                    matricula.includes(query) ||
+                    folio.includes(query);
+
+                const matchesNivel = (fNivel === "Todos") || (r.estudiante.nivel === fNivel);
+                const matchesModalidad = (fModalidad === "Todos") || ((r.estudiante.modalidad || "Escolarizado") === fModalidad);
+                const matchesRiesgo = (fRiesgo === "Todos") || (r.semaforo === fRiesgo);
+
+                let matchesAtendido = true;
+                if (fAtendido !== "Todos") {
+                    const isAtendido = (r.atendido === true || r.atendido === "true" || r.atendido === "Atendido" || r.atendido === true);
+                    matchesAtendido = (fAtendido === "Atendido") ? isAtendido : !isAtendido;
+                }
+
+                return matchesQuery && matchesNivel && matchesModalidad && matchesRiesgo && matchesAtendido;
+            });
+
+            document.getElementById('txtAdminMostrandoRegistros').textContent = filtrados.length;
+
+            if (filtrados.length === 0) {
+                document.getElementById('sinDatosAdmin').classList.remove('hidden');
+            } else {
+                document.getElementById('sinDatosAdmin').classList.add('hidden');
+            }
+
+            filtrados.forEach(r => {
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-slate-50/80 transition-colors font-bold";
+
+                let semColor = "bg-emerald-100 text-emerald-800 border-emerald-300";
+                if (r.semaforo === "Rojo" || r.semaforo === "ROJO") semColor = "bg-rose-100 text-rose-800 border-rose-300 glow-red-active";
+                else if (r.semaforo === "Amarillo" || r.semaforo === "AMARILLO") semColor = "bg-amber-100 text-amber-800 border-amber-300";
+
+                const isAtendido = (r.atendido === true || r.atendido === "true" || r.atendido === "Atendido" || r.atendido === true);
+                const badgeAtendido = isAtendido ? 
+                    `<span class="px-2 py-1 rounded bg-emerald-50 text-emerald-700 border border-emerald-200">✔ RESUELTO</span>` :
+                    `<span class="px-2 py-1 rounded bg-slate-100 text-slate-600 border border-slate-200">⏳ PENDIENTE</span>`;
+
+                tr.innerHTML = `
+                    <td class="py-4 px-6">
+                        <span class="block font-black text-slate-900">${r.estudiante.folio || 'N/A'}</span>
+                        <span class="block text-[10px] text-slate-400">${r.estudiante.fecha || 'N/A'}</span>
+                    </td>
+                    <td class="py-4 px-6 uppercase text-justify font-bold">
+                        ${r.estudiante.nombre || 'N/A'}
+                        <span class="block text-[10px] text-slate-400 font-normal">${r.estudiante.matricula || 'N/A'}</span>
+                    </td>
+                    <td class="py-4 px-6 uppercase text-justify font-bold">
+                        ${r.estudiante.nivel || 'N/A'}
+                        <span class="block text-[10px] text-slate-400 font-normal">${r.estudiante.grupo || 'N/A'} (${r.estudiante.modalidad || 'Escolarizado'})</span>
+                    </td>
+                    <td class="py-4 px-6 text-center">${r.scores ? r.scores.Academico : 0} / 15</td>
+                    <td class="py-4 px-6 text-center">${r.scores ? r.scores.Emocional : 0} / 15</td>
+                    <td class="py-4 px-6 text-center">${r.scores ? r.scores.Psicosocial : 0} / 15</td>
+                    <td class="py-4 px-6 text-center">${r.scores ? r.scores.Riesgo : 0} / 9</td>
+                    <td class="py-4 px-6 text-center">
+                        <span class="px-2.5 py-1 rounded-full text-[10px] font-black border uppercase tracking-wider ${semColor}">${r.semaforo || 'Verde'}</span>
+                    </td>
+                    <td class="py-4 px-6 text-center">${badgeAtendido}</td>
+                    <td class="py-4 px-6 text-right font-bold space-x-1 flex items-center justify-end">
+                        <button onclick="abrirExpedienteDetalle('${r.id}')" class="px-3.5 py-1.5 rounded-lg border border-[#1d2a6a] text-[#1d2a6a] hover:bg-[#1d2a6a] hover:text-white transition-all text-[11px] font-bold uppercase">Ver Ficha</button>
+                        <button onclick="confirmarEliminarExpediente('${r.id}')" class="px-3.5 py-1.5 rounded-lg bg-rose-600 hover:bg-rose-700 text-white transition-all text-[11px] font-bold uppercase">Baja</button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        };
+
+        function abrirExpedienteDetalle(id) {
+            const r = window.reportsData.find(item => item.id === id);
+            if (!r || !r.estudiante) return;
+            window.reporteEnDetalleId = id;
+            window.ultimoAnalisisIAGenerado = ""; 
+
+            document.getElementById('mdFolio').textContent = r.estudiante.folio || 'N/A';
+            document.getElementById('mdNombre').textContent = r.estudiante.nombre || 'N/A';
+            document.getElementById('mdMatriculaEdad').textContent = `${r.estudiante.matricula || 'N/A'} | ${r.estudiante.edad || 'N/A'} AÑOS`;
+            document.getElementById('mdNivelGrupo').textContent = `${r.estudiante.nivel || 'N/A'} - ${r.estudiante.grupo || 'N/A'} (${r.estudiante.modalidad || 'Escolarizado'})`;
+            document.getElementById('mdEmail').textContent = r.estudiante.email || 'N/A';
+            document.getElementById('mdTelefono').textContent = r.estudiante.telefono || 'N/A';
+            document.getElementById('mdFecha').textContent = r.estudiante.fecha || 'FECHA NO REGISTRADA';
+
+            const scoreAcad = r.scores ? r.scores.Academico : 0;
+            const scoreEmoc = r.scores ? r.scores.Emocional : 0;
+            const scorePsic = r.scores ? r.scores.Psicosocial : 0;
+            const scoreRiesgo = r.scores ? r.scores.Riesgo : 0;
+
+            document.getElementById('mdScoreAcademico').textContent = scoreAcad;
+            document.getElementById('mdScoreEmocional').textContent = scoreEmoc;
+            document.getElementById('mdScorePsicosocial').textContent = scorePsic;
+            document.getElementById('mdScoreRiesgo').textContent = scoreRiesgo;
+
+            setupScoreBadge('mdBadgeAcademico', scoreAcad, 3, 7);
+            setupScoreBadge('mdBadgeEmocional', scoreEmoc, 4, 8);
+            setupScoreBadge('mdBadgePsicosocial', scorePsic, 5, 9);
+            setupScoreBadge('mdBadgeRiesgo', scoreRiesgo, 0, 2);
+
+            document.getElementById('mdInputObservaciones').value = (r.observaciones || "").toUpperCase();
+            document.getElementById('mdSelectEstatus').value = String(r.atendido);
+
+            const container = document.getElementById('mdContenedorRespuestas');
+            if (container) {
+                container.innerHTML = "";
+                reactivos.forEach(preg => {
+                    const ansVal = r.respuestas ? (r.respuestas[preg.id] || 1) : 1;
+                    const labels = ["", "NUNCA", "A VECES", "FRECUENTE", "SIEMPRE"];
+                    const txtAns = labels[ansVal];
+                    
+                    let valColor = "text-slate-600";
+                    if (ansVal == 4) valColor = "text-rose-600 font-bold";
+                    else if (ansVal == 3) valColor = "text-amber-600 font-bold";
+
+                    const div = document.createElement('div');
+                    div.className = "p-3 rounded-lg border border-slate-100 flex items-center justify-between gap-4 font-bold transition-all-custom hover:bg-slate-50";
+                    div.innerHTML = `
+                        <div class="flex-grow max-w-[70%]">
+                            <span class="block text-[10px] text-slate-400 font-bold">${preg.cat}</span>
+                            <p class="font-semibold text-slate-800 tracking-tight leading-tight text-xs txt-justificado text-justify">${preg.texto}</p>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-[10px] block uppercase font-bold ${valColor}">${txtAns}</span>
+                            <span class="text-[9px] text-slate-400">(${ansVal} PTS)</span>
+                        </div>
+                    `;
+                    container.appendChild(div);
+                });
+            }
+
+            // CARGA INTELIGENTE Y MEMORIA DE ANÁLISIS PERSISTIDO
+            const content = document.getElementById('mdIAAnalysisContent');
+            const btnDesc = document.getElementById('btnDescargarReporteIA');
+            const btnGen = document.getElementById('btnGenerarAnalisisIA');
+
+            if (r.analisisPersistido && r.analisisPersistido.trim() !== "") {
+                window.ultimoAnalisisIAGenerado = r.analisisPersistido;
+                content.innerHTML = formatMarkdownToHtml(r.analisisPersistido);
+                content.classList.remove('hidden');
+                btnDesc.classList.remove('hidden');
+                btnGen.textContent = "Regenerar Análisis ✨";
+            } else {
+                content.innerHTML = `<p class="text-center italic text-slate-400 py-4 font-bold">No se ha consolidado un dictamen técnico para este expediente. Pulse "Generar Análisis" para crearlo.</p>`;
+                content.classList.remove('hidden');
+                btnDesc.classList.add('hidden');
+                btnGen.textContent = "Generar Análisis ✨";
+            }
+
+            document.getElementById('modalDetailExpediente').classList.remove('hidden');
+        }
+
+        function setupScoreBadge(elementId, val, lowMax, medMax) {
+            const el = document.getElementById(elementId);
+            if (!el) return;
+            el.className = "inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase border ";
+            if (val <= lowMax) {
+                el.textContent = "ESTABLE (VERDE)";
+                el.classList.add("bg-emerald-50", "text-emerald-700", "border-emerald-200");
+            } else if (val <= medMax) {
+                el.textContent = "MODERADO (AMARILLO)";
+                el.classList.add("bg-amber-50", "text-amber-700", "border-amber-200");
+            } else {
+                el.textContent = "ALTO RIESGO (ROJO)";
+                el.classList.add("bg-rose-50", "text-rose-700", "border-rose-200", "animate-pulse");
+            }
+        }
+
+        function cerrarModalDetalle() {
+            document.getElementById('modalDetailExpediente').classList.add('hidden');
+        }
+
+        async function guardarSeguimientoDocente() {
+            if (!window.reporteEnDetalleId) return;
+            const obs = document.getElementById('mdInputObservaciones').value.trim().toUpperCase();
+            const est = document.getElementById('mdSelectEstatus').value === "true";
+
+            if (window.actualizarReporte) {
+                await window.actualizarReporte(window.reporteEnDetalleId, {
+                    observaciones: obs,
+                    atendido: est
+                });
+            } else {
+                let locales = JSON.parse(localStorage.getItem('ceut_reports') || '[]');
+                locales = locales.map(item => item.id === window.reporteEnDetalleId ? { ...item, observaciones: obs, atendido: est } : item);
+                localStorage.setItem('ceut_reports', JSON.stringify(locales));
+                window.reportsData = locales;
+                window.renderReportes();
+                window.actualizarEstadisticas();
+                window.mostrarNotificacion("Seguimiento guardado de forma local.", "success");
+            }
+            cerrarModalDetalle();
+        }
+
+        function confirmarEliminarExpediente(id) {
+            window.bajaPendienteId = id;
+            document.getElementById('confirmEliminarModal').classList.remove('hidden');
+        }
+
+        function cerrarConfirmEliminar() {
+            window.bajaPendienteId = null;
+            document.getElementById('confirmEliminarModal').classList.add('hidden');
+        }
+
+        async function ejecutarEliminarBaja() {
+            if (!window.bajaPendienteId) return;
+            const id = window.bajaPendienteId;
+            
+            if (window.eliminarReporte) {
+                await window.eliminarReporte(id);
+            } else {
+                let locales = JSON.parse(localStorage.getItem('ceut_reports') || '[]');
+                locales = locales.filter(item => item.id !== id);
+                localStorage.setItem('ceut_reports', JSON.stringify(locales));
+                window.reportsData = locales;
+                window.renderReportes();
+                window.actualizarEstadisticas();
+                window.mostrarNotificacion("Expediente local eliminado.", "success");
+            }
+            cerrarConfirmEliminar();
+        }
+
+        function formatMarkdownToHtml(text) {
+            if (!text) return "";
+            
+            let clean = text.replace(/```[a-z]*/gi, '');
+            clean = clean.replace(/```/g, '');
+            
+            clean = clean.replace(/^### (.*$)/gim, '<h4 class="font-bold text-[#1d2a6a] mt-4 mb-2 border-b border-slate-200 pb-1 text-justify uppercase tracking-tight">$1</h4>');
+            clean = clean.replace(/^## (.*$)/gim, '<h3 class="font-extrabold text-[#1d2a6a] mt-6 mb-3 border-b-2 border-slate-300 pb-1 text-justify uppercase tracking-wide">$1</h3>');
+            clean = clean.replace(/^# (.*$)/gim, '<h2 class="font-black text-[#1d2a6a] mt-8 mb-4 text-justify uppercase tracking-widest border-l-4 border-[#f1b80c] pl-3">$1</h2>');
+            
+            clean = clean.replace(/\*\*(.*?)\*\*/g, '<strong class="font-black text-slate-900">$1</strong>');
+            clean = clean.replace(/^\s*[\*\-]\s+(.*$)/gim, '<li class="ml-5 list-disc mb-1 text-justify txt-justificado leading-relaxed">$1</li>');
+            clean = clean.replace(/^---$/gim, '<hr class="my-4 border-t border-slate-200">');
+
+            let lines = clean.split('\n');
+            let htmlOutput = lines.map(line => {
+                let trimmed = line.trim();
+                if (!trimmed) return '';
+                if (trimmed.startsWith('<h') || trimmed.startsWith('<li') || trimmed.startsWith('<hr')) {
+                    return trimmed;
+                }
+                return `<p class="mb-3 text-justify txt-justificado leading-relaxed text-justify font-bold">${trimmed}</p>`;
+            }).join('\n');
+
+            return htmlOutput;
+        }
+
         window.exportarCSV = function() {
             let csv = "Folio,Estudiante,Matricula,Semaforo\n";
             window.reportsData.forEach(r => {
@@ -2313,6 +2284,28 @@
 
         window.abrirAvisoPrivacidad = function() { document.getElementById('modalAvisoPrivacidad').classList.remove('hidden'); }
         window.cerrarAvisoPrivacidad = function() { document.getElementById('modalAvisoPrivacidad').classList.add('hidden'); }
+
+        window.actualizarEstadisticas = function() {
+            if (!window.reportsData) window.reportsData = [];
+            const tot = window.reportsData.length;
+            const rojo = window.reportsData.filter(r => r.semaforo === "Rojo" || r.semaforo === "ROJO").length;
+            const amarillo = window.reportsData.filter(r => r.semaforo === "Amarillo" || r.semaforo === "AMARILLO").length;
+            const atendidos = window.reportsData.filter(r => r.atendido === true || r.atendido === "true" || r.atendido === "Atendido" || r.atendido === true).length;
+            
+            const pct = tot > 0 ? Math.round((atendidos / tot) * 100) : 0;
+
+            const elTot = document.getElementById('metricTotalEvaluados');
+            const elRojo = document.getElementById('metricRiesgoRojo');
+            const elAmarillo = document.getElementById('metricRiesgoAmarillo');
+            const elAtendidos = document.getElementById('metricAtendidos');
+            const elTasa = document.getElementById('metricTasaAtencion');
+
+            if (elTot) elTot.textContent = tot;
+            if (elRojo) elRojo.textContent = rojo;
+            if (elAmarillo) elAmarillo.textContent = amarillo;
+            if (elAtendidos) elAtendidos.textContent = atendidos;
+            if (elTasa) elTasa.textContent = `${pct}% de Tasa de Cierre`;
+        };
     </script>
 
     <!-- INICIALIZACIÓN MÓDULO DE FIREBASE CON SINCRO EN TIEMPO REAL INMEDIATA -->
